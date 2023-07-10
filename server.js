@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
     res.render('index', {value: 79})
 })
 
-app.post('/add-image', (req, res) => {
-    console.log(req.body)
-    // res.send("received")
-    // let data = req.body
-    res.render('receiver', {data: req.body})
-})
+// app.get('/add-image', (req, res) => {
+//     console.log(req.body)
+//     //res.send("received")
+//     // let data = req.body
+//     res.render('receiver', {data: req.body})
+// })
 
 app.get('/api/elements', (req, res) => {
     const allElements = [

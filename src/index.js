@@ -47,8 +47,8 @@ function MyForm() {
     formDataToSend.append('text', formData.text);
 
     try {
-      const response = await Axios.post(endpoint, formDataToSend, { headers: {'Content-Type': 'application/json' } });
-      console.log("success");
+      const response = await Axios.post(endpoint, formDataToSend, { headers: {'Content-Type': 'application/json'} });
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -66,6 +66,11 @@ function MyForm() {
 function ElementCard(props) {
     return <p> name is {props.username} and age is {props.age} </p>
 }
+
+
+// Exporting individual features
+var name1 = "namevalue"
+export default name1
 
 const root = createRoot(document.querySelector("#app"))
 root.render(<App />)
