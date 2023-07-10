@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/ar.js":
+/*!*******************!*\
+  !*** ./src/ar.js ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\n\n// import {characterMoveComponent, characterRecenterComponent} from './component'\n\nalert(_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n// AFRAME.registerComponent('character-move', characterMoveComponent)\n// AFRAME.registerComponent('character-recenter', characterRecenterComponent)\nAFRAME.registerComponent('no-cull', {\n  init() {\n    console.log(\"running wooh !!!\");\n    this.el.addEventListener('model-loaded', () => {\n      this.el.object3D.traverse(obj => obj.frustumCulled = false);\n    });\n  }\n});\n\n//# sourceURL=webpack://sample-test-code/./src/ar.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -584,7 +594,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/ar.js");
 /******/ 	
 /******/ })()
 ;

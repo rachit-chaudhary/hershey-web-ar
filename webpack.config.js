@@ -26,6 +26,16 @@ const clientConfig = {
   module: typicalReact
 }
 
+const clientARConfig = {
+  entry: "./src/ar.js",
+  output: {
+    path: path.resolve(__dirname, "public"),
+    filename: "ar-main.js"
+  },
+  mode: "development",
+  module: typicalReact
+}
+
 const serverConfig = {
   entry: "./server.js",
   output: {
@@ -38,4 +48,4 @@ const serverConfig = {
   module: typicalReact
 }
 
-module.exports = [clientConfig, serverConfig]
+module.exports = [clientConfig, clientARConfig, serverConfig]

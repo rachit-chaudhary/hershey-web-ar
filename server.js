@@ -2,9 +2,10 @@ const express = require("express")
 const app = express()
 const port = 3000
 
-app.use(express.static('public'))
 app.set("view engine", "ejs")
 app.set("views", "./views")
+
+app.use(express.static('public'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -13,11 +14,12 @@ app.get('/', (req, res) => {
     res.render('index', {value: 79})
 })
 
-app.post('/add-image', async (req, res) => {
-    console.log(req.body)
-    let data = req.body
-    res.render('receiver', {data})
-})
+// app.get('/add-image', (req, res) => {
+//     console.log(req.body)
+//     //res.send("received")
+//     // let data = req.body
+//     res.render('receiver', {data: req.body})
+// })
 
 app.get('/api/elements', (req, res) => {
     const allElements = [
