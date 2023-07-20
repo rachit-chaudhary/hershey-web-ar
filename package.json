@@ -2,7 +2,6 @@
   "name": "hersheys-festive-ar",
   "version": "0.0.0",
   "description": "festival ar experience for hersheys",
-  "source": "src/index.html",
   "scripts": {
     "dev": "run-p watch watchwebpack",
     "watchwebpack": "webpack --watch",
