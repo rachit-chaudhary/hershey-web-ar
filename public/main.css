@@ -1,5 +1,11 @@
 @import url("https://webglfundamentals.org/webgl/resources/webgl-tutorials.css");
 
+
+@font-face {
+  font-family: "Walsheim";
+  src: url("//public//fonts/GT-Walsheim-Bold.ttf");
+}
+
 html,
 body {
     margin: 0;
@@ -7,6 +13,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: grey;
+    font-family: "Walsheim";
+    
 }
 h1 {
     display: none;
@@ -40,3 +48,59 @@ canvas {
   display: block;
 }
 button { pointer-events:initial; }
+
+
+*{
+  overflow: hidden;
+}
+.hersheylogo{
+  width: 120px;
+}
+.defaultImage{
+  height: 30vh;
+  background-color: black;
+}
+.bottom{
+ background-color: #3F000B;
+ height: 70vh;
+}
+.festive-text{
+  font-family: "Walsheim";
+  font-size: 36px;
+  padding: 22px;
+  margin-top: 30px;
+
+  
+}
+.sendgift{
+  font-family: "Walsheim";
+  padding: 17px, 92px, 17px, 92px;
+  background-color: #007BBD;
+  gap: 10px;
+  color: white;
+}
+.sendingButton{
+  /* position: absolute; */
+  bottom: 30px;
+  /* transform: translateX(-50%); */
+  left: 50%;
+}
+.sendgift{
+  border-radius: 57px;
+  width: 316px;
+  margin-bottom: 30px;
+  height: 54px;
+ 
+}
+.thankyounote{
+  font-family: "Walsheim";
+  border-radius: 57px;
+  width: 316px;
+  height: 54px;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+.header{
+  background-color: #D9D9D9;
+}
