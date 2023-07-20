@@ -3,4 +3,5 @@ lib
 node_modules/
 dist/
 .parcel-cache/
-server-compiled.js
+.env
+public/bundled/
