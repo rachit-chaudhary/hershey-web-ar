@@ -128,7 +128,7 @@ button { pointer-events:initial; }
 .blue-wrapper{
   background-color: #003594;
   height: 40%;
-  margin-top: 49px;
+  margin-top: 14px;
 }
 .breakline{
   color: inherit;
@@ -156,6 +156,16 @@ button { pointer-events:initial; }
     width: 64% !important;
     margin: 58px;
     margin-top: 83px;
+}
+.userName{
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.80);
+  font-family: GT Walsheim;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .photo-frame{
   height: 70px;
