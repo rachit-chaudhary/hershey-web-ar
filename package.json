@@ -1,13 +1,13 @@
 {
-  "name": "zappar-threejs-example",
+  "name": "hersheys-festive-ar",
   "version": "0.0.0",
-  "description": "Example using Zappar's ThreeJS wrapper",
+  "description": "festival ar experience for hersheys",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --https",
     "build": "parcel build --public-url='./'"
   },
-  "author": "Zappar Limited",
+  "author": "makeAR.io",
   "license": "MIT",
   "dependencies": {
     "@zappar/zappar-threejs": "2.0.1",
