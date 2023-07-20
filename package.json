@@ -2,12 +2,10 @@
   "name": "hersheys-festive-ar",
   "version": "0.0.0",
   "description": "festival ar experience for hersheys",
-  "source": "src/index.html",
   "scripts": {
     "dev": "run-p watch watchwebpack",
     "watchwebpack": "webpack --watch",
-    "watch": "nodemon server",
-    "build": "parcel build --public-url='./'"
+    "watch": "nodemon server"
   },
   "author": "makeAR.io",
   "license": "MIT",
