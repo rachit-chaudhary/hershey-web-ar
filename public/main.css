@@ -104,3 +104,81 @@ button { pointer-events:initial; }
 .header{
   background-color: #D9D9D9;
 }
+
+/* second screen */
+.wrapper{
+  background-color: #3F000B;
+  height: 100vh;
+}
+.orange-wrapper{
+  background-color: #EE7700;
+  height: 87%;
+  margin: 13px;
+  
+}
+.surprise-heading{
+  font-family: "Walsheim";
+  color: white;
+}
+.username-section{
+  margin-top: 21px;
+  margin-left: 18px;
+  font-size: 23px;
+}
+.blue-wrapper{
+  background-color: #003594;
+  height: 40%;
+  margin-top: 49px;
+}
+.breakline{
+  color: inherit;
+  border-top: var(--bs-border-width) solid;
+  opacity: .25;
+  margin-left: 18px;
+  margin-right: 18px;
+  border: 1px solid;
+  margin-top: 6px;
+ 
+}
+.owl-dot{
+  display: none !important;
+}
+.blue-child-wrapper{
+  color: white;
+}
+.carosel-images{
+  width: 75% !important;
+  margin: 19px;
+  margin-top: 38px;
+}
+.photo-frame{
+  height: 70px;
+}
+.uploader{
+  margin: 18px;
+  background-color: #4068AF;
+}
+.photo{
+    width: 66%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "Walsheim";
+
+}
+.upload-section{
+  margin-top: 0px;
+}
+.next-button{
+  position: absolute;
+    bottom: 46px;
+    /* border-radius: 12px; */
+    width: 207px;
+    font-size: 24px;
+    height: 55px;
+    border-radius: 93px;
+    background: #007BBD;
+    color: white;
+    font-family: "Walsheim";
+}
