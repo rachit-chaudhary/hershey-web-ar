@@ -146,10 +146,16 @@ button { pointer-events:initial; }
 .blue-child-wrapper{
   color: white;
 }
+.owl-item{
+  margin: -36px !important;
+}
+.owl-prev{
+  display: none !important;
+}
 .carosel-images{
-  width: 75% !important;
-  margin: 19px;
-  margin-top: 38px;
+    width: 64% !important;
+    margin: 58px;
+    margin-top: 83px;
 }
 .photo-frame{
   height: 70px;
