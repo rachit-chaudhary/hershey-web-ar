@@ -6,8 +6,8 @@
 import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-const model = new URL('../assets/box.glb', import.meta.url).href;
-import './index.css';
+const model = new URL('../public/models/box.glb', import.meta.url).href;
+//import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
 // For more information on support, check out the readme over at
@@ -69,6 +69,7 @@ const copy = document.getElementById("copy")
 let params
 let pName
 var dataURL
+var mimeType
 params = new URLSearchParams(document.location.search.substring(1))
 
 pName = params.get('name') ? params.get('name') : 'friend'
@@ -77,88 +78,88 @@ console.log(pName)
 
 
 // let str = "A+com&puter$sc/i=nce$portal$for$Geeks";
-var str
-var newStr
-function gfg_Run() {
-  console.log("encode")
-str=pName
-  newStr = "";
+// var str
+// var newStr
+// function gfg_Run() {
+//   console.log("encode")
+//   str = pName
+//   newStr = "";
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == '+') {
-      newStr += '.';
-    }
-    else {
-      newStr += str[i];
-    }
-  }
-  str = ""
-  for (let i = 0; i < newStr.length; i++) {
-    if (newStr[i] == '/') {
-      str += '_';
-    }
-    else {
-      str += newStr[i];
-    }
-  }
-  newStr = ""
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == '=') {
-      newStr += '-';
-    }
-    else {
-      newStr += str[i];
-    }
-  }
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '+') {
+//       newStr += '.';
+//     }
+//     else {
+//       newStr += str[i];
+//     }
+//   }
+//   str = ""
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '/') {
+//       str += '_';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
+//   }
+//   newStr = ""
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '=') {
+//       newStr += '-';
+//     }
+//     else {
+//       newStr += str[i];
+//     }
+//   }
 
-  // alert(newStr);
-  pName=newStr
-
-
-}
-
-function gfg_Rundec() {
-  console.log("decode")
-newStr=pName
-  let str = "";
-
-  for (let i = 0; i < newStr.length; i++) {
-    if (newStr[i] == '.') {
-      str += '+';
-    }
-    else {
-      str += newStr[i];
-    }
-  }
-  newStr = ""
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == '_') {
-      newStr += '/';
-    }
-    else {
-      newStr += str[i];
-    }
-  }
-  str = ""
-  for (let i = 0; i < newStr.length; i++) {
-    if (newStr[i] == '-') {
-      str += '=';
-    }
-    else {
-      str += newStr[i];
-    }
-  }
-  // alert(str);
-  pName=str
-  dataURL = pName
-  console.log("111111111111111" + dataURL)
-  
-
-}
+//   // alert(newStr);
+//   pName = newStr
 
 
+// }
 
-// Add our instant tracker group into the ThreeJS scene
+// function gfg_Rundec() {
+//   console.log("decode")
+//   newStr = pName
+//   let str = "";
+
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '.') {
+//       str += '+';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
+//   }
+//   newStr = ""
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '_') {
+//       newStr += '/';
+//     }
+//     else {
+//       newStr += str[i];
+//     }
+//   }
+//   str = ""
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '-') {
+//       str += '=';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
+//   }
+//   // alert(str);
+//   pName = str
+//   dataURL = pName
+//   console.log("111111111111111" + dataURL)
+
+
+// }
+
+
+
+//copy to clipboard function
 const copyToClipboard = (e) => {
   const el = document.createElement('textarea')
   el.value = e
@@ -189,7 +190,8 @@ const copyToClipboard = (e) => {
 }
 copy.onclick = function () {
   console.log("copy clicked")
-  gfg_Run();
+  // gfg_Run();
+  console.log(pName)
   copyToClipboard(`https://localhost:1234/index.js?name=${pName}`)
 }
 
@@ -206,18 +208,72 @@ function drawImageScaled(img, ctx) {
   ctx.drawImage(img, 0, 0, img.width, img.height,
     centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
 }
+//convert base64 to blob
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    byteArrays.push(byteArray);
+  }
+
+  var blob = new Blob(byteArrays, { type: contentType });
+  return blob;
+}
+//default image in blob
+var contentType = 'image/png';
+var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
+
+// console.log(blobUrl);
+
+//var img = document.createElement('img');
+//img.src = blobUrl;
+//document.body.appendChild(img);
+
+// ## Example 2 - Using fetch
+
+var url = 'data:image/png;filename=image.png;base64,' + b64Data;
+var blobUrl;
+fetch(url)
+  .then(res => res.blob())
+  .then(URL.createObjectURL)
+  .then((ret) => { blobUrl = ret; return blobUrl; })
+  .then(console.log)
+
+var linkEl = document.createElement('a')
+linkEl.href = blobUrl;
+// dataURL=blobUrl
+document.body.appendChild(linkEl);
+// dataURL=blobUrl
+
 // to load the model
 const gltfLoader = new GLTFLoader(manager);
 gltfLoader.load(model, (gltf) => {
+  // gfg_Rundec();
 
-  gfg_Rundec();
+  //traverse mesh 
   function traversal() {
     gltf.scene.traverse(function (child) {
       if (child.name === "Cube001_1") {
+        // dataURL = blobUrl
+        // pName = dataURL
+        dataURL = pName
         console.log("cube texture loaded")
         loader = new THREE.TextureLoader()
         texture = loader.load(dataURL)
-console.log(22222+dataURL)
+        console.log(22222 + dataURL)
         child.material.map = texture;
         child.material.map.flipY = false
       }
@@ -235,9 +291,24 @@ console.log(22222+dataURL)
       output.src = reader.result;
       console.log(output.src)
       dataURL = output.src
+      // dataURL=blobUrl
+
+      const file = event.target.files[0];
+      contentType = file.type;
+    
+      if(contentType==="image/jpeg"){
+        console.log(contentType);
+        b64Data = dataURL.substring(23, dataURL.length);
+      }else if(contentType==="image/png"){
+        console.log(contentType);
+        b64Data = dataURL.substring(22, dataURL.length);
+      }
+    
+     
+      var blob = b64toBlob(b64Data, contentType);
+      blobUrl = URL.createObjectURL(blob);
+      dataURL = blobUrl
       pName = dataURL
-      console.log(pName)
-      //model traverse till the specific mesh
       traversal()
       // gltf.scene.traverse(function (child) {..
 
@@ -266,26 +337,6 @@ console.log(22222+dataURL)
   dataURL = canvas.toDataURL('image/jpg');
   console.log(dataURL)
 
-  // gltf.scene.traverse(function (child) {
-  //   if (child.name === "Cube001_1") {
-  //     console.log("traverse cube loaded 2nd")
-  //     loader = new THREE.TextureLoader()
-  //     //  console.log(url)
-
-  //     texture = loader.load(dataURL)
-
-
-  //     //  texture = loader.load (dataURL)
-
-  //     //initializing material
-  //     // const material = new THREE.MeshPhongMaterial();
-
-  //     //setting material property
-  //     // material.map = texture;
-  //     child.material.map = texture;
-  //     child.material.map.flipY = false
-  //   }
-  // })
   scene.add(instantTrackerGroup);
   const elem = document.querySelector('#screenshot');
   elem.addEventListener('click', () => {
@@ -334,7 +385,6 @@ console.log(22222+dataURL)
 }, undefined, () => {
   console.log('An error ocurred loading the GLTF model');
 });
-
 // Let's add some lighting, first a directional light above the model pointing down
 const directionalLight = new THREE.DirectionalLight('white', 0.8);
 directionalLight.position.set(0, 5, 0);
@@ -342,7 +392,7 @@ directionalLight.lookAt(0, 0, 0);
 instantTrackerGroup.add(directionalLight);
 
 // And then a little ambient light to brighten the model up a bit
-const ambientLight = new THREE.AmbientLight('white', 2.4);
+const ambientLight = new THREE.AmbientLight('white', 1.4);
 instantTrackerGroup.add(ambientLight);
 
 // When the experience loads we'll let the user choose a place in their room for
@@ -376,4 +426,3 @@ function render() {
 
 // Start things off
 render();
-

@@ -4,18 +4,29 @@
   "description": "festival ar experience for hersheys",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel --https",
+    "dev": "run-p watch watchwebpack",
+    "watchwebpack": "webpack --watch",
+    "watch": "nodemon server",
     "build": "parcel build --public-url='./'"
   },
   "author": "makeAR.io",
   "license": "MIT",
   "dependencies": {
-    "@zappar/zappar-threejs": "2.0.1",
-    "three": "^0.137.0"
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@zappar/zappar-threejs": "^2.4.3",
+    "babel-loader": "^9.1.3",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "three": "^0.137.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "@types/three": "^0.138.0",
-    "parcel": "^2.7.0",
     "gh-pages": "^3.1.0"
   }
 }
