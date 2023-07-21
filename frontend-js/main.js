@@ -6,6 +6,8 @@
 import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import ZAPPPermissionUI from './modules/permission-ui'
+new ZAPPPermissionUI()
 const model = new URL('../public/models/box.glb', import.meta.url).href;
 //import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
