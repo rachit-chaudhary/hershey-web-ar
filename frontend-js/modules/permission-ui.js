@@ -1,5 +1,6 @@
-// export default class ZAPPPermissionUI {
-//     constructor()  {
-//         alert("executed from permission ui")
-//     }
-// }
+export default class ZAPPPermissionUI {
+    constructor()  {
+        // alert("executed from permission ui")
+    }
+}
+

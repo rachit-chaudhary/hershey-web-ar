@@ -68,7 +68,7 @@ scene.background = camera.backgroundTexture;
 // const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
 // var texture
 // var loader
-// var output
+let output
 // const copy = document.getElementById("copy")
 // let params
 // let pName
@@ -205,40 +205,21 @@ scene.background = camera.backgroundTexture;
 //     })
 //   }
 //   traversal()
-//   //upload button
-//   document.getElementById("fname").onchange = function () { preview_image(event) };
-//   function preview_image(event) {
-//     var reader = new FileReader();
-//     reader.onload = function () {
-//       console.log("image upload clicked")
+  //upload button
+  document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      console.log("image upload clicked")
 
-//       output = document.getElementById('output_image');
-//       output.src = reader.result;
-//       console.log(output.src)
-//       dataURL = output.src
-//       // dataURL=blobUrl
-
-//       const file = event.target.files[0];
-//       contentType = file.type;
+      output = document.getElementById('galleryimg');
+      output.src = reader.result;
+      console.log(output.src)
     
-//       if(contentType==="image/jpeg"){
-//         console.log(contentType);
-//         b64Data = dataURL.substring(23, dataURL.length);
-//       }else if(contentType==="image/png"){
-//         console.log(contentType);
-//         b64Data = dataURL.substring(22, dataURL.length);
-//       }
     
-     
-//       var blob = b64toBlob(b64Data, contentType);
-//       blobUrl = URL.createObjectURL(blob);
-//       dataURL = blobUrl
-//       pName = dataURL
-//       traversal()
-    
-//     }
-//     reader.readAsDataURL(event.target.files[0]);
-//   }
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
 
 //   //div texture image 
 //   var imageElement = document.getElementById('profileCameraImage')
