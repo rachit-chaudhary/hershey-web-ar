@@ -38,7 +38,7 @@ function changeHersheyPack() {
 
     }
     else {
-        Image_Id.src = "/images//hershey.png";
+        Image_Id.src = "/images/hershey.png";
         packtype=""
     }
 }

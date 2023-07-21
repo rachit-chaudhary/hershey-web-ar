@@ -1,7 +1,7 @@
 
 export default class UImodule {
     constructor() {
-        alert("executed from experience ui")
+        // alert("executed from experience ui")
 
 
         let packtype
@@ -21,9 +21,18 @@ export default class UImodule {
                 }
             }
         })
-        
+        function untapKisses(){
+            var Image_Id = document.getElementById('hoverhershey');
+            if (Image_Id.src.match("/images/hershey.png")) {
+                Image_Id.src = "/images/kisses.png"
+                
+
+            }
+
+        }
         function changeKissesPack() {
             var Image_Id = document.getElementById('hoverChange');
+            untapKisses();
             if (Image_Id.src.match("/images/kisses.png")) {
                 Image_Id.src = "/images/tapkisses.png"
                 console.log("kisses")
@@ -44,7 +53,7 @@ export default class UImodule {
 
             }
             else {
-                Image_Id.src = "/images//hershey.png";
+                Image_Id.src = "/images/hershey.png";
                 packtype = ""
             }
         }

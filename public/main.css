@@ -122,6 +122,7 @@ button { pointer-events:initial; }
 .surprise-heading{
   font-family: "Walsheim";
   color: white;
+  margin-bottom: 0rem;
 }
 .username-section{
   margin-top: 21px;
@@ -156,19 +157,28 @@ button { pointer-events:initial; }
   display: none !important;
 }
 .carosel-images{
-    width: 64% !important;
-    margin: 58px;
-    margin-top: 83px;
+  width: 57% !important;
+  margin: 58px;
+  margin-top: 52px;
+
+}
+.title-ns{
+    margin-top: 23px;
+    margin-left: 16px;
+    color: white;
+    font-family: GT Walsheim;
 }
 .userName{
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.80);
   font-family: GT Walsheim;
-  font-size: 18px;
+  font-size: 27px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-top: 10px;
+  width: 90%;
 }
 .photo-frame{
   height: 70px;
