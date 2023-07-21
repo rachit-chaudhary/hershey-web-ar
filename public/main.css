@@ -174,9 +174,18 @@ button { pointer-events:initial; }
   height: 70px;
 }
 .uploader{
+  height: 70px;
   margin: 18px;
   background-color: #4068AF;
 }
+/* #imagediv{
+  width: 100px;
+  height: 100%;
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
 .photo{
     width: 66%;
     align-self: center;

@@ -1,7 +1,7 @@
 
 export default class UImodule {
     constructor() {
-        alert("executed from experience ui")
+        // alert("executed from experience ui")
 
 
         let packtype
