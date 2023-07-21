@@ -1,79 +1,7 @@
-// /// Zappar for ThreeJS Examples
-// /// Instant Tracking 3D Model
+/// Zappar for ThreeJS Examples
+/// Instant Tracking 3D Model
 
-// // In this example we track a 3D model using instant world tracking
-
-// import * as THREE from 'three';
-// import * as ZapparThree from '@zappar/zappar-threejs';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// const model = new URL('../public/models/box.glb', import.meta.url).href;
-// //import '../public/main.css';
-// // The SDK is supported on many different browsers, but there are some that
-// // don't provide camera access. This function detects if the browser is supported
-// // For more information on support, check out the readme over at
-// // https://www.npmjs.com/package/@zappar/zappar-threejs
-// if (ZapparThree.browserIncompatible()) {
-//   // The browserIncompatibleUI() function shows a full-page dialog that informs the user
-//   // they're using an unsupported browser, and provides a button to 'copy' the current page
-//   // URL so they can 'paste' it into the address bar of a compatible alternative.
-//   ZapparThree.browserIncompatibleUI();
-
-//   // If the browser is not compatible, we can avoid setting up the rest of the page
-//   // so we throw an exception here.
-//   throw new Error('Unsupported browser');
-// }
-
-// // ZapparThree provides a LoadingManager that shows a progress bar while
-// // the assets are downloaded. You can use this if it's helpful, or use
-// // your own loading UI - it's up to you :-)
-// const manager = new ZapparThree.LoadingManager();
-
-// // Construct our ThreeJS renderer and scene as usual
-// const renderer = new THREE.WebGLRenderer({ antialias: true });
-// const scene = new THREE.Scene();
-// document.body.appendChild(renderer.domElement);
-
-// // As with a normal ThreeJS scene, resize the canvas if the window resizes
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// window.addEventListener('resize', () => {
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-// });
-
-// // Create a Zappar camera that we'll use instead of a ThreeJS camera
-// const camera = new ZapparThree.Camera();
-
-// // In order to use camera and motion data, we need to ask the users for permission
-// // The Zappar library comes with some UI to help with that, so let's use it
-// ZapparThree.permissionRequestUI().then((granted) => {
-//   // If the user granted us the permissions we need then we can start the camera
-//   // Otherwise let's them know that it's necessary with Zappar's permission denied UI
-//   if (granted) camera.start();
-//   else ZapparThree.permissionDeniedUI();
-// });
-
-// // The Zappar component needs to know our WebGL context, so set it like this:
-// ZapparThree.glContextSet(renderer.getContext());
-
-// // Set the background of our scene to be the camera background texture
-// // that's provided by the Zappar camera
-// scene.background = camera.backgroundTexture;
-
-// // Create an InstantWorldTracker and wrap it in an InstantWorldAnchorGroup for us
-// // to put our ThreeJS content into
-// const instantTracker = new ZapparThree.InstantWorldTracker();
-// const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
-// var texture
-// var loader
-// var output
-// var copy = document.getElementById("copy")
-// let params
-// let pName
-// var dataURL
-// var mimeType
-// params = new URLSearchParams(document.location.search.substring(1))
-
-// pName = params.get('name') ? params.get('name') : 'friend'
-// console.log(pName)
+// In this example we track a 3D model using instant world tracking
 
 import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
@@ -92,353 +20,411 @@ if (ZapparThree.browserIncompatible()) {
   // URL so they can 'paste' it into the address bar of a compatible alternative.
   ZapparThree.browserIncompatibleUI();
 
+  // If the browser is not compatible, we can avoid setting up the rest of the page
+  // so we throw an exception here.
+  throw new Error('Unsupported browser');
+}
 
-// // let str = "A+com&puter$sc/i=nce$portal$for$Geeks";
-// // var str
-// // var newStr
-// // function gfg_Run() {
-// //   console.log("encode")
-// //   str = pName
-// //   newStr = "";
+// ZapparThree provides a LoadingManager that shows a progress bar while
+// the assets are downloaded. You can use this if it's helpful, or use
+// your own loading UI - it's up to you :-)
+const manager = new ZapparThree.LoadingManager();
 
-// //   for (let i = 0; i < str.length; i++) {
-// //     if (str[i] == '+') {
-// //       newStr += '.';
-// //     }
-// //     else {
-// //       newStr += str[i];
-// //     }
-// //   }
-// //   str = ""
-// //   for (let i = 0; i < newStr.length; i++) {
-// //     if (newStr[i] == '/') {
-// //       str += '_';
-// //     }
-// //     else {
-// //       str += newStr[i];
-// //     }
-// //   }
-// //   newStr = ""
-// //   for (let i = 0; i < str.length; i++) {
-// //     if (str[i] == '=') {
-// //       newStr += '-';
-// //     }
-// //     else {
-// //       newStr += str[i];
-// //     }
-// //   }
+// Construct our ThreeJS renderer and scene as usual
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+const scene = new THREE.Scene();
+document.body.appendChild(renderer.domElement);
 
-// //   // alert(newStr);
-// //   pName = newStr
+// As with a normal ThreeJS scene, resize the canvas if the window resizes
+renderer.setSize(window.innerWidth, window.innerHeight);
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
+// Create a Zappar camera that we'll use instead of a ThreeJS camera
+const camera = new ZapparThree.Camera();
 
-// // }
+// In order to use camera and motion data, we need to ask the users for permission
+// The Zappar library comes with some UI to help with that, so let's use it
+ZapparThree.permissionRequestUI().then((granted) => {
+  // If the user granted us the permissions we need then we can start the camera
+  // Otherwise let's them know that it's necessary with Zappar's permission denied UI
+  if (granted) camera.start();
+  else ZapparThree.permissionDeniedUI();
+});
 
-// // function gfg_Rundec() {
-// //   console.log("decode")
-// //   newStr = pName
-// //   let str = "";
+// The Zappar component needs to know our WebGL context, so set it like this:
+ZapparThree.glContextSet(renderer.getContext());
 
-// //   for (let i = 0; i < newStr.length; i++) {
-// //     if (newStr[i] == '.') {
-// //       str += '+';
-// //     }
-// //     else {
-// //       str += newStr[i];
-// //     }
-// //   }
-// //   newStr = ""
-// //   for (let i = 0; i < str.length; i++) {
-// //     if (str[i] == '_') {
-// //       newStr += '/';
-// //     }
-// //     else {
-// //       newStr += str[i];
-// //     }
-// //   }
-// //   str = ""
-// //   for (let i = 0; i < newStr.length; i++) {
-// //     if (newStr[i] == '-') {
-// //       str += '=';
-// //     }
-// //     else {
-// //       str += newStr[i];
-// //     }
-// //   }
-// //   // alert(str);
-// //   pName = str
-// //   dataURL = pName
-// //   console.log("111111111111111" + dataURL)
+// Set the background of our scene to be the camera background texture
+// that's provided by the Zappar camera
+scene.background = camera.backgroundTexture;
 
+// Create an InstantWorldTracker and wrap it in an InstantWorldAnchorGroup for us
+// to put our ThreeJS content into
+const instantTracker = new ZapparThree.InstantWorldTracker();
+const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
+var texture
+var loader
+var output
+const copy = document.getElementById("copy")
+let params
+let pName
+var dataURL
+var mimeType
+params = new URLSearchParams(document.location.search.substring(1))
 
-// // }
+pName = params.get('name') ? params.get('name') : 'friend'
+console.log(pName)
 
 
 
-// //copy to clipboard function
-// const copyToClipboard = (e) => {
-//   const el = document.createElement('textarea')
-//   el.value = e
-//   document.body.appendChild(el)
-//   Object.assign(el.style, {
-//     zIndex: '-99999',
-//     position: 'absolute',
-//   })
+// let str = "A+com&puter$sc/i=nce$portal$for$Geeks";
+// var str
+// var newStr
+// function gfg_Run() {
+//   console.log("encode")
+//   str = pName
+//   newStr = "";
 
-//   const userAgent = navigator.userAgent || navigator.vendor || window.opera
-//   if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
-//     el.contentEditable = true
-//     el.readOnly = false
-//     const s = window.getSelection()
-//     s.removeAllRanges()
-
-//     const range = document.createRange()
-//     range.selectNodeContents(el)
-//     s.addRange(range)
-
-//     el.setSelectionRange(0, 999999)
-//   } else {
-//     el.select()
-//   }
-
-//   document.execCommand('copy')
-//   document.body.removeChild(el)
-// }
-// copy.onclick = function () {
-//   console.log("copy clicked")
-//   // gfg_Run();
-//   console.log(pName)
-//   copyToClipboard(`https://localhost:1234/index.js?name=${pName}`)
-// }
-
-
-// // image fill function
-// function drawImageScaled(img, ctx) {
-//   var canvas = ctx.canvas;
-//   var hRatio = canvas.width / img.width;
-//   var vRatio = canvas.height / img.height;
-//   var ratio = Math.min(hRatio, vRatio);
-//   var centerShift_x = (canvas.width - img.width * ratio) / 2;
-//   var centerShift_y = (canvas.height - img.height * ratio) / 2;
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   ctx.drawImage(img, 0, 0, img.width, img.height,
-//     centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
-// }
-// //convert base64 to blob
-// function b64toBlob(b64Data, contentType, sliceSize) {
-//   contentType = contentType || '';
-//   sliceSize = sliceSize || 512;
-
-//   var byteCharacters = atob(b64Data);
-//   var byteArrays = [];
-
-//   for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-//     var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-//     var byteNumbers = new Array(slice.length);
-//     for (var i = 0; i < slice.length; i++) {
-//       byteNumbers[i] = slice.charCodeAt(i);
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '+') {
+//       newStr += '.';
 //     }
-
-//     var byteArray = new Uint8Array(byteNumbers);
-
-//     byteArrays.push(byteArray);
+//     else {
+//       newStr += str[i];
+//     }
+//   }
+//   str = ""
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '/') {
+//       str += '_';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
+//   }
+//   newStr = ""
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '=') {
+//       newStr += '-';
+//     }
+//     else {
+//       newStr += str[i];
+//     }
 //   }
 
-//   var blob = new Blob(byteArrays, { type: contentType });
-//   return blob;
+//   // alert(newStr);
+//   pName = newStr
+
+
 // }
-// //default image in blob
-// var contentType = 'image/png';
-// var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
 
-// // console.log(blobUrl);
+// function gfg_Rundec() {
+//   console.log("decode")
+//   newStr = pName
+//   let str = "";
 
-// //var img = document.createElement('img');
-// //img.src = blobUrl;
-// //document.body.appendChild(img);
-
-// // ## Example 2 - Using fetch
-
-// var url = 'data:image/png;filename=image.png;base64,' + b64Data;
-// var blobUrl;
-// fetch(url)
-//   .then(res => res.blob())
-//   .then(URL.createObjectURL)
-//   .then((ret) => { blobUrl = ret; return blobUrl; })
-//   .then(console.log)
-
-// var linkEl = document.createElement('a')
-// linkEl.href = blobUrl;
-// // dataURL=blobUrl
-// document.body.appendChild(linkEl);
-// // dataURL=blobUrl
-
-// // to load the model
-// const gltfLoader = new GLTFLoader(manager);
-// gltfLoader.load(model, (gltf) => {
-//   // gfg_Rundec();
-
-//   //traverse mesh 
-//   function traversal() {
-//     gltf.scene.traverse(function (child) {
-//       if (child.name === "Cube001_1") {
-//         // dataURL = blobUrl
-//         // pName = dataURL
-//         dataURL = pName
-//         console.log("cube texture loaded")
-//         loader = new THREE.TextureLoader()
-//         texture = loader.load(dataURL)
-//         console.log(22222 + dataURL)
-//         child.material.map = texture;
-//         child.material.map.flipY = false
-//       }
-//     })
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '.') {
+//       str += '+';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
 //   }
-//   traversal()
-//   //upload button
-//   document.getElementById("fname").onchange = function () { preview_image(event) };
-//   function preview_image(event) {
-//     var reader = new FileReader();
-//     reader.onload = function () {
-//       console.log("image upload clicked")
+//   newStr = ""
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] == '_') {
+//       newStr += '/';
+//     }
+//     else {
+//       newStr += str[i];
+//     }
+//   }
+//   str = ""
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i] == '-') {
+//       str += '=';
+//     }
+//     else {
+//       str += newStr[i];
+//     }
+//   }
+//   // alert(str);
+//   pName = str
+//   dataURL = pName
+//   console.log("111111111111111" + dataURL)
 
-//       output = document.getElementById('output_image');
-//       output.src = reader.result;
-//       console.log(output.src)
-//       dataURL = output.src
-//       // dataURL=blobUrl
 
-//       const file = event.target.files[0];
-//       contentType = file.type;
+// }
+
+
+
+//copy to clipboard function
+const copyToClipboard = (e) => {
+  const el = document.createElement('textarea')
+  el.value = e
+  document.body.appendChild(el)
+  Object.assign(el.style, {
+    zIndex: '-99999',
+    position: 'absolute',
+  })
+
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera
+  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
+    el.contentEditable = true
+    el.readOnly = false
+    const s = window.getSelection()
+    s.removeAllRanges()
+
+    const range = document.createRange()
+    range.selectNodeContents(el)
+    s.addRange(range)
+
+    el.setSelectionRange(0, 999999)
+  } else {
+    el.select()
+  }
+
+  document.execCommand('copy')
+  document.body.removeChild(el)
+}
+copy.onclick = function () {
+  console.log("copy clicked")
+  // gfg_Run();
+  console.log(pName)
+  copyToClipboard(`https://localhost:1234/index.js?name=${pName}`)
+}
+
+
+// image fill function
+function drawImageScaled(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+}
+//convert base64 to blob
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    byteArrays.push(byteArray);
+  }
+
+  var blob = new Blob(byteArrays, { type: contentType });
+  return blob;
+}
+//default image in blob
+var contentType = 'image/png';
+var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
+
+// console.log(blobUrl);
+
+//var img = document.createElement('img');
+//img.src = blobUrl;
+//document.body.appendChild(img);
+
+// ## Example 2 - Using fetch
+
+var url = 'data:image/png;filename=image.png;base64,' + b64Data;
+var blobUrl;
+fetch(url)
+  .then(res => res.blob())
+  .then(URL.createObjectURL)
+  .then((ret) => { blobUrl = ret; return blobUrl; })
+  .then(console.log)
+
+var linkEl = document.createElement('a')
+linkEl.href = blobUrl;
+// dataURL=blobUrl
+document.body.appendChild(linkEl);
+// dataURL=blobUrl
+
+// to load the model
+const gltfLoader = new GLTFLoader(manager);
+gltfLoader.load(model, (gltf) => {
+  // gfg_Rundec();
+
+  //traverse mesh 
+  function traversal() {
+    gltf.scene.traverse(function (child) {
+      if (child.name === "Cube001_1") {
+        // dataURL = blobUrl
+        // pName = dataURL
+        dataURL = pName
+        console.log("cube texture loaded")
+        loader = new THREE.TextureLoader()
+        texture = loader.load(dataURL)
+        console.log(22222 + dataURL)
+        child.material.map = texture;
+        child.material.map.flipY = false
+      }
+    })
+  }
+  traversal()
+  //upload button
+  document.getElementById("fname").onchange = function () { preview_image(event) };
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      console.log("image upload clicked")
+
+      output = document.getElementById('output_image');
+      output.src = reader.result;
+      console.log(output.src)
+      dataURL = output.src
+      // dataURL=blobUrl
+
+      const file = event.target.files[0];
+      contentType = file.type;
     
-//       if(contentType==="image/jpeg"){
-//         console.log(contentType);
-//         b64Data = dataURL.substring(23, dataURL.length);
-//       }else if(contentType==="image/png"){
-//         console.log(contentType);
-//         b64Data = dataURL.substring(22, dataURL.length);
-//       }
+      if(contentType==="image/jpeg"){
+        console.log(contentType);
+        b64Data = dataURL.substring(23, dataURL.length);
+      }else if(contentType==="image/png"){
+        console.log(contentType);
+        b64Data = dataURL.substring(22, dataURL.length);
+      }
     
      
-//       var blob = b64toBlob(b64Data, contentType);
-//       blobUrl = URL.createObjectURL(blob);
-//       dataURL = blobUrl
-//       pName = dataURL
-//       traversal()
-//       // gltf.scene.traverse(function (child) {..
+      var blob = b64toBlob(b64Data, contentType);
+      blobUrl = URL.createObjectURL(blob);
+      dataURL = blobUrl
+      pName = dataURL
+      traversal()
+      // gltf.scene.traverse(function (child) {..
 
-//       //   if (child.name === "Cube001_1") {
-//       //     console.log("model loaded")
-//       //     loader = new THREE.TextureLoader()
-//       //     texture = loader.load(dataURL)
+      //   if (child.name === "Cube001_1") {
+      //     console.log("model loaded")
+      //     loader = new THREE.TextureLoader()
+      //     texture = loader.load(dataURL)
 
-//       //     child.material.map = texture;
-//       //     child.material.map.flipY = false
-//       //   }
-//       // })
-//     }
-//     reader.readAsDataURL(event.target.files[0]);
-//   }
+      //     child.material.map = texture;
+      //     child.material.map.flipY = false
+      //   }
+      // })
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
 
-//   //div texture image 
-//   var imageElement = document.getElementById('profileCameraImage')
-//   var canvas = document.createElement('canvas');
-//   var context = canvas.getContext('2d');
+  //div texture image 
+  var imageElement = document.getElementById('profileCameraImage')
+  var canvas = document.createElement('canvas');
+  var context = canvas.getContext('2d');
 
-//   canvas.width = 350;
-//   canvas.height = 350;
-//   drawImageScaled(imageElement, context)
-//   // context.drawImage(imageElement, 20, 20);
-//   dataURL = canvas.toDataURL('image/jpg');
-//   console.log(dataURL)
+  canvas.width = 350;
+  canvas.height = 350;
+  drawImageScaled(imageElement, context)
+  // context.drawImage(imageElement, 20, 20);
+  dataURL = canvas.toDataURL('image/jpg');
+  console.log(dataURL)
 
-//   scene.add(instantTrackerGroup);
-//   const elem = document.querySelector('#screenshot');
-//   elem.addEventListener('click', () => {
+  scene.add(instantTrackerGroup);
+  const elem = document.querySelector('#screenshot');
+  elem.addEventListener('click', () => {
 
-//     canvas.toBlob((blob) => {
-//       saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
-//       console.log(blob)
-//     });
-//   });
-//   const saveBlob = (function () {
-//     const a = document.createElement('a');
-//     document.body.appendChild(a);
-//     a.style.display = 'block';
-//     return function saveData(blob, fileName) {
-//       const url = window.URL.createObjectURL(blob);
-//       a.href = url;
-//       a.download = fileName;
-//       a.click();
-//       //  texture = loader.load(require('../assets/trees.jpg'))
-//       //  console.log("base   "+dataURL)
+    canvas.toBlob((blob) => {
+      saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
+      console.log(blob)
+    });
+  });
+  const saveBlob = (function () {
+    const a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style.display = 'block';
+    return function saveData(blob, fileName) {
+      const url = window.URL.createObjectURL(blob);
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      //  texture = loader.load(require('../assets/trees.jpg'))
+      //  console.log("base   "+dataURL)
 
-//     };
-//   }());
-//   // Now the model has been loaded, we can add it to our instant_tracker_group
-//   instantTrackerGroup.add(gltf.scene);
+    };
+  }());
+  // Now the model has been loaded, we can add it to our instant_tracker_group
+  instantTrackerGroup.add(gltf.scene);
 
-//   // init() {
-//   // console.log("init")
-//   // const {src} = document.getElementById('imageFile')
+  // init() {
+  // console.log("init")
+  // const {src} = document.getElementById('imageFile')
 
-//   // const modelname=document.getElementById('modelname')
-//   // this.el.addEventListener('click', (event) => {
-//   // console.log("init")
+  // const modelname=document.getElementById('modelname')
+  // this.el.addEventListener('click', (event) => {
+  // console.log("init")
 
-//   // const modelobject = model.getObject3D('mesh').getObjectByName('Cube001_1')
-//   // console.log(modelobject)
-//   // modelobject.material.map = THREE.ImageUtils.loadTexture('../assets/grunge-paint-background.jpg');
+  // const modelobject = model.getObject3D('mesh').getObjectByName('Cube001_1')
+  // console.log(modelobject)
+  // modelobject.material.map = THREE.ImageUtils.loadTexture('../assets/grunge-paint-background.jpg');
 
-//   // modelobject.material.needsUpdate = true;
-//   // model.material.map = loader.load(src)
-//   // set flipY to false to correclty rotate texture
-//   // model.material.map.flipY = false
-//   // })
-//   // },
+  // modelobject.material.needsUpdate = true;
+  // model.material.map = loader.load(src)
+  // set flipY to false to correclty rotate texture
+  // model.material.map.flipY = false
+  // })
+  // },
 
-// }, undefined, () => {
-//   console.log('An error ocurred loading the GLTF model');
-// });
-// // Let's add some lighting, first a directional light above the model pointing down
-// const directionalLight = new THREE.DirectionalLight('white', 0.8);
-// directionalLight.position.set(0, 5, 0);
-// directionalLight.lookAt(0, 0, 0);
-// instantTrackerGroup.add(directionalLight);
+}, undefined, () => {
+  console.log('An error ocurred loading the GLTF model');
+});
+// Let's add some lighting, first a directional light above the model pointing down
+const directionalLight = new THREE.DirectionalLight('white', 0.8);
+directionalLight.position.set(0, 5, 0);
+directionalLight.lookAt(0, 0, 0);
+instantTrackerGroup.add(directionalLight);
 
-// // And then a little ambient light to brighten the model up a bit
-// const ambientLight = new THREE.AmbientLight('white', 1.4);
-// instantTrackerGroup.add(ambientLight);
+// And then a little ambient light to brighten the model up a bit
+const ambientLight = new THREE.AmbientLight('white', 1.4);
+instantTrackerGroup.add(ambientLight);
 
-// // When the experience loads we'll let the user choose a place in their room for
-// // the content to appear using setAnchorPoseFromCameraOffset (see below)
-// // The user can confirm the location by tapping on the screen
-// let hasPlaced = false;
-// const placeButton = document.getElementById('tap-to-place') || document.createElement('div');
-// placeButton.addEventListener('click', () => {
-//   hasPlaced = true;
-//   placeButton.remove();
-// });
+// When the experience loads we'll let the user choose a place in their room for
+// the content to appear using setAnchorPoseFromCameraOffset (see below)
+// The user can confirm the location by tapping on the screen
+let hasPlaced = false;
+const placeButton = document.getElementById('tap-to-place') || document.createElement('div');
+placeButton.addEventListener('click', () => {
+  hasPlaced = true;
+  placeButton.remove();
+});
 
-// // Use a function to render our scene as usual
-// function render() {
+// Use a function to render our scene as usual
+function render() {
 
-//   if (!hasPlaced) {
-//     // If the user hasn't chosen a place in their room yet, update the instant tracker
-//     // to be directly in front of the user
-//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
-//   }
+  if (!hasPlaced) {
+    // If the user hasn't chosen a place in their room yet, update the instant tracker
+    // to be directly in front of the user
+    instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
+  }
 
-//   // The Zappar camera must have updateFrame called every frame
-//   camera.updateFrame(renderer);
+  // The Zappar camera must have updateFrame called every frame
+  camera.updateFrame(renderer);
 
-//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
-//   renderer.render(scene, camera);
+  // Draw the ThreeJS scene in the usual way, but using the Zappar camera
+  renderer.render(scene, camera);
 
-//   // Call render() again next frame
-//   requestAnimationFrame(render);
-// }
+  // Call render() again next frame
+  requestAnimationFrame(render);
+}
 
-// // Start things off
-// render();
+// Start things off
+render();
