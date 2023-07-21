@@ -75,6 +75,22 @@
 // pName = params.get('name') ? params.get('name') : 'friend'
 // console.log(pName)
 
+import * as THREE from 'three';
+import * as ZapparThree from '@zappar/zappar-threejs';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import ZAPPPermissionUI from './modules/permission-ui'
+new ZAPPPermissionUI()
+const model = new URL('../public/models/box.glb', import.meta.url).href;
+//import '../public/main.css';
+// The SDK is supported on many different browsers, but there are some that
+// don't provide camera access. This function detects if the browser is supported
+// For more information on support, check out the readme over at
+// https://www.npmjs.com/package/@zappar/zappar-threejs
+if (ZapparThree.browserIncompatible()) {
+  // The browserIncompatibleUI() function shows a full-page dialog that informs the user
+  // they're using an unsupported browser, and provides a button to 'copy' the current page
+  // URL so they can 'paste' it into the address bar of a compatible alternative.
+  ZapparThree.browserIncompatibleUI();
 
 
 // // let str = "A+com&puter$sc/i=nce$portal$for$Geeks";

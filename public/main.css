@@ -1,10 +1,10 @@
 @import url("https://webglfundamentals.org/webgl/resources/webgl-tutorials.css");
-/* 
+
 
 @font-face {
   font-family: "Walsheim";
-  src: url("../public/fonts/GT-Walsheim-Bold.ttf");
-} */
+  src: url("./fonts/GT-Walsheim-Bold.ttf");
+}
 
 html,
 body {
@@ -201,3 +201,14 @@ button { pointer-events:initial; }
     color: white;
     font-family: "Walsheim";
 }
+
+
+/* zapper permission request UI */
+.zappar-permission-request {
+  background-color: #3F000B!important;
+  font-family: "Walsheim"!important;
+}
+/* .zappar-permission-request .zappar-title .zappar-title {
+  font-size: 36px!important;
+  text-align: left!important;
+} */
