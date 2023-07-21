@@ -1,10 +1,10 @@
 @import url("https://webglfundamentals.org/webgl/resources/webgl-tutorials.css");
-
+/* 
 
 @font-face {
   font-family: "Walsheim";
-  src: url("//public//fonts/GT-Walsheim-Bold.ttf");
-}
+  src: url("../public/fonts/GT-Walsheim-Bold.ttf");
+} */
 
 html,
 body {
@@ -106,6 +106,9 @@ button { pointer-events:initial; }
 }
 
 /* second screen */
+#secondscreen{
+  display: none;
+}
 .wrapper{
   background-color: #3F000B;
   height: 100vh;
