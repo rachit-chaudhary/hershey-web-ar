@@ -1,51 +1,25 @@
-const nodeExternals = require("webpack-node-externals")
-const path = require("path")
+const path = require('path')
+const webpack = require('webpack')
 
-const typicalReact = {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-react"]
+module.exports = {
+  entry: './frontend-js/main.js',
+  output: {
+    filename: 'main-bundled.js',
+    path: path.resolve(__dirname, 'public/bundled')
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         }
       }
-    }
-  ]
+    ]
+  }
 }
-
-const clientConfig = {
-  entry: "./src/index.js",
-  output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "main.js"
-  },
-  mode: "development",
-  module: typicalReact
-}
-
-const clientARConfig = {
-  entry: "./src/ar.js",
-  output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "ar-main.js"
-  },
-  mode: "development",
-  module: typicalReact
-}
-
-const serverConfig = {
-  entry: "./server.js",
-  output: {
-    path: __dirname,
-    filename: "server-compiled.js"
-  },
-  externals: [nodeExternals()],
-  target: "node",
-  mode: "production",
-  module: typicalReact
-}
-
-module.exports = [clientConfig, clientARConfig, serverConfig]
