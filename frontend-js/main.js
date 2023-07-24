@@ -7,7 +7,15 @@ import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import ZAPPPermissionUI from './modules/permission-ui'
-import UImodule from './modules/webexperience-ui'
+import {UImodule} from './modules/webexperience-ui'
+
+
+
+
+
+// modules code
+const uimoduleobj = new UImodule();
+new ZAPPPermissionUI()
 
 
 const model = new URL('../public/models/box.glb', import.meta.url).href;
@@ -69,6 +77,7 @@ scene.background = camera.backgroundTexture;
 // var texture
 // var loader
 let output
+let uploadpicture=0
 // const copy = document.getElementById("copy")
 // let params
 // let pName
@@ -215,12 +224,32 @@ let output
       output = document.getElementById('galleryimg');
       output.src = reader.result;
       console.log(output.src)
-    
+       uploadpicture=1
     
     }
     reader.readAsDataURL(event.target.files[0]);
   }
+  hoverChange.onclick=()=>{
+    console.log("clickedkisses")
+    uimoduleobj.changeKissesPack()
+   
+  
+}
+hoverhershey.onclick=()=>{
+  console.log("clickedchocolatebar")
+  uimoduleobj.changeHersheyPack()
 
+}
+hoverexotic.onclick=()=>{
+  console.log("clickedexotic")
+  uimoduleobj.changeExoticPack()
+
+}
+  nextbtn.onclick=()=>{ 
+    console.log(uimoduleobj.packtype)
+    console.log("next")
+    secondscreen.style.display = "none"
+}
 //   //div texture image 
 //   var imageElement = document.getElementById('profileCameraImage')
 //   var canvas = document.createElement('canvas');
@@ -308,6 +337,3 @@ let output
 
 
 
-// modules code
-new UImodule()
-new ZAPPPermissionUI()
