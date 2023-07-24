@@ -23,45 +23,10 @@ export class UImodule  {
             }
         })
         
-        function changeKissesPack() {
-            var Image_Id = document.getElementById('hoverChange');
-            if (Image_Id.src.match("/images/kisses.png")) {
-                Image_Id.src = "/images/tapkisses.png"
-                console.log("kisses")
-                packtype = "kisses"
-
-            }
-            else {
-                Image_Id.src = "/images/kisses.png";
-                packtype = ""
-            }
-        }
-        function changeHersheyPack() {
-            var Image_Id = document.getElementById('hoverhershey');
-            if (Image_Id.src.match("/images/hershey.png")) {
-                Image_Id.src = "/images/taphershey.png"
-                console.log("chocolatebar")
-                packtype = "chocolatebar"
-
-            }
-            else {
-                Image_Id.src = "/images//hershey.png";
-                packtype = ""
-            }
-        }
-        function changeExoticPack() {
-            var Image_Id = document.getElementById('hoverexotic');
-            if (Image_Id.src.match("/images/exotic.png")) {
-                Image_Id.src = "/images/tapexotic.png"
-                console.log("exotic")
-                packtype = "exotic"
-            }
-            else {
-                Image_Id.src = "/images/exotic.png";
-                packtype = ""
-            }
-        }
-
+      
+      
+     
+       
         // const sendgift = document.getElementById("sendgift")
         sendgift.onclick = () => {
             firstscreen.style.display = "none"
@@ -70,13 +35,22 @@ export class UImodule  {
         sendthankyou.onclick = () => {
             firstscreen.style.display = "none"
             secondscreen.style.display = "block"
+        } 
+       
+    }
+
+    untapKisses(){
+        var Image_Id = document.getElementById('hoverhershey');
+        if (Image_Id.src.match("/images/hershey.png")) {
+            Image_Id.src = "/images/kisses.png"
+            
+
         }
-     
-       
-       
+
     }
     changeKissesPack() {
         var Image_Id = document.getElementById('hoverChange');
+       this.untapKisses();
         if (Image_Id.src.match("/images/kisses.png")) {
             Image_Id.src = "/images/tapkisses.png"
             console.log("kisses")
@@ -92,6 +66,8 @@ export class UImodule  {
     }
   changeHersheyPack() {
         var Image_Id = document.getElementById('hoverhershey');
+       
+        this.untapKisses();
         if (Image_Id.src.match("/images/hershey.png")) {
             Image_Id.src = "/images/taphershey.png"
             console.log("chocolatebar")
@@ -106,6 +82,7 @@ export class UImodule  {
     }
     changeExoticPack() {
         var Image_Id = document.getElementById('hoverexotic');
+        this.untapKisses();
         if (Image_Id.src.match("/images/exotic.png")) {
             Image_Id.src = "/images/tapexotic.png"
             console.log("exotic")

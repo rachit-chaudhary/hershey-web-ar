@@ -231,17 +231,20 @@ let uploadpicture=0
   }
   hoverChange.onclick=()=>{
     console.log("clickedkisses")
+    // uimoduleobj.untapKisses()
     uimoduleobj.changeKissesPack()
    
   
 }
 hoverhershey.onclick=()=>{
   console.log("clickedchocolatebar")
+  // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
 
 }
 hoverexotic.onclick=()=>{
   console.log("clickedexotic")
+  // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
 
 }
