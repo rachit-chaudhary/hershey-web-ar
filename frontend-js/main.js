@@ -19,6 +19,7 @@ new ZAPPPermissionUI()
 
 
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
+const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 //import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
@@ -56,12 +57,12 @@ const camera = new ZapparThree.Camera();
 
 // In order to use camera and motion data, we need to ask the users for permission
 // The Zappar library comes with some UI to help with that, so let's use it
-ZapparThree.permissionRequestUI().then((granted) => {
-  // If the user granted us the permissions we need then we can start the camera
-  // Otherwise let's them know that it's necessary with Zappar's permission denied UI
-  if (granted) camera.start();
-  else ZapparThree.permissionDeniedUI();
-});
+// ZapparThree.permissionRequestUI().then((granted) => {
+//   // If the user granted us the permissions we need then we can start the camera
+//   // Otherwise let's them know that it's necessary with Zappar's permission denied UI
+//   if (granted) camera.start();
+//   else ZapparThree.permissionDeniedUI();
+// });
 
 // The Zappar component needs to know our WebGL context, so set it like this:
 ZapparThree.glContextSet(renderer.getContext());
@@ -86,6 +87,7 @@ let name="Kartik"
 const clock = new THREE.Clock();
 let mixer= new THREE.AnimationMixer;
 let option1,option2,option3
+let modelobj;
 params = new URLSearchParams(document.location.search.substring(1))
 
 pName = params.get('name') ? params.get('name') : 'friend'
@@ -93,6 +95,33 @@ console.log(pName)
 if(pName==="friend"){
   pName="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
 }
+
+
+// * *** SET UP PLACEMENT HOTSPOT ***
+
+// Load in a hostpot texture from our ../assets folder
+const hotspotTexture = new THREE.TextureLoader().load(hotspotImg);
+// Create a mesh for the texture to attach to
+const hotspot = new THREE.Mesh(
+  new THREE.PlaneBufferGeometry(),
+  new THREE.MeshBasicMaterial({
+    // Get the hotspot texture and set it as the map
+    map: hotspotTexture,
+    // Make sure we can see it from all angles
+    side: THREE.DoubleSide,
+    // Set the transparency so we can see the ring
+    transparent: true,
+    alphaTest: 0.5,
+  }),
+);
+hotspot.scale.setScalar(2);
+// Prevent z-fighting between the hotspot and the shadow plane
+hotspot.renderOrder = 1;
+// Rotate the hotspot so that it is flat on the floor
+hotspot.rotateX(-0.5 * Math.PI);
+instantTrackerGroup.add(hotspot);
+
+
 
 //copy to clipboard function
 const copyToClipboard = (e) => {
@@ -197,7 +226,8 @@ document.body.appendChild(linkEl);
 const gltfLoader = new GLTFLoader(manager);
 gltfLoader.load(model, (gltf) => {
   // gfg_Rundec();
-
+ 
+  modelobj.visible=false
   //traverse mesh 
   function traversal() {
     gltf.scene.traverse(function (child) {
@@ -332,6 +362,7 @@ console.log(scene)
   // Now the model has been loaded, we can add it to our instant_tracker_group
 
   gltf.scene.scale.set(0.1, 0.1, 0.1);
+  
   // gltf.scene.gesturehandler="true"
   // console.log( gltf.setObject3D('light', new THREE.PointLight()))
 
@@ -525,6 +556,8 @@ hoverexotic.onclick=()=>{
 
 
     // Ar scene start 
+   
+    hotspot.material.opacity = 1;
     placeButton.style.display="block"
     ZapparThree.permissionRequestUI().then((granted) => {
       // If the user granted us the permissions we need then we can start the camera
@@ -540,12 +573,29 @@ hoverexotic.onclick=()=>{
 // the content to appear using setAnchorPoseFromCameraOffset (see below)
 // The user can confirm the location by tapping on the screen
 let hasPlaced = false;
+
 let placeButton = document.getElementById('tap-to-place') || document.createElement('div');
 placeButton.addEventListener('click', () => {
   hasPlaced = true;
   placeButton.remove();
+  hotspot.material.opacity = 0;
+  modelobj.visible="true"
 });
-
+// placeButton.addEventListener('click', () => {
+//   if (hasPlaced) {
+//     hasPlaced = false;
+//     placeButton.innerText = 'Tap to place';
+//     hologram.pauseHologram();
+//     hologram.mute();
+//     hotspot.material.opacity = 1;
+//     return;
+//   }
+//   hasPlaced = true;
+//   placeButton.innerText = 'Tap to pick up';
+//   hologram.playHologram();
+//   hologram.unmute();
+//   hotspot.material.opacity = 0;
+// });
 
 function render() {
   // update();
