@@ -6,6 +6,7 @@
 import * as THREE from 'three';
 import * as ZapparThree from '@zappar/zappar-threejs';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+// import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
 import ZAPPPermissionUI from './modules/permission-ui'
 import {UImodule} from './modules/webexperience-ui'
 
@@ -42,7 +43,14 @@ if (ZapparThree.browserIncompatible()) {
 const manager = new ZapparThree.LoadingManager();
 
 // Construct our ThreeJS renderer and scene as usual
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true},
+  {colorManagement: true },
+  {sortObjects: true},
+  {physicallyCorrectLights: true},
+  {maxCanvasWidth: 1920},
+  { maxCanvasHeight: 1920}
+  );
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const scene = new THREE.Scene();
 document.body.appendChild(renderer.domElement);
 
@@ -362,6 +370,7 @@ console.log(scene)
   // Now the model has been loaded, we can add it to our instant_tracker_group
 
   gltf.scene.scale.set(0.1, 0.1, 0.1);
+  gltf.scene.position.set(0,-0,0);
   
   // gltf.scene.gesturehandler="true"
   // console.log( gltf.setObject3D('light', new THREE.PointLight()))
@@ -383,8 +392,11 @@ console.log(scene)
 });
 // Let's add some lighting, first a directional light above the model pointing down
 const directionalLight = new THREE.DirectionalLight('white', 0.8);
-directionalLight.position.set(0, 5, 0);
-directionalLight.lookAt(0, 0, 0);
+directionalLight.position.set(0,3.5,7);
+// directionalLight.rotateX(1.4)
+directionalLight.scale.set(3,3,3);
+
+// directionalLight.lookAt(0, 0, 0);
 instantTrackerGroup.add(directionalLight);
 // btn1.onclick = () => {
 //   console.log("btn1")
@@ -516,7 +528,7 @@ instantTrackerGroup.add(directionalLight);
 
 
 // And then a little ambient light to brighten the model up a bit
-const ambientLight = new THREE.AmbientLight('white', 1.4);
+const ambientLight = new THREE.AmbientLight('white', 0.8);
 instantTrackerGroup.add(ambientLight);
 
 // When the experience loads we'll let the user choose a place in their room for
