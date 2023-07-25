@@ -521,7 +521,11 @@ hoverexotic.onclick=()=>{
     console.log(uimoduleobj.packtype)
     console.log("next")
     secondscreen.style.display = "none"
+    
 
+
+    // Ar scene start 
+    placeButton.style.display="block"
     ZapparThree.permissionRequestUI().then((granted) => {
       // If the user granted us the permissions we need then we can start the camera
       // Otherwise let's them know that it's necessary with Zappar's permission denied UI

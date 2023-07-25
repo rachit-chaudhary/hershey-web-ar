@@ -24,8 +24,9 @@ h1 {
     color: yellow;
 }
 #tap-to-place {
+  display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 60px;
     left: 50%;
     right: 0px;
     border-radius: 15px;
