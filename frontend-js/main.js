@@ -226,7 +226,7 @@ document.body.appendChild(linkEl);
 const gltfLoader = new GLTFLoader(manager);
 gltfLoader.load(model, (gltf) => {
   // gfg_Rundec();
- 
+  modelobj=gltf.scene
   modelobj.visible=false
   //traverse mesh 
   function traversal() {
