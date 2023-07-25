@@ -18,7 +18,7 @@ const uimoduleobj = new UImodule();
 new ZAPPPermissionUI()
 
 
-const model = new URL('../public/models/box.glb', import.meta.url).href;
+const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 //import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
@@ -70,58 +70,59 @@ ZapparThree.glContextSet(renderer.getContext());
 // that's provided by the Zappar camera
 scene.background = camera.backgroundTexture;
 
-// Create an InstantWorldTracker and wrap it in an InstantWorldAnchorGroup for us
-// to put our ThreeJS content into
-// const instantTracker = new ZapparThree.InstantWorldTracker();
-// const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
-// var texture
-// var loader
-let output
-let uploadpicture=0
-// const copy = document.getElementById("copy")
-// let params
-// let pName
-// var dataURL
-// var mimeType
-// params = new URLSearchParams(document.location.search.substring(1))
 
-// pName = params.get('name') ? params.get('name') : 'friend'
-// console.log(pName)
+const instantTracker = new ZapparThree.InstantWorldTracker();
+const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
+var texture
+var loader
+var output
+const copy = document.getElementById("copy")
+let params
+let pName
+var dataURL
+var mimeType
+var msg
+let name="Kartik"
+const clock = new THREE.Clock();
+let mixer= new THREE.AnimationMixer;
+let option1,option2,option3
+params = new URLSearchParams(document.location.search.substring(1))
 
+pName = params.get('name') ? params.get('name') : 'friend'
+console.log(pName)
+if(pName==="friend"){
+  pName="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
+}
 
+//copy to clipboard function
+const copyToClipboard = (e) => {
+  const el = document.createElement('textarea')
+  el.value = e
+  document.body.appendChild(el)
+  Object.assign(el.style, {
+    zIndex: '-99999',
+    position: 'absolute',
+  })
 
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera
+  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
+    el.contentEditable = true
+    el.readOnly = false
+    const s = window.getSelection()
+    s.removeAllRanges()
 
+    const range = document.createRange()
+    range.selectNodeContents(el)
+    s.addRange(range)
 
+    el.setSelectionRange(0, 999999)
+  } else {
+    el.select()
+  }
 
-// //copy to clipboard function
-// const copyToClipboard = (e) => {
-//   const el = document.createElement('textarea')
-//   el.value = e
-//   document.body.appendChild(el)
-//   Object.assign(el.style, {
-//     zIndex: '-99999',
-//     position: 'absolute',
-//   })
-
-//   const userAgent = navigator.userAgent || navigator.vendor || window.opera
-//   if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
-//     el.contentEditable = true
-//     el.readOnly = false
-//     const s = window.getSelection()
-//     s.removeAllRanges()
-
-//     const range = document.createRange()
-//     range.selectNodeContents(el)
-//     s.addRange(range)
-
-//     el.setSelectionRange(0, 999999)
-//   } else {
-//     el.select()
-//   }
-
-//   document.execCommand('copy')
-//   document.body.removeChild(el)
-// }
+  document.execCommand('copy')
+  document.body.removeChild(el)
+}
 // copy.onclick = function () {
 //   console.log("copy clicked")
 //   // gfg_Run();
@@ -130,108 +131,376 @@ let uploadpicture=0
 // }
 
 
-// // image fill function
-// function drawImageScaled(img, ctx) {
-//   var canvas = ctx.canvas;
-//   var hRatio = canvas.width / img.width;
-//   var vRatio = canvas.height / img.height;
-//   var ratio = Math.min(hRatio, vRatio);
-//   var centerShift_x = (canvas.width - img.width * ratio) / 2;
-//   var centerShift_y = (canvas.height - img.height * ratio) / 2;
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   ctx.drawImage(img, 0, 0, img.width, img.height,
-//     centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
-// }
-// //convert base64 to blob
-// function b64toBlob(b64Data, contentType, sliceSize) {
-//   contentType = contentType || '';
-//   sliceSize = sliceSize || 512;
+// image fill function
+function drawImageScaled(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+}
+//convert base64 to blob
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
 
-//   var byteCharacters = atob(b64Data);
-//   var byteArrays = [];
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
 
-//   for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-//     var slice = byteCharacters.slice(offset, offset + sliceSize);
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
 
-//     var byteNumbers = new Array(slice.length);
-//     for (var i = 0; i < slice.length; i++) {
-//       byteNumbers[i] = slice.charCodeAt(i);
-//     }
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
 
-//     var byteArray = new Uint8Array(byteNumbers);
+    var byteArray = new Uint8Array(byteNumbers);
 
-//     byteArrays.push(byteArray);
-//   }
+    byteArrays.push(byteArray);
+  }
 
-//   var blob = new Blob(byteArrays, { type: contentType });
-//   return blob;
-// }
-// //default image in blob
-// var contentType = 'image/png';
-// var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
+  var blob = new Blob(byteArrays, { type: contentType });
+  return blob;
+}
+//default image in blob
+var contentType = 'image/png';
+var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
 
-// // console.log(blobUrl);
+// console.log(blobUrl);
 
-// //var img = document.createElement('img');
-// //img.src = blobUrl;
-// //document.body.appendChild(img);
+//var img = document.createElement('img');
+//img.src = blobUrl;
+//document.body.appendChild(img);
 
-// // ## Example 2 - Using fetch
+// ## Example 2 - Using fetch
 
-// var url = 'data:image/png;filename=image.png;base64,' + b64Data;
-// var blobUrl;
-// fetch(url)
-//   .then(res => res.blob())
-//   .then(URL.createObjectURL)
-//   .then((ret) => { blobUrl = ret; return blobUrl; })
-//   .then(console.log)
+var url = 'data:image/png;filename=image.png;base64,' + b64Data;
+var blobUrl;
+fetch(url)
+  .then(res => res.blob())
+  .then(URL.createObjectURL)
+  .then((ret) => { blobUrl = ret; return blobUrl; })
+  .then(console.log)
 
-// var linkEl = document.createElement('a')
-// linkEl.href = blobUrl;
-// // dataURL=blobUrl
-// document.body.appendChild(linkEl);
-// // dataURL=blobUrl
+var linkEl = document.createElement('a')
+linkEl.href = blobUrl;
+// dataURL=blobUrl
+document.body.appendChild(linkEl);
+// dataURL=blobUrl
 
-// // to load the model
-// const gltfLoader = new GLTFLoader(manager);
-// gltfLoader.load(model, (gltf) => {
-//   // gfg_Rundec();
+// to load the model
+const gltfLoader = new GLTFLoader(manager);
+gltfLoader.load(model, (gltf) => {
+  // gfg_Rundec();
 
-//   //traverse mesh 
-//   function traversal() {
-//     gltf.scene.traverse(function (child) {
-//       if (child.name === "Cube001_1") {
-//         // dataURL = blobUrl
-//         // pName = dataURL
-//         dataURL = pName
-//         console.log("cube texture loaded")
-//         loader = new THREE.TextureLoader()
-//         texture = loader.load(dataURL)
-//         console.log(22222 + dataURL)
-//         child.material.map = texture;
-//         child.material.map.flipY = false
-//       }
-//     })
-//   }
-//   traversal()
+  //traverse mesh 
+  function traversal() {
+    gltf.scene.traverse(function (child) {
+      if (child.name === "Picture_Picture_0") {
+        // dataURL = blobUrl
+        // pName = dataURL
+
+        dataURL = pName
+        console.log("cube texture loaded")
+        loader = new THREE.TextureLoader()
+        texture = loader.load(dataURL)
+        console.log(22222 + dataURL)
+        child.material.map = texture;
+        child.material.map.flipY = false
+      }
+    })
+  }
+  traversal()
+  // document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
+  // function preview_image(event) {
+  //   var reader = new FileReader();
+  //   reader.onload = function () {
+  //     console.log("image upload clicked")
+
+  //     output = document.getElementById('galleryimg');
+  //     output.src = reader.result;
+  //     console.log(output.src)
+  //      uploadpicture=1
+    
+  //   }
+  //   reader.readAsDataURL(event.target.files[0]);
+  // }
   //upload button
-  document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
+  const uploadbtn=document.getElementById("uploadbtn")
+  uploadbtn.onchange = function () { preview_image(event) };
   function preview_image(event) {
     var reader = new FileReader();
     reader.onload = function () {
+      //check size of the file
+      if (uploadbtn.files.length > 0) {
+        const fileSize = uploadbtn.files.item(0).size;
+        const fileMb = fileSize / 1024 ** 2;
+        console.log(fileMb);
+
+        if (fileMb >= 12) {
+          console.log("size is large")
+          // fileResult.innerHTML = "Please select a file less than 2MB.";
+          // fileSubmit.disabled = true;
+        } else {
+          console.log("size is ohk")
+          // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
+          // fileSubmit.disabled = true;
+        }
+      }
+      
       console.log("image upload clicked")
 
       output = document.getElementById('galleryimg');
       output.src = reader.result;
       console.log(output.src)
-       uploadpicture=1
-    
+      dataURL = output.src
+      // dataURL=blobUrl
+
+      const file = event.target.files[0];
+      contentType = file.type;
+
+      if (contentType === "image/jpeg") {
+        console.log(contentType);
+        b64Data = dataURL.substring(23, dataURL.length);
+      } else if (contentType === "image/png") {
+        console.log(contentType);
+        b64Data = dataURL.substring(22, dataURL.length);
+      }
+
+
+      var blob = b64toBlob(b64Data, contentType);
+      blobUrl = URL.createObjectURL(blob);
+      dataURL = blobUrl
+      pName = dataURL
+      traversal()
+      // gltf.scene.traverse(function (child) {..
+
+      //   if (child.name === "Cube001_1") {
+      //     console.log("model loaded")
+      //     loader = new THREE.TextureLoader()
+      //     texture = loader.load(dataURL)
+
+      //     child.material.map = texture;
+      //     child.material.map.flipY = false
+      //   }
+      // })
     }
     reader.readAsDataURL(event.target.files[0]);
   }
+
+  //div texture image 
+  var imageElement = document.getElementById('galleryimg')
+  var canvas = document.createElement('canvas');
+  var context = canvas.getContext('2d');
+
+  canvas.width = 350;
+  canvas.height = 350;
+  drawImageScaled(imageElement, context)
+  // context.drawImage(imageElement, 20, 20);
+  dataURL = canvas.toDataURL('image/jpg');
+  console.log(dataURL)
+scene.tapplace="true"
+console.log(scene)
+  scene.add(instantTrackerGroup);
+  // const elem = document.querySelector('#screenshot');
+  // elem.addEventListener('click', () => {
+
+  //   canvas.toBlob((blob) => {
+  //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
+  //     console.log(blob)
+  //   });
+  // });
+  // const saveBlob = (function () {
+  //   const a = document.createElement('a');
+  //   document.body.appendChild(a);
+  //   a.style.display = 'block';
+  //   return function saveData(blob, fileName) {
+  //     const url = window.URL.createObjectURL(blob);
+  //     a.href = url;
+  //     a.download = fileName;
+  //     a.click();
+  //     //  texture = loader.load(require('../assets/trees.jpg'))
+  //     //  console.log("base   "+dataURL)
+
+  //   };
+  // }());
+  // Now the model has been loaded, we can add it to our instant_tracker_group
+
+  gltf.scene.scale.set(0.1, 0.1, 0.1);
+  // gltf.scene.gesturehandler="true"
+  // console.log( gltf.setObject3D('light', new THREE.PointLight()))
+
+ 
+ 
+  instantTrackerGroup.add(gltf.scene);
+  mixer = new THREE.AnimationMixer(gltf.scene);
+  const clips = gltf.animations;
+  const clip = THREE.AnimationClip.findByName(clips,'Animation');
+  const action= mixer.clipAction(clip);
+
+ action.play();
+
+
+
+}, undefined, () => {
+  console.log('An error ocurred loading the GLTF model');
+});
+// Let's add some lighting, first a directional light above the model pointing down
+const directionalLight = new THREE.DirectionalLight('white', 0.8);
+directionalLight.position.set(0, 5, 0);
+directionalLight.lookAt(0, 0, 0);
+instantTrackerGroup.add(directionalLight);
+// btn1.onclick = () => {
+//   console.log("btn1")
+//   option1="Sweet Troublemakers"
+// }
+// btn2.onclick = () => {
+//   console.log("btn2")
+//   option1="Partners in crime"
+// }
+// btn3.onclick = () => {
+//   console.log("btn3")
+//   option1="Top Secret keepers"
+// }
+
+// btn4.onclick = () => {
+//   console.log("btn4")
+//   option2="Caring nature"
+// }
+// btn5.onclick = () => {
+//   console.log("btn5")
+//   option2="Delightfully annoying nature"
+// }
+// btn6.onclick = () => {
+//   console.log("btn6")
+//   option2="Giving mature advices"
+// }
+
+
+// btn7.onclick = () => {
+//   console.log("btn7")
+//   option3="Crazy"
+// }
+// btn8.onclick = () => {
+//   console.log("btn8")
+//   option3="Realistic"
+// }
+// btn9.onclick = () => {
+//   console.log("btn9")
+//   option3="Determined"
+// }
+
+
+// next.onclick = () => {
+//   console.log("next")
+//    msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+// console.log(msg)
+
+
+//   // if (option1 === "button1") {
+//   //   console.log("option1 button1")
+//   // } else if (option1 === "button2") {
+//   //   console.log("option1 button2")
+//   // } else if (option1 === "button3") {
+//   //   console.log("option1 button3")
+//   // }
+
+//   // if (option2 === "button1") {
+//   //   console.log("option2 button1")
+//   // } else if (option2 === "button2") {
+//   //   console.log("option2 button2")
+//   // } else if (option2 === "button3") {
+//   //   console.log("option2 button3")
+//   // }
+
+//   // if (option3 === "button1") {
+//   //   console.log("option3 button1")
+//   // } else if (option3 === "button2") {
+//   //   console.log("option3 button2")
+//   // } else if (option3 === "button3") {
+//   //   console.log("option3 button3")
+//   // }
+  
+// }
+
+// //zapparsharing feature
+// // Get canvas from dom
+// const canvas = document.querySelector('canvas');
+
+// // Convert canvas data to url
+
+// const url1 = canvas.toDataURL('image/jpeg', 0.8);
+
+// ZapparSharing({
+//   data: url1,
+//   fileNamePrepend: 'Zappar',
+//   shareUrl: 'www.zappar.com',
+//   shareTitle: 'Hello World!',
+//   shareText: 'Hello World!',
+//   onSave: () => {
+//     console.log('Image was saved');
+//   },
+//   onShare: () => {
+//     console.log('Share button was pressed');
+//   },
+//   onClose: () => {
+//     console.log('Dialog was closed');
+//   },
+// }, {
+//   containerDiv: {
+//     position: 'fixed',
+//     width: '100%',
+//     height: '100%',
+//     top: '0px',
+//     left: '0px',
+//     zIndex: 10000,
+//     backgroundImage: "url('https://source.unsplash.com/user/c_v_r/1900x800')",
+//     fontFamily: 'sans-serif',
+//     color: 'rgba(255,255,255,1)',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     justifyContent: 'center',
+//   },
+//   saveShareAnchor: {
+//     display: 'flex',
+//     width: '70px',
+//     height: '70px',
+//     marginTop: '2.5%',
+//     marginLeft: '5%',
+//     marginRight: '5%',
+//     backgroundImage: "url('https://source.unsplash.com/user/c_v_r/1900x800')",
+//   },
+// }, {}, {
+//   SAVE: 'SAVE',
+//   SHARE: 'SHARE',
+//   NowOpenFilesAppToShare: 'Now open files app to share',
+//   TapAndHoldToSave: 'Tap and hold the image<br/>to save to your Photos app',
+// });
+
+
+
+// And then a little ambient light to brighten the model up a bit
+const ambientLight = new THREE.AmbientLight('white', 1.4);
+instantTrackerGroup.add(ambientLight);
+
+// When the experience loads we'll let the user choose a place in their room for
+// the content to appear using setAnchorPoseFromCameraOffset (see below)
+// The user can confirm the location by tapping on the screen
+
+// Use a function to render our scene as usual
+
+
+
+  //upload button
+ 
   hoverChange.onclick=()=>{
     console.log("clickedkisses")
-    // uimoduleobj.untapKisses()
+    // uimoduleobj.untapK``isses()
     uimoduleobj.changeKissesPack()
    
   
@@ -252,91 +521,58 @@ hoverexotic.onclick=()=>{
     console.log(uimoduleobj.packtype)
     console.log("next")
     secondscreen.style.display = "none"
+
+    ZapparThree.permissionRequestUI().then((granted) => {
+      // If the user granted us the permissions we need then we can start the camera
+      // Otherwise let's them know that it's necessary with Zappar's permission denied UI
+      if (granted) camera.start();
+      else ZapparThree.permissionDeniedUI();
+    });
 }
-//   //div texture image 
-//   var imageElement = document.getElementById('profileCameraImage')
-//   var canvas = document.createElement('canvas');
-//   var context = canvas.getContext('2d');
-
-//   canvas.width = 350;
-//   canvas.height = 350;
-//   drawImageScaled(imageElement, context)
-//   // context.drawImage(imageElement, 20, 20);
-//   dataURL = canvas.toDataURL('image/jpg');
-//   console.log(dataURL)
-
-//   scene.add(instantTrackerGroup);
-//   const elem = document.querySelector('#screenshot');
-//   elem.addEventListener('click', () => {
-
-//     canvas.toBlob((blob) => {
-//       saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
-//       console.log(blob)
-//     });
-//   });
-//   const saveBlob = (function () {
-//     const a = document.createElement('a');
-//     document.body.appendChild(a);
-//     a.style.display = 'block';
-//     return function saveData(blob, fileName) {
-//       const url = window.URL.createObjectURL(blob);
-//       a.href = url;
-//       a.download = fileName;
-//       a.click();
-//       //  texture = loader.load(require('../assets/trees.jpg'))
-//       //  console.log("base   "+dataURL)
-
-//     };
-//   }());
-//   // Now the model has been loaded, we can add it to our instant_tracker_group
-//   instantTrackerGroup.add(gltf.scene);
 
 
 
-// }, undefined, () => {
-//   console.log('An error ocurred loading the GLTF model');
-// });
-// // Let's add some lighting, first a directional light above the model pointing down
-// const directionalLight = new THREE.DirectionalLight('white', 0.8);
-// directionalLight.position.set(0, 5, 0);
-// directionalLight.lookAt(0, 0, 0);
-// instantTrackerGroup.add(directionalLight);
+// When the experience loads we'll let the user choose a place in their room for
+// the content to appear using setAnchorPoseFromCameraOffset (see below)
+// The user can confirm the location by tapping on the screen
+let hasPlaced = false;
+let placeButton = document.getElementById('tap-to-place') || document.createElement('div');
+placeButton.addEventListener('click', () => {
+  hasPlaced = true;
+  placeButton.remove();
+});
 
-// // And then a little ambient light to brighten the model up a bit
-// const ambientLight = new THREE.AmbientLight('white', 1.4);
-// instantTrackerGroup.add(ambientLight);
 
-// // When the experience loads we'll let the user choose a place in their room for
-// // the content to appear using setAnchorPoseFromCameraOffset (see below)
-// // The user can confirm the location by tapping on the screen
-// let hasPlaced = false;
-// const placeButton = document.getElementById('tap-to-place') || document.createElement('div');
-// placeButton.addEventListener('click', () => {
-//   hasPlaced = true;
-//   placeButton.remove();
-// });
+function render() {
+  // update();
+  camera.updateFrame(renderer);
+  if (!hasPlaced) {
+    // If the user hasn't chosen a place in their room yet, update the instant tracker
+    // to be directly in front of the user
+    instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
+  }
+  renderer.render(scene, camera);
+  // const clock = new THREE.Clock();
+  const detla = clock.getDelta();
+  mixer.update(detla)
+  
 
-// // Use a function to render our scene as usual
-// function render() {
+  // The Zappar camera must have updateFrame called every frame
 
-//   if (!hasPlaced) {
-//     // If the user hasn't chosen a place in their room yet, update the instant tracker
-//     // to be directly in front of the user
-//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
-//   }
+  // placeButton.onclick=()=>{
+  //   //Zappar permission ui after tap click
+   
+  // }
+  // Draw the ThreeJS scene in the usual way, but using the Zappar camera
+ 
+  
+  // Call render() again next frame
+  requestAnimationFrame(render);
+  // controls.update();
+}
 
-//   // The Zappar camera must have updateFrame called every frame
-//   camera.updateFrame(renderer);
-
-//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
-//   renderer.render(scene, camera);
-
-//   // Call render() again next frame
-//   requestAnimationFrame(render);
-// }
-
-// // Start things off
-// render();
+// Start things off
+render();
 
 
 
