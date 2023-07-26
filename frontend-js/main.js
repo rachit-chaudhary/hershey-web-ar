@@ -594,24 +594,15 @@ hoverexotic.onclick=()=>{
 
 }
   nextbtn.onclick=()=>{ 
+    secondscreen.style.display = "none"
+
+// Ar scene 
     permissions.setAttribute("zappar-permissions-ui","")
     scene.style.zIndex=0
     console.log(uimoduleobj.packtype)
     console.log("next")
-    secondscreen.style.display = "none"
-    
-
-
-    // Ar scene start 
-   
-    // hotspot.material.opacity = 1;
     taptoplace.style.display="block"
-    // ZapparThree.permissionRequestUI().then((granted) => {
-    //   // If the user granted us the permissions we need then we can start the camera
-    //   // Otherwise let's them know that it's necessary with Zappar's permission denied UI
-    //   if (granted) camera.start();
-    //   else ZapparThree.permissionDeniedUI();
-    // });
+ 
 }
 
 
@@ -623,10 +614,8 @@ hoverexotic.onclick=()=>{
 
 let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
 taptoplace.addEventListener('click', () => {
-  // hasPlaced = true;
+
   taptoplace.remove();
-  // hotspot.material.opacity = 0;
-  // modelobj.visible="true"
 });
 // placeButton.addEventListener('click', () => {
 //   if (hasPlaced) {
