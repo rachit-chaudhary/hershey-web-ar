@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" type="image/x-icon" href="images/icon-192x192.png">
-    <title>Hershey's</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js"></script>
+  <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script> -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="images/icon-192x192.png">
+  <title>Hershey's</title>
+  <script src="/gesture-detector.js"></script>
+<script src="/gesture-handler.js"></script>
 </head>
+
 <body>
+
+
 
   <div id="firstscreen">
 
     <div class=" header d-flex justify-content-center">
-    <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png"/></div>
+      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
     </div>
     <div class="defaultImage d-flex justify-content-center">
-    
+
     </div>
     <div class="bottom">
-    <div class="d-flex justify-content-center">
-      <h3 class="text-white festive-text">This festive season surprise your loved ones</h3>
+      <div class="d-flex justify-content-center">
+        <h3 class="text-white festive-text">This festive season surprise your loved ones</h3>
+      </div>
+      <div class="sendingButton">
+        <div class=" d-flex justify-content-center">
+          <button id="sendgift" class="sendgift">SEND GIFT</button>
+
+
+        </div>
+        <div class=" d-flex justify-content-center">
+          <button id="sendthankyou" class="thankyounote">SEND THANK YOU NOTE</button>
+
+
+        </div>
+      </div>
+
     </div>
-    <div class="sendingButton">
-      <div class=" d-flex justify-content-center">
-        <button id="sendgift" class="sendgift">SEND GIFT</button>
-       
-      
+  </div>
+
+  <!-- //second screen -->
+
+  <div class="wrapper" id="secondscreen">
+
+    <div class=" header d-flex justify-content-center">
+      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
+    </div>
+    <div class="orange-wrapper">
+      <div class="username-section">
+        <p class="surprise-heading">Sending surprise to</p>
+        <input type="text" placeholder=" Sibling’s Name" class="userName" />
+
       </div>
-      <div class=" d-flex justify-content-center">
-        <button id="sendthankyou" class="thankyounote">SEND THANK YOU NOTE</button>
-       
-      
+      <div class="blue-wrapper">
+        <h2 class="title-ns">I have</h2>
+        <div class="owl-carousel owl-theme d-flex justify-content-center">
+          <div class="item">
+            <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" /></h4>
+          </div>
+          <div class="item">
+            <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" /></h4>
+          </div>
+          <div class="item">
+            <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" /></h4>
+          </div>
+        </div>
+      </div>
+      <div class="upload-section">
+        <div class=" uploader d-flex justify-content-start">
+
+          <div id="imagediv"><img id="galleryimg" class="photo-frame" src="/images/photoframe.png" /></div>
+          <div class="photo">
+            <label for="uploadbtn" class="btn">UPLOAD PHOTO</label>
+            <input type="file" style="display: none;" id="uploadbtn" accept="image/*">
+          </div>
+        </div>
+      </div>
+      <hr class="breakline" />
+      <div class="d-flex justify-content-center">
+        <button id="nextbtn" class="next-button">Next</button>
       </div>
     </div>
-    
-    </div>
-    </div>
 
-    <!-- //second screen -->
 
-    <div class="wrapper" id="secondscreen">
+  </div>
 
-      <div class=" header d-flex justify-content-center">
-      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png"/></div>
-      </div>
-      <div class="orange-wrapper">
-          <div class="username-section">
-            <p class="surprise-heading">Sending surprise to</p>
-            <input type="text" placeholder=" Sibling’s Name" class="userName"/>
-
-          </div>
-          <div class="blue-wrapper">
-            <h2 class="title-ns">I have</h2>
-            <div class="owl-carousel owl-theme d-flex justify-content-center">
-              <div class="item"><h4><img class="carosel-images"  id="hoverChange" src="/images/kisses.png"/></h4></div>
-              <div class="item"><h4><img class="carosel-images"  id="hoverhershey" src="/images/hershey.png"/></h4></div>
-              <div class="item"><h4><img  class="carosel-images"  id="hoverexotic" src="/images/exotic.png"/></h4></div>
-          </div>
-          </div>
-          <div class="upload-section">
-             <div class=" uploader d-flex justify-content-start">
-             
-              <div id="imagediv"><img id="galleryimg" class="photo-frame" src="/images/photoframe.png"/></div>
-              <div class="photo"> 
-                <label for="uploadbtn" class="btn">UPLOAD PHOTO</label>
-                <input type="file" style="display: none;" id="uploadbtn" accept="image/*"></div>
-             </div>
-          </div>
-          <hr class="breakline"/>
-          <div class="d-flex justify-content-center">
-              <button id="nextbtn" class="next-button">Next</button>
-          </div>
-      </div>
-    
-     
-      </div>
-
-    <!-- <img id="output_image" height=50px width=50px>
+  <!-- <img id="output_image" height=50px width=50px>
     <input type="file" id="fname" accept="image/*">
     -->
-    <div id="tap-to-place">Tap to Place</div>
-   <!-- <h1>LOREM IPUSM</h1>
+  <div id="tap-to-place">Tap to Place</div>
+  <!-- <h1>LOREM IPUSM</h1>
     <img id="profileCameraImage" src="/images/trees.jpg" alt="" style="display: NONE; position:absolute;">
     <div id="uiContainer">
       <div id="ui">
@@ -93,10 +119,93 @@
         <button id="copy" type="button">COPY...</button>
       </div>
     </div> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 
+
+
+
+
+  <!-- Some UI for the user to tap to indicate they're happy with the placement -->
+  <div id="zappar-placement-ui">Tap here to place the object</div>
+
+
+  <a-scene id="scenediv" swap-texture renderer="antialias: true;
+  colorManagement: true;
+  sortObjects: true;
+  physicallyCorrectLights: true;
+  maxCanvasWidth: 1920;
+  maxCanvasHeight: 1920;" gesture-detector>
+    <!-- <canvas id="div">
+
+  </canvas> -->
+    <a-assets>
+
+      <a-asset-item id="tree" src="/models/kisses .glb"></a-asset-item>
+    </a-assets>
+    <!-- Ask user for camera permissions, display some text if permission is denied -->
+    <a-entity  id="permissions"></a-entity>
+    <!-- shows a full-page dialog that informs the user they're using an unsupported browser -->
+    <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
+    <!-- <canvas id="div"></canvas> -->
+    <a-camera  id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
+    fuse: false;
+    rayOrigin: mouse;" zappar-camera />
+
+    <!-- Setup our instant tracker and start it in placement mode so the user can -->
+    <!-- choose a location for the object -->
+    <a-entity zappar-instant="placement-mode: true" id="instant-tracker" >
+      <a-entity id="modelname" gltf-model="#tree" class="cantap" visible="true" scale="0.2 0.2 0.2" position="0 0 -10"
+         gesture-handler="minScale: 0.25; maxScale: 10"  animation-mixer="clip: Animation; loop: repeat"></a-entity>
+      <!-- Include a 3D model inside our instant tracker -->
+      <!-- <a-entity id="australiacont" gesture-handler gltf-model="url(assets/kisses .glb)" scale="0.1 0.1 0.1"  animation-mixer="clip: Animation; loop: repeat"></a-entity> -->
+      <a-entity scale="7 7 7" light="type: directional;
+          intensity: 0.8;
+     shadowMapHeight:2048;
+       shadowMapWidth:2048;
+       shadowCameraTop: 10;
+             target: #australiacont;" position="17.85 2.75 0.30" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+     intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+        target: #australiacont;" position="-4.6 2.75 1.24" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+    intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+       target: #australiacont;" position="3.43 2.68 -0.62" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+    intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+       target: #australiacont;" position="0.52 2.62 12.75" shadow>
+      </a-entity>
+      <a-light type="ambient" intensity="2"></a-light>
+    </a-entity>
+
+  </a-scene>
 </body>
 <script src="main-bundled.js"></script>
+<script>
+
+</script>
+<script>
+
+
+</script>
+
 </html>

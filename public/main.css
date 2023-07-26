@@ -39,6 +39,7 @@ h1 {
     box-sizing: border-box;
     font-family: sans-serif;
     text-transform: uppercase;
+    z-index: 1;
 }
 body {
   margin: 0;
@@ -105,7 +106,10 @@ button { pointer-events:initial; }
 .header{
   background-color: #D9D9D9;
 }
-
+/* first screen */
+/* #firstscreen{
+  display: none;
+} */
 /* second screen */
 #secondscreen{
   display: none;

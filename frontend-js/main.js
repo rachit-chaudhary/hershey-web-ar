@@ -3,9 +3,9 @@
 
 // In this example we track a 3D model using instant world tracking
 
-import * as THREE from 'three';
-import * as ZapparThree from '@zappar/zappar-threejs';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+// import * as THREE from 'three';
+// import * as ZapparThree from '@zappar/zappar-threejs';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
 import ZAPPPermissionUI from './modules/permission-ui'
 import {UImodule} from './modules/webexperience-ui'
@@ -21,47 +21,73 @@ new ZAPPPermissionUI()
 
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
+const scene=document.getElementById("scenediv")
+scene.style.zIndex=-1
+secondscreen.style.display="none"
+// firstscreen.style.display = "none"
+// scene.style.display="block"
+sendgift.onclick = () => {
+  firstscreen.style.display = "none"
+  scene.style.display="block"
+  
+
+  
+ 
+  secondscreen.style.display = "block"
+}
+sendthankyou.onclick = () => {
+  firstscreen.style.display = "none"
+  scene.style.display="block"
+  
+
+  
+ 
+  secondscreen.style.display = "block"
+} 
 //import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
 // For more information on support, check out the readme over at
 // https://www.npmjs.com/package/@zappar/zappar-threejs
-if (ZapparThree.browserIncompatible()) {
-  // The browserIncompatibleUI() function shows a full-page dialog that informs the user
-  // they're using an unsupported browser, and provides a button to 'copy' the current page
-  // URL so they can 'paste' it into the address bar of a compatible alternative.
-  ZapparThree.browserIncompatibleUI();
+// if (ZapparThree.browserIncompatible()) {
+//   // The browserIncompatibleUI() function shows a full-page dialog that informs the user
+//   // they're using an unsupported browser, and provides a button to 'copy' the current page
+//   // URL so they can 'paste' it into the address bar of a compatible alternative.
+//   ZapparThree.browserIncompatibleUI();
 
-  // If the browser is not compatible, we can avoid setting up the rest of the page
-  // so we throw an exception here.
-  throw new Error('Unsupported browser');
-}
+//   // If the browser is not compatible, we can avoid setting up the rest of the page
+//   // so we throw an exception here.
+//   throw new Error('Unsupported browser');
+// }
 
 // ZapparThree provides a LoadingManager that shows a progress bar while
 // the assets are downloaded. You can use this if it's helpful, or use
 // your own loading UI - it's up to you :-)
-const manager = new ZapparThree.LoadingManager();
+// const manager = new ZapparThree.LoadingManager();
 
-// Construct our ThreeJS renderer and scene as usual
-const renderer = new THREE.WebGLRenderer({ antialias: true},
-  {colorManagement: true },
-  {sortObjects: true},
-  {physicallyCorrectLights: true},
-  {maxCanvasWidth: 1920},
-  { maxCanvasHeight: 1920}
-  );
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-const scene = new THREE.Scene();
-document.body.appendChild(renderer.domElement);
+// // Construct our ThreeJS renderer and scene as usual
+// const renderer = new THREE.WebGLRenderer({ antialias: true},
+//   {colorManagement: true },
+//   {sortObjects: true},
+//   // {physicallyCorrectLights: true},
+//   {maxCanvasWidth: 1920},
+//   { maxCanvasHeight: 1920}
+//   );
+//   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+//   // renderer.outputEncoding = sRGBEncoding
+// // renderer.toneMapping = ACESFilmicToneMapping
+//   renderer.physicallyBasedLights = true
+// const scene = new THREE.Scene();
+// document.body.appendChild(renderer.domElement);
 
-// As with a normal ThreeJS scene, resize the canvas if the window resizes
-renderer.setSize(window.innerWidth, window.innerHeight);
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
+// // As with a normal ThreeJS scene, resize the canvas if the window resizes
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// window.addEventListener('resize', () => {
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+// });
 
-// Create a Zappar camera that we'll use instead of a ThreeJS camera
-const camera = new ZapparThree.Camera();
+// // Create a Zappar camera that we'll use instead of a ThreeJS camera
+// const camera = new ZapparThree.Camera();
 
 // In order to use camera and motion data, we need to ask the users for permission
 // The Zappar library comes with some UI to help with that, so let's use it
@@ -72,16 +98,16 @@ const camera = new ZapparThree.Camera();
 //   else ZapparThree.permissionDeniedUI();
 // });
 
-// The Zappar component needs to know our WebGL context, so set it like this:
-ZapparThree.glContextSet(renderer.getContext());
+// // The Zappar component needs to know our WebGL context, so set it like this:
+// ZapparThree.glContextSet(renderer.getContext());
 
-// Set the background of our scene to be the camera background texture
-// that's provided by the Zappar camera
-scene.background = camera.backgroundTexture;
+// // Set the background of our scene to be the camera background texture
+// // that's provided by the Zappar camera
+// scene.background = camera.backgroundTexture;
 
 
-const instantTracker = new ZapparThree.InstantWorldTracker();
-const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
+// const instantTracker = new ZapparThree.InstantWorldTracker();
+// const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
 var texture
 var loader
 var output
@@ -92,8 +118,8 @@ var dataURL
 var mimeType
 var msg
 let name="Kartik"
-const clock = new THREE.Clock();
-let mixer= new THREE.AnimationMixer;
+// const clock = new THREE.Clock();
+// let mixer= new THREE.AnimationMixer;
 let option1,option2,option3
 let modelobj;
 params = new URLSearchParams(document.location.search.substring(1))
@@ -108,26 +134,27 @@ if(pName==="friend"){
 // * *** SET UP PLACEMENT HOTSPOT ***
 
 // Load in a hostpot texture from our ../assets folder
-const hotspotTexture = new THREE.TextureLoader().load(hotspotImg);
-// Create a mesh for the texture to attach to
-const hotspot = new THREE.Mesh(
-  new THREE.PlaneBufferGeometry(),
-  new THREE.MeshBasicMaterial({
-    // Get the hotspot texture and set it as the map
-    map: hotspotTexture,
-    // Make sure we can see it from all angles
-    side: THREE.DoubleSide,
-    // Set the transparency so we can see the ring
-    transparent: true,
-    alphaTest: 0.5,
-  }),
-);
-hotspot.scale.setScalar(2);
-// Prevent z-fighting between the hotspot and the shadow plane
-hotspot.renderOrder = 1;
-// Rotate the hotspot so that it is flat on the floor
-hotspot.rotateX(-0.5 * Math.PI);
-instantTrackerGroup.add(hotspot);
+// const hotspotTexture = new THREE.TextureLoader().load(hotspotImg);
+// // Create a mesh for the texture to attach to
+// const hotspot = new THREE.Mesh(
+//   new THREE.PlaneBufferGeometry(),
+//   new THREE.MeshBasicMaterial({
+//     // Get the hotspot texture and set it as the map
+//     map: hotspotTexture,
+//     // Make sure we can see it from all angles
+//     side: THREE.DoubleSide,
+//     // Set the transparency so we can see the ring
+//     transparent: true,
+//     alphaTest: 0.5,
+//   }),
+// );
+// hotspot.scale.setScalar(2);
+// // Prevent z-fighting between the hotspot and the shadow plane
+// hotspot.renderOrder = 1;
+// // Rotate the hotspot so that it is flat on the floor
+// hotspot.rotateX(-0.5 * Math.PI);
+
+// instantTrackerGroup.add(hotspot);
 
 
 
@@ -230,174 +257,180 @@ linkEl.href = blobUrl;
 document.body.appendChild(linkEl);
 // dataURL=blobUrl
 
-// to load the model
-const gltfLoader = new GLTFLoader(manager);
-gltfLoader.load(model, (gltf) => {
-  // gfg_Rundec();
-  modelobj=gltf.scene
-  modelobj.visible=false
-  //traverse mesh 
-  function traversal() {
-    gltf.scene.traverse(function (child) {
-      if (child.name === "Picture_Picture_0") {
-        // dataURL = blobUrl
-        // pName = dataURL
+  
+  // console.log(modelmesh)
+  // modelmesh.material.map = loader.load(src)
+  // console.log(dataURL)
+  // modelmesh.material.map.flipY = false
 
-        dataURL = pName
-        console.log("cube texture loaded")
-        loader = new THREE.TextureLoader()
-        texture = loader.load(dataURL)
-        console.log(22222 + dataURL)
-        child.material.map = texture;
-        child.material.map.flipY = false
-      }
-    })
-  }
-  traversal()
-  // document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
+// to load the model
+// const gltfLoader = new GLTFLoader(manager);
+// gltfLoader.load(model, (gltf) => {
+//   // gfg_Rundec();
+//   modelobj=gltf.scene
+//   modelobj.visible=false
+//   //traverse mesh 
+//   function traversal() {
+//     gltf.scene.traverse(function (child) {
+//       if (child.name === "Picture_Picture_0") {
+//         // dataURL = blobUrl
+//         // pName = dataURL
+
+//         dataURL = pName
+//         console.log("cube texture loaded")
+//         loader = new THREE.TextureLoader()
+//         texture = loader.load(dataURL)
+//         console.log(22222 + dataURL)
+//         child.material.map = texture;
+//         child.material.map.flipY = false
+//       }
+//     })
+//   }
+//   traversal()
+//   // document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
+//   // function preview_image(event) {
+//   //   var reader = new FileReader();
+//   //   reader.onload = function () {
+//   //     console.log("image upload clicked")
+
+//   //     output = document.getElementById('galleryimg');
+//   //     output.src = reader.result;
+//   //     console.log(output.src)
+//   //      uploadpicture=1
+    
+//   //   }
+//   //   reader.readAsDataURL(event.target.files[0]);
+//   // }
+//   //upload button
+  // const uploadbtn=document.getElementById("uploadbtn")
+  // uploadbtn.onchange = function () { preview_image(event) };
   // function preview_image(event) {
   //   var reader = new FileReader();
   //   reader.onload = function () {
+  //     //check size of the file
+  //     if (uploadbtn.files.length > 0) {
+  //       const fileSize = uploadbtn.files.item(0).size;
+  //       const fileMb = fileSize / 1024 ** 2;
+  //       console.log(fileMb);
+
+  //       if (fileMb >= 12) {
+  //         console.log("size is large")
+  //         // fileResult.innerHTML = "Please select a file less than 2MB.";
+  //         // fileSubmit.disabled = true;
+  //       } else {
+  //         console.log("size is ohk")
+  //         // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
+  //         // fileSubmit.disabled = true;
+  //       }
+  //     }
+      
   //     console.log("image upload clicked")
 
   //     output = document.getElementById('galleryimg');
   //     output.src = reader.result;
   //     console.log(output.src)
-  //      uploadpicture=1
-    
+  //     dataURL = output.src
+  //     // dataURL=blobUrl
+
+  //     const file = event.target.files[0];
+  //     contentType = file.type;
+
+  //     if (contentType === "image/jpeg") {
+  //       console.log(contentType);
+  //       b64Data = dataURL.substring(23, dataURL.length);
+  //     } else if (contentType === "image/png") {
+  //       console.log(contentType);
+  //       b64Data = dataURL.substring(22, dataURL.length);
+  //     }
+
+
+  //     var blob = b64toBlob(b64Data, contentType);
+  //     blobUrl = URL.createObjectURL(blob);
+  //     dataURL = blobUrl
+  //     pName = dataURL
+  //     // traversal()
+  //     // gltf.scene.traverse(function (child) {..
+
+  //     //   if (child.name === "Cube001_1") {
+  //     //     console.log("model loaded")
+  //     //     loader = new THREE.TextureLoader()
+  //     //     texture = loader.load(dataURL)
+
+  //     //     child.material.map = texture;
+  //     //     child.material.map.flipY = false
+  //     //   }
+  //     // })
   //   }
   //   reader.readAsDataURL(event.target.files[0]);
   // }
-  //upload button
-  const uploadbtn=document.getElementById("uploadbtn")
-  uploadbtn.onchange = function () { preview_image(event) };
-  function preview_image(event) {
-    var reader = new FileReader();
-    reader.onload = function () {
-      //check size of the file
-      if (uploadbtn.files.length > 0) {
-        const fileSize = uploadbtn.files.item(0).size;
-        const fileMb = fileSize / 1024 ** 2;
-        console.log(fileMb);
 
-        if (fileMb >= 12) {
-          console.log("size is large")
-          // fileResult.innerHTML = "Please select a file less than 2MB.";
-          // fileSubmit.disabled = true;
-        } else {
-          console.log("size is ohk")
-          // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-          // fileSubmit.disabled = true;
-        }
-      }
-      
-      console.log("image upload clicked")
+//   //div texture image 
+//   var imageElement = document.getElementById('galleryimg')
+//   var canvas = document.createElement('canvas');
+//   var context = canvas.getContext('2d');
 
-      output = document.getElementById('galleryimg');
-      output.src = reader.result;
-      console.log(output.src)
-      dataURL = output.src
-      // dataURL=blobUrl
+//   canvas.width = 350;
+//   canvas.height = 350;
+//   drawImageScaled(imageElement, context)
+//   // context.drawImage(imageElement, 20, 20);
+//   dataURL = canvas.toDataURL('image/jpg');
+//   console.log(dataURL)
+// scene.tapplace="true"
+// console.log(scene)
+//   scene.add(instantTrackerGroup);
+//   // const elem = document.querySelector('#screenshot');
+//   // elem.addEventListener('click', () => {
 
-      const file = event.target.files[0];
-      contentType = file.type;
+//   //   canvas.toBlob((blob) => {
+//   //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
+//   //     console.log(blob)
+//   //   });
+//   // });
+//   // const saveBlob = (function () {
+//   //   const a = document.createElement('a');
+//   //   document.body.appendChild(a);
+//   //   a.style.display = 'block';
+//   //   return function saveData(blob, fileName) {
+//   //     const url = window.URL.createObjectURL(blob);
+//   //     a.href = url;
+//   //     a.download = fileName;
+//   //     a.click();
+//   //     //  texture = loader.load(require('../assets/trees.jpg'))
+//   //     //  console.log("base   "+dataURL)
 
-      if (contentType === "image/jpeg") {
-        console.log(contentType);
-        b64Data = dataURL.substring(23, dataURL.length);
-      } else if (contentType === "image/png") {
-        console.log(contentType);
-        b64Data = dataURL.substring(22, dataURL.length);
-      }
+//   //   };
+//   // }());
+//   // Now the model has been loaded, we can add it to our instant_tracker_group
 
-
-      var blob = b64toBlob(b64Data, contentType);
-      blobUrl = URL.createObjectURL(blob);
-      dataURL = blobUrl
-      pName = dataURL
-      traversal()
-      // gltf.scene.traverse(function (child) {..
-
-      //   if (child.name === "Cube001_1") {
-      //     console.log("model loaded")
-      //     loader = new THREE.TextureLoader()
-      //     texture = loader.load(dataURL)
-
-      //     child.material.map = texture;
-      //     child.material.map.flipY = false
-      //   }
-      // })
-    }
-    reader.readAsDataURL(event.target.files[0]);
-  }
-
-  //div texture image 
-  var imageElement = document.getElementById('galleryimg')
-  var canvas = document.createElement('canvas');
-  var context = canvas.getContext('2d');
-
-  canvas.width = 350;
-  canvas.height = 350;
-  drawImageScaled(imageElement, context)
-  // context.drawImage(imageElement, 20, 20);
-  dataURL = canvas.toDataURL('image/jpg');
-  console.log(dataURL)
-scene.tapplace="true"
-console.log(scene)
-  scene.add(instantTrackerGroup);
-  // const elem = document.querySelector('#screenshot');
-  // elem.addEventListener('click', () => {
-
-  //   canvas.toBlob((blob) => {
-  //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
-  //     console.log(blob)
-  //   });
-  // });
-  // const saveBlob = (function () {
-  //   const a = document.createElement('a');
-  //   document.body.appendChild(a);
-  //   a.style.display = 'block';
-  //   return function saveData(blob, fileName) {
-  //     const url = window.URL.createObjectURL(blob);
-  //     a.href = url;
-  //     a.download = fileName;
-  //     a.click();
-  //     //  texture = loader.load(require('../assets/trees.jpg'))
-  //     //  console.log("base   "+dataURL)
-
-  //   };
-  // }());
-  // Now the model has been loaded, we can add it to our instant_tracker_group
-
-  gltf.scene.scale.set(0.1, 0.1, 0.1);
-  gltf.scene.position.set(0,-0,0);
+//   gltf.scene.scale.set(0.1, 0.1, 0.1);
+//   gltf.scene.position.set(0,-0,0);
   
-  // gltf.scene.gesturehandler="true"
-  // console.log( gltf.setObject3D('light', new THREE.PointLight()))
+//   // gltf.scene.gesturehandler="true"
+//   // console.log( gltf.setObject3D('light', new THREE.PointLight()))
 
  
  
-  instantTrackerGroup.add(gltf.scene);
-  mixer = new THREE.AnimationMixer(gltf.scene);
-  const clips = gltf.animations;
-  const clip = THREE.AnimationClip.findByName(clips,'Animation');
-  const action= mixer.clipAction(clip);
+//   instantTrackerGroup.add(gltf.scene);
+//   mixer = new THREE.AnimationMixer(gltf.scene);
+//   const clips = gltf.animations;
+//   const clip = THREE.AnimationClip.findByName(clips,'Animation');
+//   const action= mixer.clipAction(clip);
 
- action.play();
+//  action.play();
 
 
 
-}, undefined, () => {
-  console.log('An error ocurred loading the GLTF model');
-});
+// }, undefined, () => {
+//   console.log('An error ocurred loading the GLTF model');
+// });
 // Let's add some lighting, first a directional light above the model pointing down
-const directionalLight = new THREE.DirectionalLight('white', 0.8);
-directionalLight.position.set(0,3.5,7);
-// directionalLight.rotateX(1.4)
-directionalLight.scale.set(3,3,3);
+// const directionalLight = new THREE.DirectionalLight('white', 0.8);
+// directionalLight.position.set(0,3.5,7);
+// // directionalLight.rotateX(1.4)
+// directionalLight.scale.set(3,3,3);
 
-// directionalLight.lookAt(0, 0, 0);
-instantTrackerGroup.add(directionalLight);
+// // directionalLight.lookAt(0, 0, 0);
+// instantTrackerGroup.add(directionalLight);
 // btn1.onclick = () => {
 //   console.log("btn1")
 //   option1="Sweet Troublemakers"
@@ -528,8 +561,8 @@ instantTrackerGroup.add(directionalLight);
 
 
 // And then a little ambient light to brighten the model up a bit
-const ambientLight = new THREE.AmbientLight('white', 0.8);
-instantTrackerGroup.add(ambientLight);
+// const ambientLight = new THREE.AmbientLight('white', 0.8);
+// instantTrackerGroup.add(ambientLight);
 
 // When the experience loads we'll let the user choose a place in their room for
 // the content to appear using setAnchorPoseFromCameraOffset (see below)
@@ -561,6 +594,8 @@ hoverexotic.onclick=()=>{
 
 }
   nextbtn.onclick=()=>{ 
+    permissions.setAttribute("zappar-permissions-ui","")
+    scene.style.zIndex=0
     console.log(uimoduleobj.packtype)
     console.log("next")
     secondscreen.style.display = "none"
@@ -569,14 +604,14 @@ hoverexotic.onclick=()=>{
 
     // Ar scene start 
    
-    hotspot.material.opacity = 1;
-    placeButton.style.display="block"
-    ZapparThree.permissionRequestUI().then((granted) => {
-      // If the user granted us the permissions we need then we can start the camera
-      // Otherwise let's them know that it's necessary with Zappar's permission denied UI
-      if (granted) camera.start();
-      else ZapparThree.permissionDeniedUI();
-    });
+    // hotspot.material.opacity = 1;
+    taptoplace.style.display="block"
+    // ZapparThree.permissionRequestUI().then((granted) => {
+    //   // If the user granted us the permissions we need then we can start the camera
+    //   // Otherwise let's them know that it's necessary with Zappar's permission denied UI
+    //   if (granted) camera.start();
+    //   else ZapparThree.permissionDeniedUI();
+    // });
 }
 
 
@@ -584,14 +619,14 @@ hoverexotic.onclick=()=>{
 // When the experience loads we'll let the user choose a place in their room for
 // the content to appear using setAnchorPoseFromCameraOffset (see below)
 // The user can confirm the location by tapping on the screen
-let hasPlaced = false;
+// let hasPlaced = false;
 
-let placeButton = document.getElementById('tap-to-place') || document.createElement('div');
-placeButton.addEventListener('click', () => {
-  hasPlaced = true;
-  placeButton.remove();
-  hotspot.material.opacity = 0;
-  modelobj.visible="true"
+let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
+taptoplace.addEventListener('click', () => {
+  // hasPlaced = true;
+  taptoplace.remove();
+  // hotspot.material.opacity = 0;
+  // modelobj.visible="true"
 });
 // placeButton.addEventListener('click', () => {
 //   if (hasPlaced) {
@@ -609,36 +644,147 @@ placeButton.addEventListener('click', () => {
 //   hotspot.material.opacity = 0;
 // });
 
-function render() {
-  // update();
-  camera.updateFrame(renderer);
-  if (!hasPlaced) {
-    // If the user hasn't chosen a place in their room yet, update the instant tracker
-    // to be directly in front of the user
-    instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
-  }
-  renderer.render(scene, camera);
-  // const clock = new THREE.Clock();
-  const detla = clock.getDelta();
-  mixer.update(detla)
+// function render() {
+//   // update();
+//   camera.updateFrame(renderer);
+//   if (!hasPlaced) {
+//     // If the user hasn't chosen a place in their room yet, update the instant tracker
+//     // to be directly in front of the user
+//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
+//   }
+//   renderer.render(scene, camera);
+//   // const clock = new THREE.Clock();
+//   const detla = clock.getDelta();
+//   mixer.update(detla)
   
 
-  // The Zappar camera must have updateFrame called every frame
+//   // The Zappar camera must have updateFrame called every frame
 
-  // placeButton.onclick=()=>{
-  //   //Zappar permission ui after tap click
+//   // placeButton.onclick=()=>{
+//   //   //Zappar permission ui after tap click
    
-  // }
-  // Draw the ThreeJS scene in the usual way, but using the Zappar camera
+//   // }
+//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
  
   
-  // Call render() again next frame
-  requestAnimationFrame(render);
-  // controls.update();
-}
+//   // Call render() again next frame
+//   requestAnimationFrame(render);
+//   // controls.update();
+// }
 
-// Start things off
-render();
+// // Start things off
+// render();
 
 
 
+AFRAME.registerComponent("swap-texture", {
+  init() {
+    console.log("init")
+    const uploadbtn=document.getElementById("uploadbtn")
+  uploadbtn.onchange = function () { preview_image(event) };
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      //check size of the file
+      if (uploadbtn.files.length > 0) {
+        const fileSize = uploadbtn.files.item(0).size;
+        const fileMb = fileSize / 1024 ** 2;
+        console.log(fileMb);
+
+        if (fileMb >= 12) {
+          console.log("size is large")
+          // fileResult.innerHTML = "Please select a file less than 2MB.";
+          // fileSubmit.disabled = true;
+        } else {
+          console.log("size is ohk")
+          // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
+          // fileSubmit.disabled = true;
+        }
+      }
+      
+      console.log("image upload clicked")
+
+      output = document.getElementById('galleryimg');
+      output.src = reader.result;
+      console.log(output.src)
+      dataURL = output.src
+      // dataURL=blobUrl
+
+      const file = event.target.files[0];
+      contentType = file.type;
+
+      if (contentType === "image/jpeg") {
+        console.log(contentType);
+        b64Data = dataURL.substring(23, dataURL.length);
+      } else if (contentType === "image/png") {
+        console.log(contentType);
+        b64Data = dataURL.substring(22, dataURL.length);
+      }
+
+
+      var blob = b64toBlob(b64Data, contentType);
+      blobUrl = URL.createObjectURL(blob);
+      dataURL = blobUrl
+      pName = dataURL
+      console.log("sss"+pName)
+      texturechange()
+      // traversal()
+      // gltf.scene.traverse(function (child) {..
+
+      //   if (child.name === "Cube001_1") {
+      //     console.log("model loaded")
+      //     loader = new THREE.TextureLoader()
+      //     texture = loader.load(dataURL)
+
+      //     child.material.map = texture;
+      //     child.material.map.flipY = false
+      //   }
+      // })
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+ const {src} = document.getElementById('galleryimg')
+
+ const loader = new THREE.TextureLoader()
+//   var canvas = document.createElement('canvas');
+// var context = canvas.getContext('2d');
+//   dataURL = canvas.toDataURL('image/jpg');
+const modelname=document.getElementById('modelname')
+// modelname.addEventListener('model-loaded', (e) => {
+ function texturechange(){
+  const modelmesh =modelname.getObject3D('mesh').children[3].children[6]
+ 
+  //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
+  //  .getObjectByName('Picture_Picture_0')
+   console.log(modelname.getObject3D('mesh'))
+   console.log(modelname.getObject3D('mesh').children[3].children[6])
+  //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
+  
+    modelmesh.material.map = loader.load(pName)
+  console.log(pName)
+  // set flipY to false to correclty rotate texture
+  modelmesh.material.map.flipY = false
+ }
+// this.el.addEventListener('click', (event) => {
+  console.log("init")
+
+
+// modelname.setAttribute('visible',false)
+
+
+
+
+// })
+
+modelname.addEventListener('click', function(evt) {
+  console.log('click modsel');
+ 
+});
+// modelname.onclick = () => {
+//   console.log("clicked")
+// }
+
+
+},
+ })

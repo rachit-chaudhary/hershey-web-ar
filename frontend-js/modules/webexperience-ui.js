@@ -1,3 +1,4 @@
+import { Scene } from "three"
 
 export class UImodule  {
     
@@ -27,15 +28,7 @@ export class UImodule  {
       
      
        
-        // const sendgift = document.getElementById("sendgift")
-        sendgift.onclick = () => {
-            firstscreen.style.display = "none"
-            secondscreen.style.display = "block"
-        }
-        sendthankyou.onclick = () => {
-            firstscreen.style.display = "none"
-            secondscreen.style.display = "block"
-        } 
+      
        
     }
 
