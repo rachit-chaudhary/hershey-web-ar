@@ -1,0 +1,42 @@
+<%- include('./includes/header') %>
+
+<section class="get-coupon-section">
+    <div class="coupon-video">
+        <div id="confetti" class="confetti-video">
+            <video class="confetti-video-file" autoplay muted playsinline>
+                <source src="/videos/confetti_VP9.webm" type="video/webm; codecs=vp9">
+                <source src="/videos/confetti.mov" type="video/mp4; codecs=hev1">
+            </video>
+        </div>
+        <video class="get-coupon-video" autoplay muted>
+            <source src="/videos/get_coupon_VP9.webm" type="video/webm; codecs=vp9">
+            <source src="/videos/get_coupon.mov" type="video/mp4; codecs=hevc">
+        </video>
+    </div>
+        
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <form class="get-coupon-form" action="/get-coupon" method="POST">
+                    <div class="tnc-div">
+                        <input class="form-check-input" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            I Accept the Terms & Conditions
+                        </label>
+                    </div>
+                    <button type="submit">Get Coupon</button>
+                </form>
+            </div>
+        </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', e => {
+            var confettiVideo = document.querySelector(".confetti-video-file");
+            var getCouponForm = document.querySelector(".get-coupon-form")
+
+            confettiVideo.addEventListener('ended', e => {
+                confettiVideo.parentElement.style.display = "none";
+                getCouponForm.style.display = "flex"
+            });
+        });
+    </script>
+<%- include('./includes/footer') %>
