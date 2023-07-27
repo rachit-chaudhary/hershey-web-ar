@@ -16,6 +16,8 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
+
+
 function changeKissesPack() {
     var Image_Id = document.getElementById('hoverChange');
     if (Image_Id.src.match("/images/kisses.png")) {
@@ -64,3 +66,4 @@ sendthankyou.onclick=()=>{
     firstscreen.style.display="none"
     secondscreen.style.display="block"
 }
+
