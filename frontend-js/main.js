@@ -8,7 +8,7 @@
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
 import ZAPPPermissionUI from './modules/permission-ui'
-import {UImodule} from './modules/webexperience-ui'
+import { UImodule } from './modules/webexperience-ui'
 
 
 
@@ -21,29 +21,29 @@ new ZAPPPermissionUI()
 
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
-const scene=document.getElementById("scenediv")
-scene.style.zIndex=-1
-secondscreen.style.display="none"
+const scene = document.getElementById("scenediv")
+scene.style.zIndex = -1
+secondscreen.style.display = "none"
 // firstscreen.style.display = "none"
 // scene.style.display="block"
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
-  scene.style.display="block"
-  
+  scene.style.display = "block"
 
-  
- 
+
+
+
   secondscreen.style.display = "block"
 }
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
-  scene.style.display="block"
-  
+  scene.style.display = "block"
 
-  
- 
+
+
+
   secondscreen.style.display = "block"
-} 
+}
 //import '../public/main.css';
 // The SDK is supported on many different browsers, but there are some that
 // don't provide camera access. This function detects if the browser is supported
@@ -117,17 +117,17 @@ let pName
 var dataURL
 var mimeType
 var msg
-let name="Kartik"
+let name = "Kartik"
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
-let option1,option2,option3
+let option1, option2, option3
 let modelobj;
 params = new URLSearchParams(document.location.search.substring(1))
 
 pName = params.get('name') ? params.get('name') : 'friend'
 console.log(pName)
-if(pName==="friend"){
-  pName="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
+if (pName === "friend") {
+  pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
 }
 
 
@@ -257,11 +257,11 @@ linkEl.href = blobUrl;
 document.body.appendChild(linkEl);
 // dataURL=blobUrl
 
-  
-  // console.log(modelmesh)
-  // modelmesh.material.map = loader.load(src)
-  // console.log(dataURL)
-  // modelmesh.material.map.flipY = false
+
+// console.log(modelmesh)
+// modelmesh.material.map = loader.load(src)
+// console.log(dataURL)
+// modelmesh.material.map.flipY = false
 
 // to load the model
 // const gltfLoader = new GLTFLoader(manager);
@@ -297,72 +297,72 @@ document.body.appendChild(linkEl);
 //   //     output.src = reader.result;
 //   //     console.log(output.src)
 //   //      uploadpicture=1
-    
+
 //   //   }
 //   //   reader.readAsDataURL(event.target.files[0]);
 //   // }
 //   //upload button
-  // const uploadbtn=document.getElementById("uploadbtn")
-  // uploadbtn.onchange = function () { preview_image(event) };
-  // function preview_image(event) {
-  //   var reader = new FileReader();
-  //   reader.onload = function () {
-  //     //check size of the file
-  //     if (uploadbtn.files.length > 0) {
-  //       const fileSize = uploadbtn.files.item(0).size;
-  //       const fileMb = fileSize / 1024 ** 2;
-  //       console.log(fileMb);
+// const uploadbtn=document.getElementById("uploadbtn")
+// uploadbtn.onchange = function () { preview_image(event) };
+// function preview_image(event) {
+//   var reader = new FileReader();
+//   reader.onload = function () {
+//     //check size of the file
+//     if (uploadbtn.files.length > 0) {
+//       const fileSize = uploadbtn.files.item(0).size;
+//       const fileMb = fileSize / 1024 ** 2;
+//       console.log(fileMb);
 
-  //       if (fileMb >= 12) {
-  //         console.log("size is large")
-  //         // fileResult.innerHTML = "Please select a file less than 2MB.";
-  //         // fileSubmit.disabled = true;
-  //       } else {
-  //         console.log("size is ohk")
-  //         // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-  //         // fileSubmit.disabled = true;
-  //       }
-  //     }
-      
-  //     console.log("image upload clicked")
+//       if (fileMb >= 12) {
+//         console.log("size is large")
+//         // fileResult.innerHTML = "Please select a file less than 2MB.";
+//         // fileSubmit.disabled = true;
+//       } else {
+//         console.log("size is ohk")
+//         // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
+//         // fileSubmit.disabled = true;
+//       }
+//     }
 
-  //     output = document.getElementById('galleryimg');
-  //     output.src = reader.result;
-  //     console.log(output.src)
-  //     dataURL = output.src
-  //     // dataURL=blobUrl
+//     console.log("image upload clicked")
 
-  //     const file = event.target.files[0];
-  //     contentType = file.type;
+//     output = document.getElementById('galleryimg');
+//     output.src = reader.result;
+//     console.log(output.src)
+//     dataURL = output.src
+//     // dataURL=blobUrl
 
-  //     if (contentType === "image/jpeg") {
-  //       console.log(contentType);
-  //       b64Data = dataURL.substring(23, dataURL.length);
-  //     } else if (contentType === "image/png") {
-  //       console.log(contentType);
-  //       b64Data = dataURL.substring(22, dataURL.length);
-  //     }
+//     const file = event.target.files[0];
+//     contentType = file.type;
+
+//     if (contentType === "image/jpeg") {
+//       console.log(contentType);
+//       b64Data = dataURL.substring(23, dataURL.length);
+//     } else if (contentType === "image/png") {
+//       console.log(contentType);
+//       b64Data = dataURL.substring(22, dataURL.length);
+//     }
 
 
-  //     var blob = b64toBlob(b64Data, contentType);
-  //     blobUrl = URL.createObjectURL(blob);
-  //     dataURL = blobUrl
-  //     pName = dataURL
-  //     // traversal()
-  //     // gltf.scene.traverse(function (child) {..
+//     var blob = b64toBlob(b64Data, contentType);
+//     blobUrl = URL.createObjectURL(blob);
+//     dataURL = blobUrl
+//     pName = dataURL
+//     // traversal()
+//     // gltf.scene.traverse(function (child) {..
 
-  //     //   if (child.name === "Cube001_1") {
-  //     //     console.log("model loaded")
-  //     //     loader = new THREE.TextureLoader()
-  //     //     texture = loader.load(dataURL)
+//     //   if (child.name === "Cube001_1") {
+//     //     console.log("model loaded")
+//     //     loader = new THREE.TextureLoader()
+//     //     texture = loader.load(dataURL)
 
-  //     //     child.material.map = texture;
-  //     //     child.material.map.flipY = false
-  //     //   }
-  //     // })
-  //   }
-  //   reader.readAsDataURL(event.target.files[0]);
-  // }
+//     //     child.material.map = texture;
+//     //     child.material.map.flipY = false
+//     //   }
+//     // })
+//   }
+//   reader.readAsDataURL(event.target.files[0]);
+// }
 
 //   //div texture image 
 //   var imageElement = document.getElementById('galleryimg')
@@ -404,12 +404,12 @@ document.body.appendChild(linkEl);
 
 //   gltf.scene.scale.set(0.1, 0.1, 0.1);
 //   gltf.scene.position.set(0,-0,0);
-  
+
 //   // gltf.scene.gesturehandler="true"
 //   // console.log( gltf.setObject3D('light', new THREE.PointLight()))
 
- 
- 
+
+
 //   instantTrackerGroup.add(gltf.scene);
 //   mixer = new THREE.AnimationMixer(gltf.scene);
 //   const clips = gltf.animations;
@@ -501,7 +501,7 @@ document.body.appendChild(linkEl);
 //   // } else if (option3 === "button3") {
 //   //   console.log("option3 button3")
 //   // }
-  
+
 // }
 
 // //zapparsharing feature
@@ -572,44 +572,100 @@ document.body.appendChild(linkEl);
 
 
 
-  //upload button
- 
-  hoverChange.onclick=()=>{
-    console.log("clickedkisses")
-    // uimoduleobj.untapK``isses()
-    uimoduleobj.changeKissesPack()
-   
-  
+//upload button
+
+hoverChange.onclick = () => {
+  console.log("clickedkisses")
+  // uimoduleobj.untapK``isses()
+  uimoduleobj.changeKissesPack()
+
+
 }
-hoverhershey.onclick=()=>{
+hoverhershey.onclick = () => {
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
 
 }
-hoverexotic.onclick=()=>{
+hoverexotic.onclick = () => {
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
 
 }
-  nextbtn.onclick=()=>{ 
-    secondscreen.style.display = "none"
-    thirdscreen.style.display="block"
+nextbtn.onclick = () => {
+  secondscreen.style.display = "none"
+  thirdscreen.style.display = "block"
 
 
- 
+
 }
-nextQuestionid.onclick=()=>{ 
-  thirdscreen.style.display="none"
+nextQuestionid.onclick = () => {
+  thirdscreen.style.display = "none"
+  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  console.log(msg)
+  
   // Ar scene 
-    permissions.setAttribute("zappar-permissions-ui","")
-    scene.style.zIndex=0
-    console.log(uimoduleobj.packtype)
-    console.log("next")
-    taptoplace.style.display="block"
+  permissions.setAttribute("zappar-permissions-ui", "")
+  scene.style.zIndex = 0
+  console.log(uimoduleobj.packtype)
+  console.log("next")
+  taptoplace.style.display = "block"
 }
 
+
+// ---------------cards---------------
+// Option 1
+const option1div1 = document.getElementById('div-1')
+const option1div2 = document.getElementById('div-2')
+const option1div3 = document.getElementById('div-3')
+option1div1.onclick = () => {
+  console.log("option1 div 1")
+  option1 = "Sweet Troublemakers"
+}
+option1div2.onclick = () => {
+  option1 = "Partners in crime"
+}
+option1div3.onclick = () => {
+  option1 = "Top Secret keepers"
+}
+
+// Option2
+const option2div1 = document.getElementById('custom-div-1')
+const option2div2 = document.getElementById('custom-div-2')
+const option2div3 = document.getElementById('custom-div-3')
+option2div1.onclick = () => {
+  console.log("option3 div 1")
+  option2 = "Caring nature"
+
+}
+option2div2.onclick = () => {
+  console.log("option3 div 2")
+  option2 = "Delightfully annoying nature"
+}
+option2div3.onclick = () => {
+  console.log("option3 div 3")
+  option2 = "Giving mature advices"
+}
+// Option3
+const option3div1 = document.getElementById('custom-option-1')
+const option3div2 = document.getElementById('custom-option-1')
+const option3div3 = document.getElementById('custom-option-1')
+option3div1.onclick = () => {
+  console.log("option3 div 1")
+
+  option3 = "Crazy"
+
+}
+option3div2.onclick = () => {
+  console.log("option3 div 2")
+  option3 = "Realistic"
+
+}
+option3div3.onclick = () => {
+  console.log("option3 div 3")
+  option3 = "Determined"
+}
 
 
 // When the experience loads we'll let the user choose a place in their room for
@@ -619,7 +675,8 @@ nextQuestionid.onclick=()=>{
 
 let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
 taptoplace.addEventListener('click', () => {
-
+  const instantTracker = document.getElementById("instant-tracker");
+  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
   taptoplace.remove();
 });
 // placeButton.addEventListener('click', () => {
@@ -650,17 +707,17 @@ taptoplace.addEventListener('click', () => {
 //   // const clock = new THREE.Clock();
 //   const detla = clock.getDelta();
 //   mixer.update(detla)
-  
+
 
 //   // The Zappar camera must have updateFrame called every frame
 
 //   // placeButton.onclick=()=>{
 //   //   //Zappar permission ui after tap click
-   
+
 //   // }
 //   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
- 
-  
+
+
 //   // Call render() again next frame
 //   requestAnimationFrame(render);
 //   // controls.update();
@@ -674,111 +731,111 @@ taptoplace.addEventListener('click', () => {
 AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
-    const uploadbtn=document.getElementById("uploadbtn")
-  uploadbtn.onchange = function () { preview_image(event) };
-  function preview_image(event) {
-    var reader = new FileReader();
-    reader.onload = function () {
-      //check size of the file
-      if (uploadbtn.files.length > 0) {
-        const fileSize = uploadbtn.files.item(0).size;
-        const fileMb = fileSize / 1024 ** 2;
-        console.log(fileMb);
+    const uploadbtn = document.getElementById("uploadbtn")
+    uploadbtn.onchange = function () { preview_image(event) };
+    function preview_image(event) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        //check size of the file
+        if (uploadbtn.files.length > 0) {
+          const fileSize = uploadbtn.files.item(0).size;
+          const fileMb = fileSize / 1024 ** 2;
+          console.log(fileMb);
 
-        if (fileMb >= 12) {
-          console.log("size is large")
-          // fileResult.innerHTML = "Please select a file less than 2MB.";
-          // fileSubmit.disabled = true;
-        } else {
-          console.log("size is ohk")
-          // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-          // fileSubmit.disabled = true;
+          if (fileMb >= 12) {
+            console.log("size is large")
+            // fileResult.innerHTML = "Please select a file less than 2MB.";
+            // fileSubmit.disabled = true;
+          } else {
+            console.log("size is ohk")
+            // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
+            // fileSubmit.disabled = true;
+          }
         }
+
+        console.log("image upload clicked")
+
+        output = document.getElementById('galleryimg');
+        output.src = reader.result;
+        console.log(output.src)
+        dataURL = output.src
+        // dataURL=blobUrl
+
+        const file = event.target.files[0];
+        contentType = file.type;
+
+        if (contentType === "image/jpeg") {
+          console.log(contentType);
+          b64Data = dataURL.substring(23, dataURL.length);
+        } else if (contentType === "image/png") {
+          console.log(contentType);
+          b64Data = dataURL.substring(22, dataURL.length);
+        }
+
+
+        var blob = b64toBlob(b64Data, contentType);
+        blobUrl = URL.createObjectURL(blob);
+        dataURL = blobUrl
+        pName = dataURL
+        console.log("sss" + pName)
+        texturechange()
+        // traversal()
+        // gltf.scene.traverse(function (child) {..
+
+        //   if (child.name === "Cube001_1") {
+        //     console.log("model loaded")
+        //     loader = new THREE.TextureLoader()
+        //     texture = loader.load(dataURL)
+
+        //     child.material.map = texture;
+        //     child.material.map.flipY = false
+        //   }
+        // })
       }
-      
-      console.log("image upload clicked")
-
-      output = document.getElementById('galleryimg');
-      output.src = reader.result;
-      console.log(output.src)
-      dataURL = output.src
-      // dataURL=blobUrl
-
-      const file = event.target.files[0];
-      contentType = file.type;
-
-      if (contentType === "image/jpeg") {
-        console.log(contentType);
-        b64Data = dataURL.substring(23, dataURL.length);
-      } else if (contentType === "image/png") {
-        console.log(contentType);
-        b64Data = dataURL.substring(22, dataURL.length);
-      }
-
-
-      var blob = b64toBlob(b64Data, contentType);
-      blobUrl = URL.createObjectURL(blob);
-      dataURL = blobUrl
-      pName = dataURL
-      console.log("sss"+pName)
-      texturechange()
-      // traversal()
-      // gltf.scene.traverse(function (child) {..
-
-      //   if (child.name === "Cube001_1") {
-      //     console.log("model loaded")
-      //     loader = new THREE.TextureLoader()
-      //     texture = loader.load(dataURL)
-
-      //     child.material.map = texture;
-      //     child.material.map.flipY = false
-      //   }
-      // })
+      reader.readAsDataURL(event.target.files[0]);
     }
-    reader.readAsDataURL(event.target.files[0]);
-  }
 
- const {src} = document.getElementById('galleryimg')
+    const { src } = document.getElementById('galleryimg')
 
- const loader = new THREE.TextureLoader()
-//   var canvas = document.createElement('canvas');
-// var context = canvas.getContext('2d');
-//   dataURL = canvas.toDataURL('image/jpg');
-const modelname=document.getElementById('modelname')
-// modelname.addEventListener('model-loaded', (e) => {
- function texturechange(){
-  const modelmesh =modelname.getObject3D('mesh').children[3].children[6]
- 
-  //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
-  //  .getObjectByName('Picture_Picture_0')
-   console.log(modelname.getObject3D('mesh'))
-   console.log(modelname.getObject3D('mesh').children[3].children[6])
-  //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
-  
-    modelmesh.material.map = loader.load(pName)
-  console.log(pName)
-  // set flipY to false to correclty rotate texture
-  modelmesh.material.map.flipY = false
- }
-// this.el.addEventListener('click', (event) => {
-  console.log("init")
+    const loader = new THREE.TextureLoader()
+    //   var canvas = document.createElement('canvas');
+    // var context = canvas.getContext('2d');
+    //   dataURL = canvas.toDataURL('image/jpg');
+    const modelname = document.getElementById('modelname')
+    // modelname.addEventListener('model-loaded', (e) => {
+    function texturechange() {
+      const modelmesh = modelname.getObject3D('mesh').children[3].children[6]
+
+      //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
+      //  .getObjectByName('Picture_Picture_0')
+      console.log(modelname.getObject3D('mesh'))
+      console.log(modelname.getObject3D('mesh').children[3].children[6])
+      //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
+
+      modelmesh.material.map = loader.load(pName)
+      console.log(pName)
+      // set flipY to false to correclty rotate texture
+      modelmesh.material.map.flipY = false
+    }
+    // this.el.addEventListener('click', (event) => {
+    console.log("init")
 
 
-// modelname.setAttribute('visible',false)
+    // modelname.setAttribute('visible',false)
 
 
 
 
-// })
+    // })
 
-modelname.addEventListener('click', function(evt) {
-  console.log('click modsel');
- 
-});
-// modelname.onclick = () => {
-//   console.log("clicked")
-// }
+    modelname.addEventListener('click', function (evt) {
+      console.log('click modsel');
+
+    });
+    // modelname.onclick = () => {
+    //   console.log("clicked")
+    // }
 
 
-},
- })
+  },
+})
