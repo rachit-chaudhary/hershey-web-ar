@@ -250,7 +250,8 @@ button { pointer-events:initial; }
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
-  height: auto;
+  overflow: scroll;
+  height: 100vh;
 }
 .nextquecl{
   bottom: 1px;
@@ -261,16 +262,17 @@ button { pointer-events:initial; }
 .nextQuestion{
   border-radius: 93px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-    width: 196px;
-  height: 57px;
-  margin-top: 43px;
+  width: 214px;
+  height: 62px;
+  /* margin-top: 43px; */
   font-size: 24px;
   color: #37140B;
   text-align: center;
-  font-family:"snavely";
+  font-family: "snavely";
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin: 9px;
 }
 .qns-3{
     margin-top: -7px !important;
@@ -296,12 +298,15 @@ button { pointer-events:initial; }
   font-family: "Walsheim";
     position: relative;
   height: 171px;
-  margin-top: 6px !important;
+  margin-top: -53px !important;
+    /* margin-top: 6px !important; */
   z-index: 1;
 
 }
+.image1{
+  padding-bottom: 7px;
+}
 .hersheyBackgroundImage{
-  position: absolute;
     margin-top: -46px;
 }
 .sunrise{
@@ -679,7 +684,7 @@ button2 span:first-of-type, button2 span:last-of-type {
 }
 
 .custom-option-btn {
-  font-size: 18px;
+  font-size: 11px;
   /* margin-left: 13px;
   margin-top: 9px !important; */
 }
