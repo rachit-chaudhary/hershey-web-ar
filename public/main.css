@@ -18,7 +18,7 @@ body {
     height: 100%; */
     background-color: grey;
     font-family: "Walsheim";
-    overflow-y: scroll;
+    overflow-y: scroll ;
     
 }
 h1 {
@@ -57,9 +57,7 @@ canvas {
 button { pointer-events:initial; }
 
 
-*{
-  overflow: hidden;
-}
+
 .hersheylogo{
   width: 120px;
 }
@@ -132,7 +130,7 @@ button { pointer-events:initial; }
 .surprise-heading{
   font-family: "Walsheim";
   color: white;
-  margin-bottom: 0rem;
+  padding-top: 16px;
 }
 .username-section{
   margin-top: 21px;
@@ -154,6 +152,9 @@ button { pointer-events:initial; }
   margin-top: 6px;
  
 }
+.owl-next{
+  display: none !important;
+}
 .owl-dot{
   display: none !important;
 }
@@ -173,22 +174,24 @@ button { pointer-events:initial; }
 
 }
 .title-ns{
-    margin-top: 23px;
-    margin-left: 16px;
-    color: white;
-    font-family: GT Walsheim;
+  padding-top: 20px;
+  /* margin-top: 23px; */
+  margin-left: 22px;
+  color: white;
+  font-family: "Walsheim";
 }
 .userName{
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.80);
-  font-family: GT Walsheim;
-  font-size: 27px;
+  font-family: "Walsheim";
+  font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-top: 10px;
+  /* margin-top: 5px; */
   width: 90%;
+  margin-left: -9px;
 }
 .photo-frame{
   height: 70px;
@@ -220,7 +223,7 @@ button { pointer-events:initial; }
 }
 .next-button{
   position: absolute;
-    bottom: 46px;
+  bottom: 28px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
