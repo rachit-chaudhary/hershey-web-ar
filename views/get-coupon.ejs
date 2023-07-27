@@ -25,9 +25,11 @@
 <script>
     document.addEventListener('DOMContentLoaded', e => {
             var confettiVideo = document.querySelector(".confetti-video-file");
+            var getCouponForm = document.querySelector(".get-coupon-form")
 
             confettiVideo.addEventListener('ended', e => {
                 confettiVideo.parentElement.style.display = "none";
+                getCouponForm.style.display = "flex"
             });
         });
     </script>
