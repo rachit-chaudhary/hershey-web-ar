@@ -12,18 +12,14 @@
 
 html,
 body {
-    /* margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%; */
-    background-color: grey;
+    /* background-color: grey; */
     font-family: "Walsheim";
     overflow-y: scroll;
     
 }
 h1 {
-    display: none;
-    position: absolute;
+    /* display: none;
+    position: absolute; */
     z-index: 2;
     font-size: 10rem;
     color: yellow;
@@ -691,4 +687,9 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 .custom-option-btn {
   margin-top: 22px !important;
+}
+
+/* --------------landing page */
+.hershey-title{
+  padding-top: 68px;
 }
