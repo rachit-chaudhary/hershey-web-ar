@@ -2,6 +2,9 @@
 
 <section class="get-coupon-section">
     <div class="coupon-video">
+        <h2 class="browser-is" id="browserIs">
+            browser is 
+        </h2>
         <div id="confetti" class="confetti-video">
             <video class="confetti-video-file" autoplay muted playsinline>
                 <source src="/videos/confetti_VP9.webm" type="video/webm; codecs=vp9">
@@ -29,6 +32,21 @@
         </div>
 </section>
 <script>
+
+    //check if browser ischrome or isios
+    // check if browser is chrome or ios
+    var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.csi)
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {return p.toString() === "[objectSafariRemoteNotification]";})(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+    
+    if(isChrome) {
+        document.getElementById("browserIs").innerHTML = "chrome"
+    } else if(isSafari) {
+        document.getElementById("browserIs").innerHTML = "safari"
+    } else {
+        document.getElementById("browserIs").innerHTML = "other"
+    }
+
+    // hide confetti video after playing and show get coupon button
     document.addEventListener('DOMContentLoaded', e => {
             var confettiVideo = document.querySelector(".confetti-video-file");
             var getCouponForm = document.querySelector(".get-coupon-form")
