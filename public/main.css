@@ -790,7 +790,7 @@ body {
 }
 .get-coupon-form .tnc-div {
   margin: 17px 0px;
-  text-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: "Walsheim";
   font-size: 14px;
   font-style: normal;
@@ -800,6 +800,14 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.form-check-input-ns {
+  width: 20px;
+  height: 20px;
+}
+.form-check-label-ns {
+  font-size: 20px;
+  margin-left: 20px;
 }
 .get-coupon-form button {
   position: relative;
@@ -825,6 +833,7 @@ body {
   line-height: 21px;
 }
 .get-coupon-form p {
+  margin: 10px 0px;
   font-family: "Walsheim";
   font-size: 14px;
   font-style: normal;
