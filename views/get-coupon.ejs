@@ -34,12 +34,14 @@
 <script>
     // check if browser is chrome or ios
     var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.csi)
-    
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
-        
+
+    let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+            !window.MSStream
+
     if (isChrome) {
             document.getElementById("browserIs").innerHTML = "chrome"
-        } else if (isSafari) {
+        } else if (isIOS) {
             document.getElementById("browserIs").innerHTML = "safari"
         } else {
             document.getElementById("browserIs").innerHTML = "other"
