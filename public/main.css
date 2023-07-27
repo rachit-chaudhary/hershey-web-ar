@@ -219,7 +219,7 @@ button { pointer-events:initial; }
 }
 .next-button{
   position: absolute;
-  bottom: 28px;
+  bottom: 39px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
@@ -268,10 +268,10 @@ button { pointer-events:initial; }
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 9px;
+  margin-bottom: 38px;
 }
 .qns-3{
-    margin-top: -7px !important;
+    margin-top: -72px !important;
     border: 7px solid hsl(44, 79%, 67%);
     border-radius: 15px;
     background: #E8B377;
@@ -322,7 +322,6 @@ button { pointer-events:initial; }
   margin-right: 6px;
 }
 .hersheyBackgroundImageSection-3{
-  position: absolute;
   margin-top: -57px;
 }
 .hersheyBackgroundImageSection-4{
