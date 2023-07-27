@@ -249,6 +249,9 @@ button { pointer-events:initial; }
   overflow: scroll;
   height: 100vh;
 }
+.window-kisses .rakhi-kiss-image {
+  width: 170px;
+}
 .nextquecl{
   bottom: 1px;
     position: absolute;
@@ -700,11 +703,44 @@ button2 span:first-of-type, button2 span:last-of-type {
   padding-top: 68px;
 }
 
-/* get coupon */
-.get-coupon-section {
+/* get coupon page */
+body {
   background: linear-gradient(90deg, #2d100c 0%, #61311a 100%);
-  color: #fff;
+}
+.relative-div-content {
   height: 100vh;
+}
+.bg-images {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
+}
+.bg-images img {
+  width: 100%;
+}
+.top-elements .hanging-circle {
+  width: 85%;
+  padding-left: 10px;
+}
+.top-elements .rakhi-kiss-ns {
+  padding-right: 10px;
+}
+.middle-elements {
+  top: 22%;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+.low-elements {
+  bottom: 10%;
+  height: 27vh;
+}
+.get-coupon-section {
+  /* background: linear-gradient(90deg, #2d100c 0%, #61311a 100%); */
+  color: #fff;
+  /* height: 100%; */
 }
 .confetti-video {
   position: absolute;
@@ -715,6 +751,10 @@ button2 span:first-of-type, button2 span:last-of-type {
   object-fit: contain;
   width: 100vw;
 }
+/* .get-coupon-video {
+  position: absolute;
+  z-index: 2;
+} */
 .get-coupon-video,
 .confetti-video {
   object-fit: contain;
@@ -724,8 +764,8 @@ button2 span:first-of-type, button2 span:last-of-type {
   padding: 25px 0px;
 }
 .get-coupon-form {
-  position: absolute;
-  bottom: -100px;
+  /* position: absolute;
+  bottom: -100px; */
   -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
     animation: slide 0.5s forwards;
@@ -751,6 +791,56 @@ button2 span:first-of-type, button2 span:last-of-type {
 .get-coupon-form .tnc-div {
   margin: 17px 0px;
   text-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Walsheim";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.get-coupon-form button {
+  position: relative;
+  background-image: url("/images/get-coupon-btn.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 179px;
+  height: 78px;
+  color: #5f3019;
+  font-family: 'Walsheim';
+}
+.get-coupon-form button .coupon-btn-text {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  background: unset;
+  transition: unset;
+  border-radius: unset;
+  width: 80px;
+  right: 20px;
+  line-height: 21px;
+}
+.get-coupon-form p {
+  font-family: "Walsheim";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.post-script-text {
+  padding: 5px 10px;
+  display: none;
+}
+.post-script-text p{
+  margin: 0px;
   font-family: "Walsheim";
   font-size: 14px;
   font-style: normal;

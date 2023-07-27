@@ -1,35 +1,63 @@
 <%- include('./includes/header') %>
 
 <section class="get-coupon-section">
-    <div class="coupon-video">
-        <h2 class="browser-is" id="browserIs">
-            browser is 
-        </h2>
-        <div id="confetti" class="confetti-video">
-            <video class="confetti-video-file" autoplay muted playsinline>
-                <source src="/videos/confetti_VP9.webm" type="video/webm; codecs=vp9">
-                <source src="/videos/confetti.mov" type="video/mp4; codecs=hev1">
+    <div class="relative-div-content">
+        <div class="bg-images top-elements">
+            <div class="col-3">
+                <img class="hanging-circle" src="/images/hanging-circle-shapes.png" alt="">
+            </div>
+            <div class="col-6"></div>
+            <div class="col-3"><img class="rakhi-kiss-ns" src="/images/rakhi-kiss.png" alt=""></div>
+        </div>
+        <div class="coupon-video">
+            <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs">
+                browser is
+            </h2>
+            <div id="confetti" class="confetti-video">
+                <video class="confetti-video-file" autoplay muted playsinline>
+                    <!-- <source src="/videos/confetti_VP9.webm" type="video/webm; codecs=vp9">
+                    <source src="/videos/confetti.mov" type="video/mp4; codecs=hev1"> -->
+                </video>
+            </div>
+            <video class="get-coupon-video" autoplay muted>
+                <!-- <source src="/videos/get_coupon_VP9.webm" type="video/webm; codecs=vp9">
+                <source src="/videos/get_coupon.mov" type="video/mp4; codecs=hev1"> -->
             </video>
         </div>
-        <video class="get-coupon-video" autoplay muted>
-            <source src="/videos/get_coupon_VP9.webm" type="video/webm; codecs=vp9">
-            <source src="/videos/get_coupon.mov" type="video/mp4; codecs=hevc">
-        </video>
-    </div>
-        
+        <div class="bg-images middle-elements">
+            <div class="col-8"></div>
+            <div class="col-4">
+                <img class="flower-combo-2" src="/images/flower-combo-2.png" alt="">
+            </div>
+        </div>
+        <div class="bg-images low-elements">
+            <div class="col-4">
+                <img src="images/flower-combo.png" alt="">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-6">
+                <img src="images/rakhi.png" alt="">
+            </div>
+        </div>
+    
         <div class="container">
             <div class="d-flex justify-content-center">
                 <form class="get-coupon-form" action="/get-coupon" method="POST">
                     <div class="tnc-div">
                         <input class="form-check-input" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
-                            I Accept the Terms & Conditions
+                            I Accept T&C
                         </label>
                     </div>
-                    <button type="submit">Get Coupon</button>
+                    <button type="submit"><span class="coupon-btn-text">Tap to Get Voucher</span></button>
+                    <p>Use code on the BMS app to avail offer</p>
                 </form>
             </div>
         </div>
+        <div class="post-script-text">
+            <p>P.S - Don't forget to take a screenshot for redemption later</p>
+        </div>
+    </div>
 </section>
 <script>
     // check if browser is chrome or ios
@@ -38,23 +66,38 @@
     let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
             !window.MSStream
+    
+    let confettiVideo = document.querySelector(".confetti-video-file")
+    let couponVideo = document.querySelector(".get-coupon-video")
 
     if (isChrome) {
             document.getElementById("browserIs").innerHTML = "chrome"
+            confettiVideo.src = "/videos/confetti_VP9.webm"
+            confettiVideo.type = "video/webm; codecs=vp9"
+            couponVideo.src = "/videos/get_coupon_VP9.webm"
+            couponVideo.type = "video/webm; codecs=vp9"
         } else if (isIOS) {
             document.getElementById("browserIs").innerHTML = "safari"
+            confettiVideo.src = "/videos/confetti.mov"
+            confettiVideo.type = "video/mp4; codecs=hev1"
+            couponVideo.src = "/videos/get_coupon.mov"
+            couponVideo.type = "video/mp4; codecs=hev1"
         } else {
-            document.getElementById("browserIs").innerHTML = "other"
+            document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
         }
 
     // hide confetti video after playing and show get coupon button
     document.addEventListener('DOMContentLoaded', e => {
             var confettiVideo = document.querySelector(".confetti-video-file");
             var getCouponForm = document.querySelector(".get-coupon-form")
+            var relativeDivContent = document.querySelector(".relative-div-content")
+            var postScripText = document.querySelector(".post-script-text")
 
             confettiVideo.addEventListener('ended', e => {
-                confettiVideo.parentElement.style.display = "none";
+                confettiVideo.parentElement.style.display = "none"
+                relativeDivContent.style.height = "unset"
                 getCouponForm.style.display = "flex"
+                postScripText.style.display = "block"
             });
         });
     </script>
