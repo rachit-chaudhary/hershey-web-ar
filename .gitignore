@@ -4,4 +4,4 @@ node_modules/
 dist/
 .parcel-cache/
 .env
-public/bundled/
+public/main-bundled.js/
