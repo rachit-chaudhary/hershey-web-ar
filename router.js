@@ -3,6 +3,10 @@ const router = express.Router()
 
 //public routes
 router.get('/', (req, res) => {
+    res.render('get-coupon')
+})
+
+router.get('/questions', (req, res) => {
     res.render('index')
 })
 
