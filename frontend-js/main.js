@@ -18,7 +18,6 @@ import {UImodule} from './modules/webexperience-ui'
 const uimoduleobj = new UImodule();
 new ZAPPPermissionUI()
 
-
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene=document.getElementById("scenediv")
