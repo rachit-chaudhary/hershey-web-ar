@@ -118,6 +118,7 @@ var dataURL
 var mimeType
 var msg
 let name 
+let i=1
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -679,6 +680,18 @@ taptoplace.addEventListener('click', () => {
   const instantTracker = document.getElementById("instant-tracker");
   instantTracker.setAttribute("zappar-instant", "placement-mode: false");
   taptoplace.remove();
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      modelname.setAttribute('animation-mixer', {timeScale: 0});
+    }, 13000);
+  }, 1000);
+
 });
 // placeButton.addEventListener('click', () => {
 //   if (hasPlaced) {
@@ -802,7 +815,11 @@ AFRAME.registerComponent("swap-texture", {
     //   var canvas = document.createElement('canvas');
     // var context = canvas.getContext('2d');
     //   dataURL = canvas.toDataURL('image/jpg');
+ 
     const modelname = document.getElementById('modelname')
+    const notebox = document.getElementById('notebox')
+
+
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       const modelmesh = modelname.getObject3D('mesh').children[3].children[6]
@@ -812,7 +829,8 @@ AFRAME.registerComponent("swap-texture", {
       console.log(modelname.getObject3D('mesh'))
       console.log(modelname.getObject3D('mesh').children[3].children[6])
       //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
-
+     
+      
       modelmesh.material.map = loader.load(pName)
       console.log(pName)
       // set flipY to false to correclty rotate texture
@@ -829,9 +847,8 @@ AFRAME.registerComponent("swap-texture", {
 
     // })
 
-    modelname.addEventListener('click', function (evt) {
-      console.log('click modsel');
-
+    notebox.addEventListener('click', function (evt) {  
+        modelname.setAttribute('animation-mixer', {timeScale: 1});
     });
     // modelname.onclick = () => {
     //   console.log("clicked")
