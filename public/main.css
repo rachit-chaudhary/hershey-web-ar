@@ -12,18 +12,14 @@
 
 html,
 body {
-    /* margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%; */
-    background-color: grey;
+    /* background-color: grey; */
     font-family: "Walsheim";
     overflow-y: scroll;
     
 }
 h1 {
-    display: none;
-    position: absolute;
+    /* display: none;
+    position: absolute; */
     z-index: 2;
     font-size: 10rem;
     color: yellow;
@@ -609,11 +605,11 @@ button2 span:first-of-type, button2 span:last-of-type {
   margin-top: 9px !important;
 }
 
-.expansion-btn {
-    /* font-size: 14px;
+/* .expansion-btn {
+    font-size: 14px;
     margin-left: 13px;
-    margin-top: 9px !important; */
-}
+    margin-top: 9px !important;
+} */
 /* ---------------------------------------------- */
 .custom-card-container {
   justify-content: center;
@@ -691,4 +687,70 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 .custom-option-btn {
   margin-top: 22px !important;
+}
+
+/* --------------landing page */
+.hershey-title{
+  padding-top: 68px;
+}
+
+/* get coupon */
+.get-coupon-section {
+  background: linear-gradient(90deg, #2d100c 0%, #61311a 100%);
+  color: #fff;
+  height: 100vh;
+}
+.confetti-video {
+  position: absolute;
+  top: 0px;
+  height: 100vh;
+}
+.confetti-video .confetti-video-file {
+  object-fit: contain;
+  width: 100vw;
+}
+.get-coupon-video,
+.confetti-video {
+  object-fit: contain;
+  width: 100vw;
+}
+.coupon-video {
+  padding: 25px 0px;
+}
+.get-coupon-form {
+  position: absolute;
+  bottom: -100px;
+  -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: .2s;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+@-webkit-keyframes slide {
+  100% { bottom: 30px; }
+}
+
+@keyframes slide {
+  100% { bottom: 30px; }
+}
+.get-coupon-form button {
+  width: 100px;
+  background: forestgreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.get-coupon-form .tnc-div {
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Walsheim";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
