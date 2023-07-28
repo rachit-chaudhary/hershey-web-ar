@@ -1,0 +1,64 @@
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+    <script>
+        $("p.expansion-btn").click(function () {
+          classes = this.className;
+          var divNumber = classes.slice(-1);
+          var toGetId = "#div-" + divNumber;
+          if ($(toGetId).hasClass("expanded-div")) {
+            $(".normal-div").removeClass("compressed-div expanded-div");
+          }
+          else {
+            $(".normal-div").removeClass("compressed-div expanded-div").addClass("compressed-div");;
+            $(toGetId).removeClass("compressed-div").addClass("expanded-div");
+          }
+        });
+    
+     
+    
+    
+        // -------------------------------card
+        $("p.custom-expansion-btn").click(function () {
+      classes = this.className;
+      var divNumber = classes.slice(-1);
+      var toGetId = "#custom-div-" + divNumber;
+    
+     
+    
+      if ($(toGetId).hasClass("custom-expanded-div")) {
+        $(".custom-div").removeClass("custom-compressed-div custom-expanded-div");
+      } else {
+        $(".custom-div").removeClass("custom-compressed-div custom-expanded-div").addClass("custom-compressed-div");
+        $(toGetId).removeClass("custom-compressed-div").addClass("custom-expanded-div");
+      }
+    });
+    // -----------------------------------------------
+    $(document).ready(function() {
+    $("p.custom-option-btn").click(function() {
+      var classes = this.className;
+      var divNumber = classes.slice(-1);
+      var toGetId = "#custom-option-" + divNumber;
+      if ($(toGetId).hasClass("custom-expanded-option")) {
+        $(".custom-option").removeClass("custom-compressed-option custom-expanded-option");
+      } else {
+        $(".custom-option").removeClass("custom-compressed-option custom-expanded-option").addClass("custom-compressed-option");
+        $(toGetId).removeClass("custom-compressed-option").addClass("custom-expanded-option");
+      }
+    });
+    });
+    
+     
+    
+      </script>
+<script src="main-bundled.js"></script>
+
+</html>
