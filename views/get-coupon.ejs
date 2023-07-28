@@ -49,7 +49,13 @@
                             I Accept T&C
                         </label>
                     </div>
-                    <button type="submit"><span class="coupon-btn-text">Tap to Get Voucher</span></button>
+                    <!-- -->
+                    <button type="submit"><span class="coupon-btn-text">
+                        Tap to Get Voucher
+                    </span></button>
+                    <% if (couponMessage) { %>
+                        <p><%= couponMessage %></p>
+                      <% } %>
                     <p>Use code on the BMS app to avail offer</p>
                     <div class="post-script-text">
                         <p>P.S - Take a screenshot to redeem later</p>
