@@ -42,7 +42,7 @@
     
         <div class="container">
             <div class="voucher-parent">
-                <form class="voucher-div hide-content" action="/get-coupon" method="POST">
+                <div class="voucher-div hide-content" >
                     <div class="tnc-div">
                         <input class="form-check-input-ns" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label-ns" for="flexCheckDefault">
@@ -50,17 +50,16 @@
                         </label>
                     </div>
                     <!-- -->
-                    <button type="submit"><span class="coupon-btn-text">
+                    <button id ="welcomeBtn"><span class="coupon-btn-text">
                         Tap to Get Voucher
                     </span></button>
-                    <% if (couponMessage) { %>
-                        <p><%= couponMessage %></p>
-                      <% } %>
+                    <div id="couponMessage"></div>
+                   
                     <p>Use code on the BMS app to avail offer</p>
                     <div class="post-script-text">
                         <p>P.S - Take a screenshot to redeem later</p>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         
@@ -118,4 +117,26 @@
             });
         });
     </script>
+     <script>
+        $(document).ready(function () {
+          // Function to send AJAX request and handle coupon response
+          function getCoupon() {
+            $.ajax({
+              type: "GET",
+              url: "/get-coupon",
+              success: function (data) {
+                $("#couponMessage").text(data.couponMessage);
+              },
+              error: function () {
+                console.error("Error fetching coupon.");
+              }
+            });
+          }
+    
+          // Event listener for the "Welcome" button
+          $("#welcomeBtn").click(function () {
+            getCoupon();
+          });
+        });
+      </script>
 <%- include('./includes/footer') %>
