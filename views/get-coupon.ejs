@@ -50,7 +50,7 @@
                         </label>
                     </div>
                     <!-- -->
-                    <button id ="welcomeBtn"><span class="coupon-btn-text">
+                    <button id ="welcomeBtn" disabled><span class="coupon-btn-text">
                         Tap to Get Voucher
                     </span></button>
                     <!-- <div id="couponMessage"></div> -->
@@ -119,13 +119,18 @@
     </script>
    <script>
     $(document).ready(function () {
+      // Function to update "Welcome" button text with coupon message
+      function updateButtonText(couponMessage) {
+        $("#welcomeBtn").text(couponMessage);
+      }
+
       // Function to send AJAX request and handle coupon response
       function getCoupon() {
         $.ajax({
           type: "GET",
           url: "/get-coupon",
           success: function (data) {
-            $("#welcomeBtn").text(data.couponMessage);
+            updateButtonText(data.couponMessage);
           },
           error: function () {
             console.error("Error fetching coupon.");
@@ -133,9 +138,21 @@
         });
       }
 
+      // Check if the "coupon" cookie is present on page load
+      const visitorCoupon = Cookies.get('coupon');
+      if (visitorCoupon) {
+        getCoupon(); // If the cookie exists, update the button text immediately
+      }
+
       // Event listener for the "Welcome" button
       $("#welcomeBtn").click(function () {
-        getCoupon();
+        getCoupon(); // On click, update the button text with the coupon message
+      });
+
+      // Event listener for the checkbox
+      $("#flexCheckDefault").change(function () {
+        // Enable or disable the "Welcome" button based on checkbox status
+        $("#welcomeBtn").prop("disabled", !this.checked);
       });
     });
   </script>
