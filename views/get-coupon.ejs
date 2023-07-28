@@ -74,18 +74,22 @@
     if (isChrome) {
             document.getElementById("browserIs").innerHTML = "chrome"
             confettiVideo.src = "/videos/confetti_VP9.webm"
-            //confettiVideo.type = "video/webm; codecs=vp9"
+            confettiVideo.type = "video/webm; codecs=vp9"
+            confettiVideo.controls = false
             confettiVideo.play()
             couponVideo.src = "/videos/get_coupon_VP9.webm"
-            //couponVideo.type = "video/webm; codecs=vp9"
+            couponVideo.type = "video/webm; codecs=vp9"
+            couponVideo.controls = false
             couponVideo.play()
         } else if (isIOS) {
             document.getElementById("browserIs").innerHTML = "safari"
             confettiVideo.src = "/videos/confetti.mov"
-            //confettiVideo.type = "video/mp4; codecs=hev1"
+            confettiVideo.type = "video/mp4; codecs=hev1"
+            confettiVideo.controls = false
             confettiVideo.play()
             couponVideo.src = "/videos/get_coupon.mov"
-            //couponVideo.type = "video/mp4; codecs=hev1"
+            couponVideo.type = "video/mp4; codecs=hev1"
+            couponVideo.controls = false
             confettiVideo.play()
         } else {
             document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
