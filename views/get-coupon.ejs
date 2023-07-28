@@ -53,7 +53,7 @@
                     <button id ="welcomeBtn"><span class="coupon-btn-text">
                         Tap to Get Voucher
                     </span></button>
-                    <div id="couponMessage"></div>
+                    <!-- <div id="couponMessage"></div> -->
                    
                     <p>Use code on the BMS app to avail offer</p>
                     <div class="post-script-text">
@@ -117,26 +117,26 @@
             });
         });
     </script>
-     <script>
-        $(document).ready(function () {
-          // Function to send AJAX request and handle coupon response
-          function getCoupon() {
-            $.ajax({
-              type: "GET",
-              url: "/get-coupon",
-              success: function (data) {
-                $("#couponMessage").text(data.couponMessage);
-              },
-              error: function () {
-                console.error("Error fetching coupon.");
-              }
-            });
+   <script>
+    $(document).ready(function () {
+      // Function to send AJAX request and handle coupon response
+      function getCoupon() {
+        $.ajax({
+          type: "GET",
+          url: "/get-coupon",
+          success: function (data) {
+            $("#welcomeBtn").text(data.couponMessage);
+          },
+          error: function () {
+            console.error("Error fetching coupon.");
           }
-    
-          // Event listener for the "Welcome" button
-          $("#welcomeBtn").click(function () {
-            getCoupon();
-          });
         });
-      </script>
+      }
+
+      // Event listener for the "Welcome" button
+      $("#welcomeBtn").click(function () {
+        getCoupon();
+      });
+    });
+  </script>
 <%- include('./includes/footer') %>
