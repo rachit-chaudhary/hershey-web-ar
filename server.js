@@ -1,3 +1,4 @@
+
 const express = require('express')
 const dotenv = require('dotenv').config()
 const app = express()
@@ -12,7 +13,6 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
 app.use('/', router)
-
 app.listen(port, () => {
   console.log(`Hershey's is listening on ${port}`)
 })
