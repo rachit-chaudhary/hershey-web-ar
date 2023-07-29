@@ -14,14 +14,14 @@ const couponsArray = [
         if (!couponsArray[i].isRedeem) {
           visitorCoupon = couponsArray[i].coupon;
           couponsArray[i].isRedeem = true;
-          couponMessage = `Visitor got a new coupon: ${visitorCoupon}`;
+          couponMessage = ` ${visitorCoupon}`;
           break;
         }
       }
     } else {
       const redeemedCoupon = couponsArray.find(coupon => coupon.coupon === visitorCoupon && coupon.isRedeem);
       if (redeemedCoupon) {
-        couponMessage = `Visitor has a redeemed coupon: ${redeemedCoupon.coupon}`;
+        couponMessage = ` ${redeemedCoupon.coupon}`;
       }
     }
   

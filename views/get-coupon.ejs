@@ -42,7 +42,7 @@
     
         <div class="container">
             <div class="voucher-parent">
-                <form class="voucher-div hide-content" action="/get-coupon" method="POST">
+                <div class="voucher-div hide-content" >
                     <div class="tnc-div">
                         <input class="form-check-input-ns" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label-ns" for="flexCheckDefault">
@@ -50,17 +50,16 @@
                         </label>
                     </div>
                     <!-- -->
-                    <button type="submit"><span class="coupon-btn-text">
+                    <button id ="welcomeBtn" disabled><span class="coupon-btn-text">
                         Tap to Get Voucher
                     </span></button>
-                    <% if (couponMessage) { %>
-                        <p><%= couponMessage %></p>
-                      <% } %>
+                    <!-- <div id="couponMessage"></div> -->
+                   
                     <p>Use code on the BMS app to avail offer</p>
                     <div class="post-script-text">
                         <p>P.S - Take a screenshot to redeem later</p>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         
@@ -118,4 +117,43 @@
             });
         });
     </script>
+   <script>
+    $(document).ready(function () {
+      // Function to update "Welcome" button text with coupon message
+      function updateButtonText(couponMessage) {
+        $("#welcomeBtn").text(couponMessage);
+      }
+
+      // Function to send AJAX request and handle coupon response
+      function getCoupon() {
+        $.ajax({
+          type: "GET",
+          url: "/get-coupon",
+          success: function (data) {
+            updateButtonText(data.couponMessage);
+          },
+          error: function () {
+            console.error("Error fetching coupon.");
+          }
+        });
+      }
+
+      // Check if the "coupon" cookie is present on page load
+      const visitorCoupon = Cookies.get('coupon');
+      if (visitorCoupon) {
+        getCoupon(); // If the cookie exists, update the button text immediately
+      }
+
+      // Event listener for the "Welcome" button
+      $("#welcomeBtn").click(function () {
+        getCoupon(); // On click, update the button text with the coupon message
+      });
+
+      // Event listener for the checkbox
+      $("#flexCheckDefault").change(function () {
+        // Enable or disable the "Welcome" button based on checkbox status
+        $("#welcomeBtn").prop("disabled", !this.checked);
+      });
+    });
+  </script>
 <%- include('./includes/footer') %>
