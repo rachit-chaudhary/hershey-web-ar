@@ -7,6 +7,9 @@ router.get('/', (req, res) => {
     couponMessage = ""
     res.render('get-coupon', { couponMessage });
   })
+  router.get('/questions', (req, res) => {
+    res.render('index')
+})
 router.post('/get-coupon', (req, res) => {
   const visitorCoupon = req.cookies.coupon;
   const { visitorCoupon: newVisitorCoupon, couponMessage } = couponModel.getCoupon(visitorCoupon);
