@@ -518,6 +518,7 @@ button2 span:first-of-type, button2 span:last-of-type {
  
 
   .normal-div{
+    justify-content: center;
     overflow: hidden;
     padding: 10px;
     margin: 1px;
@@ -1049,6 +1050,7 @@ body {
   }
   
   .expanded-div{
+    justify-content: center;
     width:60%;
     background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
     border: 2px solid  hsl(44, 79%, 67%);
