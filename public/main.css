@@ -547,6 +547,9 @@ button2 span:first-of-type, button2 span:last-of-type {
     width:18.5%;
     height: 100%;
     overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
   #div-1{
     background-color: #774629;
@@ -1057,6 +1060,9 @@ body {
     color: #37140B;
     font-family:"snavely";
     text-transform: lowercase;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
   
   .compressed-div{
