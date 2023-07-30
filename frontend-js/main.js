@@ -676,6 +676,15 @@ option3div3.onclick = () => {
 
 let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
 taptoplace.addEventListener('click', () => {
+
+
+  // -------------------------
+capture.style.display="block"
+sharebtn.style.display="block"
+reload.style.display="block"
+
+
+  //--------------------------- 
   const instantTracker = document.getElementById("instant-tracker");
   instantTracker.setAttribute("zappar-instant", "placement-mode: false");
   taptoplace.remove();
