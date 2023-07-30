@@ -48,6 +48,65 @@ h1 {
     text-transform: uppercase;
     z-index: 1;
 }
+#arscreen{
+  display: none;
+}
+#headerdiv{
+  display: block;
+  position: fixed;
+  top: 0;
+  /* left: 50%; */
+  /* right: 0px; */
+  /* color: white; */
+  width: 100%;
+  /* margin-left: -50px; */
+  /* text-align: center; */
+  /* padding: 15px; */
+  z-index: 1;
+}
+#reloaddiv{
+
+  display: block;
+  position: fixed;
+  top: 66px;
+
+  right: 0px;
+  color: white;
+  width: 86px;
+ 
+  padding: 15px;
+  z-index: 1;
+
+}
+  #shutter {
+    display: block;
+    position: fixed;
+    bottom: 65px;
+    left: 50%;
+    right: 0px;
+ 
+    color: white;
+    width: 100px;
+    margin-left: -50px;
+    text-align: center;
+    padding: 15px;
+   
+    z-index: 1;
+}
+#share {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  right: 0px;
+  color: white;
+  width: 100px;
+  margin-left: -80px;
+  text-align: center;
+  padding: 15px;
+  z-index: 1;
+}
+
 body {
   margin: 0;
 }
@@ -66,12 +125,8 @@ button { pointer-events:initial; }
     background-color: #D9D9D9 !important;
     width: 100% !important;
 }
-#sharebtn{
-  display: none;
-}
-#reload{
-  display: none;
-}
+
+
 
 .hersheylogo{
   width: 120px;
@@ -833,6 +888,9 @@ body {
 }
 
 /* -------------hershey-bar */
+#thirdscreen-bar{
+  display: none;
+}
 .windows-bar{
   background-image: url('images/questions-window-bars.png');
   overflow: scroll;
