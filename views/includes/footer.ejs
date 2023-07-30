@@ -107,6 +107,19 @@ $("p.new-expansion-btn").click(function () {
 
 
 
+$("p.option-btn").click(function () {
+  var classes = this.className;
+  var divNumber = classes.slice(-1);
+  var toGetId = "#option-" + divNumber;
+  if ($(toGetId).hasClass("option-expanded")) {
+    $(".option-div").removeClass("option-compressed option-expanded");
+  } else {
+    $(".option-div").removeClass("option-compressed option-expanded").addClass("option-compressed");
+    $(toGetId).removeClass("option-compressed").addClass("option-expanded");
+  }
+});
+
+
 
 
     
