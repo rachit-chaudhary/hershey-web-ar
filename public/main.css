@@ -610,7 +610,7 @@ button2 span:first-of-type, button2 span:last-of-type {
   color: #37140B;
   font-family: "snavely";
   text-transform: lowercase;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .custom-compressed-div {
@@ -1161,3 +1161,84 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* --------------------------------------- */
+.new-div-var {
+  margin: 1px;
+  width: 32.33%;
+  height: 40%;
+  font-size: 12px;
+  /* position: relative; */
+  float: left;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  font-family: "snavely";
+  text-transform: lowercase;
+  border: 2px solid;
+}
+
+.new-qns-bar-1 {
+  border: 7px solid hsl(44, 79%, 67%);
+  border-radius: 15px;
+  background: #E8B377;
+  background-image: url(/public/images/question\ 1.png);
+  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 20px;
+  font-family: "Walsheim";
+  position: relative;
+  height: 171px;
+  margin-top: -53px !important;
+  /* margin-top: 6px !important; */
+  z-index: 1;
+}
+
+.new-expanded-div {
+  justify-content: center;
+  width: 60%;
+  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
+  border: 2px solid hsl(44, 79%, 67%);
+  color: #37140B;
+  font-family: "snavely";
+  text-transform: lowercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.new-compressed-div {
+  width: 18.5%;
+}
+
+#new-hershey-bar-1 {
+  background-color: #774629;
+}
+
+#new-hershey-bar-2 {
+  background-color: #774629;
+}
+
+#new-hershey-bar-3 {
+  background-color: #774629;
+}
+
+a.new-expansion-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2vw;
+  margin-left: 13px;
+  margin-top: 27px;
+}
+
+.new-expansion-btn {
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* ----------------------------- */
+
+

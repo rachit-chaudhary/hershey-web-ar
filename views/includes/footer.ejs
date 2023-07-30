@@ -88,6 +88,27 @@
 
 
 
+$("p.new-expansion-btn").click(function () {
+  classes = this.className;
+  var divNumber = classes.slice(-1);
+  var toGetId = "#new-hershey-bar-" + divNumber;
+  if ($(toGetId).hasClass("new-expanded-div")) {
+    $(".new-div-var").removeClass("new-compressed-div new-expanded-div");
+  } else {
+    $(".new-div-var").removeClass("new-compressed-div new-expanded-div").addClass("new-compressed-div");
+    $(toGetId).removeClass("new-compressed-div").addClass("new-expanded-div");
+  }
+});
+
+
+
+
+
+
+
+
+
+
     
       </script>
 <script src="main-bundled.js"></script>
