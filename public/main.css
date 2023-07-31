@@ -316,7 +316,7 @@ button { pointer-events:initial; }
   text-align: left!important;
 } */
 #thirdscreen{
-  display: none;
+  display: block;
 }
 
 .window-kisses{
@@ -589,7 +589,7 @@ button2 span:first-of-type, button2 span:last-of-type {
     font-family:"snavely";
     text-transform: lowercase;
   }
-  .expanded-div{
+  /* .expanded-div{
       width:60%;
       background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
       border: 2px solid  hsl(44, 79%, 67%);
@@ -597,7 +597,7 @@ button2 span:first-of-type, button2 span:last-of-type {
       font-family:"snavely";
       text-transform: lowercase;
       font-size: 17px;
-  }
+  } */
   .compressed-div{
     width:18.5%;
     height: 100%;
@@ -644,32 +644,40 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 /* Styles for the custom divs */
 .custom-div {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
-  width: 32.33%;
-  height: 40%;
+  width:32.33%;
+  height: 100%;
   font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  /* position:relative; */
+  float:left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
-  font-family: "snavely";
+  font-family:"snavely";
   text-transform: lowercase;
 }
 
 .custom-expanded-div {
-  width: 60%;
+  width:60%;
   background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
+  border: 2px solid  hsl(44, 79%, 67%);
   color: #37140B;
-  font-family: "snavely";
+  font-family:"snavely";
   text-transform: lowercase;
-  /* height: 100%; */
+  font-size: 17px;
 }
 
 .custom-compressed-div {
-  width: 18.5%;
+  width:18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 /* Styles for the custom div backgrounds */
@@ -687,9 +695,11 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 /* Styles for the expansion buttons */
 .custom-expansion-btn {
-  font-size: 14px;
-  margin-left: 13px;
-  margin-top: 9px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* .expansion-btn {
@@ -716,21 +726,21 @@ button2 span:first-of-type, button2 span:last-of-type {
 }
 
 .custom-option {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
-  width: 32.33%;
-  height: 40%;
-  position: relative;
-  float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  width:32.33%;
+  height: 100%;
+  font-size: 12px;
+  /* position:relative; */
+  float:left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
   font-family:"snavely";
-  text-transform: lowercase;
-  background-color: #774629;
-  font-size: 12px;
-
-}
+  text-transform: lowercase;}
 
 .custom-option:nth-child(1) {
   background-color: #774629;
@@ -751,29 +761,24 @@ button2 span:first-of-type, button2 span:last-of-type {
   color: #37140B;
   font-family:"snavely";
   text-transform: lowercase;
-
+  font-size: 17px;
 }
 
 .custom-compressed-option {
-  width: 18.5%;
+  width:18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .custom-option-btn {
-  font-size: 11px;
-  /* margin-left: 13px;
-  margin-top: 9px !important; */
-}
-
-.custom-option-btn{
-  margin-top: 22px !important;
-}
-
-.custom-option-btn {
-  margin-top: 22px !important;
-}
-
-.custom-option-btn {
-  margin-top: 22px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* --------------landing page */
@@ -901,9 +906,6 @@ body {
 }
 .bar-heading{
   margin-top: 12px;
-
-}
-.sibling-bar{
 
 }
 .outerDiv-bar{
@@ -1049,7 +1051,6 @@ body {
       color: #37140B;
       font-family:"snavely";
       text-transform: lowercase;
-
   }
   .compressed-div-bar{
     width:18.5%;
@@ -1117,6 +1118,7 @@ body {
     border: 2px solid  hsl(44, 79%, 67%);
     color: #37140B;
     font-family:"snavely";
+    font-size: 17px;
     text-transform: lowercase;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
