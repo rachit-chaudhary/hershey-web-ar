@@ -64,14 +64,18 @@
     <div class=" header d-flex justify-content-center">
       <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
     </div>
-    <div class="orange-wrapper">
+    <div class="wrapperdiv">
       <div class="username-section">
         <p class="surprise-heading">Sending surprise to</p>
-        <input id="siblingname" type="text" placeholder=" Sibling’s Name" class="userName" />
+        <p class="surprise-heading-ns">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal Sibling’s Name</p>
+        <input id="siblingname" type="text" placeholder=" SIBLING'S NAME" class="userName" />
 
       </div>
-      <div class="blue-wrapper">
-        <h2 class="title-ns">I have</h2>
+      <div class="d-flex justify-content-start">
+        <img class="carousel-ns" src="/images/Asset 24.png"/>
+      </div>
+      <div class="golden-wrapper">
+        <h2 class="title-ns">Select your pack</h2>
         <div class="owl-carousel owl-theme d-flex justify-content-center">
           <div class="item">
             <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" /></h4>
@@ -85,16 +89,27 @@
         </div>
       </div>
       <div class="upload-section">
+        <div class="upload-outerdiv">
+          <div class=" d-flex justify-content-center">
+            <p class="camera-tag">Make it special with a 📷</p>
+          </div>
         <div class=" uploader d-flex justify-content-start">
-
-          <div id="imagediv"><img id="galleryimg" class="photo-frame" src="/images/photoframe.png" /></div>
+          <div id="imagediv "><p class="filejpeg">file.jpeg</p></div>
           <div class="photo">
-            <label for="uploadbtn" class="btn">UPLOAD PHOTO</label>
+            <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
             <input type="file" style="display: none;" id="uploadbtn" accept="image/*">
           </div>
         </div>
+<div class="d-flex justify-content-center">
+  <p class="base-title">Select a lovely photo together OR of your sibling alone!</p>
+
+</div>    
+  </div>
       </div>
-      <hr class="breakline" />
+      <div class="d-flex justify-content-start">
+        <img class="flower-carousel-bottom" src="/images/flower-combo-2.png"/>
+      </div>
+      <!-- <hr class="breakline" /> -->
       <div class="d-flex justify-content-center">
         <button id="nextbtn" class="next-button">Next</button>
       </div>
@@ -623,7 +638,8 @@
   </canvas> -->
     <a-assets>
 
-      <a-asset-item id="tree" src="/models/kisses .glb"></a-asset-item>
+      <a-asset-item id="kissesmodel" src="/models/kisses .glb"></a-asset-item>
+      <a-asset-item id="exoticmodel" src="/models/exotic darkv13.glb"></a-asset-item>
     </a-assets>
     <!-- Ask user for camera permissions, display some text if permission is denied -->
     <a-entity id="permissions"></a-entity>
@@ -640,7 +656,7 @@
       <a-entity id="modelname"  class="cantap" visible="true" scale="0.1 0.1 0.1" position="0 -1 0"
          gesture-handler="minScale: 0.25; maxScale: 10" >
         
-         <a-box id="notebox"  depth="2" height="7" width="10" position="-0.86459 12.96375 0" material="" geometry="" class="cantap" visible="false"></a-box>
+         <a-box id="notebox"  depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" material="" geometry=""  visible="false"></a-box>
       </a-entity>
       <!-- Include a 3D model inside our instant tracker -->
       <!-- <a-entity id="australiacont" gesture-handler gltf-model="url(assets/kisses .glb)" scale="0.1 0.1 0.1"  animation-mixer="clip: Animation; loop: repeat"></a-entity> -->
