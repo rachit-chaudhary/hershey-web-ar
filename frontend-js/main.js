@@ -126,6 +126,11 @@ var mimeType
 var msg
 let name 
 let i=1
+let pausevalue=0
+let previouspausevalue=0
+let innerpausevalue=1
+let animtime=0
+let taptoplace
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -587,7 +592,7 @@ hoverChange.onclick = () => {
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
-
+  animtime=13000
 
 }
 hoverhershey.onclick = () => {
@@ -595,6 +600,7 @@ hoverhershey.onclick = () => {
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
   typeofpack='chocolatebar'
+
   console.log(typeofpack)
 }
 hoverexotic.onclick = () => {
@@ -602,6 +608,7 @@ hoverexotic.onclick = () => {
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
   typeofpack='exotic'
+  animtime=15000
 }
 nextbtn.onclick = () => {
   name =document.getElementById("siblingname").value
@@ -610,7 +617,7 @@ nextbtn.onclick = () => {
 
 if(typeofpack==='kisses'){
 //
-modelname.setAttribute('gltf-model','/models/kisses .glb')
+modelname.setAttribute('gltf-model','#kissesmodel')
 console.log("ss")
 thirdscreen.style.display = "block"
 headerlogo.src='/images/hersheys-kisses-logo 1.png'
@@ -618,20 +625,49 @@ headerlogo.classList.add("headerlogokisses");
 
 }else if(typeofpack==='chocolatebar')
 {
-  modelname.setAttribute('gltf-model','/models/kisses .glb')
+  modelname.setAttribute('gltf-model','#kissesmodel')
 thirdscreenbar.style.display = "block"
 headerlogo.src='/images/hersheyslogo.png'
 headerlogo.classList.add("headerlogo-bar-exotic");
 }else if(typeofpack==='exotic')
 {
   //
-  modelname.setAttribute('gltf-model','/models/kisses .glb')
+  modelname.setAttribute('gltf-model','#exoticmodel')
   thirdscreenbar.style.display = "block"
   headerlogo.src='/images/hed-logo.png'
   headerlogo.classList.add("headerlogo-bar-exotic");
 }
-}
 
+
+}
+closebtnsharepopup.onclick = () => {
+ 
+  sharepopupdiv.style.display="none"
+}
+reload.onclick = () => {
+  previouspausevalue++
+  pausevalue++
+  console.log("clicked")
+  modelname.removeAttribute('animation-mixer')
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      if(innerpausevalue==previouspausevalue){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("reload 1300")
+        notebox.setAttribute('class','cantap')
+      }
+      innerpausevalue++
+    
+    }, animtime);
+  }, 1000);
+ 
+}
 nextQuestionid.onclick = () => {
   thirdscreen.style.display = "none"
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
@@ -717,33 +753,7 @@ option3div3.onclick = () => {
 // The user can confirm the location by tapping on the screen
 // let hasPlaced = false;
 
-let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
-taptoplace.addEventListener('click', () => {
 
-
-  // -------------------------
-// capture.style.display="block"
-// sharebtn.style.display="block"
-// reload.style.display="block"
-arscreen.style.display="block"
-
-  //--------------------------- 
-  const instantTracker = document.getElementById("instant-tracker");
-  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
-  taptoplace.remove();
-  setTimeout(() => {
-    modelname.setAttribute('animation-mixer', {
-      clip: 'Animation',
-      loop: 'once',
-      crossFadeDuration: 0.4,
-      clampWhenFinished:true,
-    })
-    setTimeout(() => {
-      modelname.setAttribute('animation-mixer', {timeScale: 0});
-    }, 13000);
-  }, 1000);
-
-});
 
   //  capture functionality
  async function initRecorder() {
@@ -936,7 +946,7 @@ AFRAME.registerComponent("swap-texture", {
         dataURL = blobUrl
         pName = dataURL
         console.log("sss" + pName)
-        texturechange()
+        // texturechange()
         // traversal()
         // gltf.scene.traverse(function (child) {..
 
@@ -992,8 +1002,47 @@ AFRAME.registerComponent("swap-texture", {
     // })
 
     notebox.addEventListener('click', function (evt) {  
+      console.log("envolope clicked")
         modelname.setAttribute('animation-mixer', {timeScale: 1});
+        notebox.setAttribute('class','')
     });
+     taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
+taptoplace.addEventListener('click', () => {
+  texturechange()
+
+  // -------------------------
+// capture.style.display="block"
+// sharebtn.style.display="block"
+// reload.style.display="block"
+arscreen.style.display="block"
+setTimeout(() => {
+  sharepopupdiv.style.display="block"
+  recordbannerdiv.style.display="none"
+}, 3000);
+
+
+  //--------------------------- 
+  const instantTracker = document.getElementById("instant-tracker");
+  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+  taptoplace.remove();
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      if(pausevalue===0){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("tap 1300")
+        notebox.setAttribute('class','cantap')
+      }
+    
+    },animtime);
+  }, 1000);
+
+});
     // modelname.onclick = () => {
     //   console.log("clicked")
     // }

@@ -76,3 +76,4 @@ sendthankyou.onclick=()=>{
   inputElement.focus();
 }
 
+alert("from main.js")
