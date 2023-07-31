@@ -316,7 +316,7 @@ button { pointer-events:initial; }
   text-align: left!important;
 } */
 #thirdscreen{
-  display: block;
+  display: none;
 }
 
 .window-kisses{
@@ -951,10 +951,6 @@ body {
   width: 100%;
 }
 .sibling-bar{
-  background: #480000;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-family: "Snavely";
   font-size: 42px;
   font-style: normal;
@@ -965,14 +961,11 @@ body {
   font-family: "Walsheim";
   color: white;
   font-size: 15px;
-  margin-top: -4px;
 }
 .knowYour-bar{
-  color: #480000;
   font-size: 18px;
   font-family: "Walsheim";
   font-size: 18px;
-  margin-left: -79px;
 
 }
 .hersheyBackgroundImageSection-bar-4{
@@ -1373,3 +1366,38 @@ a.option-btn {
   align-items: center;
   text-align: center;
 }
+
+/* rachit's CSS (keep it at the very end of the css file */
+
+.hanging-circles {
+  width: 100%;
+  position: relative;
+}
+.hanging-circles img {
+  width: 50px;
+  position: absolute;
+  right: 15px;
+}
+.bar-heading {
+  width: 90%;
+  margin: 0px auto;
+  padding: 25px 0px 0px;
+}
+.bar-heading h3,
+.bar-heading h1 {
+  color: #472115;
+}
+.bar-heading .knowYour-bar {
+  margin: 0px;
+}
+.sketchy-lines {
+  width: 100%;
+  position: relative;
+}
+.sketchy-lines img {
+  position: absolute;
+  right: 3px;
+  bottom: -6px;
+}
+
+/* rachit's CSS end's here */
