@@ -130,7 +130,7 @@ let pausevalue=0
 let previouspausevalue=0
 let innerpausevalue=1
 let animtime=0
-let taptoplace
+let taptoplace=document.getElementById('tap-to-place')
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -923,7 +923,7 @@ AFRAME.registerComponent("swap-texture", {
 
         console.log("image upload clicked")
 
-        output = document.getElementById('galleryimg');
+        output = document.getElementById('uploadbtn');
         output.src = reader.result;
         console.log(output.src)
         dataURL = output.src
