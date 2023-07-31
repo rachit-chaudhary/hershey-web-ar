@@ -10,6 +10,8 @@
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js"></script>
   <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
+  <script src="https://libs.zappar.com/zappar-snapshot/1.1.0/zappar-snapshot.min.js"></script>
+  <script src="https://libs.zappar.com/zappar-videorecorder/1.0.1/zappar-videorecorder.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script> -->
 
@@ -24,11 +26,13 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" type="image/x-icon" href="images/icon-192x192.png">
   <title>Hershey's</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script src="/gesture-detector.js"></script>
 <script src="/gesture-handler.js"></script>
 </head>
 
 <body>
-    <audio loop autoplay>
-        <source src="/sfx/hersheys-music.mp3">
-    </audio>
+    <audio src="/sfx/hersheys-music.mp3" type="audio/mp3" loop autoplay></audio>

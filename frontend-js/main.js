@@ -21,6 +21,9 @@ new ZAPPPermissionUI()
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
+let thirdscreenbar=document.getElementById("thirdscreen-bar")
+let thirdscreen=document.getElementById("thirdscreen")
+let typeofpack
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 // firstscreen.style.display = "none"
@@ -578,6 +581,7 @@ hoverChange.onclick = () => {
   console.log("clickedkisses")
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
+  typeofpack='kisses'
 
 
 }
@@ -585,24 +589,47 @@ hoverhershey.onclick = () => {
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
-
+  typeofpack='chocolatebar'
+  console.log(typeofpack)
 }
 hoverexotic.onclick = () => {
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
-
+  typeofpack='exotic'
 }
 nextbtn.onclick = () => {
   name =document.getElementById("siblingname").value
   secondscreen.style.display = "none"
-  thirdscreen.style.display = "block"
 
 
+if(typeofpack==='kisses'){
+//
+thirdscreen.style.display = "block"
 
+}else if(typeofpack==='chocolatebar')
+{
+thirdscreenbar.style.display = "block"
+}else if(typeofpack==='exotic')
+{
+  //
 }
+}
+
 nextQuestionid.onclick = () => {
   thirdscreen.style.display = "none"
+  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  console.log(msg)
+
+  // Ar scene 
+  permissions.setAttribute("zappar-permissions-ui", "")
+  scene.style.zIndex = 0
+  console.log(uimoduleobj.packtype)
+  console.log("next")
+  taptoplace.style.display = "block"
+}
+nextQuestionid1.onclick = () => {
+  thirdscreenbar.style.display = "none"
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
@@ -676,6 +703,15 @@ option3div3.onclick = () => {
 
 let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
 taptoplace.addEventListener('click', () => {
+
+
+  // -------------------------
+// capture.style.display="block"
+// sharebtn.style.display="block"
+// reload.style.display="block"
+arscreen.style.display="block"
+
+  //--------------------------- 
   const instantTracker = document.getElementById("instant-tracker");
   instantTracker.setAttribute("zappar-instant", "placement-mode: false");
   taptoplace.remove();
@@ -692,6 +728,99 @@ taptoplace.addEventListener('click', () => {
   }, 1000);
 
 });
+
+  //  capture functionality
+ async function initRecorder() {
+
+const canvas = document.querySelector('canvas') || document.createElement('canvas');
+
+// const url = canvas.toDataURL('video/mp4', 0.8);
+
+
+const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+
+let recording = false;
+
+
+
+
+// When we start recording update text
+
+recorder.onStart.bind(() => {
+
+recording = true;
+console.log("start 2")
+// placeButton.innerText = 'TAP TO STOP RECORDING';
+
+});
+
+
+
+
+// When stop recording update text, and prompt a social share dialog.
+
+recorder.onComplete.bind(async (result) => {
+
+// placeButton.innerText = 'TAP TO START RECORDING';
+console.log("stop 2")
+
+// result.arrayBuffer
+console.log(result.asDataURL())
+
+ZapparWebGLSnapshot({
+
+data: await result.asDataURL(),
+fileNamePrepend: 'ImpresarioTech',
+// data:url,
+onClose: () => {
+console.log('Dialog was closed');
+
+},
+
+});
+
+
+// console.log(recorder._getData())
+
+recording = false;
+
+});
+
+
+
+
+// Toggle between recording
+
+capture.addEventListener('click', async () => {
+
+if (recording) {
+
+recorder.stop();
+console.log("stop")
+// capture.style.display = 'none'
+// capture.src = "./assets/UI/Cameravideo.svg"
+
+
+
+
+
+} else {
+
+recorder.start();
+// capture.src = "./assets/UI/Cameravideo1.svg"
+console.log("start")
+
+
+}
+
+});
+
+}
+initRecorder();
+
+
+
+
 // placeButton.addEventListener('click', () => {
 //   if (hasPlaced) {
 //     hasPlaced = false;

@@ -55,8 +55,73 @@
       }
     });
     });
+
     
+    // ----------------------hersheybar-------------------------------
      
+    // $("p.expansion-bar-btn").click(function () {
+    //       classes = this.className;
+    //       var divNumber = classes.slice(-1);
+    //       var toGetId = "#div-" + divNumber;
+    //       if ($(toGetId).hasClass("expanded-div-bar")) {
+    //         $(".normal-div-bar").removeClass("compressed-div-bar expanded-div-bar");
+    //       }
+    //       else {
+    //         $(".normal-div-bar").removeClass("compressed-div-bar expanded-div-bar").addClass("compressed-div-bar");;
+    //         $(toGetId).removeClass("compressed-div-bar").addClass("expanded-div-bar");
+    //       }
+    //     });
+     
+
+
+    $("p.expansion-btn").click(function () {
+  classes = this.className;
+  var divNumber = classes.slice(-1);
+  var toGetId = "#hershey-bar-" + divNumber;
+  if ($(toGetId).hasClass("expanded-div")) {
+    $(".div-var").removeClass("compressed-div expanded-div");
+  } else {
+    $(".div-var").removeClass("compressed-div expanded-div").addClass("compressed-div");
+    $(toGetId).removeClass("compressed-div").addClass("expanded-div");
+  }
+});
+
+
+
+$("p.new-expansion-btn").click(function () {
+  classes = this.className;
+  var divNumber = classes.slice(-1);
+  var toGetId = "#new-hershey-bar-" + divNumber;
+  if ($(toGetId).hasClass("new-expanded-div")) {
+    $(".new-div-var").removeClass("new-compressed-div new-expanded-div");
+  } else {
+    $(".new-div-var").removeClass("new-compressed-div new-expanded-div").addClass("new-compressed-div");
+    $(toGetId).removeClass("new-compressed-div").addClass("new-expanded-div");
+  }
+});
+
+
+
+
+
+
+
+
+$("p.option-btn").click(function () {
+  var classes = this.className;
+  var divNumber = classes.slice(-1);
+  var toGetId = "#option-" + divNumber;
+  if ($(toGetId).hasClass("option-expanded")) {
+    $(".option-div").removeClass("option-compressed option-expanded");
+  } else {
+    $(".option-div").removeClass("option-compressed option-expanded").addClass("option-compressed");
+    $(toGetId).removeClass("option-compressed").addClass("option-expanded");
+  }
+});
+
+
+
+
     
       </script>
 <script src="main-bundled.js"></script>
