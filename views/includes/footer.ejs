@@ -9,7 +9,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+
     <script>
+
+      // check if browser is chrome or ios
+        var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.csi)
+
+        let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+          !window.MSStream
+
+        let kissesLoading = document.querySelector(".kisses-loading-video")
+
+        if (isChrome) {
+          kissesLoading.src = "/videos/kisses_VP9.webm"
+          kissesLoading.type = "video/webm; codecs=vp9"
+          kissesLoading.controls = false
+          kissesLoading.play()
+        } else if (isIOS) {
+          kissesLoading.src = "/videos/kisses-mov.mov"
+          kissesLoading.type = "video/mp4; codecs=hev1"
+          kissesLoading.controls = false
+          kissesLoading.play()
+        } else {
+          document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+        }
+// /////////////////////////////////////////////////////////////////////////////////////////////
 
       $("p.expansion-btn").click(function () {
         classes = this.className;
@@ -120,6 +145,6 @@
         }
       });
     </script>
-<script src="main-bundled.js"></script>
+  <script src="main-bundled.js"></script>
 
 </html>

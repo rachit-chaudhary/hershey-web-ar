@@ -23,6 +23,9 @@ body {
     overflow-y: scroll ;
     
 }
+#firstscreen {
+  display: none;
+}
 h1 {
     /* display: none;
     position: absolute; */
@@ -1541,6 +1544,74 @@ a.option-btn {
   position: absolute;
   right: 3px;
   bottom: -6px;
+}
+.loading-screen {
+  width: 100%;
+  height: 110vh;
+  margin: 0px auto;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
+}
+.loading-media {
+  width: 100%;
+  height: 60vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+}
+.loading-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.kisses-loading-video {
+  width: 170%;
+}
+.loading-message {
+  width: 100%;
+  margin: 0px auto;
+  padding: 25px 0px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 15%;
+  padding-bottom: 0px;
+}
+.loading-message h4 {
+  font-size: 16px;
+  color: #291213;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.384px;
+}
+.loading-message h4 span {
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.loading-spinner {
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+.loading-spinner .spinner-ns {
+  border: unset;
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
 }
 
 /* rachit's CSS end's here */
