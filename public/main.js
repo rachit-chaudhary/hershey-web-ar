@@ -67,3 +67,4 @@ sendthankyou.onclick=()=>{
     secondscreen.style.display="block"
 }
 
+alert("from main.js")
