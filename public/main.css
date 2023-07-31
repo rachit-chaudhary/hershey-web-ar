@@ -81,11 +81,16 @@ h1 {
   left: 50%;
   right: 0px;
   color: white;
-  width: 63px;
+  width: 299px;
   margin-left: -154px;
   text-align: center;
   padding: 15px;
   z-index: 1;
+}
+#closebtnsharepopup{
+  right: 0;
+    position: absolute;
+    top: 29px;
 }
 #reloaddiv{
 

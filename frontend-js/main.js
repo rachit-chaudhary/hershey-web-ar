@@ -122,6 +122,10 @@ var mimeType
 var msg
 let name 
 let i=1
+let pausevalue=0
+let previouspausevalue=0
+let innerpausevalue=1
+
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -627,7 +631,34 @@ headerlogo.classList.add("headerlogo-bar-exotic");
   headerlogo.classList.add("headerlogo-bar-exotic");
 }
 }
-
+closebtnsharepopup.onclick = () => {
+ 
+  sharepopupdiv.style.display="none"
+}
+reload.onclick = () => {
+  previouspausevalue++
+  pausevalue++
+  console.log("clicked")
+  modelname.removeAttribute('animation-mixer')
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      if(innerpausevalue==previouspausevalue){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("reload 1300")
+        
+      }
+      innerpausevalue++
+    
+    }, 13000);
+  }, 1000);
+ 
+}
 nextQuestionid.onclick = () => {
   thirdscreen.style.display = "none"
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
@@ -735,7 +766,11 @@ arscreen.style.display="block"
       clampWhenFinished:true,
     })
     setTimeout(() => {
-      modelname.setAttribute('animation-mixer', {timeScale: 0});
+      if(pausevalue===0){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("tap 1300")
+      }
+    
     }, 13000);
   }, 1000);
 
@@ -990,6 +1025,7 @@ AFRAME.registerComponent("swap-texture", {
     notebox.addEventListener('click', function (evt) {  
         modelname.setAttribute('animation-mixer', {timeScale: 1});
     });
+    
     // modelname.onclick = () => {
     //   console.log("clicked")
     // }
