@@ -10,9 +10,7 @@
             <div class="col-3"><img class="rakhi-kiss-ns" src="/images/rakhi-kiss.png" alt=""></div>
         </div>
         <div class="coupon-video">
-            <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs">
-                browser is
-            </h2>
+            <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
             <div id="confetti" class="confetti-video">
                 <video class="confetti-video-file" autoplay muted playsinline webkit-playsinline>
                     <!-- <source src="/videos/confetti_VP9.webm" type="video/webm; codecs=vp9">
@@ -77,7 +75,6 @@
     let couponVideo = document.querySelector(".get-coupon-video")
 
     if (isChrome) {
-            document.getElementById("browserIs").innerHTML = "chrome"
             confettiVideo.src = "/videos/confetti_VP9.webm"
             confettiVideo.type = "video/webm; codecs=vp9"
             confettiVideo.controls = false
@@ -87,7 +84,6 @@
             couponVideo.controls = false
             couponVideo.play()
         } else if (isIOS) {
-            document.getElementById("browserIs").innerHTML = "safari"
             confettiVideo.src = "/videos/confetti.mov"
             confettiVideo.type = "video/mp4; codecs=hev1"
             confettiVideo.controls = false

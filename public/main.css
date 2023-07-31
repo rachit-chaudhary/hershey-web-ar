@@ -52,16 +52,39 @@ h1 {
   display: none;
 }
 #headerdiv{
+  padding-top:1%;
+  padding-bottom:1%;
+  background-color:#D9D9D9;
+  top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.headerlogo-bar-exotic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 28%;
+}
+.headerlogokisses{
+  display: block;
+  /* margin-left: auto; */
+  margin-right: auto;
+  width: 30%;
+}
+
+#sharepopupdiv{
   display: block;
   position: fixed;
-  top: 0;
-  /* left: 50%; */
-  /* right: 0px; */
-  /* color: white; */
-  width: 100%;
-  /* margin-left: -50px; */
-  /* text-align: center; */
-  /* padding: 15px; */
+  top: 116px;
+  left: 50%;
+  right: 0px;
+  color: white;
+  width: 63px;
+  margin-left: -154px;
+  text-align: center;
+  padding: 15px;
   z-index: 1;
 }
 #reloaddiv{
@@ -77,6 +100,19 @@ h1 {
   padding: 15px;
   z-index: 1;
 
+}
+#recordbannerdiv{
+  display: block;
+  position: fixed;
+  bottom: 160px;
+  left: 50%;
+  right: 0px;
+  color: white;
+  width: 100px;
+  margin-left: -154px;
+  text-align: center;
+  padding: 15px;
+  z-index: 1;
 }
   #shutter {
     display: block;

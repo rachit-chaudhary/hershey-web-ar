@@ -24,6 +24,7 @@ const scene = document.getElementById("scenediv")
 let thirdscreenbar=document.getElementById("thirdscreen-bar")
 let thirdscreen=document.getElementById("thirdscreen")
 let typeofpack
+let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 // firstscreen.style.display = "none"
@@ -605,14 +606,25 @@ nextbtn.onclick = () => {
 
 if(typeofpack==='kisses'){
 //
+modelname.setAttribute('gltf-model','/models/kisses .glb')
+console.log("ss")
 thirdscreen.style.display = "block"
+headerlogo.src='/images/hersheys-kisses-logo 1.png'
+headerlogo.classList.add("headerlogokisses");
 
 }else if(typeofpack==='chocolatebar')
 {
+  modelname.setAttribute('gltf-model','/models/kisses .glb')
 thirdscreenbar.style.display = "block"
+headerlogo.src='/images/hersheyslogo.png'
+headerlogo.classList.add("headerlogo-bar-exotic");
 }else if(typeofpack==='exotic')
 {
   //
+  modelname.setAttribute('gltf-model','/models/kisses .glb')
+  thirdscreenbar.style.display = "block"
+  headerlogo.src='/images/hed-logo.png'
+  headerlogo.classList.add("headerlogo-bar-exotic");
 }
 }
 
