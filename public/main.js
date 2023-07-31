@@ -1,3 +1,8 @@
+// let siblingName = document.querySelector("#siblingname")
+// alert("updated now")
+const inputElement = document.getElementById('#siblingname');
+alert("hi")
+
 let packtype
 $('.owl-carousel').owlCarousel({
     loop:false,
@@ -61,9 +66,13 @@ function changeExoticPack() {
 sendgift.onclick=()=>{
     firstscreen.style.display="none"
     secondscreen.style.display="block"
+    inputElement.focus();
 }
 sendthankyou.onclick=()=>{
     firstscreen.style.display="none"
     secondscreen.style.display="block"
+
+  // Set focus on the selected element
+  inputElement.focus();
 }
 

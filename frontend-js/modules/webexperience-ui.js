@@ -5,7 +5,6 @@ export class UImodule  {
     constructor() {
         // alert("executed from experience ui")
 
-
         this.packtype="hello"
         $('.owl-carousel').owlCarousel({
             loop: false,

@@ -208,6 +208,18 @@ button { pointer-events:initial; }
   overflow: auto;
   /* background-color:  #734222, #37140B; */
 }
+.camera-tag{
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #EDC967;
+}
+.wrapper{
+  overflow: auto;
+}
 .flower{
   margin-top: -29px;
   height: 60px;
@@ -327,29 +339,54 @@ line-height: normal;
   display: none;
 }
 .wrapper{
-  background-color: #3F000B;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
   height: 100vh;
 }
-.orange-wrapper{
+/* .orange-wrapper{
   background-color: #EE7700;
   height: 87%;
   margin: 13px;
   
-}
+} */
 .surprise-heading{
   font-family: "Walsheim";
-  color: white;
+  color: #EFBE7F;
   padding-top: 16px;
+  line-height: 10px;
 }
+::-webkit-input-placeholder { /* Edge */
+  color:rgba(246, 218, 173, 1);
+  
+}
+.surprise-heading-ns{
+  font-family: "Walsheim";
+  color: #EFBE7F;
+  font-size: 11px;
+}
+.flower-carousel-bottom{
+  height: 108px;
+}
+
 .username-section{
   margin-top: 21px;
   margin-left: 18px;
   font-size: 23px;
 }
-.blue-wrapper{
-  background-color: #003594;
+.carousel-ns{
+  position: absolute;
+  margin-top: -47px;
+}
+.golden-wrapper{
+  position: relative;
+  border-radius: 10px;
+  background: #D1A354;
+  background-image: url(/images/background-image.png);
   height: 40%;
-  margin-top: 14px;
+  margin-top: 28px;
+  margin: 14px;
+  border: 10px solid hsl(44, 79%, 67%);
+  background-size: cover;
+    background-position: center;
 }
 .breakline{
   color: inherit;
@@ -386,8 +423,12 @@ line-height: normal;
   padding-top: 20px;
   /* margin-top: 23px; */
   margin-left: 22px;
-  color: white;
-  font-family: "Walsheim";
+  color: #410E0F;
+  font-family: "Snavely";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .userName{
   background: transparent;
@@ -402,13 +443,65 @@ line-height: normal;
   width: 90%;
   margin-left: -9px;
 }
+.userName::placeholder {
+  color: rgba(246, 218, 173, 0.1);
+}
 .photo-frame{
   height: 70px;
+  margin-left: 49px;
+  margin-top: -5px;
+}
+.filejpeg{
+  margin: 33px;
+  margin-top: 13px;
+}
+.upload-outerdiv{
+  border-radius: 10px;
+background: linear-gradient(130deg, rgba(223, 188, 102, 0.10) 0%, rgba(210, 172, 71, 0.10) 23.34%, rgba(247, 239, 138, 0.10) 41.28%, rgba(255, 244, 197, 0.10) 68.42%, rgba(237, 201, 103, 0.10) 99.51%), rgba(15, 15, 15, 0.20);
+margin: 22px;
+
+}
+.uploadbutton{
+  border-radius: 66px !important;
+  padding: 16px 47px;
+  background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  width: 218px;
+  height: 53px;
+  color: #2D100C;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.base-title{
+  text-align: center;
+font-family: "Walsheim";
+font-size: 11px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+color: #EFBE7F;
 }
 .uploader{
-  height: 70px;
+  height: 53px;
   margin: 18px;
-  background-color: #4068AF;
+  border-radius: 32px;
+  margin-top: -7px;
+  background: rgba(255, 255, 255, 0.20);
+  border-radius: 51px;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), rgba(255, 255, 255, 0.50);
+  border: 2px solid  #EFBE7F;
+  color: #EFBE7F;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: lowercase;
+  border-radius: 51px;
 }
 /* #imagediv{
   width: 100px;
@@ -419,7 +512,7 @@ line-height: normal;
   background-position: center;
 } */
 .photo{
-    width: 66%;
+     width: 56%;
     align-self: center;
     display: flex;
     justify-content: center;
@@ -431,14 +524,15 @@ line-height: normal;
   margin-top: 0px;
 }
 .next-button{
-  position: absolute;
-  bottom: 39px;
+  position: relative;
+  bottom: 68px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
     height: 55px;
     border-radius: 93px;
-    background: #007BBD;
+    border-radius: 66px;
+    background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);    
     color: white;
     font-family:  Walsheim;
 }

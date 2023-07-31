@@ -27,12 +27,15 @@ let typeofpack
 let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
+const inputElement = document.querySelector('#siblingname');
+// alert("i")
+
 // firstscreen.style.display = "none"
 // scene.style.display="block"
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-
+  inputElement.focus();
 
 
 
@@ -41,6 +44,7 @@ sendgift.onclick = () => {
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
+  inputElement.focus();
 
 
 
