@@ -37,14 +37,14 @@ h1 {
     left: 50%;
     right: 0px;
     border-radius: 15px;
-    background: black;
-    color: white;
+    background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+    color: #3C131C;
     width: 200px;
     margin-left: -100px;
     text-align: center;
     padding: 15px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:'Walsheim';
     text-transform: uppercase;
     z-index: 1;
 }
@@ -75,7 +75,7 @@ h1 {
 }
 
 #sharepopupdiv{
-  display: block;
+  display: none;
   position: fixed;
   top: 116px;
   left: 50%;
