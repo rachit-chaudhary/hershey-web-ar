@@ -11,8 +11,8 @@
         </div>
         <div class="coupon-video">
             <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
-            <div id = "alertDiv" class="container">
-                <div class="alert alert-warning text-center alert-ns" role="alert">
+            <div  class="container">
+                <div id = "alertDiv" class="alert alert-warning text-center alert-ns" role="alert" >
                     Please accept Terms and Condition
                 </div>
             </div>
@@ -75,7 +75,8 @@ $(document).ready(function () {
     function updateButtonText(couponMessage) {
     $("#couponValue").text(couponMessage);
     }
-
+    $("#alertDiv").hide();
+   
     // Function to send AJAX request and handle coupon response
     function getCoupon() {
     $.ajax({
@@ -98,21 +99,23 @@ $(document).ready(function () {
 
     // Event listener for the "Welcome" button
     $("#welcomeBtn").click(function () {
-        const checkboxChecked = $("#flexCheckDefault").prop("checked");
-    getCoupon(); // On click, update the button text with the coupon message
+       
+          getCoupon();
+        // else {
+        //     console.log("not clicked")
+        //     // document.getElementById(alertDiv).style.display = "block"
+        //   $("#alertDiv").hide(); // Show the alert div when the checkbox is not checked
+        // }
+    // On click, update the button text with the coupon message
     });
 
     // Event listener for the checkbox
     $("#flexCheckDefault").change(function () {
     // Enable or disable the "Welcome" button based on checkbox status
     $("#welcomeBtn").prop("disabled", !this.checked);
-    if (this.checked) {
-        console.log("clicked")
-          $("#alertDiv").hide(); // Hide the alert div when the checkbox is checked
-        } else {
-            console.log("not clicked")
-          $("#alertDiv").show(); // Show the alert div when the checkbox is not checked
-        }
+    // $("#alertDiv").hide();
+    // document.getElementById(alertDiv).style.display = "none"
+   
     });
 });
 </script>
