@@ -7,8 +7,9 @@ export class UImodule  {
 
         this.packtype = "hello"
         $('.owl-carousel').owlCarousel({
+            center:true,
             loop: false,
-            margin: 1,
+            margin: -70,
             nav: true,
             responsive: {
                 0: {
@@ -36,7 +37,7 @@ export class UImodule  {
     }
     changeKissesPack() {
         var Image_Id = document.getElementById('hoverChange');
-       this.untapKisses();
+    //    this.untapKisses();
         if (Image_Id.src.match("/images/kisses.png")) {
             Image_Id.src = "/images/tapkisses.png"
             console.log("kisses")
@@ -52,8 +53,7 @@ export class UImodule  {
     }
   changeHersheyPack() {
         var Image_Id = document.getElementById('hoverhershey');
-       
-        this.untapKisses();
+        // this.untapKisses();
         if (Image_Id.src.match("/images/hershey.png")) {
             Image_Id.src = "/images/taphershey.png"
             console.log("chocolatebar")
@@ -62,13 +62,12 @@ export class UImodule  {
 
         }
         else {
-            Image_Id.src = "/images//hershey.png";
+            Image_Id.src = "/images/hershey.png";
             this.packtype = ""
         }
     }
     changeExoticPack() {
         var Image_Id = document.getElementById('hoverexotic');
-        this.untapKisses();
         if (Image_Id.src.match("/images/exotic.png")) {
             Image_Id.src = "/images/tapexotic.png"
             console.log("exotic")
