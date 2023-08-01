@@ -24,7 +24,7 @@ body {
     
 }
 #firstscreen {
-  display: none;
+  display: block;
 }
 h1 {
     /* display: none;
@@ -1638,6 +1638,9 @@ a.option-btn {
   position: absolute;
   right: 3px;
   bottom: -6px;
+}
+#loadingscreen{
+  display: none;
 }
 .loading-screen {
   width: 100%;
