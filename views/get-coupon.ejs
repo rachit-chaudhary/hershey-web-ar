@@ -11,11 +11,11 @@
         </div>
         <div class="coupon-video">
             <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
-            <div  class="container">
+            <!-- <div  class="container">
                 <div id = "alertDiv" class="alert alert-warning text-center alert-ns" role="alert" >
                     Please accept Terms and Condition
                 </div>
-            </div>
+            </div> -->
             <div id="confetti" class="confetti-video">
                 <video class="confetti-video-file" autoplay muted playsinline webkit-playsinline>
                     <source src="/videos/confetti_VP9.webm">
@@ -75,7 +75,7 @@ $(document).ready(function () {
     function updateButtonText(couponMessage) {
     $("#couponValue").text(couponMessage);
     }
-    $("#alertDiv").hide();
+    // $("#alertDiv").hide();
    
     // Function to send AJAX request and handle coupon response
     function getCoupon() {
