@@ -61,6 +61,7 @@
   </div>
 
   <!-- //second screen -->
+<form action="javascript:void(0);">
   <div class="wrapper" id="secondscreen">
     <div class=" header d-flex justify-content-center">
       <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
@@ -69,7 +70,7 @@
       <div class="username-section">
         <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
         <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal Sibling’s Name</p>
-        <input id="siblingname" type="text" placeholder=" SIBLING'S NAME" class="userName" required />
+        <input id="siblingname" type="text" placeholder="SIBLING'S NAME" class="userName" required />
 
       </div>
       <div class="d-flex justify-content-start">
@@ -100,7 +101,7 @@
             </div>
             <div class="photo">
               <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
-              <input type="file" style="display: none;" id="uploadbtn" accept="image/*"  class="form-control" aria-label="file example"  required>
+              <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required>
             </div>
           </div>
           <div class="d-flex justify-content-center">
@@ -117,11 +118,8 @@
         <button id="nextbtn" class="next-button" type="submit">Next</button>
       </div>
     </div>
-
-
   </div>
-
-
+</form>
   <!-- ------------------------------------------------ hershey-kisses-->
   <div class="window-kisses" id="thirdscreen">
     <div class="kisses-header">
@@ -393,7 +391,7 @@
   <div class="row">
     <div class="message-body">
       <div class="dynamic-note">
-        <p>Our bond can be described as Sweet Troublemakers and that makes it special. Your Caring nature makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+        <p id="completenote">Our bond can be described as Sweet Troublemakers and that makes it special. Your Caring nature makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
           This is my way of expressing what you mean to me. And for moments
           <span>when words fall short,</span> </p>
       </div>
@@ -522,6 +520,8 @@
 
   </a-scene>
   <%- include('./includes/footer') %>
+  <script src="main-bundled.js"></script>
+
   <script>
     let kissesLoading = document.querySelector(".kisses-loading-video")
 

@@ -28,6 +28,7 @@ let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
+let hereGoesID=document.getElementById("#hereGoesID")
 // alert("i")
 
 // firstscreen.style.display = "none"
@@ -35,7 +36,7 @@ const inputElement = document.querySelector('#siblingname');
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-  inputElement.focus();
+  // inputElement.focus();
 
 
 
@@ -44,7 +45,7 @@ sendgift.onclick = () => {
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-  inputElement.focus();
+  // inputElement.focus();
 
 
 
@@ -611,47 +612,68 @@ hoverexotic.onclick = () => {
   typeofpack='exotic'
   animtime=15000
 }
-nextbtn.onclick = () => {
-  name =document.getElementById("siblingname").value
-  secondscreen.style.display = "none"
+// name =document.getElementById("siblingname").value
+// if(name!=){
+  
+// }
+// -----------------------------upload validation---------------
 
-
-if(typeofpack==='kisses'){
-//
-modelname.setAttribute('gltf-model','#kissesmodel')
-console.log("ss")
-thirdscreen.style.display = "block"
-headerlogo.src='/images/hersheys-kisses-logo 1.png'
-headerlogo.classList.add("headerlogokisses");
-
-}else if(typeofpack==='chocolatebar')
-{
-  modelname.setAttribute('gltf-model','#kissesmodel')
-thirdscreenbar.style.display = "block"
-headerlogo.src='/images/hersheyslogo.png'
-headerlogo.classList.add("headerlogo-bar-exotic");
-}else if(typeofpack==='exotic')
-{
-  //
-  modelname.setAttribute('gltf-model','#exoticmodel')
-  thirdscreenbar.style.display = "block"
-  headerlogo.src='/images/hed-logo.png'
-  headerlogo.classList.add("headerlogo-bar-exotic");
+uploadbtn.onclick=()=>{
+  var x = document.getElementById("uploadbtn").required;
+  console.log("uploading");
 }
-modelname.addEventListener("model-loaded",()=>{
-  console.log("if loaded")
-modelloaded=1
-//    modelloaded++
-//     if(modelloaded===5){
-//         console.log("loaded")
-//         // alert("loaded!")
-//     australiacont.setAttribute("visible", "true")
-//     flat.style.display = 'none'
-// blacktransparent.style.display="block"
-// placementUI.style.display = 'block'
-//     }
- 
-});
+// ---------------------------------------
+nextbtn.onclick = () => {
+name =document.getElementById("siblingname").value
+console.log(name)
+if(name===""){
+  secondscreen.style.display = "block"
+}else{
+  secondscreen.style.display = "none"
+  if(typeofpack==='kisses'){
+    //
+    modelname.setAttribute('gltf-model','#kissesmodel')
+    console.log("ss")
+    thirdscreen.style.display = "block"
+    headerlogo.src='/images/hersheys-kisses-logo 1.png'
+    headerlogo.classList.add("headerlogokisses");
+    
+    }else if(typeofpack==='chocolatebar')
+    {
+      modelname.setAttribute('gltf-model','#kissesmodel')
+    thirdscreenbar.style.display = "block"
+    headerlogo.src='/images/hersheyslogo.png'
+    headerlogo.classList.add("headerlogo-bar-exotic");
+    }else if(typeofpack==='exotic')
+    {
+      //
+      modelname.setAttribute('gltf-model','#exoticmodel')
+      thirdscreenbar.style.display = "block"
+      headerlogo.src='/images/hed-logo.png'
+      headerlogo.classList.add("headerlogo-bar-exotic");
+    }
+    
+    modelname.addEventListener("model-loaded",()=>{
+      console.log("if loaded")
+    modelloaded=1
+    //    modelloaded++
+    //     if(modelloaded===5){
+    //         console.log("loaded")
+    //         // alert("loaded!")
+    //     australiacont.setAttribute("visible", "true")
+    //     flat.style.display = 'none'
+    // blacktransparent.style.display="block"
+    // placementUI.style.display = 'block'
+    //     }
+     
+    });
+    
+}
+  // secondscreen.style.display = "none"
+
+// if(name==""){
+//   alert("hwy")
+// }
 
 }
 closebtnsharepopup.onclick = () => {
@@ -698,9 +720,10 @@ nextQuestionid.onclick = () => {
   }
  
  
- 
-  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  hereGoesID.innerHTML = `${name}`
+  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
+  completenote.innerHTML = msg
 
   // Ar scene 
 
@@ -711,6 +734,7 @@ nextQuestionid.onclick = () => {
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
+  
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
@@ -733,9 +757,11 @@ option1div1.onclick = () => {
   option1 = "Sweet Troublemakers"
 }
 option1div2.onclick = () => {
+  console.log("option1 div 2")
   option1 = "Partners in crime"
 }
 option1div3.onclick = () => {
+  console.log("option1 div 3")
   option1 = "Top Secret keepers"
 }
 
@@ -758,8 +784,8 @@ option2div3.onclick = () => {
 }
 // Option3
 const option3div1 = document.getElementById('custom-option-1')
-const option3div2 = document.getElementById('custom-option-1')
-const option3div3 = document.getElementById('custom-option-1')
+const option3div2 = document.getElementById('custom-option-2')
+const option3div3 = document.getElementById('custom-option-3')
 option3div1.onclick = () => {
   console.log("option3 div 1")
 
