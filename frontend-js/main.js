@@ -1059,7 +1059,7 @@ taptoplace.addEventListener('click', () => {
 arscreen.style.display="block"
 setTimeout(() => {
   sharepopupdiv.style.display="block"
-  recordbannerdiv.style.display="none"
+  recordparentdiv.style.display="none"
 }, 3000);
 
 
