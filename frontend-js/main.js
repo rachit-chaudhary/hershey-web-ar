@@ -928,6 +928,7 @@ initRecorder();
 AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
+   const msgclosebtn= document.getElementById("msgclosebtn")
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
     function preview_image(event) {
@@ -1042,10 +1043,14 @@ AFRAME.registerComponent("swap-texture", {
 
 
     // })
-
+    msgclosebtn.onclick = () => {
+      messagenote.style.display="none"
+        modelname.setAttribute('animation-mixer', {timeScale: 1});
+    }
     notebox.addEventListener('click', function (evt) {  
       console.log("envolope clicked")
-        modelname.setAttribute('animation-mixer', {timeScale: 1});
+      messagenote.style.display="block"
+        // modelname.setAttribute('animation-mixer', {timeScale: 1});
         notebox.setAttribute('class','')
     });
      taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
