@@ -626,15 +626,19 @@ color: #EFBE7F;
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh;
 }
 .window-kisses .rakhi-kiss-image {
   width: 170px;
+  position: absolute;
+  top: -15px;
+  right: 0px;
 }
 .nextquecl{
   bottom: 1px;
-    position: absolute;
+  position: absolute;
 }
   
 
@@ -668,6 +672,9 @@ color: #EFBE7F;
 }
 
 .qns-1{
+  position: relative;
+  z-index: 2;
+  margin: 0px 0px 25px;
   min-height: 210px;
   padding: 25px 0px;
   border: 7px solid  hsl(44, 79%, 67%);
@@ -675,26 +682,18 @@ color: #EFBE7F;
   background: #E8B377;
   background-image: url(/images/smallKisses.png);
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 20px;
   font-family: "Walsheim";
-    position: relative;
-  margin-top: -53px !important;
-    /* margin-top: 6px !important; */
-  z-index: 1;
-  
-
 }
 .image1{
   padding-bottom: 7px;
 }
+
 .hersheyBackgroundImage{
-    margin-top: -46px;
+  margin-top: -35px;
+  left: -32px;
 }
 .sunrise{
   margin-top: -15px;
-}
-.outerDiv{
-  margin-top: -52px;
 }
 .hersheyBackgroundImageSection-1{
   position: absolute;
@@ -707,16 +706,16 @@ color: #EFBE7F;
   margin-right: 6px;
 }
 .hersheyBackgroundImageSection-3{
-  margin-top: -77px;
+  margin-top: -40px;
+  right: 0px;
 }
 .hersheyBackgroundImageSection-4{
-  margin-top: -82px;
+  margin-top: -52px;
   margin-left: -11px;
 }
-.hersheyBackgroundImageSection-5{
-  margin-top: -16px;
-  margin-left: -46px;
- 
+.hersheyBackgroundImageSection-4-duplicate {
+  right: -30px;
+  top: -60px;
 }
 .hersheyBackgroundImageSection-6{
   margin-top: -62px;
@@ -734,7 +733,6 @@ color: #EFBE7F;
   height: 60px;
 }
 .appropriate{
-  margin-left: 19px;
   font-size: 12px;
   font-family: "Walsheim";
     color: #F5F5F5;
@@ -743,28 +741,20 @@ color: #EFBE7F;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-
-
 }
 .sibling{
-    margin-top: -75px;
-    margin-left: 20px;
-    background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Snavely";
-    font-size: 42px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
-
-
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Snavely";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
 }
 .knowYour{
   color: #F6CD73;
-  margin-left: 20px;
-  margin-top: 84px;
   font-size: 17px;
   font-family: "Walsheim";
 
@@ -917,9 +907,6 @@ color: #EFBE7F;
 
   /* ------------------------------------------- */
   /* Custom styles for the container and question  card2*/
-.d-flex.qns-1 {
-  justify-content: center;
-}
 
 .container {
   width: 80%;
@@ -1652,12 +1639,24 @@ a.option-btn {
 }
 
 /* rachit's CSS (keep it at the very end of the css file */
+.kisses-header {
+  height: 170px;
+  padding: 25px 25px 0px;
+  margin-top: 40px;
+}
 .kisses-bg {
   width: 100%;
   position: relative;
+  /* z-index: -1; */
 }
-.image-1-rc img {
+.kisses-bg img {
   position: absolute;
+  overflow: hidden;
+}
+.image-1-rc {
+  position: absolute;
+  right: 0px;
+  top: -33px;
 }
 .outerDiv {
   display: flex;
@@ -1665,11 +1664,16 @@ a.option-btn {
   justify-content: space-between;
   height: 100%;
 }
+.image-9 {
+  right: -27px;
+  top: -45px;
+}
 .question-elements {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  min-height: 145px;
+  padding: 0px 15px;
 }
 .hanging-circles {
   width: 100%;
@@ -1864,5 +1868,22 @@ a.option-btn {
 }
 .dynamic-img img {
   width: 70%;
+}
+.preview-text {
+  z-index: 2;
+  top: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 4px 1px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+}
+.preview-text h3 {
+  font-family: "Walsheim";
+  font-size: 21px;
 }
 /* rachit's CSS end's here */
