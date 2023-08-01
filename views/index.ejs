@@ -362,16 +362,45 @@
       <!-- <div class="spinner-border spinner-ns" role="status">
       <span class="sr-only">Loading...</span>
     </div> -->
-    </div>
-    <div class="loading-message">
-      <h4><span>Your custom special surprise is loading...</span>🤩</h4>
+  </div>
+  <div class="loading-message">
+    <h4><span>Your custom special surprise is loading...</span>🤩</h4>
+  </div>
+</div>
+
+
+
+
+<!-- kisses message window -->
+
+<div class="message-wrapper kisses-message">
+  <div class="close-icon">
+    <img class="close-message" src="/images/close.png" alt="close.png">
+  </div>
+  <div class="row">
+    <div class="message-header">
+      <h3>Dear</h3>
+      <div class="dynamic-name">
+        <h2 id="#hereGoesID" class="receiver-name-on-message">Dynamic Name</h2><h2 class="receiver-name-on-message">,</h2>
+      </div>
     </div>
   </div>
+  
+  <div class="row">
+    <div class="message-body">
+      <div class="dynamic-note">
+        <p>Our bond can be described as Sweet Troublemakers and that makes it special. Your Caring nature makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+          This is my way of expressing what you mean to me. And for moments
+          <span>when words fall short,</span> </p>
+      </div>
+    </div>
+    <div class="dynamic-img">
+      <img src="/images/say it with a kiss (brown).png" alt="say-it-with-a-kiss.png">
+    </div>
+  </div>
+</div>
 
-
-
-
-
+<!-- kisses message window end here -->
 
 
 
@@ -479,5 +508,21 @@
     </a-entity>
 
   </a-scene>
-
   <%- include('./includes/footer') %>
+  <script>
+    let kissesLoading = document.querySelector(".kisses-loading-video")
+
+    if (isChrome) {
+      kissesLoading.src = "/videos/kisses_VP9.webm"
+      kissesLoading.type = "video/webm; codecs=vp9"
+      kissesLoading.controls = false
+      kissesLoading.play()
+    } else if (isIOS) {
+      kissesLoading.src = "/videos/kisses-mov.mov"
+      kissesLoading.type = "video/mp4; codecs=hev1"
+      kissesLoading.controls = false
+      kissesLoading.play()
+    } else {
+      document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+    }
+  </script>
