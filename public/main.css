@@ -228,7 +228,9 @@ button { pointer-events:initial; }
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding-top: 13px;
   color: #EDC967;
+  
 }
 .wrapper{
   overflow: auto;
@@ -368,12 +370,13 @@ line-height: normal;
   line-height: 10px;
 }
 ::-webkit-input-placeholder { /* Edge */
-  color:rgba(246, 218, 173, 1);
+  color: #EFBE7F;
   
 }
 .surprise-heading-ns{
   font-family: "Walsheim";
   color: #EFBE7F;
+  font-style: italic;
   font-size: 11px;
 }
 .flower-carousel-bottom{
@@ -446,18 +449,24 @@ line-height: normal;
 .userName{
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.80);
-  font-family: "Walsheim";
-  font-size: 32px;
+  color: #EFBE7F;
+  /* font-family: "Walsheim"; */
   font-style: normal;
-  font-weight: 700;
+  /* font-weight: 700; */
   line-height: normal;
   /* margin-top: 5px; */
   width: 90%;
   margin-left: -9px;
+  font-family: Brandon Printed;
+  font-size: 36px;
+  font-weight: 250;
+
 }
 .userName::placeholder {
   color: rgba(246, 218, 173, 0.1);
+}
+.userName:focus {
+  outline: none;
 }
 .photo-frame{
   height: 70px;
@@ -530,7 +539,7 @@ color: #EFBE7F;
     display: flex;
     justify-content: center;
     color: white;
-    font-family: GT Walsheim;
+    font-family: "Walsheim";
 
 }
 .upload-section{
@@ -546,8 +555,9 @@ color: #EFBE7F;
     border-radius: 93px;
     border-radius: 66px;
     background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);    
-    color: white;
-    font-family:  Walsheim;
+    color: #2D100C;
+    font-family:"snavely";
+    text-transform: lowercase;
 }
 
 

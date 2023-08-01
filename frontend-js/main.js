@@ -1086,9 +1086,24 @@ setTimeout(() => {
 
 });
     // modelname.onclick = () => {
-    //   console.log("clicked")
+    //   console.log("clicked")sendgift
     // }
 
 
   },
 })
+// ------------------autofocus for input field----------------------
+document.getElementById("sendthankyou").addEventListener("click", function() {
+  document.getElementById("siblingname").focus();
+});
+document.getElementById("sendgift").addEventListener("click", function() {
+  document.getElementById("siblingname").focus();
+});
+// -------------------- changing text based on user selection---------------------
+document.getElementById("sendthankyou").addEventListener("click", function() {
+  // Get the text element by its ID
+  const textElement = document.getElementById("changeTextScreen");
+
+  // Update the text content
+  textElement.textContent = "Say thankyou to";
+});
