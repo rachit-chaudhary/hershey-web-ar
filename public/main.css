@@ -551,7 +551,8 @@ color: #EFBE7F;
     border-radius: 66px;
     background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);    
     color: #2D100C;
-    font-family: "Walsheim";
+    font-family:"snavely";
+    text-transform: lowercase;
 }
 
 
@@ -1648,6 +1649,9 @@ a.option-btn {
   right: 3px;
   bottom: -6px;
 }
+#loadingscreen{
+  display: none;
+}
 .loading-screen {
   width: 100%;
   height: 110vh;
@@ -1672,7 +1676,7 @@ a.option-btn {
   justify-content: center;
 }
 .kisses-loading-video {
-  width: 170%;
+  width: 100%;
 }
 .loading-message {
   width: 100%;

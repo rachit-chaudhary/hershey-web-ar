@@ -131,6 +131,7 @@ let previouspausevalue=0
 let innerpausevalue=1
 let animtime=0
 let taptoplace=document.getElementById('tap-to-place')
+let modelloaded=0
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -637,7 +638,20 @@ headerlogo.classList.add("headerlogo-bar-exotic");
   headerlogo.src='/images/hed-logo.png'
   headerlogo.classList.add("headerlogo-bar-exotic");
 }
-
+modelname.addEventListener("model-loaded",()=>{
+  console.log("if loaded")
+modelloaded=1
+//    modelloaded++
+//     if(modelloaded===5){
+//         console.log("loaded")
+//         // alert("loaded!")
+//     australiacont.setAttribute("visible", "true")
+//     flat.style.display = 'none'
+// blacktransparent.style.display="block"
+// placementUI.style.display = 'block'
+//     }
+ 
+});
 
 }
 closebtnsharepopup.onclick = () => {
@@ -669,16 +683,31 @@ reload.onclick = () => {
  
 }
 nextQuestionid.onclick = () => {
+  
   thirdscreen.style.display = "none"
+  loadingscreen.style.display="block"
+ 
+  kissesloadingvid.play();
+  if(modelloaded===1){
+    setTimeout(() => {
+      loadingscreen.style.display="none"
+      scene.style.zIndex = 0
+      permissions.setAttribute("zappar-permissions-ui", "")
+      taptoplace.style.display = "block"
+    }, 6000);
+  }
+ 
+ 
+ 
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
   // Ar scene 
-  permissions.setAttribute("zappar-permissions-ui", "")
-  scene.style.zIndex = 0
+
+  // scene.style.zIndex = 0
   console.log(uimoduleobj.packtype)
   console.log("next")
-  taptoplace.style.display = "block"
+
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
@@ -715,16 +744,16 @@ const option2div1 = document.getElementById('custom-div-1')
 const option2div2 = document.getElementById('custom-div-2')
 const option2div3 = document.getElementById('custom-div-3')
 option2div1.onclick = () => {
-  console.log("option3 div 1")
+  console.log("option2 div 1")
   option2 = "Caring nature"
 
 }
 option2div2.onclick = () => {
-  console.log("option3 div 2")
+  console.log("option2 div 2")
   option2 = "Delightfully annoying nature"
 }
 option2div3.onclick = () => {
-  console.log("option3 div 3")
+  console.log("option2 div 3")
   option2 = "Giving mature advices"
 }
 // Option3
@@ -963,7 +992,7 @@ AFRAME.registerComponent("swap-texture", {
       reader.readAsDataURL(event.target.files[0]);
     }
 
-    const { src } = document.getElementById('galleryimg')
+    // const { src } = document.getElementById('galleryimg')
 
     const loader = new THREE.TextureLoader()
     //   var canvas = document.createElement('canvas');
@@ -972,7 +1001,20 @@ AFRAME.registerComponent("swap-texture", {
  
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
-
+  //   modelname.addEventListener("model-loaded",()=>{
+  //     console.log("if loaded")
+  
+  // //    modelloaded++
+  // //     if(modelloaded===5){
+  // //         console.log("loaded")
+  // //         // alert("loaded!")
+  // //     australiacont.setAttribute("visible", "true")
+  // //     flat.style.display = 'none'
+  // // blacktransparent.style.display="block"
+  // // placementUI.style.display = 'block'
+  // //     }
+     
+  // });
 
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {

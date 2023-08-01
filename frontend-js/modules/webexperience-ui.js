@@ -1,8 +1,5 @@
-import { Scene } from "three"
-// document.getElementById("sendgift").addEventListener("click", function() {
-//     document.getElementById("siblingname").focus();
-  
-//   });
+// import { Scene } from "three"
+
 export class UImodule  {
     
     constructor() {
