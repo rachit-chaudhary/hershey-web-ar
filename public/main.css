@@ -83,6 +83,7 @@ h1 {
 }
 
 #sharepopupdiv{
+  display: none;
   position: fixed;
   top: 125px;
   left: 50%;
