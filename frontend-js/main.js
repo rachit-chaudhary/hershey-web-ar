@@ -963,7 +963,7 @@ AFRAME.registerComponent("swap-texture", {
       reader.readAsDataURL(event.target.files[0]);
     }
 
-    const { src } = document.getElementById('galleryimg')
+    // const { src } = document.getElementById('galleryimg')
 
     const loader = new THREE.TextureLoader()
     //   var canvas = document.createElement('canvas');
