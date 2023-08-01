@@ -615,6 +615,13 @@ hoverexotic.onclick = () => {
 // if(name!=){
   
 // }
+// -----------------------------upload validation---------------
+
+uploadbtn.onclick=()=>{
+  var x = document.getElementById("uploadbtn").required;
+  console.log("uploading");
+}
+// ---------------------------------------
 nextbtn.onclick = () => {
 name =document.getElementById("siblingname").value
 console.log(name)
