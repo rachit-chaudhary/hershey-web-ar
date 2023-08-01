@@ -1,6 +1,6 @@
 // let siblingName = document.querySelector("#siblingname")
 // alert("updated now")
-const inputElement = document.getElementById('#siblingname');
+const inputElement = document.getElementById('siblingname');
 alert("hi")
 
 let packtype
