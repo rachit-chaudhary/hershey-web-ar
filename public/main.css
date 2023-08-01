@@ -1065,6 +1065,7 @@ body {
 .get-coupon-section {
   /* background: linear-gradient(90deg, #2d100c 0%, #61311a 100%); */
   color: #fff;
+  overflow-x: hidden;
   /* height: 100%; */
 }
 .confetti-video {
