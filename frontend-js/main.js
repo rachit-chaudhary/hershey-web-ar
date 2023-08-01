@@ -35,7 +35,7 @@ const inputElement = document.querySelector('#siblingname');
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-  inputElement.focus();
+  // inputElement.focus();
 
 
 
@@ -44,7 +44,7 @@ sendgift.onclick = () => {
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-  inputElement.focus();
+  // inputElement.focus();
 
 
 
@@ -611,47 +611,61 @@ hoverexotic.onclick = () => {
   typeofpack='exotic'
   animtime=15000
 }
+// name =document.getElementById("siblingname").value
+// if(name!=){
+  
+// }
 nextbtn.onclick = () => {
-  name =document.getElementById("siblingname").value
+name =document.getElementById("siblingname").value
+console.log(name)
+if(name===""){
+  secondscreen.style.display = "block"
+}else{
   secondscreen.style.display = "none"
-
-
-if(typeofpack==='kisses'){
-//
-modelname.setAttribute('gltf-model','#kissesmodel')
-console.log("ss")
-thirdscreen.style.display = "block"
-headerlogo.src='/images/hersheys-kisses-logo 1.png'
-headerlogo.classList.add("headerlogokisses");
-
-}else if(typeofpack==='chocolatebar')
-{
-  modelname.setAttribute('gltf-model','#kissesmodel')
-thirdscreenbar.style.display = "block"
-headerlogo.src='/images/hersheyslogo.png'
-headerlogo.classList.add("headerlogo-bar-exotic");
-}else if(typeofpack==='exotic')
-{
-  //
-  modelname.setAttribute('gltf-model','#exoticmodel')
-  thirdscreenbar.style.display = "block"
-  headerlogo.src='/images/hed-logo.png'
-  headerlogo.classList.add("headerlogo-bar-exotic");
+  if(typeofpack==='kisses'){
+    //
+    modelname.setAttribute('gltf-model','#kissesmodel')
+    console.log("ss")
+    thirdscreen.style.display = "block"
+    headerlogo.src='/images/hersheys-kisses-logo 1.png'
+    headerlogo.classList.add("headerlogokisses");
+    
+    }else if(typeofpack==='chocolatebar')
+    {
+      modelname.setAttribute('gltf-model','#kissesmodel')
+    thirdscreenbar.style.display = "block"
+    headerlogo.src='/images/hersheyslogo.png'
+    headerlogo.classList.add("headerlogo-bar-exotic");
+    }else if(typeofpack==='exotic')
+    {
+      //
+      modelname.setAttribute('gltf-model','#exoticmodel')
+      thirdscreenbar.style.display = "block"
+      headerlogo.src='/images/hed-logo.png'
+      headerlogo.classList.add("headerlogo-bar-exotic");
+    }
+    
+    modelname.addEventListener("model-loaded",()=>{
+      console.log("if loaded")
+    modelloaded=1
+    //    modelloaded++
+    //     if(modelloaded===5){
+    //         console.log("loaded")
+    //         // alert("loaded!")
+    //     australiacont.setAttribute("visible", "true")
+    //     flat.style.display = 'none'
+    // blacktransparent.style.display="block"
+    // placementUI.style.display = 'block'
+    //     }
+     
+    });
+    
 }
-modelname.addEventListener("model-loaded",()=>{
-  console.log("if loaded")
-modelloaded=1
-//    modelloaded++
-//     if(modelloaded===5){
-//         console.log("loaded")
-//         // alert("loaded!")
-//     australiacont.setAttribute("visible", "true")
-//     flat.style.display = 'none'
-// blacktransparent.style.display="block"
-// placementUI.style.display = 'block'
-//     }
- 
-});
+  // secondscreen.style.display = "none"
+
+// if(name==""){
+//   alert("hwy")
+// }
 
 }
 closebtnsharepopup.onclick = () => {
