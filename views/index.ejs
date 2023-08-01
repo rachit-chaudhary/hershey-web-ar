@@ -128,13 +128,14 @@
     </div>
     <h3 class="sibling">sibling better</h3>
     <h6 class="text-white appropriate">Choose the most appropriates options</h6>
-    <div class="d-flex justify-content-end image1"> <img src="/images/image1.png" />
+    <div class="d-flex justify-content-end image1"><img src="/images/image1.png" />
     </div>
 
 
     <div class="outerDiv">
       <div class="d-flex  qns-1">
         <div class="container">
+          <div class="question-elements">
           <div class="row">
             <p class="qns-2">A word to describe our sibling bond</p>
           </div>
@@ -152,6 +153,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
       <div class="d-flex justify-content-start sunrise">
         <img class="hersheyBackgroundImage" src="/images/image3.png" />
@@ -159,6 +161,7 @@
       <div class="d-flex qns-1">
 
         <div class="container">
+          <div class="question-elements">
           <div class="row">
             <p class="qns-2">My sibling's superpower is</p>
           </div>
@@ -176,6 +179,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       <div class="d-flex justify-content-end">
@@ -190,19 +194,21 @@
       </div>
       <div class="d-flex qns-1">
         <div class="container">
-          <div class="row">
-            <p class="qns-2">My sibling tends to be</p>
-          </div>
-          <div class="row">
-            <div class="options-row">
-              <div class="custom-option custom-normal-option d-flex" id="custom-option-1">
-                <p class="custom-option-btn custom-btn-1">Crazy</p>
-              </div>
-              <div class="custom-option custom-normal-option d-flex" id="custom-option-2">
-                <p class="custom-option-btn custom-btn-2">Realistic</p>
-              </div>
-              <div class="custom-option custom-normal-option d-flex" id="custom-option-3">
-                <p class="custom-option-btn custom-btn-3">Determined</p>
+          <div class="question-elements">
+            <div class="row">
+              <p class="qns-2">My sibling tends to be</p>
+            </div>
+            <div class="row">
+              <div class="options-row">
+                <div class="custom-option custom-normal-option d-flex" id="custom-option-1">
+                  <p class="custom-option-btn custom-btn-1">Crazy</p>
+                </div>
+                <div class="custom-option custom-normal-option d-flex" id="custom-option-2">
+                  <p class="custom-option-btn custom-btn-2">Realistic</p>
+                </div>
+                <div class="custom-option custom-normal-option d-flex" id="custom-option-3">
+                  <p class="custom-option-btn custom-btn-3">Determined</p>
+                </div>
               </div>
             </div>
           </div>
@@ -371,9 +377,9 @@
 
 <!-- kisses message window -->
 
-<div class="message-wrapper kisses-message">
+<div id="messagenote" class="message-wrapper kisses-message">
   <div class="close-icon">
-    <img class="close-message" src="/images/close.png" alt="close.png">
+    <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
   </div>
   <div class="row">
     <div class="message-header">
@@ -412,14 +418,20 @@
     <div id="headerdiv">
       <img id="headerlogo" src="/images/hersheyslogo.png" alt="Paris">
     </div>
-    <div id="sharepopupdiv">
-      <img id="closebtnsharepopup" src="/images/closebtnsharepopup.png" />
-      <img id="sharepopup" src="/images/share-pop-up.png" />
+    <div>
+      <div id="sharepopupdiv" >
+        <img id="closebtnsharepopup" src="/images/closebtnsharepopup.png">
+        P.S – Share the experience video on social media. Tag your sibling and <spna id="hersheyid">@hersheysindia</spna> to win exciting prizes!
+      </div>
+    
     </div>
     <div id="reloaddiv"><img id="reload" src="/images/reload.png" /></div>
-    <div id="recordbannerdiv"><img id="recordbanner" src="/images/record-banner.png" /></div>
+    <div id="recordparentdiv">
+    <div id="recordbannerdiv">Record & save to phone</div>
+    <div class="arrow-down"></div> 
+  </div>
     <div id="shutter"><img id="capture" src="/images/shutter-button.png" /></div>
-    <div id="share"><img id="sharebtn" src="/images/sharebutton.png" /></div>
+    <div id="share">Share</div>
   </div>
 
   <!-- <div id="capture1 capture2 d-flex justify-content-start">

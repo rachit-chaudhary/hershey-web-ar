@@ -83,22 +83,35 @@ h1 {
 }
 
 #sharepopupdiv{
-  display: none;
   position: fixed;
-  top: 116px;
+  top: 125px;
   left: 50%;
   right: 0px;
-  color: white;
-  width: 299px;
-  margin-left: -154px;
-  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 274px;
+  margin-left: -140px;
+  /* text-align: center; */
   padding: 15px;
-  z-index: 1;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  /* text-transform: uppercase; */
+  z-index: 5;
+}
+#hersheyid{
+  background: #3C131C;
+  color: #FADF9E;
+  border-radius: 5px;
+  /* position: absolute; */
+  width: 49%;
+
 }
 #closebtnsharepopup{
-  right: 0;
-    position: absolute;
-    top: 29px;
+  right: 8px;
+  position: absolute;
+  top: 8px;
+  width: 5%;
 }
 #reloaddiv{
 
@@ -115,17 +128,37 @@ h1 {
 
 }
 #recordbannerdiv{
-  display: block;
   position: fixed;
-  bottom: 160px;
+  bottom: 185px;
   left: 50%;
   right: 0px;
-  color: white;
-  width: 100px;
-  margin-left: -154px;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 271px;
+  margin-left: -134px;
   text-align: center;
   padding: 15px;
-  z-index: 1;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: uppercase;
+  z-index: 5;
+}
+.arrow-down {
+  position: fixed;
+  margin-left: -14px;
+  text-align: center;
+  bottom: 168px;
+  left: 50%;
+  border-top: #bcd11c;
+  right: 0px;
+  border-top: 18px solid #f0dc9c;
+
+  z-index: 4;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
 }
   #shutter {
     display: block;
@@ -143,18 +176,24 @@ h1 {
     z-index: 1;
 }
 #share {
-  display: block;
+  
   position: fixed;
-  bottom: 10px;
+  bottom: 23px;
   left: 50%;
   right: 0px;
-  color: white;
-  width: 100px;
-  margin-left: -80px;
+  border-radius: 50px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 190px;
+  margin-left: -89px;
   text-align: center;
   padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: uppercase;
   z-index: 1;
 }
+
 
 body {
   margin: 0;
@@ -628,6 +667,7 @@ color: #EFBE7F;
 }
 
 .qns-1{
+  min-height: 210px;
   padding: 25px 0px;
   border: 7px solid  hsl(44, 79%, 67%);
   border-radius: 15px;
@@ -1066,6 +1106,7 @@ body {
 .get-coupon-section {
   /* background: linear-gradient(90deg, #2d100c 0%, #61311a 100%); */
   color: #fff;
+  overflow-x: hidden;
   /* height: 100%; */
 }
 .confetti-video {
@@ -1610,7 +1651,25 @@ a.option-btn {
 }
 
 /* rachit's CSS (keep it at the very end of the css file */
-
+.kisses-bg {
+  width: 100%;
+  position: relative;
+}
+.image-1-rc img {
+  position: absolute;
+}
+.outerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.question-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .hanging-circles {
   width: 100%;
   position: relative;
@@ -1777,6 +1836,12 @@ a.option-btn {
   background-size: contain;
   background-repeat: repeat;
   background-position: top;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 }
 .dynamic-name {
   display: flex;
