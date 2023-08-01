@@ -5,7 +5,7 @@ export class UImodule  {
     constructor() {
         // alert("executed from experience ui")
 
-        this.packtype="hello"
+        this.packtype = "hello"
         $('.owl-carousel').owlCarousel({
             loop: false,
             margin: 1,
@@ -22,13 +22,7 @@ export class UImodule  {
                 }
             }
         })
-        
-      
-      
-     
-       
-      
-       
+
     }
 
     untapKisses(){

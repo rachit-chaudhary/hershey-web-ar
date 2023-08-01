@@ -48,7 +48,7 @@
                         </label>
                     </div>
                     <!-- -->
-                    <button id ="welcomeBtn" disabled><span class="coupon-btn-text">
+                    <button id ="welcomeBtn" disabled><span id="couponValue" class="coupon-btn-text">
                         Tap to Get Voucher
                     </span></button>
                     <!-- <div id="couponMessage"></div> -->
@@ -63,93 +63,87 @@
         
     </div>
 </section>
+
 <script>
-    // check if browser is chrome or ios
-    var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.csi)
+$(document).ready(function () {
+    // Function to update "Welcome" button text with coupon message
+    function updateButtonText(couponMessage) {
+    $("#couponValue").text(couponMessage);
+    }
 
-    let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
-            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
-            !window.MSStream
-    
-    let confettiVideo = document.querySelector(".confetti-video-file")
-    let couponVideo = document.querySelector(".get-coupon-video")
-
-    if (isChrome) {
-            confettiVideo.src = "/videos/confetti_VP9.webm"
-            confettiVideo.type = "video/webm; codecs=vp9"
-            confettiVideo.controls = false
-            confettiVideo.play()
-            couponVideo.src = "/videos/get_coupon_VP9.webm"
-            couponVideo.type = "video/webm; codecs=vp9"
-            couponVideo.controls = false
-            couponVideo.play()
-        } else if (isIOS) {
-            confettiVideo.src = "/videos/confetti.mov"
-            confettiVideo.type = "video/mp4; codecs=hev1"
-            confettiVideo.controls = false
-            confettiVideo.play()
-            couponVideo.src = "/videos/get_coupon.mov"
-            couponVideo.type = "video/mp4; codecs=hev1"
-            couponVideo.controls = false
-            confettiVideo.play()
-        } else {
-            document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+    // Function to send AJAX request and handle coupon response
+    function getCoupon() {
+    $.ajax({
+        type: "GET",
+        url: "/get-coupon",
+        success: function (data) {
+        updateButtonText(data.couponMessage);
+        },
+        error: function () {
+        console.error("Error fetching coupon.");
         }
+    });
+    }
 
-    // hide confetti video after playing and show get coupon button
+    // Check if the "coupon" cookie is present on page load
+    const visitorCoupon = Cookies.get('coupon');
+    if (visitorCoupon) {
+    getCoupon(); // If the cookie exists, update the button text immediately
+    }
+
+    // Event listener for the "Welcome" button
+    $("#welcomeBtn").click(function () {
+    getCoupon(); // On click, update the button text with the coupon message
+    });
+
+    // Event listener for the checkbox
+    $("#flexCheckDefault").change(function () {
+    // Enable or disable the "Welcome" button based on checkbox status
+    $("#welcomeBtn").prop("disabled", !this.checked);
+    });
+});
+</script>
+<%- include('./includes/footer') %>
+<script>
+    let confettiVideo = document.querySelector(".confetti-video-file")
+  let couponVideo = document.querySelector(".get-coupon-video")
+
+  if (isChrome) {
+      confettiVideo.src = "/videos/confetti_VP9.webm"
+      confettiVideo.type = "video/webm; codecs=vp9"
+      confettiVideo.controls = false
+      confettiVideo.play()
+      couponVideo.src = "/videos/get_coupon_VP9.webm"
+      couponVideo.type = "video/webm; codecs=vp9"
+      couponVideo.controls = false
+      couponVideo.play()
+    } else if (isIOS) {
+      confettiVideo.src = "/videos/confetti.mov"
+      confettiVideo.type = "video/mp4; codecs=hev1"
+      confettiVideo.controls = false
+      confettiVideo.play()
+      couponVideo.src = "/videos/get_coupon.mov"
+      couponVideo.type = "video/mp4; codecs=hev1"
+      couponVideo.controls = false
+      confettiVideo.play()
+    } else {
+      document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+    }
+
+  // hide confetti video after playing and show get coupon button
     document.addEventListener('DOMContentLoaded', e => {
-            var confettiVideo = document.querySelector(".confetti-video-file");
-            var getCouponForm = document.querySelector(".voucher-div")
-            var relativeDivContent = document.querySelector(".relative-div-content")
-            var postScripText = document.querySelector(".post-script-text")
+      var confettiVideo = document.querySelector(".confetti-video-file");
+      var getCouponForm = document.querySelector(".voucher-div")
+      var relativeDivContent = document.querySelector(".relative-div-content")
+      var postScripText = document.querySelector(".post-script-text")
 
-            confettiVideo.addEventListener('ended', e => {
-                confettiVideo.parentElement.style.display = "none"
-                relativeDivContent.style.height = "unset"
-                getCouponForm.classList.remove("hide-content")
-                getCouponForm.classList.add("get-coupon-form")
-                //getCouponForm.style.display = "flex"
-                postScripText.style.display = "block"
-            });
-        });
-    </script>
-   <script>
-    $(document).ready(function () {
-      // Function to update "Welcome" button text with coupon message
-      function updateButtonText(couponMessage) {
-        $("#welcomeBtn").text(couponMessage);
-      }
-
-      // Function to send AJAX request and handle coupon response
-      function getCoupon() {
-        $.ajax({
-          type: "GET",
-          url: "/get-coupon",
-          success: function (data) {
-            updateButtonText(data.couponMessage);
-          },
-          error: function () {
-            console.error("Error fetching coupon.");
-          }
-        });
-      }
-
-      // Check if the "coupon" cookie is present on page load
-      const visitorCoupon = Cookies.get('coupon');
-      if (visitorCoupon) {
-        getCoupon(); // If the cookie exists, update the button text immediately
-      }
-
-      // Event listener for the "Welcome" button
-      $("#welcomeBtn").click(function () {
-        getCoupon(); // On click, update the button text with the coupon message
-      });
-
-      // Event listener for the checkbox
-      $("#flexCheckDefault").change(function () {
-        // Enable or disable the "Welcome" button based on checkbox status
-        $("#welcomeBtn").prop("disabled", !this.checked);
+      confettiVideo.addEventListener('ended', e => {
+        confettiVideo.parentElement.style.display = "none"
+        relativeDivContent.style.height = "unset"
+        getCouponForm.classList.remove("hide-content")
+        getCouponForm.classList.add("get-coupon-form")
+        //getCouponForm.style.display = "flex"
+        postScripText.style.display = "block"
       });
     });
-  </script>
-<%- include('./includes/footer') %>
+</script>
