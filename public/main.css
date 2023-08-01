@@ -1640,6 +1640,7 @@ a.option-btn {
   bottom: -6px;
 }
 .loading-screen {
+  display: none;
   width: 100%;
   height: 110vh;
   margin: 0px auto;
@@ -1708,4 +1709,16 @@ a.option-btn {
   margin: 0px auto;
 }
 
+.message-wrapper {
+  width: 100%;
+  height: 110vh;
+  margin: 0px auto;
+}
+.kisses-message {
+  background-color: teal;
+}
+.dynamic-name {
+  display: flex;
+  font-family: "Walsheim";
+}
 /* rachit's CSS end's here */
