@@ -1,3 +1,4 @@
+
 const couponsArray = [
   {
    "coupon": "8CWBKWGWA2",
@@ -421,7 +422,7 @@ const couponsArray = [
       }
     }
   
-    return { visitorCoupon, couponMessage };
+    return { visitorCoupon, couponMessage,couponsArray };
   }
   
   module.exports = {
