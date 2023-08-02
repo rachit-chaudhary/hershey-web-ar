@@ -1444,13 +1444,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 205px;
+  width: 100%;
   height: 78px;
   color: #5f3019;
   font-family: 'Walsheim';
 }
 .get-coupon-form button .coupon-btn-text {
-  width: 80px;
+  width: fit-content;
   display: flex;
   background: unset;
   transition: unset;

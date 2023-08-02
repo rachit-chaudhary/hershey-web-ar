@@ -401,28 +401,28 @@ const couponsArray = [
   }
  ];
   
-  function getCoupon(visitorCoupon) {
-    let couponMessage = '';
-  
-    if (!visitorCoupon) {
-      for (let i = 0; i < couponsArray.length; i++) {
-        if (!couponsArray[i].isRedeem) {
-          visitorCoupon = couponsArray[i].coupon;
-          couponsArray[i].isRedeem = true;
-          couponMessage = ` ${visitorCoupon}`;
-          console.log(couponsArray)
-          break;
-        }
-      }
-    } else {
-      const redeemedCoupon = couponsArray.find(coupon => coupon.coupon === visitorCoupon && coupon.isRedeem);
-      if (redeemedCoupon) {
-        couponMessage = ` ${redeemedCoupon.coupon}`;
+ 
+function getCoupon(visitorCoupon) {
+  let couponMessage = '';
+
+  if (!visitorCoupon) {
+    for (let i = 0; i < couponsArray.length; i++) {
+      if (!couponsArray[i].isRedeem) {
+        visitorCoupon = couponsArray[i].coupon;
+        couponsArray[i].isRedeem = true;
+        couponMessage = ` ${visitorCoupon}`;
+        break;
       }
     }
-  
-    return { visitorCoupon, couponMessage };
+  } else {
+    const redeemedCoupon = couponsArray.find(coupon => coupon.coupon === visitorCoupon && coupon.isRedeem);
+    if (redeemedCoupon) {
+      couponMessage = ` ${redeemedCoupon.coupon}`;
+    }
   }
+
+  return { visitorCoupon, couponMessage };
+}
   
   module.exports = {
     getCoupon
