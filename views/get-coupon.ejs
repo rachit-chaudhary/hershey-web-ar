@@ -1,7 +1,12 @@
 <%- include('./includes/header') %>
-
+</head>
+<body>
 <!-- experience audio file -->
-<audio src="/sfx/hersheys-music.wav" loop autoplay></audio>
+<audio id="bgaudio1" loop>
+    <source src="sfx/hersheys-music.mp3" type="audio/mp3">
+    </source>
+    Your browser does not support the audio element.
+</audio>
 
 <section class="get-coupon-section">
     <div class="relative-div-content">
@@ -79,49 +84,49 @@
 $(document).ready(function () {
     // Function to update "Welcome" button text with coupon message
     function updateButtonText(couponMessage) {
-    $("#couponValue").text(couponMessage);
+        $("#couponValue").text(couponMessage);
     }
     // $("#alertDiv").hide();
-   
+
     // Function to send AJAX request and handle coupon response
     function getCoupon() {
-    $.ajax({
-        type: "GET",
-        url: "/get-coupon",
-        success: function (data) {
-        updateButtonText(data.couponMessage);
-        },
-        error: function () {
-        console.error("Error fetching coupon.");
-        }
-    });
+        $.ajax({
+            type: "GET",
+            url: "/get-coupon",
+            success: function (data) {
+                updateButtonText(data.couponMessage);
+            },
+            error: function () {
+                console.error("Error fetching coupon.");
+            }
+        });
     }
 
     // Check if the "coupon" cookie is present on page load
     const visitorCoupon = Cookies.get('coupon');
     if (visitorCoupon) {
-    getCoupon(); // If the cookie exists, update the button text immediately
+        getCoupon(); // If the cookie exists, update the button text immediately
     }
 
     // Event listener for the "Welcome" button
     $("#welcomeBtn").click(function () {
-       
-          getCoupon();
+        getCoupon();
         // else {
         //     console.log("not clicked")
         //     // document.getElementById(alertDiv).style.display = "block"
         //   $("#alertDiv").hide(); // Show the alert div when the checkbox is not checked
         // }
-    // On click, update the button text with the coupon message
+        // On click, update the button text with the coupon message
     });
 
     // Event listener for the checkbox
     $("#flexCheckDefault").change(function () {
-    // Enable or disable the "Welcome" button based on checkbox status
-    $("#welcomeBtn").prop("disabled", !this.checked);
-    // $("#alertDiv").hide();
-    // document.getElementById(alertDiv).style.display = "none"
-   
+        bgaudio1.play()
+        // Enable or disable the "Welcome" button based on checkbox status
+        $("#welcomeBtn").prop("disabled", !this.checked);
+        // $("#alertDiv").hide();
+        // document.getElementById(alertDiv).style.display = "none"
+
     });
 });
 </script>
