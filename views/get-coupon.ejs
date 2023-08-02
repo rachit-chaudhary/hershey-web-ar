@@ -1,5 +1,8 @@
 <%- include('./includes/header') %>
 
+<!-- experience audio file -->
+<audio src="/sfx/hersheys-music.wav" loop autoplay></audio>
+
 <section class="get-coupon-section">
     <div class="relative-div-content">
         <div class="bg-images top-elements">
@@ -39,7 +42,7 @@
             </div>
             <div class="col-2"></div>
             <div class="col-6">
-                <img src="images/rakhi.png" alt="">
+                <img class="rakhi-img-coupon" src="images/rakhi.png" alt="">
             </div>
         </div>
     
@@ -49,13 +52,16 @@
                     <div class="tnc-div">
                         <input class="form-check-input-ns" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label-ns" for="flexCheckDefault">
-                            I Accept T&C
+                            I Accept <a target="_blank" href="https://drive.google.com/file/d/1hw_wgq_2BpJ1zua0OLsjd9CVgg24YKwO/view?usp=sharing">T&C</a>
                         </label>
                     </div>
                     <!-- -->
-                    <button id ="welcomeBtn" disabled><span id="couponValue" class="coupon-btn-text">
-                        Tap to Get Voucher
-                    </span></button>
+                    <button id ="welcomeBtn" disabled>
+                        <div class="span-div-coupon">
+                            <span id="couponValue" class="coupon-btn-text">Tap to Get Voucher</span>
+                            <span id="copyimg" class="code-copy-img"><img src="/images/copy-btn.png" alt="copy-btn"></span>
+                        </div>
+                </button>
                     <!-- <div id="couponMessage"></div> -->
                    
                     <p>Use code on the BMS app to avail offer</p>
@@ -73,9 +79,10 @@
 $(document).ready(function () {
     // Function to update "Welcome" button text with coupon message
     function updateButtonText(couponMessage) {
-    $("#couponValue").text(couponMessage);
-    }
-    // $("#alertDiv").hide();
+        $("#couponValue").text(couponMessage);
+        checkCouponMatch(); // Check coupon text match whenever button text is updated
+      }
+    $("#copyimg").hide();
    
     // Function to send AJAX request and handle coupon response
     function getCoupon() {
@@ -90,17 +97,49 @@ $(document).ready(function () {
         }
     });
     }
+    function copyCouponToClipboard() {
+        const couponCode = $("#couponValue").text();
+        const tempInput = $("<input>");
+        $("body").append(tempInput);
+        tempInput.val(couponCode).select();
+        document.execCommand("copy");
+        tempInput.remove();
+        alert("Coupon code copied to clipboard: " + couponCode);
+      }
+
+      function checkCouponMatch() {
+        const couponMessage = $("#couponValue").text();
+        const couponInCookie = Cookies.get('coupon');
+        if (couponMessage.trim() === couponInCookie  ) {
+            $("#copyimg").show();
+          // Only copy when the button text matches the coupon data in the cookie
+          
+        }
+      }
 
     // Check if the "coupon" cookie is present on page load
     const visitorCoupon = Cookies.get('coupon');
     if (visitorCoupon) {
-    getCoupon(); // If the cookie exists, update the button text immediately
-    }
+    // getCoupon(); // If the cookie exists, update the button text immediately
+    updateButtonText(visitorCoupon);
+}
 
     // Event listener for the "Welcome" button
-    $("#welcomeBtn").click(function () {
-       
+    $("#welcomeBtn").click(function (event) {
+        const couponMessage = $("#couponValue").text();
+        const couponInCookie = Cookies.get('coupon');
+        console.log(couponInCookie)
+        console.log(couponMessage)
+        if (couponMessage.trim() === couponInCookie  ) {
+           // $("#copyimg").show();
+          // Only copy when the button text matches the coupon data in the cookie
+          copyCouponToClipboard();
+        }
+      //  const includesWord = ["Tap", "to", "Get", "Voucher"].some(word => btntext.includes(word));
+        
           getCoupon();
+
+        
         // else {
         //     console.log("not clicked")
         //     // document.getElementById(alertDiv).style.display = "block"

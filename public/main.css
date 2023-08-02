@@ -1150,7 +1150,9 @@ body {
   justify-content: center;
 }
 .get-coupon-form .tnc-div {
-  margin: 17px 0px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: "Walsheim";
   font-size: 14px;
@@ -1426,12 +1428,18 @@ body {
 
   
 .form-check-input-ns {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 .form-check-label-ns {
-  font-size: 20px;
-  margin-left: 20px;
+  font-family: "Walsheim-Medium";
+  font-size: 16px;
+  margin-left: 10px;
+}
+.form-check-label-ns a {
+  text-decoration: underline;
+  border-bottom: 2px solid #EFE07F;
+  cursor: pointer;
 }
 .get-coupon-form button {
   position: relative;
@@ -1439,27 +1447,41 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 179px;
+  width: 205px;
   height: 78px;
   color: #5f3019;
   font-family: 'Walsheim';
 }
 .get-coupon-form button .coupon-btn-text {
-  position: absolute;
-  right: 0px;
+  width: 80px;
   display: flex;
-  flex-wrap: wrap;
   background: unset;
   transition: unset;
   border-radius: unset;
-  width: 80px;
-  right: 20px;
   line-height: 21px;
+  align-items: center;
 }
+.span-div-coupon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+}
+.code-copy-img img {
+  width: 70%;
+}
+/* .get-coupon-form button .coupon-btn-text::after {
+  margin-left: 5px;
+  content: '';
+  background-image: url(/images/copy-btn.png);
+  width: 16px;
+  background-size: contain;
+  height: 19px;
+} */
 .get-coupon-form p {
-  margin: 10px 0px;
+  margin-top: 0px;
   font-family: "Walsheim-Medium";
-  font-size: 14px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -1471,6 +1493,10 @@ body {
 .post-script-text {
   padding: 5px 10px;
   display: none;
+}
+button:disabled,
+button[disabled]{
+  filter: opacity(0.25);
 }
 .post-script-text p{
   text-align: center;
@@ -1841,12 +1867,15 @@ a.option-btn {
   background-size: contain;
   background-repeat: repeat;
   background-position: top;
-  z-index: 2;
   position: absolute;
   left: 0px;
   right: 0px;
   top: 0px;
   bottom: 0px;
+  z-index: 3;
+  margin: auto;
+  height: max-content;
+  filter: drop-shadow(1px 4px 6px black);
 }
 .dynamic-name {
   display: flex;
@@ -1885,5 +1914,8 @@ a.option-btn {
 .preview-text h3 {
   font-family: "Walsheim";
   font-size: 21px;
+}
+.rakhi-img-coupon {
+  filter: opacity(0.2);
 }
 /* rachit's CSS end's here */
