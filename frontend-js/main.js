@@ -28,6 +28,7 @@ let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
+let hereGoesID=document.getElementById("#hereGoesID")
 // alert("i")
 
 // firstscreen.style.display = "none"
@@ -636,6 +637,7 @@ if(name===""){
     thirdscreen.style.display = "block"
     headerlogo.src='/images/hersheys-kisses-logo 1.png'
     headerlogo.classList.add("headerlogokisses");
+   
     
     }else if(typeofpack==='chocolatebar')
     {
@@ -719,9 +721,10 @@ nextQuestionid.onclick = () => {
   }
  
  
- 
-  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  hereGoesID.innerHTML = `${name}`
+  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
+  completenote.innerHTML = msg
 
   // Ar scene 
 
@@ -732,6 +735,7 @@ nextQuestionid.onclick = () => {
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
+  
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
@@ -754,9 +758,11 @@ option1div1.onclick = () => {
   option1 = "Sweet Troublemakers"
 }
 option1div2.onclick = () => {
+  console.log("option1 div 2")
   option1 = "Partners in crime"
 }
 option1div3.onclick = () => {
+  console.log("option1 div 3")
   option1 = "Top Secret keepers"
 }
 
@@ -779,8 +785,8 @@ option2div3.onclick = () => {
 }
 // Option3
 const option3div1 = document.getElementById('custom-option-1')
-const option3div2 = document.getElementById('custom-option-1')
-const option3div3 = document.getElementById('custom-option-1')
+const option3div2 = document.getElementById('custom-option-2')
+const option3div3 = document.getElementById('custom-option-3')
 option3div1.onclick = () => {
   console.log("option3 div 1")
 
@@ -1040,12 +1046,12 @@ AFRAME.registerComponent("swap-texture", {
 
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
-      const modelmesh = modelname.getObject3D('mesh').children[3].children[6]
+      const modelmesh = modelname.getObject3D('mesh').children[4].children[5]
 
       //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
       //  .getObjectByName('Picture_Picture_0')
       console.log(modelname.getObject3D('mesh'))
-      console.log(modelname.getObject3D('mesh').children[3].children[6])
+      console.log(modelname.getObject3D('mesh').children[4].children[5])
       //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
      
       
