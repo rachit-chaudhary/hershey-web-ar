@@ -637,6 +637,7 @@ if(name===""){
     thirdscreen.style.display = "block"
     headerlogo.src='/images/hersheys-kisses-logo 1.png'
     headerlogo.classList.add("headerlogokisses");
+   
     
     }else if(typeofpack==='chocolatebar')
     {
@@ -1045,12 +1046,12 @@ AFRAME.registerComponent("swap-texture", {
 
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
-      const modelmesh = modelname.getObject3D('mesh').children[3].children[6]
+      const modelmesh = modelname.getObject3D('mesh').children[4].children[5]
 
       //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
       //  .getObjectByName('Picture_Picture_0')
       console.log(modelname.getObject3D('mesh'))
-      console.log(modelname.getObject3D('mesh').children[3].children[6])
+      console.log(modelname.getObject3D('mesh').children[4].children[5])
       //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
      
       
