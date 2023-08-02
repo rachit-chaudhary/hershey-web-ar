@@ -1,7 +1,11 @@
 <%- include('./includes/header') %>
 
 <!-- experience audio file -->
-<audio src="/sfx/hersheys-music.wav" loop autoplay></audio>
+<audio id="bgaudio1" loop>
+    <source src="sfx/hersheys-music.mp3" type="audio/mp3">
+    </source>
+    Your browser does not support the audio element.
+</audio>
 
 <section class="get-coupon-section">
     <div class="relative-div-content">
@@ -152,6 +156,7 @@ $(document).ready(function () {
     $("#flexCheckDefault").change(function () {
     // Enable or disable the "Welcome" button based on checkbox status
     $("#welcomeBtn").prop("disabled", !this.checked);
+        bgaudio1.play()
     // $("#alertDiv").hide();
     // document.getElementById(alertDiv).style.display = "none"
    
