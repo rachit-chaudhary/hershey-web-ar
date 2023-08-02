@@ -589,30 +589,79 @@ document.body.appendChild(linkEl);
 
 
 //upload button
-
+// ---------------------------pack1----------
 hoverChange.onclick = () => {
+  var choice1  = document.getElementById('hoverhershey').value 
+  var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
   // hoverhershey
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
   animtime=13000
-
+  function disableImageById(hoverhershey) {
+    var imageElement = document.getElementById(hoverhershey);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
 }
+disableImageById('hoverhershey');
+function disableImageById(hoverexotic) {
+  var imageElement = document.getElementById(hoverexotic);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverexotic');
+}
+// -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
   typeofpack='chocolatebar'
-
+   
   console.log(typeofpack)
+  function disableImageById(hoverChange) {
+    var imageElement = document.getElementById(hoverChange);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
 }
+disableImageById('hoverChange');
+function disableImageById(hoverexotic) {
+  var imageElement = document.getElementById(hoverexotic);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverexotic');
+}
+// --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverhershey').value
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
   typeofpack='exotic'
   animtime=15000
+  function disableImageById(hoverhershey) {
+    var imageElement = document.getElementById(hoverhershey);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
+}
+disableImageById('hoverhershey');
+function disableImageById(hoverChange) {
+  var imageElement = document.getElementById(hoverChange);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverChange');
 }
 // name =document.getElementById("siblingname").value
 // if(name!=){
