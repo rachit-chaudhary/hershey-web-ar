@@ -90,6 +90,15 @@ $(document).ready(function () {
         }
     });
     }
+    function copyCouponToClipboard() {
+        const couponCode = $("#welcomeBtn").text();
+        const tempInput = $("<input>");
+        $("body").append(tempInput);
+        tempInput.val(couponCode).select();
+        document.execCommand("copy");
+        tempInput.remove();
+        alert("Coupon code copied to clipboard: " + couponCode);
+      }
 
     // Check if the "coupon" cookie is present on page load
     const visitorCoupon = Cookies.get('coupon');
@@ -99,8 +108,19 @@ $(document).ready(function () {
 
     // Event listener for the "Welcome" button
     $("#welcomeBtn").click(function () {
-       
+        const couponMessage = $("#couponValue").text();
+        const couponInCookie = Cookies.get('coupon');
+        console.log(couponInCookie)
+        console.log(couponMessage)
+        if (couponMessage.trim() === couponInCookie  ) {
+          // Only copy when the button text matches the coupon data in the cookie
+          copyCouponToClipboard();
+        }
+      //  const includesWord = ["Tap", "to", "Get", "Voucher"].some(word => btntext.includes(word));
+        
           getCoupon();
+
+        
         // else {
         //     console.log("not clicked")
         //     // document.getElementById(alertDiv).style.display = "block"
