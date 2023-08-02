@@ -79,7 +79,7 @@
       <div class="golden-wrapper">
         <h2 class="title-ns">Select your pack</h2>
         <div class="owl-carousel owl-theme d-flex justify-content-center">
-          <div class="item">
+          <div class="item" id="selectPack">
             <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" /></h4>
           </div>
           <div class="item">
@@ -535,4 +535,11 @@
     } else {
       document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
     }
+
+    // To enable the div
+document.getElementById('hoverhershey').classList.remove('disabled');
+
+// To disable the div
+document.getElementById('hoverhershey').classList.add('disabled');
+
   </script>

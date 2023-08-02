@@ -590,6 +590,7 @@ document.body.appendChild(linkEl);
 
 hoverChange.onclick = () => {
   console.log("clickedkisses")
+  // hoverhershey
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
@@ -617,12 +618,15 @@ hoverexotic.onclick = () => {
 // }
 // -----------------------------upload validation---------------
 
-uploadbtn.onclick=()=>{
+
+// ------------upload validation-----------------
+function myFunction() {
   var x = document.getElementById("uploadbtn").required;
-  console.log("uploading");
+  console.log("hjdfgj");
 }
 // ---------------------------------------
 nextbtn.onclick = () => {
+  myFunction()
 name =document.getElementById("siblingname").value
 console.log(name)
 if(name===""){
@@ -1125,6 +1129,24 @@ document.getElementById("sendthankyou").addEventListener("click", function() {
 document.getElementById("sendgift").addEventListener("click", function() {
   document.getElementById("siblingname").focus();
 });
+
+
+const siblingNameInput = document.getElementById("siblingname");
+const selectPackInput = document.getElementById("hoverChange");
+
+siblingNameInput.addEventListener("input", function() {
+  if (siblingNameInput.value.length > 6) {
+    selectPackInput.focus();
+  }
+});
+
+// const hers=document.getElementById("siblingname").addEventListener("click", function() {
+//   if(hers.length>6){
+//     document.getElementById("selectPack").focus();
+
+//   }
+// });
+
 // -------------------- changing text based on user selection---------------------
 document.getElementById("sendthankyou").addEventListener("click", function() {
   // Get the text element by its ID
