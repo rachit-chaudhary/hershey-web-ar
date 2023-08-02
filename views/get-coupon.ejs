@@ -1,7 +1,12 @@
 <%- include('./includes/header') %>
-
+</head>
+<body>
 <!-- experience audio file -->
-<audio src="/sfx/hersheys-music.wav" loop autoplay></audio>
+<audio id="bgaudio1" loop>
+    <source src="sfx/hersheys-music.mp3" type="audio/mp3">
+    </source>
+    Your browser does not support the audio element.
+</audio>
 
 <section class="get-coupon-section">
     <div class="relative-div-content">
@@ -86,16 +91,16 @@ $(document).ready(function () {
    
     // Function to send AJAX request and handle coupon response
     function getCoupon() {
-    $.ajax({
-        type: "GET",
-        url: "/get-coupon",
-        success: function (data) {
-        updateButtonText(data.couponMessage);
-        },
-        error: function () {
-        console.error("Error fetching coupon.");
-        }
-    });
+        $.ajax({
+            type: "GET",
+            url: "/get-coupon",
+            success: function (data) {
+                updateButtonText(data.couponMessage);
+            },
+            error: function () {
+                console.error("Error fetching coupon.");
+            }
+        });
     }
     function copyCouponToClipboard() {
         const couponCode = $("#couponValue").text();
@@ -104,7 +109,7 @@ $(document).ready(function () {
         tempInput.val(couponCode).select();
         document.execCommand("copy");
         tempInput.remove();
-        alert("Coupon code copied to clipboard: " + couponCode);
+        alert("Copied to clipboard: " + couponCode);
       }
 
       function checkCouponMatch() {
@@ -145,16 +150,17 @@ $(document).ready(function () {
         //     // document.getElementById(alertDiv).style.display = "block"
         //   $("#alertDiv").hide(); // Show the alert div when the checkbox is not checked
         // }
-    // On click, update the button text with the coupon message
+        // On click, update the button text with the coupon message
     });
 
     // Event listener for the checkbox
     $("#flexCheckDefault").change(function () {
-    // Enable or disable the "Welcome" button based on checkbox status
-    $("#welcomeBtn").prop("disabled", !this.checked);
-    // $("#alertDiv").hide();
-    // document.getElementById(alertDiv).style.display = "none"
-   
+        bgaudio1.play()
+        // Enable or disable the "Welcome" button based on checkbox status
+        $("#welcomeBtn").prop("disabled", !this.checked);
+        // $("#alertDiv").hide();
+        // document.getElementById(alertDiv).style.display = "none"
+
     });
 });
 </script>
