@@ -1,5 +1,8 @@
 <%- include('./includes/header') %>
 
+<!-- experience audio file -->
+<audio src="/sfx/hersheys-music.wav" loop autoplay></audio>
+
 <section class="get-coupon-section">
     <div class="relative-div-content">
         <div class="bg-images top-elements">
@@ -39,7 +42,7 @@
             </div>
             <div class="col-2"></div>
             <div class="col-6">
-                <img src="images/rakhi.png" alt="">
+                <img class="rakhi-img-coupon" src="images/rakhi.png" alt="">
             </div>
         </div>
     
@@ -49,13 +52,16 @@
                     <div class="tnc-div">
                         <input class="form-check-input-ns" value="coupon-code" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label-ns" for="flexCheckDefault">
-                            I Accept T&C
+                            I Accept <a target="_blank" href="https://drive.google.com/file/d/1hw_wgq_2BpJ1zua0OLsjd9CVgg24YKwO/view?usp=sharing">T&C</a>
                         </label>
                     </div>
                     <!-- -->
-                    <button id ="welcomeBtn" disabled><span id="couponValue" class="coupon-btn-text">
-                        Tap to Get Voucher
-                    </span></button>
+                    <button id ="welcomeBtn" disabled>
+                        <div class="span-div-coupon">
+                            <span id="couponValue" class="coupon-btn-text">Tap to Get Voucher</span>
+                            <span class="code-copy-img"><img src="/images/copy-btn.png" alt="copy-btn"></span>
+                        </div>
+                </button>
                     <!-- <div id="couponMessage"></div> -->
                    
                     <p>Use code on the BMS app to avail offer</p>
