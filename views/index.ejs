@@ -101,7 +101,7 @@
             </div>
             <div class="photo">
               <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
-              <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required>
+              <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
             </div>
           </div>
           <div class="d-flex justify-content-center">
@@ -371,7 +371,9 @@
 </div>
 
 
-
+<div id="uploadingDiv"  class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
 
 <!-- kisses message window -->
 
@@ -448,7 +450,20 @@
   
  </div> -->
 
+<!-- ----------------------------------------- -->
 
+
+
+
+<div id="alertMessageForUpload" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<!-- ---------------------------------/ -->
   <!-- Some UI for the user to tap to indicate they're happy with the placement -->
   <div id="zappar-placement-ui">Tap here to place the object</div>
 
@@ -539,10 +554,21 @@
       document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
     }
 
-    // To enable the div
-document.getElementById('hoverhershey').classList.remove('disabled');
+// -----------------------------------------
+// document.addEventListener('DOMContentLoaded', function() {
+//   const uploadBtn = document.getElementById('uploadbtn');
+//   const submitBtn = document.getElementById('nextbtn');
 
-// To disable the div
-document.getElementById('hoverhershey').classList.add('disabled');
+//   function checkFileSelection(event) {
+//     if (uploadBtn.files.length === 0) {
+//       event.preventDefault(); 
+//       alert('Please select a file before submitting.');
+      
+//     }
+//   }
+
+//   submitBtn.addEventListener('click', checkFileSelection);
+// });
+
 
   </script>

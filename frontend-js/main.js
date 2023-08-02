@@ -27,6 +27,7 @@ let typeofpack
 let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
+uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID=document.getElementById("#hereGoesID")
 // alert("i")
@@ -623,16 +624,26 @@ hoverexotic.onclick = () => {
 // ------------upload validation-----------------
 function myFunction() {
   var x = document.getElementById("uploadbtn").required;
-  console.log("hjdfgj");
+  console.log(x,"k");
 }
 // ---------------------------------------
 nextbtn.onclick = () => {
-  myFunction()
 name =document.getElementById("siblingname").value
+var x = document.getElementById("uploadbtn").value;
+// const primaryAlert = document.getElementById("uploadingDiv");
+
+
 console.log(name)
+console.log(x);
 if(name===""){
   secondscreen.style.display = "block"
-}else{
+}else if(x===""){
+  // primaryAlert.style.display = "block";
+
+alert("Please upload your file!")
+// uploadingDiv.style.display = "block"
+}
+else{
   secondscreen.style.display = "none"
   if(typeofpack==='kisses'){
     //
@@ -1136,7 +1147,7 @@ document.getElementById("sendgift").addEventListener("click", function() {
   document.getElementById("siblingname").focus();
 });
 
-
+// -----------------------------
 const siblingNameInput = document.getElementById("siblingname");
 const selectPackInput = document.getElementById("hoverChange");
 
