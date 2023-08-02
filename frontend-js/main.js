@@ -599,20 +599,24 @@ hoverChange.onclick = () => {
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
   animtime=13000
-  function disableImageById(hoverhershey) {
-    var imageElement = document.getElementById(hoverhershey);
-    if (imageElement) {
-        imageElement.style.pointerEvents = "none";
-    }
-}
-disableImageById('hoverhershey');
-function disableImageById(hoverexotic) {
-  var imageElement = document.getElementById(hoverexotic);
-  if (imageElement) {
-      imageElement.style.pointerEvents = "none";
-  }
-}
-disableImageById('hoverexotic');
+
+
+
+
+//   function disableImageById(hoverhershey) {
+//     var imageElement = document.getElementById(hoverhershey);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverhershey');
+// function disableImageById(hoverexotic) {
+//   var imageElement = document.getElementById(hoverexotic);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverexotic');
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
@@ -624,20 +628,20 @@ hoverhershey.onclick = () => {
   typeofpack='chocolatebar'
    
   console.log(typeofpack)
-  function disableImageById(hoverChange) {
-    var imageElement = document.getElementById(hoverChange);
-    if (imageElement) {
-        imageElement.style.pointerEvents = "none";
-    }
-}
-disableImageById('hoverChange');
-function disableImageById(hoverexotic) {
-  var imageElement = document.getElementById(hoverexotic);
-  if (imageElement) {
-      imageElement.style.pointerEvents = "none";
-  }
-}
-disableImageById('hoverexotic');
+//   function disableImageById(hoverChange) {
+//     var imageElement = document.getElementById(hoverChange);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverChange');
+// function disableImageById(hoverexotic) {
+//   var imageElement = document.getElementById(hoverexotic);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverexotic');
 }
 // --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
@@ -648,20 +652,20 @@ hoverexotic.onclick = () => {
   uimoduleobj.changeExoticPack()
   typeofpack='exotic'
   animtime=15000
-  function disableImageById(hoverhershey) {
-    var imageElement = document.getElementById(hoverhershey);
-    if (imageElement) {
-        imageElement.style.pointerEvents = "none";
-    }
-}
-disableImageById('hoverhershey');
-function disableImageById(hoverChange) {
-  var imageElement = document.getElementById(hoverChange);
-  if (imageElement) {
-      imageElement.style.pointerEvents = "none";
-  }
-}
-disableImageById('hoverChange');
+//   function disableImageById(hoverhershey) {
+//     var imageElement = document.getElementById(hoverhershey);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverhershey');
+// function disableImageById(hoverChange) {
+//   var imageElement = document.getElementById(hoverChange);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverChange');
 }
 // name =document.getElementById("siblingname").value
 // if(name!=){

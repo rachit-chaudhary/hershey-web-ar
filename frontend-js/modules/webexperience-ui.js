@@ -28,13 +28,18 @@ export class UImodule  {
 
     untapKisses(){
         var Image_Id = document.getElementById('hoverhershey');
-        if (Image_Id.src.match("/images/hershey.png")) {
-            Image_Id.src = "/images/kisses.png"
+        Image_Id.src='/images/kisses.png'
+
+        // Image_Id.src = "/images/kisses.png"
+
+        // if (Image_Id.src.match("/images/hershey.png")) {
+        //     Image_Id.src = "/images/kisses.png"
             
 
-        }
+        // }
 
     }
+    
     changeKissesPack() {
         var Image_Id = document.getElementById('hoverChange');
     //    this.untapKisses();
@@ -51,6 +56,9 @@ export class UImodule  {
         }
        
     }
+    // ------------------
+
+    // --------------------------
   changeHersheyPack() {
         var Image_Id = document.getElementById('hoverhershey');
         // this.untapKisses();

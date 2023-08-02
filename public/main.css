@@ -1947,3 +1947,15 @@ a.option-btn {
   height: 80vh!important;
 }
 /* rachit's CSS end's here */
+
+
+/* -------------------------------------- */
+/* Your CSS styles */
+.carosel-images.active {
+  border: 2px solid transparent; /* Add any style you want for the active image */
+}
+
+.carosel-images.disabled {
+  opacity: 0.5; /* You can change the style to make disabled images appear faded or grayed out */
+  pointer-events: none; /* Prevent clicks on disabled images */
+}
