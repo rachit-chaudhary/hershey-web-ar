@@ -99,6 +99,7 @@ h1 {
   font-family: 'Walsheim';
   /* text-transform: uppercase; */
   z-index: 5;
+  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
 }
 #hersheyid{
   background: #3C131C;
@@ -115,18 +116,16 @@ h1 {
   width: 5%;
 }
 #reloaddiv{
-
   display: block;
   position: fixed;
   top: 66px;
-
   right: 0px;
   color: white;
-  width: 86px;
- 
-  padding: 15px;
-  z-index: 1;
-
+  width: fit-content;
+  z-index: 99;
+}
+#reloaddiv img {
+  width: 50px;
 }
 #recordbannerdiv{
   position: fixed;
@@ -142,7 +141,7 @@ h1 {
   padding: 15px;
   box-sizing: border-box;
   font-family: 'Walsheim';
-  text-transform: uppercase;
+  text-transform: capitalize;
   z-index: 5;
 }
 .arrow-down {
@@ -162,37 +161,35 @@ h1 {
     border-right: 20px solid transparent;
 }
   #shutter {
+    left: 0px;
+    right: 0px;
+    margin: auto;
     display: block;
     position: fixed;
-    bottom: 65px;
-    left: 50%;
-    right: 0px;
- 
+    bottom: 85px;
     color: white;
-    width: 100px;
-    margin-left: -50px;
-    text-align: center;
-    padding: 15px;
-   
-    z-index: 1;
+    width: fit-content;;
+    z-index: 99;
+}
+#shutter img {
+  width: 75px;;
 }
 #share {
-  
+  left: 0px;
+  right: 0px;
+  margin: auto;
   position: fixed;
   bottom: 23px;
-  left: 50%;
-  right: 0px;
   border-radius: 50px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
   width: 190px;
-  margin-left: -89px;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
   font-family: 'Walsheim';
-  text-transform: uppercase;
-  z-index: 1;
+  text-transform: capitalize;
+  z-index: 99;
 }
 
 
@@ -1438,7 +1435,7 @@ body {
 }
 .form-check-label-ns a {
   text-decoration: underline;
-  border-bottom: 2px solid #EFE07F;
+  border-bottom: 2px solid #EFBE7F;
   cursor: pointer;
 }
 .get-coupon-form button {
@@ -1766,7 +1763,7 @@ a.option-btn {
   margin: 0px auto;
   padding: 25px 0px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   height: 15%;
   padding-bottom: 0px;
@@ -1872,10 +1869,10 @@ a.option-btn {
   right: 0px;
   top: 0px;
   bottom: 0px;
-  z-index: 3;
+  z-index: 999;
   margin: auto;
   height: max-content;
-  filter: drop-shadow(1px 4px 6px black);
+  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
 }
 .dynamic-name {
   display: flex;
@@ -1914,8 +1911,39 @@ a.option-btn {
 .preview-text h3 {
   font-family: "Walsheim";
   font-size: 21px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
 }
 .rakhi-img-coupon {
   filter: opacity(0.2);
+}
+#ZapparSnapshotContainer {
+  background-color: #3F000B!important; 
+}
+#zapparSaveButton,
+#zapparShareButton {
+  border-radius: 6px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
+}
+#zapparCloseAref g{
+  stroke: #EDC967;
+}
+#zapparSaveButton svg #Path-6,
+#zapparSaveButton svg #Combined-Shape,
+#zapparSaveButton svg text,
+#picture-copy {
+  fill: #3F000B!important;
+}
+.st0 {
+  fill: #3F000B!important;
+}
+.st1 {
+  font-family: 'Walsheim'!important;
+}
+#zapparSaveButton svg text {
+  font-family: 'Walsheim'!important;
+}
+#ZapparPreviewVideo {
+  height: 80vh!important;
 }
 /* rachit's CSS end's here */

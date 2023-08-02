@@ -27,6 +27,7 @@ let typeofpack
 let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
+uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID=document.getElementById("#hereGoesID")
 // alert("i")
@@ -588,29 +589,79 @@ document.body.appendChild(linkEl);
 
 
 //upload button
-
+// ---------------------------pack1----------
 hoverChange.onclick = () => {
+  var choice1  = document.getElementById('hoverhershey').value 
+  var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
+  // hoverhershey
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
   animtime=13000
-
+  function disableImageById(hoverhershey) {
+    var imageElement = document.getElementById(hoverhershey);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
 }
+disableImageById('hoverhershey');
+function disableImageById(hoverexotic) {
+  var imageElement = document.getElementById(hoverexotic);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverexotic');
+}
+// -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
   typeofpack='chocolatebar'
-
+   
   console.log(typeofpack)
+  function disableImageById(hoverChange) {
+    var imageElement = document.getElementById(hoverChange);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
 }
+disableImageById('hoverChange');
+function disableImageById(hoverexotic) {
+  var imageElement = document.getElementById(hoverexotic);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverexotic');
+}
+// --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverhershey').value
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
   typeofpack='exotic'
   animtime=15000
+  function disableImageById(hoverhershey) {
+    var imageElement = document.getElementById(hoverhershey);
+    if (imageElement) {
+        imageElement.style.pointerEvents = "none";
+    }
+}
+disableImageById('hoverhershey');
+function disableImageById(hoverChange) {
+  var imageElement = document.getElementById(hoverChange);
+  if (imageElement) {
+      imageElement.style.pointerEvents = "none";
+  }
+}
+disableImageById('hoverChange');
 }
 // name =document.getElementById("siblingname").value
 // if(name!=){
@@ -618,17 +669,30 @@ hoverexotic.onclick = () => {
 // }
 // -----------------------------upload validation---------------
 
-uploadbtn.onclick=()=>{
+
+// ------------upload validation-----------------
+function myFunction() {
   var x = document.getElementById("uploadbtn").required;
-  console.log("uploading");
+  console.log(x,"k");
 }
 // ---------------------------------------
 nextbtn.onclick = () => {
 name =document.getElementById("siblingname").value
+var x = document.getElementById("uploadbtn").value;
+// const primaryAlert = document.getElementById("uploadingDiv");
+
+
 console.log(name)
+console.log(x);
 if(name===""){
   secondscreen.style.display = "block"
-}else{
+}else if(x===""){
+  // primaryAlert.style.display = "block";
+
+alert("Please upload your file!")
+// uploadingDiv.style.display = "block"
+}
+else{
   secondscreen.style.display = "none"
   if(typeofpack==='kisses'){
     //
@@ -1131,6 +1195,24 @@ document.getElementById("sendthankyou").addEventListener("click", function() {
 document.getElementById("sendgift").addEventListener("click", function() {
   document.getElementById("siblingname").focus();
 });
+
+// -----------------------------
+const siblingNameInput = document.getElementById("siblingname");
+const selectPackInput = document.getElementById("hoverChange");
+
+siblingNameInput.addEventListener("input", function() {
+  if (siblingNameInput.value.length > 6) {
+    selectPackInput.focus();
+  }
+});
+
+// const hers=document.getElementById("siblingname").addEventListener("click", function() {
+//   if(hers.length>6){
+//     document.getElementById("selectPack").focus();
+
+//   }
+// });
+
 // -------------------- changing text based on user selection---------------------
 document.getElementById("sendthankyou").addEventListener("click", function() {
   // Get the text element by its ID
