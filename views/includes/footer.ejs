@@ -92,11 +92,11 @@
     classes = this.className;
     var divNumber = classes.slice(-1);
     var toGetId = "#hershey-bar-" + divNumber;
-    if ($(toGetId).hasClass("expanded-div")) {
-      $(".div-var").removeClass("compressed-div expanded-div");
+    if ($(toGetId).hasClass("expanded-div-bars")) {
+      $(".div-var").removeClass("compressed-div expanded-div-bars");
     } else {
-      $(".div-var").removeClass("compressed-div expanded-div").addClass("compressed-div");
-      $(toGetId).removeClass("compressed-div").addClass("expanded-div");
+      $(".div-var").removeClass("compressed-div expanded-div-bars").addClass("compressed-div");
+      $(toGetId).removeClass("compressed-div").addClass("expanded-div-bars");
     }
   });
 
