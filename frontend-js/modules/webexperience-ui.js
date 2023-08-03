@@ -39,7 +39,7 @@ export class UImodule  {
         // }
 
     }
-    
+  
     changeKissesPack() {
         var Image_Id = document.getElementById('hoverChange');
     //    this.untapKisses();
