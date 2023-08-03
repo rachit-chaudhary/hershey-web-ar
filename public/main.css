@@ -1962,6 +1962,13 @@ a.option-btn {
 #ZapparPreviewVideo {
   height: 80vh!important;
 }
+.zappar-mobile-only {
+  background-color: rgba(63, 0, 11, .9)!important;
+  font-family: "Walsheim-Medium"!important;
+}
+.zappar-svg-container svg {
+  border-radius: 10px;
+}
 /* rachit's CSS end's here */
 
 
