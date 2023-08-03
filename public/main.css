@@ -435,6 +435,7 @@ line-height: normal;
 }
 .flower-carousel-bottom{
   height: 108px;
+  top: -190px;
 }
 
 .username-section{
@@ -608,6 +609,7 @@ color: #EFBE7F;
   margin-top: 0px;
 }
 .next-button{
+  margin: 15px 0px 30px;
   position: relative;
   bottom: 68px;
     /* border-radius: 12px; */
@@ -1231,7 +1233,7 @@ body {
 }
 .bottom-image-bar{
   width: 100%;
-  margin-top: 29px;
+  margin: 30px 0px;
 }
 .top-image-bar{
   width: 100%;
@@ -1366,7 +1368,7 @@ body {
     color: white;
     font-family:"snavely";
     text-transform: lowercase;
-    border: 2px solid;
+    border: 2px solid #fff;
   }
   .qns-bar-1{
     border: 7px solid  hsl(44, 79%, 67%);
@@ -1524,7 +1526,7 @@ button[disabled]{
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid;
+  border: 2px solid #fff;
 }
 
 .new-qns-bar-1 {
@@ -1593,7 +1595,7 @@ a.new-expansion-btn {
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid;
+  border: 2px solid #fff;
 }
 
 .option-bar {
