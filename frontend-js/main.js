@@ -679,6 +679,9 @@ function myFunction() {
   var x = document.getElementById("uploadbtn").required;
   console.log(x,"k");
 }
+
+// --------------------------------
+
 // ---------------------------------------
 nextbtn.onclick = () => {
 name =document.getElementById("siblingname").value
@@ -1024,9 +1027,13 @@ AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
    const msgclosebtn= document.getElementById("msgclosebtn")
+// 
+
+  //  ------------------------
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
     function preview_image(event) {
+      
       var reader = new FileReader();
       reader.onload = function () {
         //check size of the file
@@ -1036,11 +1043,14 @@ AFRAME.registerComponent("swap-texture", {
           console.log(fileMb);
 
           if (fileMb >= 12) {
+            alert("please upload file less then 10mb")
             console.log("size is large")
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
           } else {
             console.log("size is ohk")
+            alert("File uploaded successfully!")
+
             // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
             // fileSubmit.disabled = true;
           }
@@ -1052,23 +1062,30 @@ AFRAME.registerComponent("swap-texture", {
         output.src = reader.result;
         console.log(output.src)
         dataURL = output.src
+
         // dataURL=blobUrl
 
-        const file = event.target.files[0];
-        contentType = file.type;
+        // const file = event.target.files[0];
+        // contentType = file.type;
 
-        if (contentType === "image/jpeg") {
-          console.log(contentType);
-          b64Data = dataURL.substring(23, dataURL.length);
-        } else if (contentType === "image/png") {
-          console.log(contentType);
-          b64Data = dataURL.substring(22, dataURL.length);
-        }
+        // if (contentType === "image/jpeg") {
+        //   console.log(contentType);
+        //   b64Data = dataURL.substring(23, dataURL.length);
+        // } else if (contentType === "image/png") {
+        //   console.log(contentType);
+        //   b64Data = dataURL.substring(22, dataURL.length);
+        // } else if (contentType!="image/jpeg" || contentType!="image/png" ){
+        //   console.log(contentType);
+        //   b64Data = dataURL.substring(22, dataURL.length);
+        //   alert("please upload png/jpeg file only")
 
 
-        var blob = b64toBlob(b64Data, contentType);
-        blobUrl = URL.createObjectURL(blob);
-        dataURL = blobUrl
+        // }
+
+
+        // var blob = b64toBlob(b64Data, contentType);
+        // blobUrl = URL.createObjectURL(blob);
+        // dataURL = blobUrl
         pName = dataURL
         console.log("sss" + pName)
         // texturechange()
