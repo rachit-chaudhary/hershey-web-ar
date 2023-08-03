@@ -1184,7 +1184,7 @@ body {
 }
 .windows-bar{
   background-image: url('images/questions-window-bars.png');
-  overflow: scroll;
+  overflow-x: hidden;
   height: 100vh;
   background-repeat: repeat-y;
   background-size: contain;
@@ -1192,42 +1192,42 @@ body {
 }
 .bar-heading{
   margin-top: 12px;
-
-}
-.outerDiv-bar{
-  margin-top: 15px;
 }
 .elements-bar{
-  padding: 5px;
+  top: -16px;
+  left: -15px;
   height: 47px;
-  margin-top: 13px;
-  margin-left: -6px;
 }
 .heart-bar{
-  margin-right: 20px;
+  right: 0px;
+  bottom: -40px;
 }
-.qns-1-bar{
-  border: 7px solid hsl(44, 79%, 67%);
-    border-radius: 15px;
-    background: #E8B377;
-    background-image: url(/images/question\ 1.png);
-    box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 20px;
-    font-family: "Walsheim";
-    position: relative;
-    height: 171px;
-    margin-top: -31px !important;
-    z-index: 1;
+.qns-1-bar {
+  position: relative;
+  z-index: 2;
+  min-height: 210px;
+  padding: 25px 0px;
+  border: 7px solid  hsl(44, 79%, 67%);
+  border-radius: 15px;
+  background: #E8B377;
+  background-image: url(/images/question\ 1.png);
+  background-repeat: no-repeat;
+  background-size: 102% 104%;
+  background-position: center;
+  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Walsheim";
+  margin-bottom: 25px;
 }
 .nextQuestion-bar{
-      border-radius: 93px;
+    border-radius: 93px;
     border: 3px solid #FFF;
     background: linear-gradient(90deg, #A26844 0%, #4D2416 100%);
     width: 190px;
-    font-size: 26px;
+    font-size: 20px;
     font-family: "Walsheim";
     text-transform: uppercase;
-    height: 64px;
+    height: 55px;
+    color: #fff;
 }
 .bottom-image-bar{
   width: 100%;
@@ -1255,12 +1255,12 @@ body {
 
 }
 .hersheyBackgroundImageSection-bar-4{
-  margin-top: -23px;
-    
+  left: -10px;
+  bottom: -14px;    
 }
 .hersheyBackgroundImageSection-bar-3{
-  margin-top: -45px;
-
+  right: -18px;
+  top: -50px;
 }
 .elements-bar2{
   position: relative;
@@ -1275,14 +1275,12 @@ body {
   position: absolute;
 }
 .qns-bar-2{
-  color: white;
-    margin: 12px;
-    font-family: "Walsheim";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 14px;
+  color: #fff;
+  font-family: "Walsheim";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .qns-bar-3{
   margin-top: -30px !important;
@@ -1301,8 +1299,8 @@ body {
   margin-top: -36px;
 }
 .hershey-pip-bar{
-  margin-top: -50px;
-  margin-right: -5px;
+  top: -50px;
+  right: -20px;
 }
 .elements-heart{
   margin-top: -31px;
@@ -1323,14 +1321,14 @@ body {
     font-family:"snavely";
     text-transform: lowercase;
   }
-  .expanded-div-bar{
+  /* .expanded-div-bar{
       width:60%;
       background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
       border: 2px solid  hsl(44, 79%, 67%);
       color: #37140B;
       font-family:"snavely";
       text-transform: lowercase;
-  }
+  } */
   .compressed-div-bar{
     width:18.5%;
     
@@ -1361,15 +1359,10 @@ body {
 
   /* .........................................................................card1 */
   .div-var{
-    margin: 1px;
-    width:32.33%;
-    height: 40%;
     font-size: 12px;
-    /* position:relative; */
-    float:left;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     color: white;
     font-family:"snavely";
     text-transform: lowercase;
@@ -1408,17 +1401,17 @@ body {
     width:18.5%;
   }
   
-  #hershey-bar-1{
-    background-color: #774629;
+  /* #hershey-bar-1{
+
   }
   
   #hershey-bar-2{
-    background-color: #774629;
+
   }
   
   #hershey-bar-3{
-    background-color: #774629;
-  }
+  
+  } */
   
   a.expansion-btn{
     position:absolute;
@@ -1526,18 +1519,11 @@ button[disabled]{
 }
 /* --------------------------------------- */
 .new-div-var {
-  margin: 1px;
-  width: 32.33%;
-  height: 40%;
   font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  color: white;
-  font-family: "snavely";
-  text-transform: lowercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #fff;
   border: 2px solid;
 }
 
@@ -1557,34 +1543,25 @@ button[disabled]{
 }
 
 .new-expanded-div {
+  font-family: "Walsheim";
   justify-content: center;
   width: 60%;
-  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
   border: 3px solid #FFF;
+  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
   color: #37140B;
-  font-family: "snavely";
+  font-family: "Walsheim";
+  font-size: 17px;
   text-transform: lowercase;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  flex: 2!important;
+  text-transform: capitalize;
 }
 
 .new-compressed-div {
   width: 18.5%;
 }
-
-#new-hershey-bar-1 {
-  background-color: #774629;
-}
-
-#new-hershey-bar-2 {
-  background-color: #774629;
-}
-
-#new-hershey-bar-3 {
-  background-color: #774629;
-}
-
 a.new-expansion-btn {
   position: absolute;
   top: 10px;
@@ -1606,15 +1583,16 @@ a.new-expansion-btn {
 
 
 .option-div {
-  margin: 1px;
-  width: 32.33%;
-  height: 40%;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  font-family: "Walsheim";
+  text-transform: capitalize;
   font-size: 12px;
-  float: left;
-  transition: all 0.5s ease-in-out;
-  color: white;
-  font-family: "snavely";
-  text-transform: lowercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #fff;
   border: 2px solid;
 }
 
@@ -1633,32 +1611,27 @@ a.new-expansion-btn {
 }
 
 .option-expanded {
+  font-family: "Walsheim";
   justify-content: center;
   width: 60%;
-  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
   border: 3px solid #FFF;
+  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
   color: #37140B;
-  font-family: "snavely";
+  font-family: "Walsheim";
+  font-size: 17px;
   text-transform: lowercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  flex: 2!important;
+  text-transform: capitalize;
 }
 
 .option-compressed {
-  width: 18.5%;
+  -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-
-#option-1 {
-  background-color: #774629;
-}
-
-#option-2 {
-  background-color: #774629;
-}
-
-#option-3 {
-  background-color: #774629;
-}
-
 a.option-btn {
   position: absolute;
   top: 10px;
@@ -1741,8 +1714,8 @@ a.option-btn {
 }
 .sketchy-lines img {
   position: absolute;
-  right: 3px;
-  bottom: -6px;
+  right: -10px;
+  bottom: 0px;
 }
 #loadingscreen{
   display: none;
@@ -1968,6 +1941,47 @@ a.option-btn {
 }
 .zappar-svg-container svg {
   border-radius: 10px;
+}
+.option-row-bars {
+  display: flex;
+  flex-direction: row;
+}
+.div-var {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  font-family: "Walsheim";
+  text-transform: capitalize;
+}
+.expanded-div-bars {
+  font-family: "Walsheim";
+  justify-content: center;
+  width: 60%;
+  border: 3px solid #FFF;
+  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
+  color: #37140B;
+  font-family: "Walsheim";
+  font-size: 17px;
+  text-transform: lowercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  flex: 2!important;
+  text-transform: capitalize;
+}
+.without-x-borders {
+border-left: none;
+border-right: none;
+}
+.outerDiv-bar {
+  padding-top: 15px;
+}
+.new-div-var {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  font-family: "Walsheim";
+  text-transform: capitalize;
 }
 /* rachit's CSS end's here */
 
