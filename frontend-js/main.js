@@ -1048,9 +1048,13 @@ AFRAME.registerComponent("swap-texture", {
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
           } else {
+            var fileIdElement = document.getElementById("changeFileName");
+            var newFileName = "Uploaded!"; // Replace with your desired new file name
+            fileIdElement.innerHTML = newFileName;
+            
             console.log("size is ohk")
-            alert("File uploaded successfully!")
 
+            
             // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
             // fileSubmit.disabled = true;
           }
@@ -1062,7 +1066,7 @@ AFRAME.registerComponent("swap-texture", {
         output.src = reader.result;
         console.log(output.src)
         dataURL = output.src
-
+         
         // dataURL=blobUrl
 
         // const file = event.target.files[0];

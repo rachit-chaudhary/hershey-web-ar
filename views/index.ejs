@@ -105,8 +105,8 @@
             <p class="camera-tag">Make it special with a 📷</p>
           </div>
           <div class=" uploader d-flex justify-content-between">
-            <div id="imagediv ">
-              <p class="filejpeg">file.jpeg</p>
+            <div id="imagediv d-flex justify-content-center">
+              <p class="filejpeg " id="changeFileName"> file.png</p>
             </div>
             <div class="photo">
               <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
@@ -335,7 +335,7 @@
     </div>
   </div>
 <!-- ------------------------------------------exotic dark -->
-<div class="window-exotic" id="thirdscreen-exotic">
+<!-- <div class="window-exotic" id="thirdscreen-exotic">
   <div class="kisses-header">
     <h3 class="knowYour">Help us to know Your</h3>
     <h3 class="sibling">sibling better</h3>
@@ -344,7 +344,7 @@
   <div class="header-rakhi-image">
     <img class="rakhi-kiss-image" src="/images/rakhi.png" />
   </div>
-</div>
+</div> -->
 <!-- loading screen -->
 <div id="loadingscreen" class="loading-screen load-kisses"> 
   <div class=" header d-flex justify-content-start">
@@ -592,5 +592,11 @@
 //   submitBtn.addEventListener('click', checkFileSelection);
 // });
 
+// document.getElementById("uploadbtn").addEventListener("click", function() {
+//             var fileIdElement = document.getElementById("changeFileName");
+//             var newFileName = "newfilename.txt"; // Replace with your desired new file name
+//             fileIdElement.innerHTML = newFileName;
+//         });
 
+     
   </script>
