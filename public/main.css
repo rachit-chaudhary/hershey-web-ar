@@ -610,8 +610,6 @@ color: #EFBE7F;
 }
 .next-button{
   margin: 15px 0px 30px;
-  position: relative;
-  bottom: 68px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
