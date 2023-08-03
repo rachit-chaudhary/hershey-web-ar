@@ -127,6 +127,23 @@ h1 {
 #reloaddiv img {
   width: 50px;
 }
+#tapOnEnvelope{
+  position: fixed;
+  top: 65px;
+  left: 50%;
+  right: 0px;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 271px;
+  margin-left: -134px;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: capitalize;
+  z-index: 99;
+}
 #recordbannerdiv{
   position: fixed;
   bottom: 185px;
@@ -142,23 +159,22 @@ h1 {
   box-sizing: border-box;
   font-family: 'Walsheim';
   text-transform: capitalize;
-  z-index: 5;
+  z-index: 99;
 }
 .arrow-down {
   position: fixed;
-  margin-left: -14px;
   text-align: center;
-  bottom: 168px;
-  left: 50%;
-  border-top: #bcd11c;
+  left: 0px;
   right: 0px;
+  bottom: 168px;
+  margin: 0px auto;
+  border-top: #bcd11c;
   border-top: 18px solid #f0dc9c;
-
-  z-index: 4;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+  z-index: 99;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
 }
   #shutter {
     left: 0px;
