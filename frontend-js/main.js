@@ -24,14 +24,20 @@ const scene = document.getElementById("scenediv")
 let thirdscreenbar=document.getElementById("thirdscreen-bar")
 let thirdscreen=document.getElementById("thirdscreen")
 let typeofpack
+let headerlogo=document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
+uploadingDiv.style.display = "none"
+const inputElement = document.querySelector('#siblingname');
+let hereGoesID=document.getElementById("#hereGoesID")
+// alert("i")
+
 // firstscreen.style.display = "none"
 // scene.style.display="block"
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
-
+  // inputElement.focus();
 
 
 
@@ -40,6 +46,7 @@ sendgift.onclick = () => {
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
+  // inputElement.focus();
 
 
 
@@ -121,6 +128,12 @@ var mimeType
 var msg
 let name 
 let i=1
+let pausevalue=0
+let previouspausevalue=0
+let innerpausevalue=1
+let animtime=0
+let taptoplace=document.getElementById('tap-to-place')
+let modelloaded=0
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -576,60 +589,221 @@ document.body.appendChild(linkEl);
 
 
 //upload button
-
+// ---------------------------pack1----------
 hoverChange.onclick = () => {
+  var choice1  = document.getElementById('hoverhershey').value 
+  var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
+  // hoverhershey
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
   typeofpack='kisses'
+  animtime=13000
 
 
+
+
+//   function disableImageById(hoverhershey) {
+//     var imageElement = document.getElementById(hoverhershey);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverhershey');
+// function disableImageById(hoverexotic) {
+//   var imageElement = document.getElementById(hoverexotic);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverexotic');
 }
+// -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
   typeofpack='chocolatebar'
+   
   console.log(typeofpack)
+//   function disableImageById(hoverChange) {
+//     var imageElement = document.getElementById(hoverChange);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverChange');
+// function disableImageById(hoverexotic) {
+//   var imageElement = document.getElementById(hoverexotic);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverexotic');
 }
+// --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
+  var choice3  = document.getElementById('hoverChange').value 
+  var choice4 = document.getElementById('hoverhershey').value
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
   typeofpack='exotic'
+  animtime=15000
+//   function disableImageById(hoverhershey) {
+//     var imageElement = document.getElementById(hoverhershey);
+//     if (imageElement) {
+//         imageElement.style.pointerEvents = "none";
+//     }
+// }
+// disableImageById('hoverhershey');
+// function disableImageById(hoverChange) {
+//   var imageElement = document.getElementById(hoverChange);
+//   if (imageElement) {
+//       imageElement.style.pointerEvents = "none";
+//   }
+// }
+// disableImageById('hoverChange');
 }
+// name =document.getElementById("siblingname").value
+// if(name!=){
+  
+// }
+// -----------------------------upload validation---------------
+
+
+// ------------upload validation-----------------
+function myFunction() {
+  var x = document.getElementById("uploadbtn").required;
+  console.log(x,"k");
+}
+// ---------------------------------------
 nextbtn.onclick = () => {
-  name =document.getElementById("siblingname").value
+name =document.getElementById("siblingname").value
+var x = document.getElementById("uploadbtn").value;
+// const primaryAlert = document.getElementById("uploadingDiv");
+
+
+console.log(name)
+console.log(x);
+if(name===""){
+  secondscreen.style.display = "block"
+}else if(x===""){
+  // primaryAlert.style.display = "block";
+
+alert("Please upload your file!")
+// uploadingDiv.style.display = "block"
+}
+else{
   secondscreen.style.display = "none"
-
-
-if(typeofpack==='kisses'){
-//
-thirdscreen.style.display = "block"
-
-}else if(typeofpack==='chocolatebar')
-{
-thirdscreenbar.style.display = "block"
-}else if(typeofpack==='exotic')
-{
-  //
+  if(typeofpack==='kisses'){
+    //
+    modelname.setAttribute('gltf-model','#kissesmodel')
+    console.log("ss")
+    thirdscreen.style.display = "block"
+    headerlogo.src='/images/hersheys-kisses-logo 1.png'
+    headerlogo.classList.add("headerlogokisses");
+   
+    
+    }else if(typeofpack==='chocolatebar')
+    {
+      modelname.setAttribute('gltf-model','#kissesmodel')
+    thirdscreenbar.style.display = "block"
+    headerlogo.src='/images/hersheyslogo.png'
+    headerlogo.classList.add("headerlogo-bar-exotic");
+    }else if(typeofpack==='exotic')
+    {
+      //
+      modelname.setAttribute('gltf-model','#exoticmodel')
+      thirdscreenbar.style.display = "block"
+      headerlogo.src='/images/hed-logo.png'
+      headerlogo.classList.add("headerlogo-bar-exotic");
+    }
+    
+    modelname.addEventListener("model-loaded",()=>{
+      console.log("if loaded")
+    modelloaded=1
+    //    modelloaded++
+    //     if(modelloaded===5){
+    //         console.log("loaded")
+    //         // alert("loaded!")
+    //     australiacont.setAttribute("visible", "true")
+    //     flat.style.display = 'none'
+    // blacktransparent.style.display="block"
+    // placementUI.style.display = 'block'
+    //     }
+     
+    });
+    
 }
-}
+  // secondscreen.style.display = "none"
 
+// if(name==""){
+//   alert("hwy")
+// }
+
+}
+closebtnsharepopup.onclick = () => {
+ 
+  sharepopupdiv.style.display="none"
+}
+reload.onclick = () => {
+  previouspausevalue++
+  pausevalue++
+  console.log("clicked")
+  modelname.removeAttribute('animation-mixer')
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      if(innerpausevalue==previouspausevalue){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("reload 1300")
+        notebox.setAttribute('class','cantap')
+      }
+      innerpausevalue++
+    
+    }, animtime);
+  }, 1000);
+ 
+}
 nextQuestionid.onclick = () => {
+  
   thirdscreen.style.display = "none"
-  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  loadingscreen.style.display="block"
+ 
+  kissesloadingvid.play();
+  if(modelloaded===1){
+    setTimeout(() => {
+      loadingscreen.style.display="none"
+      scene.style.zIndex = 0
+      permissions.setAttribute("zappar-permissions-ui", "")
+      taptoplace.style.display = "block"
+    }, 6000);
+  }
+ 
+ 
+  hereGoesID.innerHTML = `${name}`
+  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
+  completenote.innerHTML = msg
 
   // Ar scene 
-  permissions.setAttribute("zappar-permissions-ui", "")
-  scene.style.zIndex = 0
+
+  // scene.style.zIndex = 0
   console.log(uimoduleobj.packtype)
   console.log("next")
-  taptoplace.style.display = "block"
+
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
+  
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
@@ -652,9 +826,11 @@ option1div1.onclick = () => {
   option1 = "Sweet Troublemakers"
 }
 option1div2.onclick = () => {
+  console.log("option1 div 2")
   option1 = "Partners in crime"
 }
 option1div3.onclick = () => {
+  console.log("option1 div 3")
   option1 = "Top Secret keepers"
 }
 
@@ -663,22 +839,22 @@ const option2div1 = document.getElementById('custom-div-1')
 const option2div2 = document.getElementById('custom-div-2')
 const option2div3 = document.getElementById('custom-div-3')
 option2div1.onclick = () => {
-  console.log("option3 div 1")
+  console.log("option2 div 1")
   option2 = "Caring nature"
 
 }
 option2div2.onclick = () => {
-  console.log("option3 div 2")
+  console.log("option2 div 2")
   option2 = "Delightfully annoying nature"
 }
 option2div3.onclick = () => {
-  console.log("option3 div 3")
+  console.log("option2 div 3")
   option2 = "Giving mature advices"
 }
 // Option3
 const option3div1 = document.getElementById('custom-option-1')
-const option3div2 = document.getElementById('custom-option-1')
-const option3div3 = document.getElementById('custom-option-1')
+const option3div2 = document.getElementById('custom-option-2')
+const option3div3 = document.getElementById('custom-option-3')
 option3div1.onclick = () => {
   console.log("option3 div 1")
 
@@ -701,33 +877,7 @@ option3div3.onclick = () => {
 // The user can confirm the location by tapping on the screen
 // let hasPlaced = false;
 
-let taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
-taptoplace.addEventListener('click', () => {
 
-
-  // -------------------------
-// capture.style.display="block"
-// sharebtn.style.display="block"
-// reload.style.display="block"
-arscreen.style.display="block"
-
-  //--------------------------- 
-  const instantTracker = document.getElementById("instant-tracker");
-  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
-  taptoplace.remove();
-  setTimeout(() => {
-    modelname.setAttribute('animation-mixer', {
-      clip: 'Animation',
-      loop: 'once',
-      crossFadeDuration: 0.4,
-      clampWhenFinished:true,
-    })
-    setTimeout(() => {
-      modelname.setAttribute('animation-mixer', {timeScale: 0});
-    }, 13000);
-  }, 1000);
-
-});
 
   //  capture functionality
  async function initRecorder() {
@@ -873,6 +1023,7 @@ initRecorder();
 AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
+   const msgclosebtn= document.getElementById("msgclosebtn")
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
     function preview_image(event) {
@@ -897,7 +1048,7 @@ AFRAME.registerComponent("swap-texture", {
 
         console.log("image upload clicked")
 
-        output = document.getElementById('galleryimg');
+        output = document.getElementById('uploadbtn');
         output.src = reader.result;
         console.log(output.src)
         dataURL = output.src
@@ -920,7 +1071,7 @@ AFRAME.registerComponent("swap-texture", {
         dataURL = blobUrl
         pName = dataURL
         console.log("sss" + pName)
-        texturechange()
+        // texturechange()
         // traversal()
         // gltf.scene.traverse(function (child) {..
 
@@ -937,7 +1088,7 @@ AFRAME.registerComponent("swap-texture", {
       reader.readAsDataURL(event.target.files[0]);
     }
 
-    const { src } = document.getElementById('galleryimg')
+    // const { src } = document.getElementById('galleryimg')
 
     const loader = new THREE.TextureLoader()
     //   var canvas = document.createElement('canvas');
@@ -946,16 +1097,29 @@ AFRAME.registerComponent("swap-texture", {
  
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
-
+  //   modelname.addEventListener("model-loaded",()=>{
+  //     console.log("if loaded")
+  
+  // //    modelloaded++
+  // //     if(modelloaded===5){
+  // //         console.log("loaded")
+  // //         // alert("loaded!")
+  // //     australiacont.setAttribute("visible", "true")
+  // //     flat.style.display = 'none'
+  // // blacktransparent.style.display="block"
+  // // placementUI.style.display = 'block'
+  // //     }
+     
+  // });
 
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
-      const modelmesh = modelname.getObject3D('mesh').children[3].children[6]
+      const modelmesh = modelname.getObject3D('mesh').children[4].children[5]
 
       //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
       //  .getObjectByName('Picture_Picture_0')
       console.log(modelname.getObject3D('mesh'))
-      console.log(modelname.getObject3D('mesh').children[3].children[6])
+      console.log(modelname.getObject3D('mesh').children[4].children[5])
       //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
      
       
@@ -974,14 +1138,90 @@ AFRAME.registerComponent("swap-texture", {
 
 
     // })
-
-    notebox.addEventListener('click', function (evt) {  
+    msgclosebtn.onclick = () => {
+      messagenote.style.display="none"
         modelname.setAttribute('animation-mixer', {timeScale: 1});
+    }
+    notebox.addEventListener('click', function (evt) {  
+      console.log("envolope clicked")
+      messagenote.style.display="block"
+        // modelname.setAttribute('animation-mixer', {timeScale: 1});
+        notebox.setAttribute('class','')
     });
+     taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
+taptoplace.addEventListener('click', () => {
+  texturechange()
+
+  // -------------------------
+// capture.style.display="block"
+// sharebtn.style.display="block"
+// reload.style.display="block"
+arscreen.style.display="block"
+setTimeout(() => {
+  sharepopupdiv.style.display="block"
+  recordparentdiv.style.display="none"
+}, 3000);
+
+
+  //--------------------------- 
+  const instantTracker = document.getElementById("instant-tracker");
+  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+  taptoplace.remove();
+  setTimeout(() => {
+    modelname.setAttribute('animation-mixer', {
+      clip: 'Animation',
+      loop: 'once',
+      crossFadeDuration: 0.4,
+      clampWhenFinished:true,
+    })
+    setTimeout(() => {
+      if(pausevalue===0){
+        modelname.setAttribute('animation-mixer', {timeScale: 0});
+        console.log("tap 1300")
+        notebox.setAttribute('class','cantap')
+      }
+    
+    },animtime);
+  }, 1000);
+
+});
     // modelname.onclick = () => {
-    //   console.log("clicked")
+    //   console.log("clicked")sendgift
     // }
 
 
   },
 })
+// ------------------autofocus for input field----------------------
+document.getElementById("sendthankyou").addEventListener("click", function() {
+  document.getElementById("siblingname").focus();
+});
+document.getElementById("sendgift").addEventListener("click", function() {
+  document.getElementById("siblingname").focus();
+});
+
+// -----------------------------
+const siblingNameInput = document.getElementById("siblingname");
+const selectPackInput = document.getElementById("hoverChange");
+
+siblingNameInput.addEventListener("input", function() {
+  if (siblingNameInput.value.length > 6) {
+    selectPackInput.focus();
+  }
+});
+
+// const hers=document.getElementById("siblingname").addEventListener("click", function() {
+//   if(hers.length>6){
+//     document.getElementById("selectPack").focus();
+
+//   }
+// });
+
+// -------------------- changing text based on user selection---------------------
+document.getElementById("sendthankyou").addEventListener("click", function() {
+  // Get the text element by its ID
+  const textElement = document.getElementById("changeTextScreen");
+
+  // Update the text content
+  textElement.textContent = "Say thankyou to";
+});

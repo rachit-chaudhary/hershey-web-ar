@@ -16,12 +16,20 @@
   src: url('./fonts//snavely\ lc-regular.otf');
 }
 
+@font-face {
+  font-family: "brandon printed";
+  src: url("./fonts/brandon-printed.ttf");
+}
+
 html,
 body {
     /* background-color: grey; */
     font-family: "Walsheim";
     overflow-y: scroll ;
     
+}
+#firstscreen {
+  display: block;
 }
 h1 {
     /* display: none;
@@ -37,14 +45,14 @@ h1 {
     left: 50%;
     right: 0px;
     border-radius: 15px;
-    background: black;
-    color: white;
+    background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+    color: #3C131C;
     width: 200px;
     margin-left: -100px;
     text-align: center;
     padding: 15px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:'Walsheim';
     text-transform: uppercase;
     z-index: 1;
 }
@@ -52,64 +60,160 @@ h1 {
   display: none;
 }
 #headerdiv{
-  display: block;
-  position: fixed;
+  padding-top:1%;
+  padding-bottom:1%;
+  background-color:#D9D9D9;
   top: 0;
-  /* left: 50%; */
-  /* right: 0px; */
-  /* color: white; */
-  width: 100%;
-  /* margin-left: -50px; */
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.headerlogo-bar-exotic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 28%;
+}
+.headerlogokisses{
+  display: block;
+  /* margin-left: auto; */
+  margin-right: auto;
+  width: 30%;
+}
+
+#sharepopupdiv{
+  display: none;
+  position: fixed;
+  top: 125px;
+  left: 50%;
+  right: 0px;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 274px;
+  margin-left: -140px;
   /* text-align: center; */
-  /* padding: 15px; */
-  z-index: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  /* text-transform: uppercase; */
+  z-index: 5;
+  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
+}
+#hersheyid{
+  background: #3C131C;
+  color: #FADF9E;
+  border-radius: 5px;
+  /* position: absolute; */
+  width: 49%;
+
+}
+#closebtnsharepopup{
+  right: 8px;
+  position: absolute;
+  top: 8px;
+  width: 5%;
 }
 #reloaddiv{
-
   display: block;
   position: fixed;
   top: 66px;
-
   right: 0px;
   color: white;
-  width: 86px;
- 
-  padding: 15px;
-  z-index: 1;
-
+  width: fit-content;
+  z-index: 99;
 }
-  #shutter {
-    display: block;
-    position: fixed;
-    bottom: 65px;
-    left: 50%;
-    right: 0px;
- 
-    color: white;
-    width: 100px;
-    margin-left: -50px;
-    text-align: center;
-    padding: 15px;
-   
-    z-index: 1;
+#reloaddiv img {
+  width: 50px;
 }
-#share {
-  display: block;
+#tapOnEnvelope{
   position: fixed;
-  bottom: 10px;
+  top: 65px;
   left: 50%;
   right: 0px;
-  color: white;
-  width: 100px;
-  margin-left: -80px;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 271px;
+  margin-left: -134px;
   text-align: center;
   padding: 15px;
-  z-index: 1;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: capitalize;
+  z-index: 99;
 }
+#recordbannerdiv{
+  position: fixed;
+  bottom: 185px;
+  left: 50%;
+  right: 0px;
+  border-radius: 12px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 271px;
+  margin-left: -134px;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: capitalize;
+  z-index: 99;
+}
+.arrow-down {
+  position: fixed;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  bottom: 168px;
+  margin: 0px auto;
+  border-top: #bcd11c;
+  border-top: 18px solid #f0dc9c;
+  z-index: 99;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+  #shutter {
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: block;
+    position: fixed;
+    bottom: 85px;
+    color: white;
+    width: fit-content;;
+    z-index: 99;
+}
+#shutter img {
+  width: 75px;;
+}
+#share {
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  position: fixed;
+  bottom: 23px;
+  border-radius: 50px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  color: #3C131C;
+  width: 190px;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Walsheim';
+  text-transform: capitalize;
+  z-index: 99;
+}
+
 
 body {
   margin: 0;
+  
 }
+
 canvas {
   width: 100vw;
   height: 100vh;
@@ -125,9 +229,124 @@ button { pointer-events:initial; }
     background-color: #D9D9D9 !important;
     width: 100% !important;
 }
+.landing-page-rakshabandhan{
+  font-family: "Snavely";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  /* line-height: 106.5%;  */
+  line-height: 89.5%;
+  color: #EFBE7F;
+}
+.landing-page-ns-position{
+  margin-left: 18px;
+}
+.landing-page-sibling{
+  color: #EFBE7F;
+  font-family: "Walsheim";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  /* line-height: 150.5%;  */
+  line-height: 79.5%;
+}
+.shine{
+  margin: 12px;
+}
+.landing-page-make{
+  color: #EFBE7F;
+  font-family: "Walsheim";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150.5%; 
+}
+.landing-page-leftimage{
+  margin-top: -25px;
+}
+.landing-page-rakhi{
+  height: 150px;
+  margin-top: 16px;
+}
+.landing-page-ns{
+  height: 100vh;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* background-color:  #734222, #37140B; */
+}
+.camera-tag{
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-top: 13px;
+  color: #EDC967;
+  
+}
+.wrapper{
+  overflow: auto;
+}
+.flower{
+  margin-top: -29px;
+  height: 60px;
+}
+.layer-ns{
+  margin-left: -160px;
+}
+.flower2{
+  margin-top: -1px;
+    margin-right: -14px;
+  height: 60px;
+}
+.send-thankyounote{
+  position: relative;
+  padding: 20px 29px 14px 19px;
+    width: 346px;
+    margin-top: -10px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  margin: 10px;
+}
+#sendthanks{
+  margin-top: -53px;
+}
+.heading-div{
+  background: linear-gradient(235deg, #734222 0%, #37140B 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-align: center;
+font-family: "Snavely";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.text-landing-page{
+  color: #3D251C;
+    text-align: center;
+    font-family:"Walsheim";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.send-surprise-message{
+  position: relative;
+  margin: 10px;
+  padding: 20px 29px 14px 19px;
+  width: 346px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
 
-
-
+}
 .hersheylogo{
   width: 120px;
 }
@@ -189,29 +408,54 @@ button { pointer-events:initial; }
   display: none;
 }
 .wrapper{
-  background-color: #3F000B;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
   height: 100vh;
 }
-.orange-wrapper{
+/* .orange-wrapper{
   background-color: #EE7700;
   height: 87%;
   margin: 13px;
   
-}
+} */
 .surprise-heading{
   font-family: "Walsheim";
-  color: white;
+  color: #EFBE7F;
   padding-top: 16px;
+  line-height: 10px;
 }
+::-webkit-input-placeholder { /* Edge */
+  color: #EFBE7F;
+  
+}
+.surprise-heading-ns{
+  font-family: "Walsheim";
+  color: #EFBE7F;
+  font-style: italic;
+  font-size: 11px;
+}
+.flower-carousel-bottom{
+  height: 108px;
+}
+
 .username-section{
   margin-top: 21px;
   margin-left: 18px;
   font-size: 23px;
 }
-.blue-wrapper{
-  background-color: #003594;
-  height: 40%;
-  margin-top: 14px;
+.carousel-ns{
+  position: absolute;
+  margin-top: -47px;
+}
+.golden-wrapper{
+  position: relative;
+  border-radius: 10px;
+  background: #D1A354;
+  background-image: url(/images/background-image.png);
+  margin-top: 28px;
+  margin: 14px;
+  border: 10px solid hsl(44, 79%, 67%);
+  background-size: cover;
+    background-position: center;
 }
 .breakline{
   color: inherit;
@@ -248,29 +492,100 @@ button { pointer-events:initial; }
   padding-top: 20px;
   /* margin-top: 23px; */
   margin-left: 22px;
-  color: white;
-  font-family: "Walsheim";
+  color: #410E0F;
+  font-family: "Snavely";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .userName{
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.80);
-  font-family: "Walsheim";
-  font-size: 32px;
+  color: #EFBE7F;
+  /* font-family: "Walsheim"; */
   font-style: normal;
-  font-weight: 700;
+  /* font-weight: 700; */
   line-height: normal;
   /* margin-top: 5px; */
   width: 90%;
   margin-left: -9px;
+  font-family: Brandon Printed;
+  font-size: 36px;
+  font-weight: 250;
+
+}
+.userName::placeholder {
+  color: rgba(246, 218, 173, 0.1);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #EFBE7F;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+.userName:focus {
+  outline: none;
 }
 .photo-frame{
   height: 70px;
+  margin-left: 49px;
+  margin-top: -5px;
+}
+.filejpeg{
+  margin: 33px;
+  margin-top: 13px;
+}
+.upload-outerdiv{
+  border-radius: 10px;
+background: linear-gradient(130deg, rgba(223, 188, 102, 0.10) 0%, rgba(210, 172, 71, 0.10) 23.34%, rgba(247, 239, 138, 0.10) 41.28%, rgba(255, 244, 197, 0.10) 68.42%, rgba(237, 201, 103, 0.10) 99.51%), rgba(15, 15, 15, 0.20);
+margin: 22px;
+
+}
+.uploadbutton{
+  border-radius: 66px !important;
+  padding: 16px 47px;
+  background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  width: 218px;
+  height: 53px;
+  color: #2D100C;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.base-title{
+  text-align: center;
+font-family: "Walsheim";
+font-size: 11px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+color: #EFBE7F;
 }
 .uploader{
-  height: 70px;
+  height: 53px;
   margin: 18px;
-  background-color: #4068AF;
+  border-radius: 32px;
+  margin-top: -7px;
+  background: rgba(255, 255, 255, 0.20);
+  border-radius: 51px;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), rgba(255, 255, 255, 0.50);
+  border: 2px solid  #EFBE7F;
+  color: #EFBE7F;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: lowercase;
+  border-radius: 51px;
 }
 /* #imagediv{
   width: 100px;
@@ -281,28 +596,30 @@ button { pointer-events:initial; }
   background-position: center;
 } */
 .photo{
-    width: 66%;
+     width: 56%;
     align-self: center;
     display: flex;
     justify-content: center;
     color: white;
-    font-family: GT Walsheim;
+    font-family: "Walsheim";
 
 }
 .upload-section{
   margin-top: 0px;
 }
 .next-button{
-  position: absolute;
-  bottom: 39px;
+  position: relative;
+  bottom: 68px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
     height: 55px;
     border-radius: 93px;
-    background: #007BBD;
-    color: white;
-    font-family:  Walsheim;
+    border-radius: 66px;
+    background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);    
+    color: #2D100C;
+    font-family:"snavely";
+    text-transform: lowercase;
 }
 
 
@@ -322,15 +639,19 @@ button { pointer-events:initial; }
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh;
 }
 .window-kisses .rakhi-kiss-image {
   width: 170px;
+  position: absolute;
+  top: -15px;
+  right: 0px;
 }
 .nextquecl{
   bottom: 1px;
-    position: absolute;
+  position: absolute;
 }
   
 
@@ -364,31 +685,28 @@ button { pointer-events:initial; }
 }
 
 .qns-1{
+  position: relative;
+  z-index: 2;
+  margin: 0px 0px 25px;
+  min-height: 210px;
   padding: 25px 0px;
   border: 7px solid  hsl(44, 79%, 67%);
   border-radius: 15px;
   background: #E8B377;
   background-image: url(/images/smallKisses.png);
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 20px;
   font-family: "Walsheim";
-    position: relative;
-  margin-top: -53px !important;
-    /* margin-top: 6px !important; */
-  z-index: 1;
-
 }
 .image1{
   padding-bottom: 7px;
 }
+
 .hersheyBackgroundImage{
-    margin-top: -46px;
+  margin-top: -35px;
+  left: -32px;
 }
 .sunrise{
   margin-top: -15px;
-}
-.outerDiv{
-  margin-top: -52px;
 }
 .hersheyBackgroundImageSection-1{
   position: absolute;
@@ -401,16 +719,16 @@ button { pointer-events:initial; }
   margin-right: 6px;
 }
 .hersheyBackgroundImageSection-3{
-  margin-top: -57px;
+  margin-top: -40px;
+  right: 0px;
 }
 .hersheyBackgroundImageSection-4{
-  margin-top: -82px;
+  margin-top: -52px;
   margin-left: -11px;
 }
-.hersheyBackgroundImageSection-5{
-  margin-top: -16px;
-  margin-left: -46px;
- 
+.hersheyBackgroundImageSection-4-duplicate {
+  right: -30px;
+  top: -60px;
 }
 .hersheyBackgroundImageSection-6{
   margin-top: -62px;
@@ -428,7 +746,6 @@ button { pointer-events:initial; }
   height: 60px;
 }
 .appropriate{
-  margin-left: 19px;
   font-size: 12px;
   font-family: "Walsheim";
     color: #F5F5F5;
@@ -437,53 +754,23 @@ button { pointer-events:initial; }
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-
-
 }
 .sibling{
-    margin-top: -75px;
-    margin-left: 20px;
-    background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Snavely";
-    font-size: 42px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
-
-
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Snavely";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
 }
 .knowYour{
   color: #F6CD73;
-  margin-left: 20px;
-  margin-top: 84px;
   font-size: 17px;
   font-family: "Walsheim";
 
-}
-
-button {
-  color: #ecf0f1;
-  background: none;
-  width: 50px;
-  height: 50px;
-  border: 0;
-  font-size: 1.5em;
-  position: relative;
-	float:right;
-}
-
-button span {
-  position: absolute;
-  transition: .3s;
-  background: black;
-  border-radius: 2px;
-}
-
-button2 span:first-of-type, button2 span:last-of-type {
-  transform: rotate(45deg);
 }
 
 	.plus1{
@@ -589,7 +876,7 @@ button2 span:first-of-type, button2 span:last-of-type {
     font-family:"snavely";
     text-transform: lowercase;
   }
-  .expanded-div{
+  /* .expanded-div{
       width:60%;
       background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
       border: 2px solid  hsl(44, 79%, 67%);
@@ -597,7 +884,7 @@ button2 span:first-of-type, button2 span:last-of-type {
       font-family:"snavely";
       text-transform: lowercase;
       font-size: 17px;
-  }
+  } */
   .compressed-div{
     width:18.5%;
     height: 100%;
@@ -633,9 +920,6 @@ button2 span:first-of-type, button2 span:last-of-type {
 
   /* ------------------------------------------- */
   /* Custom styles for the container and question  card2*/
-.d-flex.qns-1 {
-  justify-content: center;
-}
 
 .container {
   width: 80%;
@@ -644,32 +928,40 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 /* Styles for the custom divs */
 .custom-div {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
-  width: 32.33%;
-  height: 40%;
+  width:32.33%;
+  height: 100%;
   font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  /* position:relative; */
+  float:left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
-  font-family: "snavely";
+  font-family:"snavely";
   text-transform: lowercase;
 }
 
 .custom-expanded-div {
-  width: 60%;
+  width:60%;
   background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
+  border: 2px solid  hsl(44, 79%, 67%);
   color: #37140B;
-  font-family: "snavely";
+  font-family:"snavely";
   text-transform: lowercase;
-  /* height: 100%; */
+  font-size: 17px;
 }
 
 .custom-compressed-div {
-  width: 18.5%;
+  width:18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 /* Styles for the custom div backgrounds */
@@ -687,9 +979,11 @@ button2 span:first-of-type, button2 span:last-of-type {
 
 /* Styles for the expansion buttons */
 .custom-expansion-btn {
-  font-size: 14px;
-  margin-left: 13px;
-  margin-top: 9px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* .expansion-btn {
@@ -716,21 +1010,21 @@ button2 span:first-of-type, button2 span:last-of-type {
 }
 
 .custom-option {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
-  width: 32.33%;
-  height: 40%;
-  position: relative;
-  float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  width:32.33%;
+  height: 100%;
+  font-size: 12px;
+  /* position:relative; */
+  float:left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
   font-family:"snavely";
-  text-transform: lowercase;
-  background-color: #774629;
-  font-size: 12px;
-
-}
+  text-transform: lowercase;}
 
 .custom-option:nth-child(1) {
   background-color: #774629;
@@ -751,29 +1045,24 @@ button2 span:first-of-type, button2 span:last-of-type {
   color: #37140B;
   font-family:"snavely";
   text-transform: lowercase;
-
+  font-size: 17px;
 }
 
 .custom-compressed-option {
-  width: 18.5%;
+  width:18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .custom-option-btn {
-  font-size: 11px;
-  /* margin-left: 13px;
-  margin-top: 9px !important; */
-}
-
-.custom-option-btn{
-  margin-top: 22px !important;
-}
-
-.custom-option-btn {
-  margin-top: 22px !important;
-}
-
-.custom-option-btn {
-  margin-top: 22px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* --------------landing page */
@@ -818,6 +1107,7 @@ body {
 .get-coupon-section {
   /* background: linear-gradient(90deg, #2d100c 0%, #61311a 100%); */
   color: #fff;
+  overflow-x: hidden;
   /* height: 100%; */
 }
 .confetti-video {
@@ -868,13 +1158,14 @@ body {
 }
 .get-coupon-form button {
   width: 100px;
-  background: forestgreen;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .get-coupon-form .tnc-div {
-  margin: 17px 0px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: "Walsheim";
   font-size: 14px;
@@ -901,9 +1192,6 @@ body {
 }
 .bar-heading{
   margin-top: 12px;
-
-}
-.sibling-bar{
 
 }
 .outerDiv-bar{
@@ -949,10 +1237,6 @@ body {
   width: 100%;
 }
 .sibling-bar{
-  background: #480000;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-family: "Snavely";
   font-size: 42px;
   font-style: normal;
@@ -963,14 +1247,11 @@ body {
   font-family: "Walsheim";
   color: white;
   font-size: 15px;
-  margin-top: -4px;
 }
 .knowYour-bar{
-  color: #480000;
   font-size: 18px;
   font-family: "Walsheim";
   font-size: 18px;
-  margin-left: -79px;
 
 }
 .hersheyBackgroundImageSection-bar-4{
@@ -1049,7 +1330,6 @@ body {
       color: #37140B;
       font-family:"snavely";
       text-transform: lowercase;
-
   }
   .compressed-div-bar{
     width:18.5%;
@@ -1114,9 +1394,10 @@ body {
     justify-content: center;
     width:60%;
     background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-    border: 2px solid  hsl(44, 79%, 67%);
+    border: 2px solid hsl(44, 79%, 67%);
     color: #37140B;
     font-family:"snavely";
+    font-size: 17px;
     text-transform: lowercase;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -1160,12 +1441,18 @@ body {
 
   
 .form-check-input-ns {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 .form-check-label-ns {
-  font-size: 20px;
-  margin-left: 20px;
+  font-family: "Walsheim-Medium";
+  font-size: 16px;
+  margin-left: 10px;
+}
+.form-check-label-ns a {
+  text-decoration: underline;
+  border-bottom: 2px solid #EFBE7F;
+  cursor: pointer;
 }
 .get-coupon-form button {
   position: relative;
@@ -1173,27 +1460,41 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 179px;
+  width: 100%;
   height: 78px;
   color: #5f3019;
   font-family: 'Walsheim';
 }
 .get-coupon-form button .coupon-btn-text {
-  position: absolute;
-  right: 0px;
+  width: fit-content;
   display: flex;
-  flex-wrap: wrap;
   background: unset;
   transition: unset;
   border-radius: unset;
-  width: 80px;
-  right: 20px;
   line-height: 21px;
+  align-items: center;
 }
+.span-div-coupon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+}
+.code-copy-img img {
+  width: 70%;
+}
+/* .get-coupon-form button .coupon-btn-text::after {
+  margin-left: 5px;
+  content: '';
+  background-image: url(/images/copy-btn.png);
+  width: 16px;
+  background-size: contain;
+  height: 19px;
+} */
 .get-coupon-form p {
-  margin: 10px 0px;
+  margin-top: 0px;
   font-family: "Walsheim-Medium";
-  font-size: 14px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -1205,6 +1506,10 @@ body {
 .post-script-text {
   padding: 5px 10px;
   display: none;
+}
+button:disabled,
+button[disabled]{
+  filter: opacity(0.25);
 }
 .post-script-text p{
   text-align: center;
@@ -1254,8 +1559,8 @@ body {
 .new-expanded-div {
   justify-content: center;
   width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
+  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
+  border: 3px solid #FFF;
   color: #37140B;
   font-family: "snavely";
   text-transform: lowercase;
@@ -1330,8 +1635,8 @@ a.new-expansion-btn {
 .option-expanded {
   justify-content: center;
   width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
+  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
+  border: 3px solid #FFF;
   color: #37140B;
   font-family: "snavely";
   text-transform: lowercase;
@@ -1370,4 +1675,303 @@ a.option-btn {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+/* rachit's CSS (keep it at the very end of the css file */
+.kisses-header {
+  height: 170px;
+  padding: 25px 25px 0px;
+  margin-top: 40px;
+}
+.kisses-bg {
+  width: 100%;
+  position: relative;
+  /* z-index: -1; */
+}
+.kisses-bg img {
+  position: absolute;
+  overflow: hidden;
+}
+.image-1-rc {
+  position: absolute;
+  right: 0px;
+  top: -33px;
+}
+.outerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.image-9 {
+  right: -27px;
+  top: -45px;
+}
+.question-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 145px;
+  padding: 0px 15px;
+}
+.hanging-circles {
+  width: 100%;
+  position: relative;
+}
+.hanging-circles img {
+  width: 50px;
+  position: absolute;
+  right: 15px;
+}
+.bar-heading {
+  width: 90%;
+  margin: 0px auto;
+  padding: 25px 0px 0px;
+}
+.bar-heading h3,
+.bar-heading h1 {
+  color: #472115;
+}
+.bar-heading .knowYour-bar {
+  margin: 0px;
+}
+.sketchy-lines {
+  width: 100%;
+  position: relative;
+}
+.sketchy-lines img {
+  position: absolute;
+  right: 3px;
+  bottom: -6px;
+}
+#loadingscreen{
+  display: none;
+}
+.loading-screen {
+  display: none;
+  width: 100%;
+  height: 110vh;
+  margin: 0px auto;
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
+}
+.loading-media {
+  width: 100%;
+  height: 60vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+}
+.loading-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.kisses-loading-video {
+  width: 100%;
+}
+.loading-message {
+  width: 100%;
+  margin: 0px auto;
+  padding: 25px 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 15%;
+  padding-bottom: 0px;
+}
+.loading-message h4 {
+  font-size: 16px;
+  color: #291213;
+  text-align: center;
+  font-family: "Walsheim";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.384px;
+}
+.loading-message h4 span {
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.loading-spinner {
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+.loading-spinner .spinner-ns {
+  border: unset;
+  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+.message-header {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.close-icon {
+  position: relative;
+  width: 100%;
+}
+.close-icon img {
+  position: absolute;
+  right: 0px;
+  width: 24px;
+  cursor: pointer;
+}
+.message-header h3,
+.message-header .dynamic-name h2 {
+  margin: 0px;
+  color: #2D1415;
+  font-family: "Walsheim";
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.message-header h3 {
+  font-family: "Walsheim-Medium";
+  font-size: 16px;
+}
+.message-header .dynamic-name h2 {
+  font-size: 25px;
+}
+@-webkit-keyframes bummer {
+  100% {
+      -webkit-transform: scale(1,1); 
+  }
+}
+
+@keyframes bummer {
+  100% {
+      transform: scale(1,1); 
+  }
+}
+.message-wrapper {
+  border-radius: 10px;
+  padding: 25px;
+  display: block;
+  width: 90%;
+  margin: 20px auto;
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-animation: bummer 1s ease;
+  animation: bummer 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.kisses-message {
+  display: none;
+  background: #E8B377;
+  background-image: url("/images/kisses-shape-bg.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: top;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 999;
+  margin: auto;
+  height: max-content;
+  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
+}
+.dynamic-name {
+  display: flex;
+  font-family: "Walsheim";
+}
+.message-body .dynamic-note p {
+  margin: 20px 0px 0px 0px;
+  font-family: "Walsheim-Medium";
+  font-size: 18px;
+  text-align: justify;
+  color: #2D1415;
+}
+.message-body .dynamic-note p span {
+  font-family: "Walsheim";
+}
+.dynamic-img {
+  display: flex;
+  justify-content: center;
+}
+.dynamic-img img {
+  width: 70%;
+}
+.preview-text {
+  z-index: 2;
+  top: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 4px 1px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+}
+.preview-text h3 {
+  font-family: "Walsheim";
+  font-size: 21px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+.rakhi-img-coupon {
+  filter: opacity(0.2);
+}
+#ZapparSnapshotContainer {
+  background-color: #3F000B!important; 
+}
+#zapparSaveButton,
+#zapparShareButton {
+  border-radius: 6px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
+}
+#zapparCloseAref g{
+  stroke: #EDC967;
+}
+#zapparSaveButton svg #Path-6,
+#zapparSaveButton svg #Combined-Shape,
+#zapparSaveButton svg text,
+#picture-copy {
+  fill: #3F000B!important;
+}
+.st0 {
+  fill: #3F000B!important;
+}
+.st1 {
+  font-family: 'Walsheim'!important;
+}
+#zapparSaveButton svg text {
+  font-family: 'Walsheim'!important;
+}
+#ZapparPreviewVideo {
+  height: 80vh!important;
+}
+/* rachit's CSS end's here */
+
+
+/* -------------------------------------- */
+/* Your CSS styles */
+.carosel-images.active {
+  border: 2px solid transparent; /* Add any style you want for the active image */
+}
+
+.carosel-images.disabled {
+  opacity: 0.5; /* You can change the style to make disabled images appear faded or grayed out */
+  pointer-events: none; /* Prevent clicks on disabled images */
 }
