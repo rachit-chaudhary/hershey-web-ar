@@ -699,7 +699,7 @@ if(name===""){
 }else if(x===""){
   // primaryAlert.style.display = "block";
 
-alert("Please upload your file!")
+alert("Please upload your photo!")
 // uploadingDiv.style.display = "block"
 }
 else{

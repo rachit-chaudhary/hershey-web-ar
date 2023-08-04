@@ -629,7 +629,7 @@ color: #EFBE7F;
   /* height: 115; */
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
 }
 .window-kisses .rakhi-kiss-image {
   width: 170px;
@@ -1173,7 +1173,7 @@ body {
 .windows-bar{
   background-image: url('images/questions-window-bars.png');
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
   background-repeat: repeat-y;
   background-size: contain;
   width: 100%;
