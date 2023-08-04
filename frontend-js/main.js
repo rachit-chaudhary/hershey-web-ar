@@ -751,10 +751,10 @@ else{
 // }
 
 }
-closebtnsharepopup.onclick = () => {
+// closebtnsharepopup.onclick = () => {
  
-  sharepopupdiv.style.display="none"
-}
+//   sharepopupdiv.style.display="none"
+// }
 reload.onclick = () => {
   previouspausevalue++
   pausevalue++
