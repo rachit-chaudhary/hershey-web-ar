@@ -29,7 +29,7 @@ body {
     
 }
 #firstscreen {
-  display: none;
+  display: block;
   /* change to block qwerty */
 }
 h1 {
