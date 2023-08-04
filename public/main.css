@@ -397,7 +397,7 @@ line-height: normal;
 }
 .wrapper{
   background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
-  height: 100vh;
+  height: 100dvh;
 }
 /* .orange-wrapper{
   background-color: #EE7700;
@@ -1976,13 +1976,6 @@ border-right: none;
 }
 .window-exotic {
   display: none;
-}
-.wrapperdiv {
-  height: 100%; /* Fallback */
-  height: -moz-available;
-  height: -webkit-fill-available;
-  height: fill-available;
-  height: stretch; /* Latest specification */
 }
 /* rachit's CSS end's here */
 
