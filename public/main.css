@@ -2060,6 +2060,90 @@ border-right: none;
 .window-exotic {
   display: none;
 }
+.receiver-wrapper {
+  display: none;
+  overflow-y: scroll;
+  background-image: url(/images/kisses-shape-bg.png);
+  background-size: contain;
+  background-repeat: repeat-y;
+  background-color: #E8B377;
+  height: 100dvh;
+}
+.receiver-div {
+  position: relative;
+  z-index: 2;
+  overflow-x: hidden;
+  padding: 0px 0px 25px;;
+}
+.receiver-img-bg {
+  position: fixed;
+  z-index: 1;
+}
+.receiver-kiss-cascade-drop {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.receiver-kiss-cascade-drop img {
+  width: 50%;
+}
+.hanging-decoration-top {
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  left: 10px;
+}
+.flower-combo-4 {
+  z-index: -1;
+  position: fixed;
+  width: 40%;
+  bottom: -50px;
+  left: -60px;
+}
+.flower-combo-3 {
+  z-index: -1;
+  position: fixed;
+  width: 40%;
+  right: -40px;
+  top: 170px;
+}
+.receiver-div-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #3F000B;
+}
+.recevier-hershey-pack {
+  width: 100%;
+}
+.receiver-div-content h3 {
+  font-size: 20px;
+  font-family: "Walsheim-Medium";
+}
+.receiver-div-content h1 {
+  font-family:"snavely";
+  font-size: 30px;
+}
+.receiver-div-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.receiver-div-button button {
+  margin: 15px 0px;
+  border-radius: 93px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #37140B;
+  padding: 15px 50px;
+  font-size: 21px;
+  font-family: "Walsheim-Medium";
+  text-transform: capitalize;
+  border: none;
+}
+
 /* rachit's CSS end's here */
 
 
