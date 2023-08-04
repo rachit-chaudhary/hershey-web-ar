@@ -30,6 +30,9 @@ secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID=document.getElementById("#hereGoesID")
+
+let loadingHeader = document.getElementById("loadingHeader")
+let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 // alert("i")
 
 // firstscreen.style.display = "none"
@@ -779,9 +782,12 @@ reload.onclick = () => {
 nextQuestionid.onclick = () => {
   
   thirdscreen.style.display = "none"
-  loadingscreen.style.display="block"
- 
-  kissesloadingvid.play();
+  if(typeofpack==="kisses") {
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display="block"
+    kissesloadingvid.play();
+  }
+
   if(modelloaded===1){
     setTimeout(() => {
       loadingscreen.style.display="none"
@@ -806,16 +812,28 @@ nextQuestionid.onclick = () => {
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
+  //show bars loading screen @kartik 
+
+  loadingHeader.src="/images/hersheyslogo.png"
+  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+  kissesloadingvid.style.display = "none"
+  barsLoadingMedia.style.display = "block"
+  loadingscreen.style.display="block"
   
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
-  // Ar scene 
-  permissions.setAttribute("zappar-permissions-ui", "")
-  scene.style.zIndex = 0
-  console.log(uimoduleobj.packtype)
-  console.log("next")
-  taptoplace.style.display = "block"
+  // also add if model loaded then show tap to place @kartik
+  setTimeout(() => {
+    // Ar scene 
+    permissions.setAttribute("zappar-permissions-ui", "")
+    scene.style.zIndex = 0
+    console.log(uimoduleobj.packtype)
+    console.log("next")
+    taptoplace.style.display = "block"
+  }, 6000)
+
 }
 
 

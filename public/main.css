@@ -1983,6 +1983,12 @@ border-right: none;
   font-family: "Walsheim";
   text-transform: capitalize;
 }
+.bars-casacade-loading {
+  width: 100%;
+}
+.window-exotic {
+  display: none;
+}
 /* rachit's CSS end's here */
 
 
