@@ -9,6 +9,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
+<!-- isMobile() -->
+<script src="https://libs.zappar.com/zappar-mobile-only/0.0.2/zappar-mobileonly.js"></script>
+<script>
+  
+  if (!MobileOnly.isMobile()) {
+    MobileOnly.showUI({
+      header: "Almost there...",
+      url: 'https://hersheysgifting.co.in/',
+      instructions: "instructions"
+    });
+  }
+
+</script>
+
 <script>
 
   // check if browser is chrome or ios
@@ -20,6 +34,7 @@
 
 
   // /////////////////////////////////////////////////////////////////////////////////////////////
+  // ------------------------------------hershey kisses---------------------
 
   $("p.expansion-btn").click(function () {
     classes = this.className;
@@ -78,11 +93,11 @@
     classes = this.className;
     var divNumber = classes.slice(-1);
     var toGetId = "#hershey-bar-" + divNumber;
-    if ($(toGetId).hasClass("expanded-div")) {
-      $(".div-var").removeClass("compressed-div expanded-div");
+    if ($(toGetId).hasClass("expanded-div-bars")) {
+      $(".div-var").removeClass("compressed-div expanded-div-bars");
     } else {
-      $(".div-var").removeClass("compressed-div expanded-div").addClass("compressed-div");
-      $(toGetId).removeClass("compressed-div").addClass("expanded-div");
+      $(".div-var").removeClass("compressed-div expanded-div-bars").addClass("compressed-div");
+      $(toGetId).removeClass("compressed-div").addClass("expanded-div-bars");
     }
   });
 
@@ -151,6 +166,61 @@ function handleCarouselClick(event) {
 
   clickedImage.classList.toggle('active');
 }
+// ---------------------------------------------hershey exotic jquery--------------------------------
+
+
+
+$("p.expansion-btn").click(function () {
+    classes = this.className;
+    var divNumber = classes.slice(-1);
+    var toGetId = "#exotic-hershey-" + divNumber;
+    if ($(toGetId).hasClass("exotic-hershey")) {
+        $(".exotic-dark").removeClass("compressed-div exotic-hershey");
+    } else {
+        $(".exotic-dark").removeClass("compressed-div exotic-hershey").addClass("compressed-div");
+        $(toGetId).removeClass("compressed-div").addClass("exotic-hershey");
+    }
+});
+
+
+
+$("p.exotic-expansion-btn").click(function () {
+    classes = this.className;
+    var divNumber = classes.slice(-1);
+    var toGetId = "#exotic-dark-card2-" + divNumber;
+
+    if ($(toGetId).hasClass("exotic-expanded-div")) {
+        $(".exotic-div").removeClass("exotic-compressed-div exotic-expanded-div");
+    } else {
+        $(".exotic-div").removeClass("exotic-compressed-div exotic-expanded-div").addClass("exotic-compressed-div");
+        $(toGetId).removeClass("exotic-compressed-div").addClass("exotic-expanded-div");
+    }
+});
+
+$(".sibling-bond-option").click(function () {
+    var optionId = this.id;
+    var toGetId = "#" + optionId;
+
+    if ($(toGetId).hasClass("expanded-option")) {
+        $(".sibling-bond-option").removeClass("compressed-option expanded-option");
+    } else {
+        $(".sibling-bond-option").removeClass("compressed-option expanded-option").addClass("compressed-option");
+        $(toGetId).removeClass("compressed-option").addClass("expanded-option");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 <!-- <script src="main-bundled.js"></script> -->
