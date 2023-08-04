@@ -24,12 +24,15 @@ const scene = document.getElementById("scenediv")
 let thirdscreenbar=document.getElementById("thirdscreen-bar")
 let thirdscreen=document.getElementById("thirdscreen")
 let typeofpack
-let headerlogo=document.getElementById("headerlogo")
+// let headerlogo = document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID=document.getElementById("#hereGoesID")
+
+let loadingHeader = document.getElementById("loadingHeader")
+let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 // alert("i")
 
 // firstscreen.style.display = "none"
@@ -696,7 +699,7 @@ if(name===""){
 }else if(x===""){
   // primaryAlert.style.display = "block";
 
-alert("Please upload your file!")
+alert("Please upload your photo!")
 // uploadingDiv.style.display = "block"
 }
 else{
@@ -706,23 +709,23 @@ else{
     modelname.setAttribute('gltf-model','#kissesmodel')
     console.log("ss")
     thirdscreen.style.display = "block"
-    headerlogo.src='/images/hersheys-kisses-logo 1.png'
-    headerlogo.classList.add("headerlogokisses");
+    // headerlogo.src='/images/hersheys-kisses-logo 1.png'
+    // headerlogo.classList.add("headerlogokisses");
    
     
     }else if(typeofpack==='chocolatebar')
     {
       modelname.setAttribute('gltf-model','#kissesmodel')
     thirdscreenbar.style.display = "block"
-    headerlogo.src='/images/hersheyslogo.png'
-    headerlogo.classList.add("headerlogo-bar-exotic");
+    // headerlogo.src='/images/hersheyslogo.png'
+    // headerlogo.classList.add("headerlogo-bar-exotic");
     }else if(typeofpack==='exotic')
     {
       //
       modelname.setAttribute('gltf-model','#exoticmodel')
       thirdscreenbar.style.display = "block"
-      headerlogo.src='/images/hed-logo.png'
-      headerlogo.classList.add("headerlogo-bar-exotic");
+      // headerlogo.src='/images/hed-logo.png'
+      // headerlogo.classList.add("headerlogo-bar-exotic");
     }
     
     modelname.addEventListener("model-loaded",()=>{
@@ -748,10 +751,10 @@ else{
 // }
 
 }
-closebtnsharepopup.onclick = () => {
+// closebtnsharepopup.onclick = () => {
  
-  sharepopupdiv.style.display="none"
-}
+//   sharepopupdiv.style.display="none"
+// }
 reload.onclick = () => {
   previouspausevalue++
   pausevalue++
@@ -779,9 +782,12 @@ reload.onclick = () => {
 nextQuestionid.onclick = () => {
   
   thirdscreen.style.display = "none"
-  loadingscreen.style.display="block"
- 
-  kissesloadingvid.play();
+  if(typeofpack==="kisses") {
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display="block"
+    kissesloadingvid.play();
+  }
+
   if(modelloaded===1){
     setTimeout(() => {
       loadingscreen.style.display="none"
@@ -806,16 +812,28 @@ nextQuestionid.onclick = () => {
 }
 nextQuestionid1.onclick = () => {
   thirdscreenbar.style.display = "none"
+  //show bars loading screen @kartik 
+
+  loadingHeader.src="/images/hersheyslogo.png"
+  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+  kissesloadingvid.style.display = "none"
+  barsLoadingMedia.style.display = "block"
+  loadingscreen.style.display="block"
   
   msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
   console.log(msg)
 
-  // Ar scene 
-  permissions.setAttribute("zappar-permissions-ui", "")
-  scene.style.zIndex = 0
-  console.log(uimoduleobj.packtype)
-  console.log("next")
-  taptoplace.style.display = "block"
+  // also add if model loaded then show tap to place @kartik
+  setTimeout(() => {
+    // Ar scene 
+    permissions.setAttribute("zappar-permissions-ui", "")
+    scene.style.zIndex = 0
+    console.log(uimoduleobj.packtype)
+    console.log("next")
+    taptoplace.style.display = "block"
+  }, 6000)
+
 }
 
 
@@ -882,93 +900,59 @@ option3div3.onclick = () => {
 
 
 
-  //  capture functionality
- async function initRecorder() {
+//  capture functionality
+async function initRecorder() {
+  const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  // const url = canvas.toDataURL('video/mp4', 0.8);
+  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
 
-const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  let recording = false;
 
-// const url = canvas.toDataURL('video/mp4', 0.8);
+  // When we start recording update text
+  recorder.onStart.bind(() => {
+    recording = true;
+    console.log("start 2")
+    // placeButton.innerText = 'TAP TO STOP RECORDING';
+  });
 
+  // When stop recording update text, and prompt a social share dialog.
+  recorder.onComplete.bind(async (result) => {
 
-const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+    // placeButton.innerText = 'TAP TO START RECORDING';
+    console.log("stop 2")
 
-let recording = false;
+    // result.arrayBuffer
+    console.log(result.asDataURL())
 
+    ZapparWebGLSnapshot({
+      data: await result.asDataURL(),
+      fileNamePrepend: 'hersheys_sibling_surprise',
+      // data:url,
+      onClose: () => {
+        console.log('Dialog was closed');
+      },
+    });
 
+    // console.log(recorder._getData())
+    recording = false;
+  });
 
+  // Toggle between recording
+  capture.addEventListener('click', async () => {
 
-// When we start recording update text
-
-recorder.onStart.bind(() => {
-
-recording = true;
-console.log("start 2")
-// placeButton.innerText = 'TAP TO STOP RECORDING';
-
-});
-
-
-
-
-// When stop recording update text, and prompt a social share dialog.
-
-recorder.onComplete.bind(async (result) => {
-
-// placeButton.innerText = 'TAP TO START RECORDING';
-console.log("stop 2")
-
-// result.arrayBuffer
-console.log(result.asDataURL())
-
-ZapparWebGLSnapshot({
-
-data: await result.asDataURL(),
-fileNamePrepend: 'ImpresarioTech',
-// data:url,
-onClose: () => {
-console.log('Dialog was closed');
-
-},
-
-});
-
-
-// console.log(recorder._getData())
-
-recording = false;
-
-});
-
-
-
-
-// Toggle between recording
-
-capture.addEventListener('click', async () => {
-
-if (recording) {
-
-recorder.stop();
-console.log("stop")
-// capture.style.display = 'none'
-// capture.src = "./assets/UI/Cameravideo.svg"
-
-
-
-
-
-} else {
-
-recorder.start();
-// capture.src = "./assets/UI/Cameravideo1.svg"
-console.log("start")
-
-
+    if (recording) {
+      recorder.stop();
+      console.log("stop")
+      // capture.style.display = 'none'
+      // capture.src = "./assets/UI/Cameravideo.svg"
+    } else {
+      recorder.start();
+      // capture.src = "./assets/UI/Cameravideo1.svg"
+      console.log("start")
+    }
+  });
 }
 
-});
-
-}
 initRecorder();
 
 
