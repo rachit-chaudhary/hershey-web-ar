@@ -24,7 +24,7 @@ const scene = document.getElementById("scenediv")
 let thirdscreenbar=document.getElementById("thirdscreen-bar")
 let thirdscreen=document.getElementById("thirdscreen")
 let typeofpack
-let headerlogo=document.getElementById("headerlogo")
+// let headerlogo = document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
@@ -709,23 +709,23 @@ else{
     modelname.setAttribute('gltf-model','#kissesmodel')
     console.log("ss")
     thirdscreen.style.display = "block"
-    headerlogo.src='/images/hersheys-kisses-logo 1.png'
-    headerlogo.classList.add("headerlogokisses");
+    // headerlogo.src='/images/hersheys-kisses-logo 1.png'
+    // headerlogo.classList.add("headerlogokisses");
    
     
     }else if(typeofpack==='chocolatebar')
     {
       modelname.setAttribute('gltf-model','#kissesmodel')
     thirdscreenbar.style.display = "block"
-    headerlogo.src='/images/hersheyslogo.png'
-    headerlogo.classList.add("headerlogo-bar-exotic");
+    // headerlogo.src='/images/hersheyslogo.png'
+    // headerlogo.classList.add("headerlogo-bar-exotic");
     }else if(typeofpack==='exotic')
     {
       //
       modelname.setAttribute('gltf-model','#exoticmodel')
       thirdscreenbar.style.display = "block"
-      headerlogo.src='/images/hed-logo.png'
-      headerlogo.classList.add("headerlogo-bar-exotic");
+      // headerlogo.src='/images/hed-logo.png'
+      // headerlogo.classList.add("headerlogo-bar-exotic");
     }
     
     modelname.addEventListener("model-loaded",()=>{
@@ -900,93 +900,59 @@ option3div3.onclick = () => {
 
 
 
-  //  capture functionality
- async function initRecorder() {
+//  capture functionality
+async function initRecorder() {
+  const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  // const url = canvas.toDataURL('video/mp4', 0.8);
+  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
 
-const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  let recording = false;
 
-// const url = canvas.toDataURL('video/mp4', 0.8);
+  // When we start recording update text
+  recorder.onStart.bind(() => {
+    recording = true;
+    console.log("start 2")
+    // placeButton.innerText = 'TAP TO STOP RECORDING';
+  });
 
+  // When stop recording update text, and prompt a social share dialog.
+  recorder.onComplete.bind(async (result) => {
 
-const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+    // placeButton.innerText = 'TAP TO START RECORDING';
+    console.log("stop 2")
 
-let recording = false;
+    // result.arrayBuffer
+    console.log(result.asDataURL())
 
+    ZapparWebGLSnapshot({
+      data: await result.asDataURL(),
+      fileNamePrepend: 'hersheys_sibling_surprise',
+      // data:url,
+      onClose: () => {
+        console.log('Dialog was closed');
+      },
+    });
 
+    // console.log(recorder._getData())
+    recording = false;
+  });
 
+  // Toggle between recording
+  capture.addEventListener('click', async () => {
 
-// When we start recording update text
-
-recorder.onStart.bind(() => {
-
-recording = true;
-console.log("start 2")
-// placeButton.innerText = 'TAP TO STOP RECORDING';
-
-});
-
-
-
-
-// When stop recording update text, and prompt a social share dialog.
-
-recorder.onComplete.bind(async (result) => {
-
-// placeButton.innerText = 'TAP TO START RECORDING';
-console.log("stop 2")
-
-// result.arrayBuffer
-console.log(result.asDataURL())
-
-ZapparWebGLSnapshot({
-
-data: await result.asDataURL(),
-fileNamePrepend: 'ImpresarioTech',
-// data:url,
-onClose: () => {
-console.log('Dialog was closed');
-
-},
-
-});
-
-
-// console.log(recorder._getData())
-
-recording = false;
-
-});
-
-
-
-
-// Toggle between recording
-
-capture.addEventListener('click', async () => {
-
-if (recording) {
-
-recorder.stop();
-console.log("stop")
-// capture.style.display = 'none'
-// capture.src = "./assets/UI/Cameravideo.svg"
-
-
-
-
-
-} else {
-
-recorder.start();
-// capture.src = "./assets/UI/Cameravideo1.svg"
-console.log("start")
-
-
+    if (recording) {
+      recorder.stop();
+      console.log("stop")
+      // capture.style.display = 'none'
+      // capture.src = "./assets/UI/Cameravideo.svg"
+    } else {
+      recorder.start();
+      // capture.src = "./assets/UI/Cameravideo1.svg"
+      console.log("start")
+    }
+  });
 }
 
-});
-
-}
 initRecorder();
 
 
