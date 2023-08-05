@@ -211,8 +211,9 @@ const copyToClipboard = (e) => {
 share.onclick = function () {
   console.log("copy clicked")
   // gfg_Run();
-  // console.log(pName)http://localhost:3000/questions?name=/image-1691134009344.png
-  copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}`)
+ 
+  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}`)
+  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}`)
 }
 
 
