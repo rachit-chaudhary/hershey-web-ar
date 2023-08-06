@@ -2008,7 +2008,7 @@ a.option-btn {
   font-family: 'Walsheim'!important;
 }
 #ZapparPreviewVideo {
-  height: 80vh!important;
+  /* height: 80vh!important; */
 }
 .zappar-mobile-only {
   background-color: rgba(63, 0, 11, .9)!important;

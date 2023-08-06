@@ -126,8 +126,10 @@ var output
 const copy = document.getElementById("copy")
 let params
 let params1
+let params2,params3,params4,params5
 let pNametype
 let pName
+let op1,op2,op3
 var dataURL
 var mimeType
 var msg
@@ -212,8 +214,8 @@ share.onclick = function () {
   console.log("copy clicked")
   // gfg_Run();
  
-  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}`)
-  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}`)
+  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
+  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
 }
 
 
@@ -847,8 +849,7 @@ nextQuestionid1.onclick = () => {
   barsLoadingMedia.style.display = "block"
   loadingscreen.style.display="block"
   
-  msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
-  console.log(msg)
+
 
   // also add if model loaded then show tap to place @kartik
   setTimeout(() => {
@@ -871,14 +872,17 @@ const option1div3 = document.getElementById('div-3')
 option1div1.onclick = () => {
   console.log("option1 div 1")
   option1 = "Sweet Troublemakers"
+  op1=1
 }
 option1div2.onclick = () => {
   console.log("option1 div 2")
   option1 = "Partners in crime"
+  op1=2
 }
 option1div3.onclick = () => {
   console.log("option1 div 3")
   option1 = "Top Secret keepers"
+  op1=3
 }
 
 // Option2
@@ -888,15 +892,17 @@ const option2div3 = document.getElementById('custom-div-3')
 option2div1.onclick = () => {
   console.log("option2 div 1")
   option2 = "Caring nature"
-
+op2=1
 }
 option2div2.onclick = () => {
   console.log("option2 div 2")
   option2 = "Delightfully annoying nature"
+  op2=2
 }
 option2div3.onclick = () => {
   console.log("option2 div 3")
   option2 = "Giving mature advices"
+  op2=3
 }
 // Option3
 const option3div1 = document.getElementById('custom-option-1')
@@ -906,16 +912,18 @@ option3div1.onclick = () => {
   console.log("option3 div 1")
 
   option3 = "Crazy"
+  op3=1
 
 }
 option3div2.onclick = () => {
   console.log("option3 div 2")
   option3 = "Realistic"
-
+  op3=1
 }
 option3div3.onclick = () => {
   console.log("option3 div 3")
   option3 = "Determined"
+  op3=1
 }
 
 
@@ -931,6 +939,7 @@ async function initRecorder() {
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
   // const url = canvas.toDataURL('video/mp4', 0.8);
   const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+  // canvas.getContext('2d', { willReadFrequently: true });
 
   let recording = false;
 
@@ -949,7 +958,7 @@ async function initRecorder() {
 
     // result.arrayBuffer
     console.log(result.asDataURL())
-
+ 
     ZapparWebGLSnapshot({
       data: await result.asDataURL(),
       fileNamePrepend: 'hersheys_sibling_surprise',
@@ -1194,7 +1203,10 @@ nextQuestionid.onclick = () => {
  
  
   hereGoesID.innerHTML = `${name}`
-  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
+  
+  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+  This is my way of expressing what you mean to me. And for moments
+  <span>when words fall short,</span>`
   console.log(msg)
   completenote.innerHTML = msg
 
@@ -1261,8 +1273,13 @@ document.getElementById("formId").addEventListener("submit", function (event) {
     //Getting parameter from url
     params = new URLSearchParams(document.location.search.substring(1))
     params1 = new URLSearchParams(document.location.search.substring(2))
+    params2 = new URLSearchParams(document.location.search.substring(3))
+    params3 = new URLSearchParams(document.location.search.substring(4))
+    params4 = new URLSearchParams(document.location.search.substring(5))
+    params5 = new URLSearchParams(document.location.search.substring(6))
   
     pName = params.get('name') ? params.get('name') : 'friend'
+    
 
     console.log(pName)
     //Sender screen
@@ -1276,6 +1293,12 @@ document.getElementById("formId").addEventListener("submit", function (event) {
       receiverfirstscreen.style.display="block"
       firstscreen.style.display="none"
       pNametype = params1.get('name1')
+      op1 = params2.get('name2')
+      op2 = params3.get('name3')
+      op3 = params4.get('name4')
+      name = params5.get('name5')
+      console.log(name)
+      console.log("Options="+op1+" "+op2+" "+op3)
       console.log(pNametype)
       console.log("receiver side")
       //kisses
@@ -1284,6 +1307,30 @@ document.getElementById("formId").addEventListener("submit", function (event) {
         dataURL=pName
       animtime=13000
         modelname.setAttribute('gltf-model','/models/kisses .glb')
+        hereGoesID.innerHTML = `${name}`
+        //option1
+          if(op1===1)
+          { option1= "Sweet Troublemakers"
+          }
+          else if(op1===2){
+            option1= "Partners in crime"
+          }else{
+            option1= "Top Secret keepers"
+          }
+          //option2
+          if(op2===1)
+          { option2= "Caring nature"        
+          }
+          else if(op2===2){
+            option2= "Delightfully annoying nature"
+          }else{
+            option2= "Giving mature advices"
+          }
+        msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+        This is my way of expressing what you mean to me. And for moments
+        <span>when words fall short,</span>`
+        console.log(msg)
+        completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
       }
@@ -1294,7 +1341,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
 
       receiverfirstscreen.style.display="none"
         scene.style.zIndex = 0
-     
+        permissions.setAttribute("zappar-permissions-ui", "")
         taptoplace.style.display = "block"
     
         
