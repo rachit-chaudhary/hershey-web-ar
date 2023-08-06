@@ -678,7 +678,6 @@ color: #EFBE7F;
 #thirdscreen{
   display: none;
 }
-
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
@@ -1821,6 +1820,7 @@ a.option-btn {
 }
 .kisses-loading-video {
   width: 100%;
+  display: none;
 }
 .loading-message {
   width: 100%;

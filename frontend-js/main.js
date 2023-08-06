@@ -23,6 +23,7 @@ const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
 let thirdscreenbar=document.getElementById("thirdscreen-bar")
 let thirdscreen=document.getElementById("thirdscreen")
+let thirdscreenexotic=document.getElementById("thirdscreen-exotic")
 let typeofpack
 // let headerlogo = document.getElementById("headerlogo")
 scene.style.zIndex = -1
@@ -215,7 +216,7 @@ share.onclick = function () {
   // gfg_Run();
  
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
-  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
+ copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
 }
 
 
@@ -634,7 +635,7 @@ hoverhershey.onclick = () => {
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
   typeofpack='chocolatebar'
-   
+  animtime=11000
   console.log(typeofpack)
 //   function disableImageById(hoverChange) {
 //     var imageElement = document.getElementById(hoverChange);
@@ -720,7 +721,7 @@ else{
     
     }else if(typeofpack==='chocolatebar')
     {
-      modelname.setAttribute('gltf-model','#kissesmodel')
+      modelname.setAttribute('gltf-model','#barmodel')
     thirdscreenbar.style.display = "block"
     // headerlogo.src='/images/hersheyslogo.png'
     // headerlogo.classList.add("headerlogo-bar-exotic");
@@ -728,7 +729,7 @@ else{
     {
       //
       modelname.setAttribute('gltf-model','#exoticmodel')
-      thirdscreenbar.style.display = "block"
+      thirdscreenexotic.style.display = "block"
       // headerlogo.src='/images/hed-logo.png'
       // headerlogo.classList.add("headerlogo-bar-exotic");
     }
@@ -838,30 +839,30 @@ reload.onclick = () => {
 // }
 
 
-nextQuestionid1.onclick = () => {
-  thirdscreenbar.style.display = "none"
-  //show bars loading screen @kartik 
+// nextQuestionid1.onclick = () => {
+//   thirdscreenbar.style.display = "none"
+//   //show bars loading screen @kartik 
 
-  loadingHeader.src="/images/hersheyslogo.png"
-  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-  kissesloadingvid.style.display = "none"
-  barsLoadingMedia.style.display = "block"
-  loadingscreen.style.display="block"
+//   loadingHeader.src="/images/hersheyslogo.png"
+//   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+//   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+//   kissesloadingvid.style.display = "none"
+//   barsLoadingMedia.style.display = "block"
+//   loadingscreen.style.display="block"
   
 
 
-  // also add if model loaded then show tap to place @kartik
-  setTimeout(() => {
-    // Ar scene 
-    permissions.setAttribute("zappar-permissions-ui", "")
-    scene.style.zIndex = 0
-    console.log(uimoduleobj.packtype)
-    console.log("next")
-    taptoplace.style.display = "block"
-  }, 6000)
+//   // also add if model loaded then show tap to place @kartik
+//   setTimeout(() => {
+//     // Ar scene 
+//     permissions.setAttribute("zappar-permissions-ui", "")
+//     scene.style.zIndex = 0
+//     console.log(uimoduleobj.packtype)
+//     console.log("next")
+//     taptoplace.style.display = "block"
+//   }, 6000)
 
-}
+// }
 
 
 // ---------------cards---------------
@@ -1182,15 +1183,40 @@ function renderResult(imageUrl) {
   // Replace this with your rendering logic
   console.log("Rendering the result with imageUrl:", imageUrl);
 }
+function getimageuploaded()
+{
+  // Get uploaded image from server
+console.log("clicked different btn")
+const fileInput = document.getElementById("uploadbtn");
+const imageFile =   fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+console.log("clicked different btn1")
+uploadImage(imageFile)
+  .then(imageUrl => {
+    console.log("clicked different btn2")
+    console.log("Uploaded Image URL:", imageUrl);
+    dataURL=imageUrl
+    console.log("dataurl "+dataURL)
+    // texturechange()
+    // Delay rendering the result after 2 seconds (2000 milliseconds)
+    setTimeout(() => {
+      renderResult(imageUrl);
+      console.log("clicked different btn3")
+    }, 2000);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+}
 // Click event for nextquestionid
 nextQuestionid.onclick = () => {
   
   thirdscreen.style.display = "none"
-  if(typeofpack==="kisses") {
+
     barsLoadingMedia.style.display = "none"
     loadingscreen.style.display="block"
+    kissesloadingvid.style.display="block"
     kissesloadingvid.play();
-  }
+
 
   if(modelloaded===1){
     setTimeout(() => {
@@ -1216,42 +1242,110 @@ nextQuestionid.onclick = () => {
   console.log(uimoduleobj.packtype)
   console.log("next")
 
-// Get uploaded image from server
-console.log("clicked different btn")
-const fileInput = document.getElementById("uploadbtn");
-const imageFile =   fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-console.log("clicked different btn1")
-uploadImage(imageFile)
-  .then(imageUrl => {
-    console.log("clicked different btn2")
-    console.log("Uploaded Image URL:", imageUrl);
-    dataURL=imageUrl
-    console.log("dataurl "+dataURL)
-    // texturechange()
-    // Delay rendering the result after 2 seconds (2000 milliseconds)
-    setTimeout(() => {
-      renderResult(imageUrl);
-      console.log("clicked different btn3")
-    }, 2000);
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
+  getimageuploaded()
 
-}// Optionally, you can also keep the form submission logic for the original submit button
+}
+
+//nextquestionid1 for bar
+nextQuestionid1.onclick = () => {
+  thirdscreenbar.style.display = "none"
+  //show bars loading screen @kartik 
+
+  loadingHeader.src="/images/hersheyslogo.png"
+  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+  kissesloadingvid.style.display = "none"
+  barsLoadingMedia.style.display = "block"
+  loadingscreen.style.display="block"
+  
+
+
+  // also add if model loaded then show tap to place @kartik
+  if(modelloaded===1){
+  setTimeout(() => {
+    // Ar scene 
+    loadingscreen.style.display="none"
+    permissions.setAttribute("zappar-permissions-ui", "")
+    scene.style.zIndex = 0
+    console.log(uimoduleobj.packtype)
+    console.log("next")
+    taptoplace.style.display = "block"
+  }, 6000)
+ }   
+
+ hereGoesID.innerHTML = `${name}`
+  //messagenote for bar comes here
+ msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+ This is my way of expressing what you mean to me. And for moments
+ <span>when words fall short,</span>`
+ console.log(msg)
+ completenote.innerHTML = msg
+
+  getimageuploaded()
+}
+
+// Click event for nextquestionid2 for exotic
+nextQuestionid2.onclick = () => {
+  
+  thirdscreenexotic.style.display = "none"
+
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display="block"
+    exoticloadingvid.style.display="block"
+    exoticloadingvid.play();
+
+
+  if(modelloaded===1){
+    setTimeout(() => {
+      loadingscreen.style.display="none"
+      scene.style.zIndex = 0
+      permissions.setAttribute("zappar-permissions-ui", "")
+      taptoplace.style.display = "block"
+    }, 6000);
+  }
+ 
+ 
+  hereGoesID.innerHTML = `${name}`
+  
+  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+  This is my way of expressing what you mean to me. And for moments
+  <span>when words fall short,</span>`
+  console.log(msg)
+  completenote.innerHTML = msg
+
+  // Ar scene 
+
+  // scene.style.zIndex = 0
+  console.log(uimoduleobj.packtype)
+  console.log("next")
+
+  getimageuploaded()
+
+}
+// Optionally, you can also keep the form submission logic for the original submit button
 document.getElementById("formId").addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent the default form submission behavior
   // Perform any form-specific handling here
 });
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
-      const modelmesh = modelname.getObject3D('mesh').children[4].children[5]
-
-      //  const model = modelname.getObject3D('mesh').getObjectByName('Plane035')
-      //  .getObjectByName('Picture_Picture_0')
+      let modelmesh
+      if(typeofpack==='kisses'){
+        console.log("kisses")
+      modelmesh = modelname.getObject3D('mesh').children[4].children[5]
       console.log(modelname.getObject3D('mesh'))
       console.log(modelname.getObject3D('mesh').children[4].children[5])
-      //  console.log(modelname.getObject3D('mesh').children[0].children[2].children[6])
+    }else if(typeofpack==='chocolatebar'){
+      console.log("bar")
+        modelmesh = modelname.getObject3D('mesh').children[2].children[2]
+        console.log(modelname.getObject3D('mesh'))
+        console.log(modelname.getObject3D('mesh').children[2].children[2])
+    }else if(typeofpack==='exotic'){
+      console.log("exotic")
+        modelmesh = modelname.getObject3D('mesh').children[1].children[5]
+        console.log(modelname.getObject3D('mesh'))
+        console.log(modelname.getObject3D('mesh').children[1].children[5])
+    }
      
       
          console.log("www" + dataURL)
@@ -1259,6 +1353,8 @@ document.getElementById("formId").addEventListener("submit", function (event) {
       console.log(dataURL)
       // set flipY to false to correclty rotate texture
       modelmesh.material.map.flipY = false
+
+
     }
     // this.el.addEventListener('click', (event) => {
     console.log("init")
