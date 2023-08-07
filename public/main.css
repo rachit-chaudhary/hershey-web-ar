@@ -171,13 +171,13 @@ h1 {
 #tapOnEnvelope{
   position: fixed;
   top: 120px;
-  left: 50%;
+  left: 0px;
   right: 0px;
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 271px;
-  margin-left: -134px;
+  width: 171px;
+  margin: auto;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
