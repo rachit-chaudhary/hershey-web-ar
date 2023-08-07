@@ -2248,9 +2248,37 @@ border-right: none;
 }
 .hed-message {
   background-color: #3F000B;
-  background-image: url(images/hed-note-bg.png);
+  background-image: url('/images/hed-note-bg.png');
   background-repeat: no-repeat;
   background-size: 100% 80%;
+}
+.bar-message {
+  background: linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+.bars-note-png {
+  background-image: url('/images/bars-note-bg.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.bars-dynamic-img {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px!important;
+}
+#completenote {
+  margin: 1rem 0px;
+  font-family: "Walsheim-Medium";
 }
 .message-header .hed-note-text,
 .message-header .hed-dynamic-name h2,
@@ -2260,6 +2288,13 @@ border-right: none;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.message-header .bars-note-text,
+.message-header .bars-dynamic-name h2,
+.bars-note-text {
+  color: #2D1415;
+  font-family: "Walsheim";
+
 }
 
 

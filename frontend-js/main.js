@@ -1455,12 +1455,29 @@ nextQuestionid1.onclick = () => {
     ${option2}.<br>
     Whenever we’re together, I love how we bond over ${option3}, and make every moment special.<br>
     This is my way of expressing what you mean to me, because stories with my cool sibling are #MeantToBeShared!`
-         console.log(msg)
-   console.log(msg)
+
+    console.log(msg)
    completenote.innerHTML = msg
+
+    document.querySelector(".kisses-message").classList.add("bar-message")
+    document.querySelector(".kisses-message").insertAdjacentHTML('beforeend',
+    `<div class="bars-note-png"></div>`)
+    document.querySelector(".message-header h3").classList.add("bars-note-text")
+    document.getElementById("msgclosebtn").classList.add("bars-close-btn")
+    document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
+    document.getElementById("completenote").classList.add("bars-note-text")
+    document.querySelector(".dynamic-note").style.height = "320px"
+    document.querySelector(".close-icon").style.zIndex = "99"
+    let dynamicImg = document.getElementById("dynamicImg")
+    dynamicImg.classList.remove("dynamic-img")
+    dynamicImg.classList.remove("justify-content-center")
+    dynamicImg.classList.add("container-fluid")
+    dynamicImg.classList.add("bars-dynamic-img")
+    dynamicImg.children[0].style.width = "100%"
+    dynamicImg.children[0].src = "/images/bars-bottom-img.png"
   
     getimageuploaded()
-  }else{
+  } else {
     questionAlertbar.classList.remove("invisible")
     questionAlertbar.classList.add("visible")
   }
@@ -1534,6 +1551,15 @@ nextQuestionid2.onclick = () => {
   Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
     console.log(msg)
     completenote.innerHTML = msg
+
+    document.querySelector(".kisses-message").classList.add("hed-message")
+    document.querySelector(".message-header h3").classList.add("hed-note-text")
+    document.getElementById("msgclosebtn").classList.add("hed-close-btn")
+    document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
+    document.getElementById("completenote").classList.add("hed-note-text")
+    let dynamicImg = document.getElementById("dynamicImg")
+    dynamicImg.classList.add("justify-content-start")
+    dynamicImg.children[0].src = "/images/hed-bottom-img.png"
   
     // Ar scene 
   
@@ -1702,6 +1728,23 @@ document.getElementById("formId").addEventListener("submit", function (event) {
         completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
+
+        document.querySelector(".kisses-message").classList.add("bar-message")
+        document.querySelector(".kisses-message").insertAdjacentHTML('beforeend',
+        `<div class="bars-note-png"></div>`)
+        document.querySelector(".message-header h3").classList.add("bars-note-text")
+        document.getElementById("msgclosebtn").classList.add("bars-close-btn")
+        document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
+        document.getElementById("completenote").classList.add("bars-note-text")
+        document.querySelector(".dynamic-note").style.height = "320px"
+        document.querySelector(".close-icon").style.zIndex = "99"
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.remove("dynamic-img")
+        dynamicImg.classList.remove("justify-content-center")
+        dynamicImg.classList.add("container-fluid")
+        dynamicImg.classList.add("bars-dynamic-img")
+        dynamicImg.children[0].style.width = "100%"
+        dynamicImg.children[0].src = "/images/bars-bottom-img.png"
       }
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
@@ -1745,11 +1788,20 @@ document.getElementById("formId").addEventListener("submit", function (event) {
 
            Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
            
-           Thank you for being the best Sibling! You know I am in awe of you 😊 `
+           Thank you for being the best Sibling! You know I am in awe of you <span>😊</span>`
         console.log(msg)
         completenote.innerHTML = msg
+        
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
+        document.querySelector(".kisses-message").classList.add("hed-message")
+        document.querySelector(".message-header h3").classList.add("hed-note-text")
+        document.getElementById("msgclosebtn").classList.add("hed-close-btn")
+        document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
+        document.getElementById("completenote").classList.add("hed-note-text")
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.add("justify-content-start")
+        dynamicImg.children[0].src = "/images/hed-bottom-img.png"
       }
 
     }
@@ -1774,15 +1826,8 @@ document.getElementById("formId").addEventListener("submit", function (event) {
     notebox.addEventListener('click', function (evt) {
       console.log("envolope clicked")
       tapOnEnvelope.style.display = "none"
-      document.querySelector(".kisses-message").classList.add("hed-message")
-      document.querySelector(".message-header h3").classList.add("hed-note-text")
-      document.getElementById("msgclosebtn").classList.add("hed-close-btn")
-      document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
-      document.getElementById("completenote").classList.add("hed-note-text")
-      let dynamicImg = document.getElementById("dynamicImg")
-      dynamicImg.classList.add("justify-content-start")
-      dynamicImg.children[0].src = "/images/hed-bottom-img.png"
       messagenote.style.display = "block"
+
       // modelname.setAttribute('animation-mixer', {timeScale: 1});
       notebox.setAttribute('class', '')
     });
