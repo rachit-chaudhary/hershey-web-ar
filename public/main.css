@@ -173,6 +173,7 @@ h1 {
 }
 
 #tapOnEnvelope{
+  display: none;
   position: fixed;
   top: 120px;
   left: 0px;
@@ -2032,15 +2033,18 @@ a.option-btn {
   display: flex;
   font-family: "Walsheim";
 }
-.message-body .dynamic-note p {
+/* .message-body .dynamic-note p {
   margin: 20px 0px 0px 0px;
   font-family: "Walsheim-Medium";
   font-size: 18px;
   text-align: justify;
   color: #2D1415;
-}
+} */
 .message-body .dynamic-note p span {
   font-family: "Walsheim";
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: black;
 }
 .dynamic-img {
   display: flex;
@@ -2237,6 +2241,27 @@ border-right: none;
   text-transform: capitalize;
   border: none;
 }
+.hed-close-btn {
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  border-radius: 15px;
+  padding: 5px;
+}
+.hed-message {
+  background-color: #3F000B;
+  background-image: url(images/hed-note-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+}
+.message-header .hed-note-text,
+.message-header .hed-dynamic-name h2,
+.hed-note-text {
+  color: unset;
+  background: linear-gradient(124deg, rgb(253, 234, 177) 0%, rgb(246, 205, 115) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 /* rachit's CSS end's here */
 
