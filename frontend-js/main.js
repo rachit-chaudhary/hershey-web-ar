@@ -32,6 +32,22 @@ uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID=document.getElementById("#hereGoesID")
 
+//questions hiding DOM elements
+const questionAlert = document.querySelector(".alert-check-questions")
+const questionAlertClose = document.getElementById("alertCloseBtn")
+
+questionAlertClose.onclick = () => {
+  questionAlert.classList.remove("visible")
+  questionAlert.classList.add("invisible")
+}
+// bar alert
+const questionAlertbar = document.querySelector(".alert-check-questions-bar")
+const questionAlertbarClose = document.getElementById("alertClosebarBtn")
+
+questionAlertbarClose.onclick = () => {
+  questionAlertbar.classList.remove("visible")
+  questionAlertbar.classList.add("invisible")
+}
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 // alert("i")
@@ -1207,10 +1223,29 @@ uploadImage(imageFile)
     console.error("Error:", error);
   });
 }
+
+// ---------------------------------------
+// const submitButton = document.getElementById("questionid");
+// submitButton.addEventListener("click", validateSelection);
+
+// function validateSelection() {
+//   const question1Selected = document.querySelector("#div-1 input:checked");
+//   const question2Selected = document.querySelector("#custom-div-1 input:checked");
+//   const question3Selected = document.querySelector("#custom-option-1 input:checked");
+
+//   if (!question1Selected || !question2Selected || !question3Selected) {
+//     alert("Please select an option for each question.");
+//   } else {
+    
+//   }
+// }
+// ------------------------------
 // Click event for nextquestionid
+
 nextQuestionid.onclick = () => {
-  
-  thirdscreen.style.display = "none"
+
+  if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {
+    thirdscreen.style.display = "none"
 
     barsLoadingMedia.style.display = "none"
     loadingscreen.style.display="block"
@@ -1243,49 +1278,98 @@ nextQuestionid.onclick = () => {
   console.log("next")
 
   getimageuploaded()
+  } else {
+    // alert("Please select an option for each question.");
+    questionAlert.classList.remove("invisible")
+    questionAlert.classList.add("visible")
+
+  }
+  
+ 
 
 }
 
 //nextquestionid1 for bar
 nextQuestionid1.onclick = () => {
-  thirdscreenbar.style.display = "none"
-  //show bars loading screen @kartik 
+  if(document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
+    thirdscreenbar.style.display = "none"
+    //show bars loading screen @kartik 
+  
+    loadingHeader.src="/images/hersheyslogo.png"
+    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    kissesloadingvid.style.display = "none"
+    barsLoadingMedia.style.display = "block"
+    loadingscreen.style.display="block"
+    
+  
+  
+    // also add if model loaded then show tap to place @kartik
+    if(modelloaded===1){
+    setTimeout(() => {
+      // Ar scene 
+      loadingscreen.style.display="none"
+      permissions.setAttribute("zappar-permissions-ui", "")
+      scene.style.zIndex = 0
+      console.log(uimoduleobj.packtype)
+      console.log("next")
+      taptoplace.style.display = "block"
+    }, 6000)
+   }   
+  
+   hereGoesID.innerHTML = `${name}`
+    //messagenote for bar comes here
+   msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+   This is my way of expressing what you mean to me. And for moments
+   <span>when words fall short,</span>`
+   console.log(msg)
+   completenote.innerHTML = msg
+  
+    getimageuploaded()
+  }else{
+    questionAlertbar.classList.remove("invisible")
+    questionAlertbar.classList.add("visible")
+  }
 
-  loadingHeader.src="/images/hersheyslogo.png"
-  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-  kissesloadingvid.style.display = "none"
-  barsLoadingMedia.style.display = "block"
-  loadingscreen.style.display="block"
+//   thirdscreenbar.style.display = "none"
+//   //show bars loading screen @kartik 
+
+//   loadingHeader.src="/images/hersheyslogo.png"
+//   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+//   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+//   kissesloadingvid.style.display = "none"
+//   barsLoadingMedia.style.display = "block"
+//   loadingscreen.style.display="block"
   
 
 
-  // also add if model loaded then show tap to place @kartik
-  if(modelloaded===1){
-  setTimeout(() => {
-    // Ar scene 
-    loadingscreen.style.display="none"
-    permissions.setAttribute("zappar-permissions-ui", "")
-    scene.style.zIndex = 0
-    console.log(uimoduleobj.packtype)
-    console.log("next")
-    taptoplace.style.display = "block"
-  }, 6000)
- }   
+//   // also add if model loaded then show tap to place @kartik
+//   if(modelloaded===1){
+//   setTimeout(() => {
+//     // Ar scene 
+//     loadingscreen.style.display="none"
+//     permissions.setAttribute("zappar-permissions-ui", "")
+//     scene.style.zIndex = 0
+//     console.log(uimoduleobj.packtype)
+//     console.log("next")
+//     taptoplace.style.display = "block"
+//   }, 6000)
+//  }   
 
- hereGoesID.innerHTML = `${name}`
-  //messagenote for bar comes here
- msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
- This is my way of expressing what you mean to me. And for moments
- <span>when words fall short,</span>`
- console.log(msg)
- completenote.innerHTML = msg
+//  hereGoesID.innerHTML = `${name}`
+//   //messagenote for bar comes here
+//  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+//  This is my way of expressing what you mean to me. And for moments
+//  <span>when words fall short,</span>`
+//  console.log(msg)
+//  completenote.innerHTML = msg
 
-  getimageuploaded()
+//   getimageuploaded()
 }
 
 // Click event for nextquestionid2 for exotic
 nextQuestionid2.onclick = () => {
+  // if (document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {}
   
   thirdscreenexotic.style.display = "none"
   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
