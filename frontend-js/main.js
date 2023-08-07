@@ -21,16 +21,16 @@ new ZAPPPermissionUI()
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
-let thirdscreenbar=document.getElementById("thirdscreen-bar")
-let thirdscreen=document.getElementById("thirdscreen")
-let thirdscreenexotic=document.getElementById("thirdscreen-exotic")
+let thirdscreenbar = document.getElementById("thirdscreen-bar")
+let thirdscreen = document.getElementById("thirdscreen")
+let thirdscreenexotic = document.getElementById("thirdscreen-exotic")
 let typeofpack
 // let headerlogo = document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
 const inputElement = document.querySelector('#siblingname');
-let hereGoesID=document.getElementById("#hereGoesID")
+let hereGoesID = document.getElementById("#hereGoesID")
 
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
@@ -127,21 +127,21 @@ var output
 const copy = document.getElementById("copy")
 let params
 let params1
-let params2,params3,params4,params5
+let params2, params3, params4, params5
 let pNametype
 let pName
-let op1,op2,op3
+let op1, op2, op3
 var dataURL
 var mimeType
 var msg
-let name 
-let i=1
-let pausevalue=0
-let previouspausevalue=0
-let innerpausevalue=1
-let animtime=0
-let taptoplace=document.getElementById('tap-to-place')
-let modelloaded=0
+let name
+let i = 1
+let pausevalue = 0
+let previouspausevalue = 0
+let innerpausevalue = 1
+let animtime = 0
+let taptoplace = document.getElementById('tap-to-place')
+let modelloaded = 0
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
@@ -211,12 +211,12 @@ const copyToClipboard = (e) => {
   document.execCommand('copy')
   document.body.removeChild(el)
 }
-share.onclick = function () {
+send.onclick = function () {
   console.log("copy clicked")
   // gfg_Run();
- 
-  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
- copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${option1}&name3=${option2}&name4=${option3}&name5=${name}`)
+
+  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
 }
 
 
@@ -600,85 +600,87 @@ document.body.appendChild(linkEl);
 //upload button
 // ---------------------------pack1----------
 hoverChange.onclick = () => {
-  var choice1  = document.getElementById('hoverhershey').value 
+  var choice1 = document.getElementById('hoverhershey').value
   var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
   // hoverhershey
   // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
-  typeofpack='kisses'
-  animtime=13000
-  pNametype="1"
+  typeofpack = 'kisses'
+  animtime = 13000
+  pNametype = "1"
 
 
 
-//   function disableImageById(hoverhershey) {
-//     var imageElement = document.getElementById(hoverhershey);
-//     if (imageElement) {
-//         imageElement.style.pointerEvents = "none";
-//     }
-// }
-// disableImageById('hoverhershey');
-// function disableImageById(hoverexotic) {
-//   var imageElement = document.getElementById(hoverexotic);
-//   if (imageElement) {
-//       imageElement.style.pointerEvents = "none";
-//   }
-// }
-// disableImageById('hoverexotic');
+  //   function disableImageById(hoverhershey) {
+  //     var imageElement = document.getElementById(hoverhershey);
+  //     if (imageElement) {
+  //         imageElement.style.pointerEvents = "none";
+  //     }
+  // }
+  // disableImageById('hoverhershey');
+  // function disableImageById(hoverexotic) {
+  //   var imageElement = document.getElementById(hoverexotic);
+  //   if (imageElement) {
+  //       imageElement.style.pointerEvents = "none";
+  //   }
+  // }
+  // disableImageById('hoverexotic');
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
-  var choice3  = document.getElementById('hoverChange').value 
+  var choice3 = document.getElementById('hoverChange').value
   var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
-  typeofpack='chocolatebar'
-  animtime=11000
+  typeofpack = 'chocolatebar'
+  animtime = 11000
   console.log(typeofpack)
-//   function disableImageById(hoverChange) {
-//     var imageElement = document.getElementById(hoverChange);
-//     if (imageElement) {
-//         imageElement.style.pointerEvents = "none";
-//     }
-// }
-// disableImageById('hoverChange');
-// function disableImageById(hoverexotic) {
-//   var imageElement = document.getElementById(hoverexotic);
-//   if (imageElement) {
-//       imageElement.style.pointerEvents = "none";
-//   }
-// }
-// disableImageById('hoverexotic');
+  pNametype = "2"
+  //   function disableImageById(hoverChange) {
+  //     var imageElement = document.getElementById(hoverChange);
+  //     if (imageElement) {
+  //         imageElement.style.pointerEvents = "none";
+  //     }
+  // }
+  // disableImageById('hoverChange');
+  // function disableImageById(hoverexotic) {
+  //   var imageElement = document.getElementById(hoverexotic);
+  //   if (imageElement) {
+  //       imageElement.style.pointerEvents = "none";
+  //   }
+  // }
+  // disableImageById('hoverexotic');
 }
 // --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
-  var choice3  = document.getElementById('hoverChange').value 
+  var choice3 = document.getElementById('hoverChange').value
   var choice4 = document.getElementById('hoverhershey').value
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
-  typeofpack='exotic'
-  animtime=15000
-//   function disableImageById(hoverhershey) {
-//     var imageElement = document.getElementById(hoverhershey);
-//     if (imageElement) {
-//         imageElement.style.pointerEvents = "none";
-//     }
-// }
-// disableImageById('hoverhershey');
-// function disableImageById(hoverChange) {
-//   var imageElement = document.getElementById(hoverChange);
-//   if (imageElement) {
-//       imageElement.style.pointerEvents = "none";
-//   }
-// }
-// disableImageById('hoverChange');
+  typeofpack = 'exotic'
+  animtime = 15000
+  pNametype = "3"
+  //   function disableImageById(hoverhershey) {
+  //     var imageElement = document.getElementById(hoverhershey);
+  //     if (imageElement) {
+  //         imageElement.style.pointerEvents = "none";
+  //     }
+  // }
+  // disableImageById('hoverhershey');
+  // function disableImageById(hoverChange) {
+  //   var imageElement = document.getElementById(hoverChange);
+  //   if (imageElement) {
+  //       imageElement.style.pointerEvents = "none";
+  //   }
+  // }
+  // disableImageById('hoverChange');
 }
 // name =document.getElementById("siblingname").value
 // if(name!=){
-  
+
 // }
 // -----------------------------upload validation---------------
 
@@ -686,79 +688,77 @@ hoverexotic.onclick = () => {
 // ------------upload validation-----------------
 function myFunction() {
   var x = document.getElementById("uploadbtn").required;
-  console.log(x,"k");
+  console.log(x, "k");
 }
 
 // --------------------------------
 
 // ---------------------------------------
 nextbtn.onclick = () => {
-name =document.getElementById("siblingname").value
-var x = document.getElementById("uploadbtn").value;
-// const primaryAlert = document.getElementById("uploadingDiv");
+  name = document.getElementById("siblingname").value
+  var x = document.getElementById("uploadbtn").value;
+  // const primaryAlert = document.getElementById("uploadingDiv");
 
 
-console.log(name)
-console.log(x);
-if(name===""){
-  secondscreen.style.display = "block"
-}else if(x===""){
-  // primaryAlert.style.display = "block";
+  console.log(name)
+  console.log(x);
+  if (name === "") {
+    secondscreen.style.display = "block"
+  } else if (x === "") {
+    // primaryAlert.style.display = "block";
 
-alert("Please upload your photo!")
-// uploadingDiv.style.display = "block"
-}
-else{
-  secondscreen.style.display = "none"
-  if(typeofpack==='kisses'){
-    //
-    modelname.setAttribute('gltf-model','#kissesmodel')
-    console.log("ss")
-    thirdscreen.style.display = "block"
-    // headerlogo.src='/images/hersheys-kisses-logo 1.png'
-    // headerlogo.classList.add("headerlogokisses");
-   
-    
-    }else if(typeofpack==='chocolatebar')
-    {
-      modelname.setAttribute('gltf-model','#barmodel')
-    thirdscreenbar.style.display = "block"
-    // headerlogo.src='/images/hersheyslogo.png'
-    // headerlogo.classList.add("headerlogo-bar-exotic");
-    }else if(typeofpack==='exotic')
-    {
+    alert("Please upload your photo!")
+    // uploadingDiv.style.display = "block"
+  }
+  else {
+    secondscreen.style.display = "none"
+    if (typeofpack === 'kisses') {
       //
-      modelname.setAttribute('gltf-model','#exoticmodel')
+      modelname.setAttribute('gltf-model', '#kissesmodel')
+      console.log("ss")
+      thirdscreen.style.display = "block"
+      // headerlogo.src='/images/hersheys-kisses-logo 1.png'
+      // headerlogo.classList.add("headerlogokisses");
+
+
+    } else if (typeofpack === 'chocolatebar') {
+      modelname.setAttribute('gltf-model', '#barmodel')
+      thirdscreenbar.style.display = "block"
+      // headerlogo.src='/images/hersheyslogo.png'
+      // headerlogo.classList.add("headerlogo-bar-exotic");
+    } else if (typeofpack === 'exotic') {
+      //
+      modelname.setAttribute('gltf-model', '#exoticmodel')
       thirdscreenexotic.style.display = "block"
       // headerlogo.src='/images/hed-logo.png'
       // headerlogo.classList.add("headerlogo-bar-exotic");
     }
-    
-    modelname.addEventListener("model-loaded",()=>{
+
+    modelname.addEventListener("model-loaded", () => {
       console.log("if loaded")
-    modelloaded=1
-    //    modelloaded++
-    //     if(modelloaded===5){
-    //         console.log("loaded")
-    //         // alert("loaded!")
-    //     australiacont.setAttribute("visible", "true")
-    //     flat.style.display = 'none'
-    // blacktransparent.style.display="block"
-    // placementUI.style.display = 'block'
-    //     }
-     
+      modelloaded = 1
+      //    modelloaded++
+      //     if(modelloaded===5){
+      //         console.log("loaded")
+      //         // alert("loaded!")
+      //     australiacont.setAttribute("visible", "true")
+      //     flat.style.display = 'none'
+      // blacktransparent.style.display="block"
+      // placementUI.style.display = 'block'
+      //     }
+
     });
-    
-}
+
+  }
   // secondscreen.style.display = "none"
 
-// if(name==""){
-//   alert("hwy")
-// }
+  // if(name==""){
+  //   alert("hwy")
+  // }
 
 }
 // closebtnsharepopup.onclick = () => {
- 
+
 //   sharepopupdiv.style.display="none"
 // }
 reload.onclick = () => {
@@ -771,22 +771,23 @@ reload.onclick = () => {
       clip: 'Animation',
       loop: 'once',
       crossFadeDuration: 0.4,
-      clampWhenFinished:true,
+      clampWhenFinished: true,
     })
     setTimeout(() => {
-      if(innerpausevalue==previouspausevalue){
-        modelname.setAttribute('animation-mixer', {timeScale: 0});
+      if (innerpausevalue == previouspausevalue) {
+        modelname.setAttribute('animation-mixer', { timeScale: 0 });
+        tapOnEnvelope.style.display = "block"
         console.log("reload 1300")
-        notebox.setAttribute('class','cantap')
+        notebox.setAttribute('class', 'cantap')
       }
       innerpausevalue++
-    
+
     }, animtime);
   }, 1000);
- 
+
 }
 // nextQuestionid.onclick = () => {
-  
+
 //   thirdscreen.style.display = "none"
 //   if(typeofpack==="kisses") {
 //     barsLoadingMedia.style.display = "none"
@@ -802,8 +803,8 @@ reload.onclick = () => {
 //       taptoplace.style.display = "block"
 //     }, 6000);
 //   }
- 
- 
+
+
 //   hereGoesID.innerHTML = `${name}`
 //   msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
 //   console.log(msg)
@@ -849,7 +850,7 @@ reload.onclick = () => {
 //   kissesloadingvid.style.display = "none"
 //   barsLoadingMedia.style.display = "block"
 //   loadingscreen.style.display="block"
-  
+
 
 
 //   // also add if model loaded then show tap to place @kartik
@@ -865,7 +866,7 @@ reload.onclick = () => {
 // }
 
 
-// ---------------cards---------------
+// ---------------cards for kisses---------------
 // Option 1
 const option1div1 = document.getElementById('div-1')
 const option1div2 = document.getElementById('div-2')
@@ -873,17 +874,17 @@ const option1div3 = document.getElementById('div-3')
 option1div1.onclick = () => {
   console.log("option1 div 1")
   option1 = "Sweet Troublemakers"
-  op1=1
+  op1 = 1
 }
 option1div2.onclick = () => {
   console.log("option1 div 2")
   option1 = "Partners in crime"
-  op1=2
+  op1 = 2
 }
 option1div3.onclick = () => {
   console.log("option1 div 3")
   option1 = "Top Secret keepers"
-  op1=3
+  op1 = 3
 }
 
 // Option2
@@ -893,17 +894,17 @@ const option2div3 = document.getElementById('custom-div-3')
 option2div1.onclick = () => {
   console.log("option2 div 1")
   option2 = "Caring nature"
-op2=1
+  op2 = 1
 }
 option2div2.onclick = () => {
   console.log("option2 div 2")
   option2 = "Delightfully annoying nature"
-  op2=2
+  op2 = 2
 }
 option2div3.onclick = () => {
   console.log("option2 div 3")
   option2 = "Giving mature advices"
-  op2=3
+  op2 = 3
 }
 // Option3
 const option3div1 = document.getElementById('custom-option-1')
@@ -913,21 +914,144 @@ option3div1.onclick = () => {
   console.log("option3 div 1")
 
   option3 = "Crazy"
-  op3=1
+  op3 = 1
 
 }
 option3div2.onclick = () => {
   console.log("option3 div 2")
   option3 = "Realistic"
-  op3=1
+  op3 = 1
 }
 option3div3.onclick = () => {
   console.log("option3 div 3")
   option3 = "Determined"
-  op3=1
+  op3 = 1
 }
 
+// ---------------cards for bars---------------
+// Option 1
+const option1div1bar = document.getElementById('hershey-bar-1')
+const option1div2bar = document.getElementById('hershey-bar-2')
+const option1div3bar = document.getElementById('hershey-bar-3')
+option1div1bar.onclick = () => {
+  console.log("option1 div 1")
+  option1 = "Sweet Siblings"
+  op1 = 1
+}
+option1div2bar.onclick = () => {
+  console.log("option1 div 2")
+  option1 = "Nutty Friends"
+  op1 = 2
+}
+option1div3bar.onclick = () => {
+  console.log("option1 div 3")
+  option1 = "Trusted Partners"
+  op1 = 3
+}
 
+// Option2
+const option2div1bar = document.getElementById('new-hershey-bar-1')
+const option2div2bar = document.getElementById('new-hershey-bar-2')
+const option2div3bar = document.getElementById('new-hershey-bar-3')
+option2div1bar.onclick = () => {
+  console.log("option2 div 1")
+  option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
+  op2 = 1
+}
+option2div2bar.onclick = () => {
+  console.log("option2 div 2")
+  option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
+  op2 = 2
+}
+option2div3bar.onclick = () => {
+  console.log("option2 div 3")
+  option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
+  op2 = 3
+}
+// Option3
+const option3div1bar = document.getElementById('option-1')
+const option3div2bar = document.getElementById('option-2')
+const option3div3bar = document.getElementById('option-3')
+option3div1bar.onclick = () => {
+  console.log("option3 div 1")
+
+  option3 = "Music"
+  op3 = 1
+
+}
+option3div2bar.onclick = () => {
+  console.log("option3 div 2")
+  option3 = "Street food"
+  op3 = 1
+}
+option3div3bar.onclick = () => {
+  console.log("option3 div 3")
+  option3 = "Gaming"
+  op3 = 1
+}
+
+// ---------------cards for exotic dark hed---------------
+// Option 1
+const option1div1exotic = document.getElementById('exotic-hershey-1')
+const option1div2exotic = document.getElementById('exotic-hershey-2')
+const option1div3exotic = document.getElementById('exotic-hershey-3')
+option1div1exotic.onclick = () => {
+  console.log("option1 div 1")
+  option1 = "Berry Good Friends"
+  op1 = 1
+}
+option1div2exotic.onclick = () => {
+  console.log("option1 div 2")
+  option1 = "Nutty Partners"
+  op1 = 2
+}
+option1div3exotic.onclick = () => {
+  console.log("option1 div 3")
+  option1 = "Trusted Confidantes"
+  op1 = 3
+}
+
+// Option2
+const option2div1exotic = document.getElementById('exotic-dark-card2-1')
+const option2div2exotic = document.getElementById('exotic-dark-card2-2')
+const option2div3exotic = document.getElementById('exotic-dark-card2-3')
+option2div1exotic.onclick = () => {
+  console.log("option2 div 1")
+  option2 = "Wine & Chocolates at Home"
+  op2 = 1
+}
+option2div2exotic.onclick = () => {
+  console.log("option2 div 2")
+  option2 = "Sundowners at Beach Resort"
+  op2 = 2
+}
+option2div3exotic.onclick = () => {
+  console.log("option2 div 3")
+  option2 = "Bollywood Music Festival "
+  op2 = 3
+}
+
+// Option3
+const option3div1exotic = document.getElementById('option-exotic-1')
+const option3div2exotic = document.getElementById('option-exotic-2')
+const option3div3exotic = document.getElementById('option-exotic-3')
+option3div1exotic.onclick = () => {
+  console.log("option3 div 1")
+
+  option3 = "Discussing family"
+  op3 = 1
+
+}
+option3div2exotic.onclick = () => {
+  console.log("option3 div 2")
+  option3 = "Remembering childhood days"
+  op3 = 1
+}
+option3div3exotic.onclick = () => {
+  console.log("option3 div 3")
+  option3 = "Laughing at Silly Jokes "
+  op3 = 1
+}
 // When the experience loads we'll let the user choose a place in their room for
 // the content to appear using setAnchorPoseFromCameraOffset (see below)
 // The user can confirm the location by tapping on the screen
@@ -959,7 +1083,7 @@ async function initRecorder() {
 
     // result.arrayBuffer
     console.log(result.asDataURL())
- 
+
     ZapparWebGLSnapshot({
       data: await result.asDataURL(),
       fileNamePrepend: 'hersheys_sibling_surprise',
@@ -1046,14 +1170,14 @@ initRecorder();
 AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
-   const msgclosebtn= document.getElementById("msgclosebtn")
-// 
+    const msgclosebtn = document.getElementById("msgclosebtn")
+    // 
 
-  //  ------------------------
+    //  ------------------------
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
     function preview_image(event) {
-      
+
       var reader = new FileReader();
       reader.onload = function () {
         //check size of the file
@@ -1071,10 +1195,10 @@ AFRAME.registerComponent("swap-texture", {
             var fileIdElement = document.getElementById("changeFileName");
             var newFileName = "Uploaded!"; // Replace with your desired new file name
             fileIdElement.innerHTML = newFileName;
-            
+
             console.log("size is ohk")
 
-            
+
             // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
             // fileSubmit.disabled = true;
           }
@@ -1086,7 +1210,7 @@ AFRAME.registerComponent("swap-texture", {
         output.src = reader.result;
         console.log(output.src)
         // dataURL = output.src
-         
+
         // dataURL=blobUrl
 
         // const file = event.target.files[0];
@@ -1135,220 +1259,222 @@ AFRAME.registerComponent("swap-texture", {
     //   var canvas = document.createElement('canvas');
     // var context = canvas.getContext('2d');
     //   dataURL = canvas.toDataURL('image/jpg');
- 
+
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
-  //   modelname.addEventListener("model-loaded",()=>{
-  //     console.log("if loaded")
-  
-  // //    modelloaded++
-  // //     if(modelloaded===5){
-  // //         console.log("loaded")
-  // //         // alert("loaded!")
-  // //     australiacont.setAttribute("visible", "true")
-  // //     flat.style.display = 'none'
-  // // blacktransparent.style.display="block"
-  // // placementUI.style.display = 'block'
-  // //     }
-     
-  // });
-// Function to perform the AJAX request to the server and return the imageUrl value as a Promise
-function uploadImage(imageFile) {
-  const formData = new FormData();
-  formData.append("image", imageFile);
+    //   modelname.addEventListener("model-loaded",()=>{
+    //     console.log("if loaded")
 
-  return new Promise((resolve, reject) => {
-    fetch("/questions", {
-      method: "POST",
-      body: formData,
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Handle the response data from the server
-        const imageUrl = data.imageUrl;
-        resolve(imageUrl);
-      })
-      .catch(error => {
-        reject(error);
+    // //    modelloaded++
+    // //     if(modelloaded===5){
+    // //         console.log("loaded")
+    // //         // alert("loaded!")
+    // //     australiacont.setAttribute("visible", "true")
+    // //     flat.style.display = 'none'
+    // // blacktransparent.style.display="block"
+    // // placementUI.style.display = 'block'
+    // //     }
+
+    // });
+    // Function to perform the AJAX request to the server and return the imageUrl value as a Promise
+    function uploadImage(imageFile) {
+      const formData = new FormData();
+      formData.append("image", imageFile);
+
+      return new Promise((resolve, reject) => {
+        fetch("/questions", {
+          method: "POST",
+          body: formData,
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Handle the response data from the server
+            const imageUrl = data.imageUrl;
+            resolve(imageUrl);
+          })
+          .catch(error => {
+            reject(error);
+          });
       });
-  });
-}
-// Function to render the result after a delay
-function renderResult(imageUrl) {
-  // Replace this with your rendering logic
-  console.log("Rendering the result with imageUrl:", imageUrl);
-}
-function getimageuploaded()
-{
-  // Get uploaded image from server
-console.log("clicked different btn")
-const fileInput = document.getElementById("uploadbtn");
-const imageFile =   fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-console.log("clicked different btn1")
-uploadImage(imageFile)
-  .then(imageUrl => {
-    console.log("clicked different btn2")
-    console.log("Uploaded Image URL:", imageUrl);
-    dataURL=imageUrl
-    console.log("dataurl "+dataURL)
-    // texturechange()
-    // Delay rendering the result after 2 seconds (2000 milliseconds)
-    setTimeout(() => {
-      renderResult(imageUrl);
-      console.log("clicked different btn3")
-    }, 2000);
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
-}
-// Click event for nextquestionid
-nextQuestionid.onclick = () => {
-  
-  thirdscreen.style.display = "none"
+    }
+    // Function to render the result after a delay
+    function renderResult(imageUrl) {
+      // Replace this with your rendering logic
+      console.log("Rendering the result with imageUrl:", imageUrl);
+    }
+    function getimageuploaded() {
+      // Get uploaded image from server
+      console.log("clicked different btn")
+      const fileInput = document.getElementById("uploadbtn");
+      const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+      console.log("clicked different btn1")
+      uploadImage(imageFile)
+        .then(imageUrl => {
+          console.log("clicked different btn2")
+          console.log("Uploaded Image URL:", imageUrl);
+          dataURL = imageUrl
+          console.log("dataurl " + dataURL)
+          // texturechange()
+          // Delay rendering the result after 2 seconds (2000 milliseconds)
+          setTimeout(() => {
+            renderResult(imageUrl);
+            console.log("clicked different btn3")
+          }, 2000);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    }
+    // Click event for nextquestionid for kisses
+    nextQuestionid.onclick = () => {
 
-    barsLoadingMedia.style.display = "none"
-    loadingscreen.style.display="block"
-    kissesloadingvid.style.display="block"
-    kissesloadingvid.play();
+      thirdscreen.style.display = "none"
+
+      barsLoadingMedia.style.display = "none"
+      loadingscreen.style.display = "block"
+      kissesloadingvid.style.display = "block"
+      kissesloadingvid.play();
 
 
-  if(modelloaded===1){
-    setTimeout(() => {
-      loadingscreen.style.display="none"
-      scene.style.zIndex = 0
-      permissions.setAttribute("zappar-permissions-ui", "")
-      taptoplace.style.display = "block"
-    }, 6000);
-  }
- 
- 
-  hereGoesID.innerHTML = `${name}`
-  
-  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+      if (modelloaded === 1) {
+        setTimeout(() => {
+          loadingscreen.style.display = "none"
+          scene.style.zIndex = 0
+          permissions.setAttribute("zappar-permissions-ui", "")
+          taptoplace.style.display = "block"
+        }, 6000);
+      }
+
+
+      hereGoesID.innerHTML = `${name}`
+
+      msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
   This is my way of expressing what you mean to me. And for moments
   <span>when words fall short,</span>`
-  console.log(msg)
-  completenote.innerHTML = msg
+      console.log(msg)
+      completenote.innerHTML = msg
 
-  // Ar scene 
+      // Ar scene 
 
-  // scene.style.zIndex = 0
-  console.log(uimoduleobj.packtype)
-  console.log("next")
+      // scene.style.zIndex = 0
+      console.log(uimoduleobj.packtype)
+      console.log("next")
 
-  getimageuploaded()
+      getimageuploaded()
 
-}
+    }
 
-//nextquestionid1 for bar
-nextQuestionid1.onclick = () => {
-  thirdscreenbar.style.display = "none"
-  //show bars loading screen @kartik 
+    //nextquestionid1 for bar
+    nextQuestionid1.onclick = () => {
+      thirdscreenbar.style.display = "none"
+      //show bars loading screen @kartik 
 
-  loadingHeader.src="/images/hersheyslogo.png"
-  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-  kissesloadingvid.style.display = "none"
-  barsLoadingMedia.style.display = "block"
-  loadingscreen.style.display="block"
+      loadingHeader.src = "/images/hersheyslogo.png"
+      loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+      loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+      kissesloadingvid.style.display = "none"
+      barsLoadingMedia.style.display = "block"
+      loadingscreen.style.display = "block"
+
+
+
+      // also add if model loaded then show tap to place @kartik
+      if (modelloaded === 1) {
+        setTimeout(() => {
+          // Ar scene 
+          loadingscreen.style.display = "none"
+          permissions.setAttribute("zappar-permissions-ui", "")
+          scene.style.zIndex = 0
+          console.log(uimoduleobj.packtype)
+          console.log("next")
+          taptoplace.style.display = "block"
+        }, 6000)
+      }
+
+      hereGoesID.innerHTML = `${name}`
+      //messagenote for bar comes here
+      msg = `Our bond can be described as ${option1} and that makes it special.<br>
+ ${option2}.<br>
+ Whenever we’re together, I love how we bond over ${option3}, and make every moment special.<br>
+ This is my way of expressing what you mean to me, because stories with my cool sibling are #MeantToBeShared!`
+      console.log(msg)
+      completenote.innerHTML = msg
+
+      getimageuploaded()
+    }
+
+    // Click event for nextquestionid2 for exotic
+    nextQuestionid2.onclick = () => {
+
+      thirdscreenexotic.style.display = "none"
+
+      barsLoadingMedia.style.display = "none"
+      loadingscreen.style.display = "block"
+      exoticloadingvid.style.display = "block"
+      exoticloadingvid.play();
+
+
+      if (modelloaded === 1) {
+        setTimeout(() => {
+          loadingscreen.style.display = "none"
+          scene.style.zIndex = 0
+          permissions.setAttribute("zappar-permissions-ui", "")
+          taptoplace.style.display = "block"
+        }, 6000);
+      }
+
+
+      hereGoesID.innerHTML = `${name}`
+
+      msg = `We will forever be ${option1} for years to come. 
+
+  Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
   
+  Thank you for being the best Sibling! You know I am in awe of you 😊 `
+      console.log(msg)
+      completenote.innerHTML = msg
 
+      // Ar scene 
 
-  // also add if model loaded then show tap to place @kartik
-  if(modelloaded===1){
-  setTimeout(() => {
-    // Ar scene 
-    loadingscreen.style.display="none"
-    permissions.setAttribute("zappar-permissions-ui", "")
-    scene.style.zIndex = 0
-    console.log(uimoduleobj.packtype)
-    console.log("next")
-    taptoplace.style.display = "block"
-  }, 6000)
- }   
+      // scene.style.zIndex = 0
+      console.log(uimoduleobj.packtype)
+      console.log("next")
 
- hereGoesID.innerHTML = `${name}`
-  //messagenote for bar comes here
- msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
- This is my way of expressing what you mean to me. And for moments
- <span>when words fall short,</span>`
- console.log(msg)
- completenote.innerHTML = msg
+      getimageuploaded()
 
-  getimageuploaded()
-}
-
-// Click event for nextquestionid2 for exotic
-nextQuestionid2.onclick = () => {
-  
-  thirdscreenexotic.style.display = "none"
-
-    barsLoadingMedia.style.display = "none"
-    loadingscreen.style.display="block"
-    exoticloadingvid.style.display="block"
-    exoticloadingvid.play();
-
-
-  if(modelloaded===1){
-    setTimeout(() => {
-      loadingscreen.style.display="none"
-      scene.style.zIndex = 0
-      permissions.setAttribute("zappar-permissions-ui", "")
-      taptoplace.style.display = "block"
-    }, 6000);
-  }
- 
- 
-  hereGoesID.innerHTML = `${name}`
-  
-  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-  This is my way of expressing what you mean to me. And for moments
-  <span>when words fall short,</span>`
-  console.log(msg)
-  completenote.innerHTML = msg
-
-  // Ar scene 
-
-  // scene.style.zIndex = 0
-  console.log(uimoduleobj.packtype)
-  console.log("next")
-
-  getimageuploaded()
-
-}
-// Optionally, you can also keep the form submission logic for the original submit button
-document.getElementById("formId").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent the default form submission behavior
-  // Perform any form-specific handling here
-});
+    }
+    // Optionally, you can also keep the form submission logic for the original submit button
+    document.getElementById("formId").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      // Perform any form-specific handling here
+    });
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       let modelmesh
-      if(typeofpack==='kisses'){
+      if ((typeofpack === 'kisses')||(pNametype==='1')) {
         console.log("kisses")
-      modelmesh = modelname.getObject3D('mesh').children[4].children[5]
-      console.log(modelname.getObject3D('mesh'))
-      console.log(modelname.getObject3D('mesh').children[4].children[5])
-    }else if(typeofpack==='chocolatebar'){
-      console.log("bar")
+        modelmesh = modelname.getObject3D('mesh').children[4].children[5]
+        console.log(modelname.getObject3D('mesh'))
+        console.log(modelname.getObject3D('mesh').children[4].children[5])
+      } else if ((typeofpack === 'chocolatebar')||(pNametype==='2')) {
+        console.log("bar")
         modelmesh = modelname.getObject3D('mesh').children[2].children[2]
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[2].children[2])
-    }else if(typeofpack==='exotic'){
-      console.log("exotic")
+      } else if ((typeofpack === 'exotic')||(pNametype==='3')) {
+        console.log("exotic")
         modelmesh = modelname.getObject3D('mesh').children[1].children[5]
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[1].children[5])
-    }
-     
-      
-         console.log("www" + dataURL)
+      }
+
+
+      console.log("www" + dataURL)
       modelmesh.material.map = loader.load(dataURL)
       console.log(dataURL)
       // set flipY to false to correclty rotate texture
@@ -1373,55 +1499,56 @@ document.getElementById("formId").addEventListener("submit", function (event) {
     params3 = new URLSearchParams(document.location.search.substring(4))
     params4 = new URLSearchParams(document.location.search.substring(5))
     params5 = new URLSearchParams(document.location.search.substring(6))
-  
+
     pName = params.get('name') ? params.get('name') : 'friend'
-    
+
 
     console.log(pName)
     //Sender screen
     if (pName === "friend") {
-      receiverfirstscreen.style.display="none"
-      firstscreen.style.display="block"
+      receiverfirstscreen.style.display = "none"
+      firstscreen.style.display = "block"
       // pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
     }
-    else{
-       //Receiver screen
-      receiverfirstscreen.style.display="block"
-      firstscreen.style.display="none"
+    else {
+      //Receiver screen
+      receiverfirstscreen.style.display = "block"
+      firstscreen.style.display = "none"
+      send.style.display="none"
       pNametype = params1.get('name1')
       op1 = params2.get('name2')
       op2 = params3.get('name3')
       op3 = params4.get('name4')
       name = params5.get('name5')
       console.log(name)
-      console.log("Options="+op1+" "+op2+" "+op3)
+      console.log("Options=" + op1 + " " + op2 + " " + op3)
       console.log(pNametype)
       console.log("receiver side")
       //kisses
-      if(pNametype==="1"){
-        console.log("pnametype"+pNametype);
-        dataURL=pName
-      animtime=13000
-        modelname.setAttribute('gltf-model','/models/kisses .glb')
+      if (pNametype === "1") {
+        console.log("pnametype" + pNametype);
+        dataURL = pName
+        animtime = 13000
+        modelname.setAttribute('gltf-model', '/models/kisses .glb')
         hereGoesID.innerHTML = `${name}`
         //option1
-          if(op1===1)
-          { option1= "Sweet Troublemakers"
-          }
-          else if(op1===2){
-            option1= "Partners in crime"
-          }else{
-            option1= "Top Secret keepers"
-          }
-          //option2
-          if(op2===1)
-          { option2= "Caring nature"        
-          }
-          else if(op2===2){
-            option2= "Delightfully annoying nature"
-          }else{
-            option2= "Giving mature advices"
-          }
+        if (op1 === 1) {
+          option1 = "Sweet Troublemakers"
+        }
+        else if (op1 === 2) {
+          option1 = "Partners in crime"
+        } else {
+          option1 = "Top Secret keepers"
+        }
+        //option2
+        if (op2 === 1) {
+          option2 = "Caring nature"
+        }
+        else if (op2 === 2) {
+          option2 = "Delightfully annoying nature"
+        } else {
+          option2 = "Giving mature advices"
+        }
         msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
         This is my way of expressing what you mean to me. And for moments
         <span>when words fall short,</span>`
@@ -1430,68 +1557,161 @@ document.getElementById("formId").addEventListener("submit", function (event) {
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
       }
+      else if (pNametype === "2") {
+        console.log("pnametype" + pNametype);
+        dataURL = pName
+        animtime = 11000
+        modelname.setAttribute('gltf-model', '/models/bars final.glb')
+        hereGoesID.innerHTML = `${name}`
+        //option1
+        if (op1 === 1) {
+          option1 = "Sweet Siblings"
+
+        }
+        else if (op1 === 2) {
+          option1 = "Nutty Friends"
+        } else {
+          option1 = "Trusted Partners"
+        }
+        //option2
+        if (op2 === 1) {
+          option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
+        }
+        else if (op2 === 2) {
+          option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
+        } else {
+          option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
+        }
+        //option3
+        if (op3 === 1) {
+          option3 = "Music"
+        }
+        else if (op3 === 2) {
+          option3 = "Street food"
+        } else {
+          option3 = "Gaming"
+        }
+        msg = `Our bond can be described as ${option1} and that makes it special.<br>
+           ${option2}.<br>
+           Whenever we’re together, I love how we bond over ${option3}, and make every moment special.`
+        console.log(msg)
+        completenote.innerHTML = msg
+        // headerlogo.src='/images/hersheys-kisses-logo 1.png'
+        // headerlogo.classList.add("headerlogokisses");
+      }
+      else if (pNametype === "3") {
+        console.log("pnametype" + pNametype);
+        dataURL = pName
+        animtime = 15000
+        modelname.setAttribute('gltf-model', '/models/exotic darkv13.glb')
+        hereGoesID.innerHTML = `${name}`
+        //option1
+        if (op1 === 1) {
+          option1 = "Berry Good Friends"
+        }
+        else if (op1 === 2) {
+          option1 = "Nutty Partners"
+        } else {
+          option1 = "Trusted Confidantes"
+        }
+        //option2
+        if (op2 === 1) {
+          option2 = 
+          "Wine & Chocolates at Home"
+
+        }
+        else if (op2 === 2) {
+          option2 = "Sundowners at Beach Resort"
+        } else {
+          option2 =
+            "Bollywood Music Festival "
+        }
+        //option3
+        if (op3 === 1) {
+          option3 = "Discussing family"
+
+
+        }
+        else if (op3 === 2) {
+          option3 = "Remembering childhood days"
+        } else {
+          option3 = "Laughing at Silly Jokes "
+        }
+        msg = `We will forever be ${option1} for years to come. 
+
+           Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
+           
+           Thank you for being the best Sibling! You know I am in awe of you 😊 `
+        console.log(msg)
+        completenote.innerHTML = msg
+        // headerlogo.src='/images/hersheys-kisses-logo 1.png'
+        // headerlogo.classList.add("headerlogokisses");
+      }
+
     }
     // Receiver button from Receiver first screen
-    document.getElementById("receiverbtn").addEventListener("click", function() {
-     
+    document.getElementById("receiverbtn").addEventListener("click", function () {
 
-      receiverfirstscreen.style.display="none"
-        scene.style.zIndex = 0
-        permissions.setAttribute("zappar-permissions-ui", "")
-        taptoplace.style.display = "block"
-    
-        
+
+      receiverfirstscreen.style.display = "none"
+      scene.style.zIndex = 0
+      permissions.setAttribute("zappar-permissions-ui", "")
+      taptoplace.style.display = "block"
+
+
       // }
-     
+
     });
 
     msgclosebtn.onclick = () => {
-      messagenote.style.display="none"
-        modelname.setAttribute('animation-mixer', {timeScale: 1});
+      messagenote.style.display = "none"
+      modelname.setAttribute('animation-mixer', { timeScale: 1 });
     }
-    notebox.addEventListener('click', function (evt) {  
+    notebox.addEventListener('click', function (evt) {
       console.log("envolope clicked")
-      messagenote.style.display="block"
-        // modelname.setAttribute('animation-mixer', {timeScale: 1});
-        notebox.setAttribute('class','')
+      tapOnEnvelope.style.display = "none"
+      messagenote.style.display = "block"
+      // modelname.setAttribute('animation-mixer', {timeScale: 1});
+      notebox.setAttribute('class', '')
     });
-     taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
-taptoplace.addEventListener('click', () => {
-  texturechange()
+    taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
+    taptoplace.addEventListener('click', () => {
+      texturechange()
 
-  // -------------------------
-// capture.style.display="block"
-// sharebtn.style.display="block"
-// reload.style.display="block"
-arscreen.style.display="block"
-setTimeout(() => {
-  sharepopupdiv.style.display="block"
-  recordparentdiv.style.display="none"
-}, 3000);
+      // -------------------------
+      // capture.style.display="block"
+      // sharebtn.style.display="block"
+      // reload.style.display="block"
+      arscreen.style.display = "block"
+      setTimeout(() => {
+        sharepopupdiv.style.display = "block"
+        recordparentdiv.style.display = "none"
+      }, 3000);
 
 
-  //--------------------------- 
-  const instantTracker = document.getElementById("instant-tracker");
-  instantTracker.setAttribute("zappar-instant", "placement-mode: false");
-  taptoplace.remove();
-  setTimeout(() => {
-    modelname.setAttribute('animation-mixer', {
-      clip: 'Animation',
-      loop: 'once',
-      crossFadeDuration: 0.4,
-      clampWhenFinished:true,
-    })
-    setTimeout(() => {
-      if(pausevalue===0){
-        modelname.setAttribute('animation-mixer', {timeScale: 0});
-        console.log("tap 1300")
-        notebox.setAttribute('class','cantap')
-      }
-    
-    },animtime);
-  }, 1000);
+      //--------------------------- 
+      const instantTracker = document.getElementById("instant-tracker");
+      instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+      taptoplace.remove();
+      setTimeout(() => {
+        modelname.setAttribute('animation-mixer', {
+          clip: 'Animation',
+          loop: 'once',
+          crossFadeDuration: 0.4,
+          clampWhenFinished: true,
+        })
+        setTimeout(() => {
+          if (pausevalue === 0) {
+            modelname.setAttribute('animation-mixer', { timeScale: 0 });
+            tapOnEnvelope.style.display = "block"
+            console.log("tap 1300")
+            notebox.setAttribute('class', 'cantap')
+          }
 
-});
+        }, animtime);
+      }, 1000);
+
+    });
     // modelname.onclick = () => {
     //   console.log("clicked")sendgift
     // }
@@ -1500,10 +1720,10 @@ setTimeout(() => {
   },
 })
 // ------------------autofocus for input field----------------------
-document.getElementById("sendthankyou").addEventListener("click", function() {
+document.getElementById("sendthankyou").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
 });
-document.getElementById("sendgift").addEventListener("click", function() {
+document.getElementById("sendgift").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
 });
 
@@ -1511,7 +1731,7 @@ document.getElementById("sendgift").addEventListener("click", function() {
 const siblingNameInput = document.getElementById("siblingname");
 const selectPackInput = document.getElementById("hoverChange");
 
-siblingNameInput.addEventListener("input", function() {
+siblingNameInput.addEventListener("input", function () {
   if (siblingNameInput.value.length > 6) {
     selectPackInput.focus();
   }
@@ -1525,7 +1745,7 @@ siblingNameInput.addEventListener("input", function() {
 // });
 
 // -------------------- changing text based on user selection---------------------
-document.getElementById("sendthankyou").addEventListener("click", function() {
+document.getElementById("sendthankyou").addEventListener("click", function () {
   // Get the text element by its ID
   const textElement = document.getElementById("changeTextScreen");
 

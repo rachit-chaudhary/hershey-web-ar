@@ -173,6 +173,7 @@ h1 {
 }
 
 #tapOnEnvelope{
+  display: none;
   position: fixed;
   top: 120px;
   left: 50%;
