@@ -48,6 +48,14 @@ questionAlertbarClose.onclick = () => {
   questionAlertbar.classList.remove("visible")
   questionAlertbar.classList.add("invisible")
 }
+//exotic
+const questionAlertexotic = document.querySelector(".alert-check-questions-exotic")
+const questionAlertexoticClose = document.getElementById("alertCloseexoticBtn")
+
+questionAlertexoticClose.onclick = () => {
+  questionAlertexotic.classList.remove("visible")
+  questionAlertexotic.classList.add("invisible")
+}
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 // alert("i")
@@ -1369,44 +1377,51 @@ nextQuestionid1.onclick = () => {
 
 // Click event for nextquestionid2 for exotic
 nextQuestionid2.onclick = () => {
-  // if (document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {}
+  if(document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
+
+    thirdscreenexotic.style.display = "none"
+    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    loadingHeader.src = "/images/hed-logo.png"
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display = "block"
+    exoticloadingvid.style.display = "block"
+    exoticloadingvid.play();
   
-  thirdscreenexotic.style.display = "none"
-  loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-  loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-  loadingHeader.src = "/images/hed-logo.png"
-  barsLoadingMedia.style.display = "none"
-  loadingscreen.style.display = "block"
-  exoticloadingvid.style.display = "block"
-  exoticloadingvid.play();
+  
+    if(modelloaded===1){
+      setTimeout(() => {
+        loadingscreen.style.display="none"
+        scene.style.zIndex = 0
+        permissions.setAttribute("zappar-permissions-ui", "")
+        taptoplace.style.display = "block"
+      }, 6000);
+    }
+   
+   
+    hereGoesID.innerHTML = `${name}`
+    
+    msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+    This is my way of expressing what you mean to me. And for moments
+    <span>when words fall short,</span>`
+    console.log(msg)
+    completenote.innerHTML = msg
+  
+    // Ar scene 
+  
+    // scene.style.zIndex = 0
+    console.log(uimoduleobj.packtype)
+    console.log("next")
+  
+    getimageuploaded()
+  
 
-
-  if(modelloaded===1){
-    setTimeout(() => {
-      loadingscreen.style.display="none"
-      scene.style.zIndex = 0
-      permissions.setAttribute("zappar-permissions-ui", "")
-      taptoplace.style.display = "block"
-    }, 6000);
+  }else{
+    questionAlertexotic.classList.remove("invisible")
+    questionAlertexotic.classList.add("visible")
   }
- 
- 
-  hereGoesID.innerHTML = `${name}`
+
   
-  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-  This is my way of expressing what you mean to me. And for moments
-  <span>when words fall short,</span>`
-  console.log(msg)
-  completenote.innerHTML = msg
-
-  // Ar scene 
-
-  // scene.style.zIndex = 0
-  console.log(uimoduleobj.packtype)
-  console.log("next")
-
-  getimageuploaded()
-
 }
 // Optionally, you can also keep the form submission logic for the original submit button
 document.getElementById("formId").addEventListener("submit", function (event) {
