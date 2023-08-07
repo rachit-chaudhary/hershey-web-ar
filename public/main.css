@@ -29,7 +29,11 @@ body {
     
 }
 #firstscreen {
-  display: block;
+  display: none;
+  /* change to block qwerty */
+}
+#receiverfirstscreen {
+  display: none;
   /* change to block qwerty */
 }
 h1 {
@@ -86,20 +90,16 @@ h1 {
 #sharepopupdiv{
   display: none;
   position: fixed;
-  top: 125px;
-  left: 50%;
-  right: 0px;
-  border-radius: 12px;
+  top: 0px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 274px;
-  margin-left: -140px;
-  /* text-align: center; */
-  padding: 15px;
+  padding: 5px 10px;
   box-sizing: border-box;
   font-family: 'Walsheim';
-  /* text-transform: uppercase; */
-  z-index: 5;
+  font-size: 14px;
+  width: 100%;
+  z-index: 99;
+  text-align: center;
   box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
 }
 #hersheyid{
@@ -118,19 +118,63 @@ h1 {
 }
 #reloaddiv{
   display: block;
-  position: fixed;
-  top: 66px;
-  right: 0px;
-  color: white;
   width: fit-content;
   z-index: 99;
 }
 #reloaddiv img {
   width: 50px;
 }
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
 #tapOnEnvelope{
   position: fixed;
-  top: 65px;
+  top: 120px;
   left: 50%;
   right: 0px;
   border-radius: 12px;
@@ -144,17 +188,19 @@ h1 {
   font-family: 'Walsheim';
   text-transform: capitalize;
   z-index: 99;
+  -webkit-animation: breathing 3s ease-out;
+  animation: breathing 3s ease-out infinite 
 }
 #recordbannerdiv{
   position: fixed;
   bottom: 185px;
-  left: 50%;
+  left: 0px;
   right: 0px;
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 271px;
-  margin-left: -134px;
+  width: 142px;
+  margin: 0px auto;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
@@ -177,36 +223,32 @@ h1 {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
-  #shutter {
-    left: 0px;
-    right: 0px;
-    margin: auto;
-    display: block;
-    position: fixed;
-    bottom: 85px;
-    color: white;
-    width: fit-content;;
-    z-index: 99;
+#shutter {
+  display: block;
+  bottom: 85px;
+  width: fit-content;;
 }
 #shutter img {
   width: 75px;;
 }
 #share {
-  left: 0px;
-  right: 0px;
-  margin: auto;
   position: fixed;
-  bottom: 23px;
-  border-radius: 50px;
+  bottom: 0px;
+  z-index: 99;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 40px;
+  align-items: center;
+}
+#share p {
+  border-radius: 10px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 190px;
   text-align: center;
-  padding: 15px;
-  box-sizing: border-box;
+  padding: 10px 15px;
   font-family: 'Walsheim';
   text-transform: capitalize;
-  z-index: 99;
 }
 
 
@@ -410,7 +452,7 @@ line-height: normal;
 }
 .wrapper{
   background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
-  height: 100vh;
+  height: 100dvh;
 }
 /* .orange-wrapper{
   background-color: #EE7700;
@@ -436,6 +478,7 @@ line-height: normal;
 }
 .flower-carousel-bottom{
   height: 108px;
+  top: -190px;
 }
 
 .username-section{
@@ -609,8 +652,7 @@ color: #EFBE7F;
   margin-top: 0px;
 }
 .next-button{
-  position: relative;
-  /* bottom: 68px; */
+  margin: 15px 0px 30px;
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
@@ -636,13 +678,12 @@ color: #EFBE7F;
 #thirdscreen{
   display: none;
 }
-
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
 }
 .window-kisses .rakhi-kiss-image {
   width: 170px;
@@ -1198,7 +1239,7 @@ body {
 .windows-bar{
   background-image: url('images/questions-window-bars.png');
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
   background-repeat: repeat-y;
   background-size: contain;
   width: 100%;
@@ -1244,7 +1285,7 @@ body {
 }
 .bottom-image-bar{
   width: 100%;
-  margin-top: 29px;
+  margin: 30px 0px 0px; 
 }
 .top-image-bar{
   width: 100%;
@@ -1399,7 +1440,7 @@ body {
     color: white;
     font-family:"snavely";
     text-transform: lowercase;
-    border: 2px solid;
+    border: 2px solid #fff;
   }
   .qns-bar-1{
     border: 7px solid  hsl(44, 79%, 67%);
@@ -1557,7 +1598,7 @@ button[disabled]{
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid;
+  border: 2px solid #fff;
 }
 
 .new-qns-bar-1 {
@@ -1626,7 +1667,7 @@ a.new-expansion-btn {
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid;
+  border: 2px solid #fff;
 }
 
 .option-bar {
@@ -1779,6 +1820,7 @@ a.option-btn {
 }
 .kisses-loading-video {
   width: 100%;
+  display: none;
 }
 .loading-message {
   width: 100%;
@@ -1894,7 +1936,7 @@ a.option-btn {
   z-index: 999;
   margin: auto;
   height: max-content;
-  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, .7);
 }
 .dynamic-name {
   display: flex;
@@ -1966,7 +2008,7 @@ a.option-btn {
   font-family: 'Walsheim'!important;
 }
 #ZapparPreviewVideo {
-  height: 80vh!important;
+  /* height: 80vh!important; */
 }
 .zappar-mobile-only {
   background-color: rgba(63, 0, 11, .9)!important;
@@ -2016,6 +2058,96 @@ border-right: none;
   font-family: "Walsheim";
   text-transform: capitalize;
 }
+.bars-casacade-loading {
+  width: 100%;
+}
+.window-exotic {
+  display: none;
+}
+.receiver-wrapper {
+  display: none;
+  overflow-y: scroll;
+  background-image: url(/images/kisses-shape-bg.png);
+  background-size: contain;
+  background-repeat: repeat-y;
+  background-color: #E8B377;
+  height: 100dvh;
+}
+.receiver-div {
+  position: relative;
+  z-index: 2;
+  overflow-x: hidden;
+  padding: 0px 0px 25px;;
+}
+.receiver-img-bg {
+  position: fixed;
+  z-index: 1;
+}
+.receiver-kiss-cascade-drop {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.receiver-kiss-cascade-drop img {
+  width: 50%;
+}
+.hanging-decoration-top {
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  left: 10px;
+}
+.flower-combo-4 {
+  z-index: -1;
+  position: fixed;
+  width: 40%;
+  bottom: -50px;
+  left: -60px;
+}
+.flower-combo-3 {
+  z-index: -1;
+  position: fixed;
+  width: 40%;
+  right: -40px;
+  top: 170px;
+}
+.receiver-div-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #3F000B;
+}
+.recevier-hershey-pack {
+  width: 100%;
+}
+.receiver-div-content h3 {
+  font-size: 20px;
+  font-family: "Walsheim-Medium";
+}
+.receiver-div-content h1 {
+  font-family:"snavely";
+  font-size: 30px;
+}
+.receiver-div-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.receiver-div-button button {
+  margin: 15px 0px;
+  border-radius: 93px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #37140B;
+  padding: 15px 50px;
+  font-size: 21px;
+  font-family: "Walsheim-Medium";
+  text-transform: capitalize;
+  border: none;
+}
+
 /* rachit's CSS end's here */
 
 
@@ -2299,7 +2431,6 @@ a.expansion-btn {
   margin-left: 13px;
   margin-top: 9px !important;
 }
-
 
 
 
