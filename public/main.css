@@ -29,7 +29,11 @@ body {
     
 }
 #firstscreen {
-  display: block;
+  display: none;
+  /* change to block qwerty */
+}
+#receiverfirstscreen {
+  display: none;
   /* change to block qwerty */
 }
 h1 {
@@ -171,13 +175,13 @@ h1 {
 #tapOnEnvelope{
   position: fixed;
   top: 120px;
-  left: 50%;
+  left: 0px;
   right: 0px;
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 271px;
-  margin-left: -134px;
+  width: 171px;
+  margin: auto;
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
@@ -576,8 +580,14 @@ input:-webkit-autofill:active{
   margin-top: -5px;
 }
 .filejpeg{
-  margin: 33px;
-  margin-top: 13px;
+  display: flex;
+  align-items: center;
+  font-family: "Walsheim-Medium";
+  font-size: 14px;
+  height: 100%;
+  margin: 0px;
+  justify-content: center;
+  width: 100%;
 }
 .upload-outerdiv{
   border-radius: 10px;
@@ -635,6 +645,10 @@ color: #EFBE7F;
   background-repeat: no-repeat;
   background-position: center;
 } */
+.upload-file-text {
+  width: 100%;
+}
+
 .photo{
      width: 56%;
     align-self: center;
@@ -659,6 +673,7 @@ color: #EFBE7F;
     color: #2D100C;
     font-family:"snavely";
     text-transform: lowercase;
+    border: none;
 }
 
 
@@ -674,7 +689,6 @@ color: #EFBE7F;
 #thirdscreen{
   display: none;
 }
-
 .window-kisses{
   background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
   /* height: 115; */
@@ -682,6 +696,53 @@ color: #EFBE7F;
   overflow-x: hidden;
   height: 100dvh;
 }
+.alert-check-questions {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  height: 100dvh;
+  color: #fff;
+}
+#alertClosebarBtn{
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
+#alertCloseBtn{
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
+.alert-check-questions-bar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  height: 100dvh;
+  color: #fff;
+}
+.alert-content {
+  position: relative;
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: fit-content;
+  /* background-color: #3F000B; */
+}
+/* .alert-warning{
+  margin: 15px;
+} */
 .window-kisses .rakhi-kiss-image {
   width: 170px;
   position: absolute;
@@ -708,6 +769,7 @@ color: #EFBE7F;
   font-weight: 400;
   line-height: normal;
   margin-bottom: 38px;
+  border: none;
 }
 .qns-3{
     margin-top: -72px !important;
@@ -1817,6 +1879,7 @@ a.option-btn {
 }
 .kisses-loading-video {
   width: 100%;
+  display: none;
 }
 .loading-message {
   width: 100%;
@@ -2004,7 +2067,7 @@ a.option-btn {
   font-family: 'Walsheim'!important;
 }
 #ZapparPreviewVideo {
-  height: 80vh!important;
+  /* height: 80vh!important; */
 }
 .zappar-mobile-only {
   background-color: rgba(63, 0, 11, .9)!important;
@@ -2205,10 +2268,14 @@ border-right: none;
   font-family: "Walsheim";
   margin-bottom: 25px;
 }
-.img2-exotic{
-    height: 102px;
-    position: relative;
-    bottom: 85px;
+.bottom-berries-img {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.hed-next-btn {
+  position: relative;
+  z-index: 9;
 }
 .gliter-with-group{
   height: 42px;
@@ -2309,14 +2376,18 @@ a.expansion-btn {
 
 /* Styles for the exotic divs */
 .exotic-div {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
   width: 32.33%;
-  height: 104%;
+  height: 100%;
   font-size: 12px;
+  /* position: relative; */
   float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
   font-family: "snavely";
   text-transform: lowercase;
@@ -2329,10 +2400,16 @@ a.expansion-btn {
   color: #37140B;
   font-family: "snavely";
   text-transform: lowercase;
+  font-size: 17px;
 }
 
 .exotic-compressed-div {
   width: 18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 /* Styles for the exotic div backgrounds */
@@ -2350,9 +2427,11 @@ a.expansion-btn {
 
 /* Styles for the expansion buttons */
 .exotic-expansion-btn {
-  font-size: 14px;
-  margin-left: 13px;
-  margin-top: 9px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* ---------------------------------------------- */
@@ -2382,32 +2461,42 @@ a.expansion-btn {
 /* -------------------card3 */
 
 .sibling-bond-option {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
   margin: 1px;
   width: 32.33%;
-  height: 104%;
+  height: 100%;
   font-size: 12px;
+  /* position: relative; */
   float: left;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: white;
   font-family: "snavely";
   text-transform: lowercase;
 }
 
 .expanded-option {
+
   width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%),
-    linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%),
-    linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
+  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
   border: 2px solid hsl(44, 79%, 67%);
   color: #37140B;
   font-family: "snavely";
   text-transform: lowercase;
+  font-size: 17px;
 }
 
 .compressed-option {
   width: 18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #option-exotic-1 {
@@ -2423,11 +2512,12 @@ a.expansion-btn {
 }
 
 .option-text {
-  font-size: 14px;
-  margin-left: 13px;
-  margin-top: 9px !important;
+  margin: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-
 
 
 
