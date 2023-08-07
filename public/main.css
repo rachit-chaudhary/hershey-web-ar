@@ -707,6 +707,12 @@ color: #EFBE7F;
   height: 100dvh;
   color: #fff;
 }
+#alertCloseexoticBtn{
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
 #alertClosebarBtn{
   color: #fff;
   position: absolute;
@@ -720,6 +726,17 @@ color: #EFBE7F;
   right: 0px;
 }
 .alert-check-questions-bar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  height: 100dvh;
+  color: #fff;
+}
+.alert-check-questions-exotic {
   position: absolute;
   width: 100%;
   display: flex;
