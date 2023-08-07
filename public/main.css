@@ -685,6 +685,53 @@ color: #EFBE7F;
   overflow-x: hidden;
   height: 100dvh;
 }
+.alert-check-questions {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  height: 100dvh;
+  color: #fff;
+}
+#alertClosebarBtn{
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
+#alertCloseBtn{
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
+.alert-check-questions-bar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  height: 100dvh;
+  color: #fff;
+}
+.alert-content {
+  position: relative;
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: fit-content;
+  /* background-color: #3F000B; */
+}
+/* .alert-warning{
+  margin: 15px;
+} */
 .window-kisses .rakhi-kiss-image {
   width: 170px;
   position: absolute;
