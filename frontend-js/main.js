@@ -1504,6 +1504,8 @@ nextQuestionid1.onclick = () => {
     dynamicImg.classList.add("container-fluid")
     dynamicImg.classList.add("bars-dynamic-img")
     dynamicImg.children[0].style.width = "100%"
+    dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
+    dynamicImg.children[0].style.borderBottomRightRadius = "10px"
     dynamicImg.children[0].src = "/images/bars-bottom-img.png"
   
     getimageuploaded()
