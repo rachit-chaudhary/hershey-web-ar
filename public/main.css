@@ -2010,7 +2010,8 @@ a.option-btn {
   padding: 25px;
   display: none;
   width: 90%;
-  margin: 20px auto;
+  height: fit-content;
+  margin: auto;
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
   -webkit-animation: bummer 1s ease;
