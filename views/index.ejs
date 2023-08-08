@@ -66,6 +66,11 @@
 
 
   </div> -->
+  <audio id="bgaudio" loop>
+    <source src="sfx/hersheys-music.mp3" type="audio/mp3">
+    </source>
+    Your browser does not support the audio element.
+</audio>
   <!-- senders first screen -->
   <div id="firstscreen">
     <div class=" header d-flex justify-content-center">
@@ -193,9 +198,11 @@
     <div class="alert-check-questions invisible">
       <div class="alert-content">
         <div id="alertCloseBtn" class="close-btn-alert">
-          X
+          <img src="/images/close.png" alt="close">
         </div>
         <div class=" alert alert-warning" role="alert">
+          <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+          <h1 class="display-1 image-missing">\(o_o)/</h1>
           Please select an option for each question!
         </div>
       </div>
@@ -303,11 +310,13 @@
   <!-----------------------------------------hershey bar -->
   <div class="windows-bar" id="thirdscreen-bar">
     <div class="alert-check-questions-bar invisible">
-      <div class=" alert-content">
-        <div id="alertClosebarBtn" class="close-btn-alert ">
-          X
+      <div class="alert-content">
+        <div id="alertClosebarBtn" class="close-btn-alert">
+          <img src="/images/close.png" alt="close">
         </div>
-        <div class="alert alert-warning" role="alert">
+        <div class=" alert alert-warning" role="alert">
+          <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+          <h1 class="display-1 image-missing">\(o_o)/</h1>
           Please select an option for each question!
         </div>
       </div>
@@ -437,9 +446,11 @@
   <div class="alert-check-questions-exotic invisible">
     <div class="alert-content">
       <div id="alertCloseexoticBtn" class="close-btn-alert">
-        X
+        <img src="/images/close.png" alt="close">
       </div>
-      <div class="alert alert-warning" role="alert">
+      <div class=" alert alert-warning" role="alert">
+        <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+        <h1 class="display-1 image-missing">\(o_o)/</h1>
         Please select an option for each question!
       </div>
     </div>
@@ -629,7 +640,7 @@
 
 <!-- kisses message window -->
 
-<div id="messagenote" class="message-wrapper kisses-message">
+<div id="messagenote" class="message-wrapper">
   <div class="close-icon">
     <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
   </div>
@@ -650,7 +661,7 @@
           <span>when words fall short,</span> </p>
       </div>
     </div>
-    <div class="dynamic-img">
+    <div id="dynamicImg" class="dynamic-img">
       <img src="/images/say it with a kiss (brown).png" alt="say-it-with-a-kiss.png">
     </div>
   </div>
@@ -693,7 +704,7 @@
       <div id="reloaddiv"><img id="reload" src="/images/reload.png" /></div>
       <div id="shutter"><img id="capture" src="/images/shutter-button-start.png" /></div>
       <!-- <div id="shutter"><img id="capture" src="/images/shutter-button-stop.png" /></div> -->
-      <p>Send</p>
+      <p id="send" >Send</p>
     </div>
   </div>
 
@@ -725,7 +736,7 @@
 
 <!-- ---------------------------------/ -->
   <!-- Some UI for the user to tap to indicate they're happy with the placement -->
-  <div id="zappar-placement-ui">Tap here to place the object</div>
+  <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
   <!-- <img src="<%= imageUrl %>" alt="Uploaded Image"> -->
 
   <a-scene id="scenediv" swap-texture renderer="antialias: true;

@@ -118,7 +118,7 @@ h1 {
 }
 #reloaddiv{
   display: block;
-  width: fit-content;
+  width: 75px;
   z-index: 99;
 }
 #reloaddiv img {
@@ -173,8 +173,9 @@ h1 {
 }
 
 #tapOnEnvelope{
+  display: none;
   position: fixed;
-  top: 120px;
+  top: 15%;
   left: 0px;
   right: 0px;
   border-radius: 12px;
@@ -183,50 +184,57 @@ h1 {
   width: 171px;
   margin: auto;
   text-align: center;
-  padding: 15px;
+  padding: 2px;
   box-sizing: border-box;
-  font-family: 'Walsheim';
+  font-family: 'Walsheim-Medium';
   text-transform: capitalize;
   z-index: 99;
   -webkit-animation: breathing 3s ease-out;
   animation: breathing 3s ease-out infinite 
 }
-#recordbannerdiv{
-  position: fixed;
-  bottom: 185px;
+#recordparentdiv {
+  position: absolute;
+  bottom: 17%;
   left: 0px;
   right: 0px;
+  /* top: 0px; */
+  z-index: 99;
+  margin: auto;
+  width: 142px;
+  height: 55px;
+}
+#recordbannerdiv{
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
   width: 142px;
-  margin: 0px auto;
   text-align: center;
-  padding: 15px;
+  padding: 2px;
   box-sizing: border-box;
-  font-family: 'Walsheim';
+  font-family: 'Walsheim-Medium';
   text-transform: capitalize;
-  z-index: 99;
+  position: relative;
+  z-index: 2;
 }
 .arrow-down {
-  position: fixed;
-  text-align: center;
   left: 0px;
   right: 0px;
-  bottom: 168px;
-  margin: 0px auto;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 12px;
+  position: absolute;
+  text-align: center;
   border-top: #bcd11c;
   border-top: 18px solid #f0dc9c;
-  z-index: 99;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
 #shutter {
+  width: 75px;
   display: block;
   bottom: 85px;
-  width: fit-content;;
 }
 #shutter img {
   width: 75px;;
@@ -242,6 +250,7 @@ h1 {
   align-items: center;
 }
 #share p {
+  width: 75px;
   border-radius: 10px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
@@ -707,6 +716,18 @@ color: #EFBE7F;
   height: 100dvh;
   color: #fff;
 }
+.close-btn-alert img {
+  filter: invert(1);
+  width: 20px;
+}
+.question-alert-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.image-missing {
+  margin: 0px 0px 25px;
+}
 #alertCloseexoticBtn{
   color: #fff;
   position: absolute;
@@ -722,7 +743,7 @@ color: #EFBE7F;
 #alertCloseBtn{
   color: #fff;
   position: absolute;
-  top: -30px;
+  top: -35px;
   right: 0px;
 }
 .alert-check-questions-bar {
@@ -748,6 +769,8 @@ color: #EFBE7F;
   color: #fff;
 }
 .alert-content {
+  font-family: "Walsheim-Medium";
+  text-align: center;
   position: relative;
   display: flex;
   flex-direction:row-reverse;
@@ -1985,11 +2008,18 @@ a.option-btn {
   }
 }
 .message-wrapper {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 999;
   border-radius: 10px;
   padding: 25px;
-  display: block;
+  display: none;
   width: 90%;
-  margin: 20px auto;
+  height: fit-content;
+  margin: auto;
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
   -webkit-animation: bummer 1s ease;
@@ -2004,12 +2034,6 @@ a.option-btn {
   background-size: contain;
   background-repeat: repeat;
   background-position: top;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 999;
   margin: auto;
   height: max-content;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, .7);
@@ -2018,15 +2042,18 @@ a.option-btn {
   display: flex;
   font-family: "Walsheim";
 }
-.message-body .dynamic-note p {
+/* .message-body .dynamic-note p {
   margin: 20px 0px 0px 0px;
   font-family: "Walsheim-Medium";
   font-size: 18px;
   text-align: justify;
   color: #2D1415;
-}
+} */
 .message-body .dynamic-note p span {
   font-family: "Walsheim";
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: black;
 }
 .dynamic-img {
   display: flex;
@@ -2064,6 +2091,10 @@ a.option-btn {
 #zapparShareButton {
   border-radius: 6px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
+}
+#zapparShareButton svg, 
+#zapparSaveButton svg {
+  height: 60px!important;
 }
 #zapparCloseAref g{
   stroke: #EDC967;
@@ -2223,6 +2254,62 @@ border-right: none;
   text-transform: capitalize;
   border: none;
 }
+.hed-close-btn {
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  border-radius: 15px;
+  padding: 5px;
+}
+.hed-message {
+  background-color: #3F000B;
+  background-image: url('/images/hed-note-bg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+}
+.bar-message {
+  background: linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+.bars-note-png {
+  background-image: url('/images/bars-note-bg.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.bars-dynamic-img {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px!important;
+}
+#completenote {
+  margin: 1rem 0px;
+  font-family: "Walsheim-Medium";
+}
+.message-header .hed-note-text,
+.message-header .hed-dynamic-name h2,
+.hed-note-text {
+  color: unset;
+  background: linear-gradient(124deg, rgb(253, 234, 177) 0%, rgb(246, 205, 115) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.message-header .bars-note-text,
+.message-header .bars-dynamic-name h2,
+.bars-note-text {
+  color: #2D1415;
+  font-family: "Walsheim";
+
+}
+
 
 /* rachit's CSS end's here */
 
@@ -2243,7 +2330,7 @@ border-right: none;
   /* height: 115; */
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
 }
 .window-exotic .rakhi-kiss-image {
     width: 165px;
