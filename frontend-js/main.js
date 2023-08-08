@@ -1083,6 +1083,7 @@ async function initRecorder() {
   const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
     quality:10,
     maxFrameRate:144,
+    audio: false,
   })
 
   // When we start recording update text
@@ -1781,7 +1782,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 15000
+        animtime = 17000
         modelname.setAttribute('gltf-model', '/models/exotic darkv13.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
