@@ -194,14 +194,14 @@ h1 {
 }
 #recordparentdiv {
   position: absolute;
-  bottom: 17%;
+  bottom: 0px;
   left: 0px;
   right: 0px;
   /* top: 0px; */
   z-index: 99;
   margin: auto;
   width: 142px;
-  height: 55px;
+  height: 35px;
 }
 #recordbannerdiv{
   border-radius: 12px;
@@ -217,6 +217,7 @@ h1 {
   z-index: 2;
 }
 .arrow-down {
+  display: none;
   left: 0px;
   right: 0px;
   margin-left: auto;
@@ -2623,8 +2624,18 @@ a.expansion-btn {
   text-align: center;
 }
 
-
-
-
-
-
+.go-back-txt {
+  width: 85px;
+  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Walsheim';
+  font-size: 15px;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #3F000B!important;
+  cursor: pointer;
+}
