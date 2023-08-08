@@ -719,7 +719,7 @@ hoverexotic.onclick = () => {
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
   typeofpack = 'exotic'
-  animtime = 15000
+  animtime = 17000
   pNametype = "3"
   //   function disableImageById(hoverhershey) {
   //     var imageElement = document.getElementById(hoverhershey);
@@ -1080,7 +1080,10 @@ async function initRecorder() {
 
   let recording = false;
 
-  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
+    quality:10,
+    maxFrameRate:144,
+  })
 
   // When we start recording update text
 
