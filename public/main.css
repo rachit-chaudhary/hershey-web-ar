@@ -2325,7 +2325,7 @@ border-right: none;
   /* height: 115; */
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
 }
 .window-exotic .rakhi-kiss-image {
     width: 165px;
