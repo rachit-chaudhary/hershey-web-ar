@@ -69,6 +69,7 @@ sendgift.onclick = () => {
   bgaudio.play()
 
 
+
   secondscreen.style.display = "block"
 }
 sendthankyou.onclick = () => {
@@ -1056,6 +1057,7 @@ async function initRecorder() {
   const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
     quality:10,
     maxFrameRate:144,
+    audio: false,
   })
 
   // When we start recording update text
@@ -1151,7 +1153,6 @@ AFRAME.registerComponent("swap-texture", {
     console.log("init")
     const msgclosebtn = document.getElementById("msgclosebtn")
     // 
-
     //  ------------------------
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
@@ -1673,7 +1674,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 15000
+        animtime = 17000
         modelname.setAttribute('gltf-model', '/models/exotic darkv13.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
@@ -1801,6 +1802,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
 // ------------------autofocus for input field----------------------
 document.getElementById("sendthankyou").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
+
 });
 document.getElementById("sendgift").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
