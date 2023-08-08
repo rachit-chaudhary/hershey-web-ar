@@ -118,6 +118,7 @@ h1 {
 }
 #reloaddiv{
   display: block;
+  width: 75px;
   width: fit-content;
   z-index: 99;
 }
@@ -175,7 +176,7 @@ h1 {
 #tapOnEnvelope{
   display: none;
   position: fixed;
-  top: 120px;
+  top: 15%;
   left: 0px;
   right: 0px;
   border-radius: 12px;
@@ -186,45 +187,51 @@ h1 {
   text-align: center;
   padding: 15px;
   box-sizing: border-box;
-  font-family: 'Walsheim';
+  font-family: 'Walsheim-Medium';
   text-transform: capitalize;
   z-index: 99;
   -webkit-animation: breathing 3s ease-out;
   animation: breathing 3s ease-out infinite 
 }
-#recordbannerdiv{
-  position: fixed;
-  bottom: 185px;
+#recordparentdiv {
+  position: absolute;
+  bottom: 17%;
   left: 0px;
   right: 0px;
+  /* top: 0px; */
+  z-index: 99;
+  margin: auto;
+  width: 142px;
+  height: 55px;
+}
+#recordbannerdiv{
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
   width: 142px;
-  margin: 0px auto;
   text-align: center;
-  padding: 15px;
+  padding: 2px;
   box-sizing: border-box;
-  font-family: 'Walsheim';
+  font-family: 'Walsheim-Medium';
   text-transform: capitalize;
-  z-index: 99;
 }
 .arrow-down {
-  position: fixed;
-  text-align: center;
   left: 0px;
   right: 0px;
-  bottom: 168px;
-  margin: 0px auto;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 12px;
+  position: absolute;
+  text-align: center;
   border-top: #bcd11c;
   border-top: 18px solid #f0dc9c;
-  z-index: 99;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
 #shutter {
+  width: 75px;
   display: block;
   bottom: 85px;
   width: fit-content;;

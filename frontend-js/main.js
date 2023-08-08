@@ -1008,41 +1008,41 @@ option3div3exotic.onclick = () => {
 //  capture functionality
 async function initRecorder() {
 
-  // const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  const canvas = document.querySelector('canvas') || document.createElement('canvas');
 
-  // const url = canvas.toDataURL('video/mp4', 0.8);
-
- 
-
-  // canvas.getContext('2d', { willReadFrequently: true });
-
-  var width = window.innerWidth
-
-  || document.documentElement.clientWidth
-
-  || document.body.clientWidth;
+//   // const url = canvas.toDataURL('video/mp4', 0.8);
 
  
 
-var height = window.innerHeight
+ 
 
-  || document.documentElement.clientHeight
+//   var width = window.innerWidth
 
-  || document.body.clientHeight;
+//   || document.documentElement.clientWidth
+
+//   || document.body.clientWidth;
 
  
 
-// Get canvas from dom
+// var height = window.innerHeight
 
-document.querySelector("a-scene").setAttribute('screenshot', {
+//   || document.documentElement.clientHeight
 
-  width: width,
+//   || document.body.clientHeight;
 
-  height: height
+ 
 
-})
+// // Get canvas from dom
 
-const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
+// document.querySelector("a-scene").setAttribute('screenshot', {
+
+//   width: width,
+
+//   height: height
+
+// })
+
+// const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
   let recording = false;
 
@@ -1387,7 +1387,7 @@ nextQuestionid.onclick = () => {
       document.querySelector(".message-wrapper").classList.remove("bar-message")
       document.querySelector(".message-wrapper").classList.remove("hed-message")
       document.querySelector(".message-wrapper").classList.add("kisses-message")
-      
+
       document.querySelector(".message-header h3").classList.remove("hed-note-text")
     document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
     document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
