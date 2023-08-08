@@ -119,7 +119,6 @@ h1 {
 #reloaddiv{
   display: block;
   width: 75px;
-  width: fit-content;
   z-index: 99;
 }
 #reloaddiv img {
@@ -234,7 +233,6 @@ h1 {
   width: 75px;
   display: block;
   bottom: 85px;
-  width: fit-content;;
 }
 #shutter img {
   width: 75px;;
@@ -250,6 +248,7 @@ h1 {
   align-items: center;
 }
 #share p {
+  width: 75px;
   border-radius: 10px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
