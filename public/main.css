@@ -184,7 +184,7 @@ h1 {
   width: 171px;
   margin: auto;
   text-align: center;
-  padding: 15px;
+  padding: 2px;
   box-sizing: border-box;
   font-family: 'Walsheim-Medium';
   text-transform: capitalize;
@@ -213,6 +213,8 @@ h1 {
   box-sizing: border-box;
   font-family: 'Walsheim-Medium';
   text-transform: capitalize;
+  position: relative;
+  z-index: 2;
 }
 .arrow-down {
   left: 0px;
@@ -2089,6 +2091,10 @@ a.option-btn {
 #zapparShareButton {
   border-radius: 6px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
+}
+#zapparShareButton svg, 
+#zapparSaveButton svg {
+  height: 60px!important;
 }
 #zapparCloseAref g{
   stroke: #EDC967;
