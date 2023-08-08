@@ -240,7 +240,7 @@ send.onclick = function () {
   // gfg_Run();
 
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  copyToClipboard(`https://impresario.onrender.com/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  copyToClipboard(`https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
 }
 
 
@@ -810,84 +810,6 @@ reload.onclick = () => {
   }, 1000);
 
 }
-// nextQuestionid.onclick = () => {
-
-//   thirdscreen.style.display = "none"
-//   if(typeofpack==="kisses") {
-//     barsLoadingMedia.style.display = "none"
-//     loadingscreen.style.display="block"
-//     kissesloadingvid.play();
-//   }
-
-//   if(modelloaded===1){
-//     setTimeout(() => {
-//       loadingscreen.style.display="none"
-//       scene.style.zIndex = 0
-//       permissions.setAttribute("zappar-permissions-ui", "")
-//       taptoplace.style.display = "block"
-//     }, 6000);
-//   }
-
-
-//   hereGoesID.innerHTML = `${name}`
-//   msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
-//   console.log(msg)
-//   completenote.innerHTML = msg
-
-//   // Ar scene 
-
-//   // scene.style.zIndex = 0
-//   console.log(uimoduleobj.packtype)
-//   console.log("next")
-
-// // Get uploaded image from server
-// console.log("clicked different btn")
-// const fileInput = document.getElementById("uploadbtn");
-// const imageFile =   fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-// console.log("clicked different btn1")
-// uploadImage(imageFile)
-//   .then(imageUrl => {
-//     console.log("clicked different btn2")
-//     console.log("Uploaded Image URL:", imageUrl);
-//     dataURL=imageUrl
-//     console.log("dataurl "+dataURL)
-//     // texturechange()
-//     // Delay rendering the result after 2 seconds (2000 milliseconds)
-//     setTimeout(() => {
-//       renderResult(imageUrl);
-//       console.log("clicked different btn3")
-//     }, 2000);
-//   })
-//   .catch(error => {
-//     console.error("Error:", error);
-//   });
-// }
-
-
-// nextQuestionid1.onclick = () => {
-//   thirdscreenbar.style.display = "none"
-//   //show bars loading screen @kartik 
-
-//   loadingHeader.src="/images/hersheyslogo.png"
-//   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-//   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-//   kissesloadingvid.style.display = "none"
-//   barsLoadingMedia.style.display = "block"
-//   loadingscreen.style.display="block"
-
-
-
-//   // also add if model loaded then show tap to place @kartik
-//   setTimeout(() => {
-//     // Ar scene 
-//     permissions.setAttribute("zappar-permissions-ui", "")
-//     scene.style.zIndex = 0
-//     console.log(uimoduleobj.packtype)
-//     console.log("next")
-//     taptoplace.style.display = "block"
-//   }, 6000)
-
-// }
 
 
 // ---------------cards for kisses---------------
@@ -1085,59 +1007,134 @@ option3div3exotic.onclick = () => {
 
 //  capture functionality
 async function initRecorder() {
-  const canvas = document.querySelector('canvas') || document.createElement('canvas');
+
+  // const canvas = document.querySelector('canvas') || document.createElement('canvas');
+
   // const url = canvas.toDataURL('video/mp4', 0.8);
-  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+
+ 
+
   // canvas.getContext('2d', { willReadFrequently: true });
+
+  var width = window.innerWidth
+
+  || document.documentElement.clientWidth
+
+  || document.body.clientWidth;
+
+ 
+
+var height = window.innerHeight
+
+  || document.documentElement.clientHeight
+
+  || document.body.clientHeight;
+
+ 
+
+// Get canvas from dom
+
+document.querySelector("a-scene").setAttribute('screenshot', {
+
+  width: width,
+
+  height: height
+
+})
+
+const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
   let recording = false;
 
+  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas);
+
   // When we start recording update text
+
   recorder.onStart.bind(() => {
+
     recording = true;
+
     console.log("start 2")
+
     // placeButton.innerText = 'TAP TO STOP RECORDING';
+
   });
+
+ 
 
   // When stop recording update text, and prompt a social share dialog.
+
   recorder.onComplete.bind(async (result) => {
 
+ 
+
     // placeButton.innerText = 'TAP TO START RECORDING';
+
     console.log("stop 2")
 
+ 
+
     // result.arrayBuffer
+
     console.log(result.asDataURL())
 
+ 
+
     ZapparWebGLSnapshot({
+
       data: await result.asDataURL(),
+
       fileNamePrepend: 'hersheys_sibling_surprise',
+
       // data:url,
+
       onClose: () => {
+
         console.log('Dialog was closed');
+
       },
+
     });
 
+ 
+
     // console.log(recorder._getData())
+
     recording = false;
+
   });
+
+ 
 
   // Toggle between recording
+
   capture.addEventListener('click', async () => {
 
-    if (recording) {
-      recorder.stop();
-      console.log("stop")
-      // capture.style.display = 'none'
-      capture.src = "/images/shutter-button-start.png"
-    } else {
-      recorder.start();
-      capture.src = "/images/shutter-button-stop.png"
-      console.log("start")
-    }
-  });
-}
+ 
 
-initRecorder();
+    if (recording) {
+
+      recorder.stop();
+
+      console.log("stop")
+
+      // capture.style.display = 'none'
+
+      capture.src = "/images/shutter-button-start.png"
+
+    } else {
+
+      recorder.start();
+
+      capture.src = "/images/shutter-button-stop.png"
+
+      console.log("start")
+
+    }
+
+  });
+
+}
 
 
 
@@ -1356,21 +1353,6 @@ uploadImage(imageFile)
   });
 }
 
-// ---------------------------------------
-// const submitButton = document.getElementById("questionid");
-// submitButton.addEventListener("click", validateSelection);
-
-// function validateSelection() {
-//   const question1Selected = document.querySelector("#div-1 input:checked");
-//   const question2Selected = document.querySelector("#custom-div-1 input:checked");
-//   const question3Selected = document.querySelector("#custom-option-1 input:checked");
-
-//   if (!question1Selected || !question2Selected || !question3Selected) {
-//     alert("Please select an option for each question.");
-//   } else {
-    
-//   }
-// }
 // ------------------------------
 // Click event for nextquestionid
 
@@ -1402,6 +1384,16 @@ nextQuestionid.onclick = () => {
   <span>when words fall short,</span>`
       console.log(msg)
       completenote.innerHTML = msg
+      document.querySelector(".message-wrapper").classList.remove("bar-message")
+      document.querySelector(".message-wrapper").classList.add("kisses-message")
+      document.querySelector(".kisses-message").classList.remove("hed-message")
+      document.querySelector(".message-header h3").classList.remove("hed-note-text")
+    document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
+    document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
+    document.getElementById("completenote").classList.remove("hed-note-text")
+    let dynamicImg = document.getElementById("dynamicImg")
+    dynamicImg.classList.add("justify-content-center")
+    dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
 
       // Ar scene 
 
@@ -1833,6 +1825,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
     });
     taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
     taptoplace.addEventListener('click', () => {
+      initRecorder()
       texturechange()
 
       // -------------------------
