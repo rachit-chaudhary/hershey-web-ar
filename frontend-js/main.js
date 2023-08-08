@@ -241,6 +241,40 @@ send.onclick = function () {
 
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
   copyToClipboard(`https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  const shareData = {
+
+    url: `https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
+  
+  }
+  
+  if (navigator.share) {
+  
+    // only appears on mobile
+  
+    navigator.share(shareData)
+  
+    // message.textContent = `Custom link for ${currentText} created!`
+  
+  } else {
+  
+    // only appears on Desktop + VR
+  
+    // message.textContent = `Custom link for ${currentText} copied!`
+  
+  }
+  
+  share.classList.add('pulse-once')
+  
+  setTimeout(() => {
+  
+    share.classList.remove('pulse-once')
+  
+  
+  
+  }, 200)
+
+  
+
 }
 
 
