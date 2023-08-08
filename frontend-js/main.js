@@ -1418,11 +1418,11 @@ nextQuestionid.onclick = () => {
   <span>when words fall short,</span>`
       console.log(msg)
       completenote.innerHTML = msg
-      document.querySelector(".message-wrapper").classList.remove("bar-message")
-      document.querySelector(".message-wrapper").classList.remove("hed-message")
-      document.querySelector(".message-wrapper").classList.add("kisses-message")
+    document.querySelector(".message-wrapper").classList.remove("bar-message")
+    document.querySelector(".message-wrapper").classList.remove("hed-message")
+    document.querySelector(".message-wrapper").classList.add("kisses-message")
 
-      document.querySelector(".message-header h3").classList.remove("hed-note-text")
+    document.querySelector(".message-header h3").classList.remove("hed-note-text")
     document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
     document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
     document.getElementById("completenote").classList.remove("hed-note-text")
@@ -1713,6 +1713,11 @@ document.getElementById("formId").addEventListener("submit", function (event) {
         <span>when words fall short,</span>`
         console.log(msg)
         completenote.innerHTML = msg
+
+        document.querySelector(".message-wrapper").classList.add("kisses-message")
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.add("justify-content-center")
+        dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
       }
