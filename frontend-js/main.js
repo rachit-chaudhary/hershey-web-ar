@@ -66,7 +66,7 @@ sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
-
+  bgaudio.play()
 
 
   secondscreen.style.display = "block"
@@ -75,7 +75,7 @@ sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
-
+  bgaudio.play()
 
 
 
@@ -1835,7 +1835,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
     // Receiver button from Receiver first screen
     document.getElementById("receiverbtn").addEventListener("click", function () {
 
-
+      bgaudio.play()
       receiverfirstscreen.style.display = "none"
       scene.style.zIndex = 0
       permissions.setAttribute("zappar-permissions-ui", "")
