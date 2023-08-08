@@ -1386,7 +1386,7 @@ nextQuestionid.onclick = () => {
       completenote.innerHTML = msg
       document.querySelector(".message-wrapper").classList.remove("bar-message")
       document.querySelector(".message-wrapper").classList.add("kisses-message")
-      document.querySelector(".kisses-message").classList.remove("hed-message")
+      document.querySelector(".message-wrapper").classList.remove("hed-message")
       document.querySelector(".message-header h3").classList.remove("hed-note-text")
     document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
     document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
@@ -1451,8 +1451,8 @@ nextQuestionid1.onclick = () => {
     console.log(msg)
    completenote.innerHTML = msg
 
-    document.querySelector(".kisses-message").classList.add("bar-message")
-    document.querySelector(".kisses-message").insertAdjacentHTML('beforeend',
+    document.querySelector(".message-wrapper").classList.add("bar-message")
+    document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
     `<div class="bars-note-png"></div>`)
     document.querySelector(".message-header h3").classList.add("bars-note-text")
     document.getElementById("msgclosebtn").classList.add("bars-close-btn")
@@ -1544,7 +1544,7 @@ nextQuestionid2.onclick = () => {
     console.log(msg)
     completenote.innerHTML = msg
 
-    document.querySelector(".kisses-message").classList.add("hed-message")
+    document.querySelector(".message-wrapper").classList.add("hed-message")
     document.querySelector(".message-header h3").classList.add("hed-note-text")
     document.getElementById("msgclosebtn").classList.add("hed-close-btn")
     document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
