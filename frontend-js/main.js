@@ -69,6 +69,7 @@ sendgift.onclick = () => {
   bgaudio.play()
 
 
+
   secondscreen.style.display = "block"
 }
 sendthankyou.onclick = () => {
@@ -1231,7 +1232,6 @@ AFRAME.registerComponent("swap-texture", {
     console.log("init")
     const msgclosebtn = document.getElementById("msgclosebtn")
     // 
-
     //  ------------------------
     const uploadbtn = document.getElementById("uploadbtn")
     uploadbtn.onchange = function () { preview_image(event) };
@@ -1918,6 +1918,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
 // ------------------autofocus for input field----------------------
 document.getElementById("sendthankyou").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
+
 });
 document.getElementById("sendgift").addEventListener("click", function () {
   document.getElementById("siblingname").focus();
