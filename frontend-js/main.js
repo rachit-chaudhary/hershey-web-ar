@@ -1044,136 +1044,166 @@ async function initRecorder() {
 
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
 
-//   // const url = canvas.toDataURL('video/mp4', 0.8);
-
- 
-
- 
-
-//   var width = window.innerWidth
-
-//   || document.documentElement.clientWidth
-
-//   || document.body.clientWidth;
-
- 
-
-// var height = window.innerHeight
-
-//   || document.documentElement.clientHeight
-
-//   || document.body.clientHeight;
-
- 
-
-// // Get canvas from dom
-
-// document.querySelector("a-scene").setAttribute('screenshot', {
-
-//   width: width,
-
-//   height: height
-
-// })
-
-// const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
-
   let recording = false;
-
-  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
-    quality:10,
-    maxFrameRate:144,
-    audio: false,
-  })
-
-  // When we start recording update text
-
-  recorder.onStart.bind(() => {
-
-    recording = true;
-
-    console.log("start 2")
-
-    // placeButton.innerText = 'TAP TO STOP RECORDING';
-
-  });
-
- 
-
-  // When stop recording update text, and prompt a social share dialog.
-
-  recorder.onComplete.bind(async (result) => {
-
- 
-
-    // placeButton.innerText = 'TAP TO START RECORDING';
-
-    console.log("stop 2")
-
- 
-
-    // result.arrayBuffer
-
-    console.log(result.asDataURL())
-
- 
-
-    ZapparWebGLSnapshot({
-
-      data: await result.asDataURL(),
-
-      fileNamePrepend: 'hersheys_sibling_surprise',
-
-      // data:url,
-
-      onClose: () => {
-
-        console.log('Dialog was closed');
-
-      },
-
-    });
-
- 
-
-    // console.log(recorder._getData())
-
-    recording = false;
-
-  });
-
- 
-
-  // Toggle between recording
-
-  capture.addEventListener('click', async () => {
-
- 
-
+  let recorder;
+  let audioFinalStream;
+  let canvasFinalStream;
+  let dataURL;
+  capture.addEventListener('click', () => {
     if (recording) {
 
-      recorder.stop();
+    stopRecordFunc();
 
-      console.log("stop")
+    console.log("stop")
 
-      // capture.style.display = 'none'
+// capture.style.display = 'none'
 
-      capture.src = "/images/shutter-button-start.png"
+    capture.src = "/images/shutter-button-start.png"
+} else {
+  capture.src = "/images/shutter-button-start.png"
+    getMp3Stream(function (audioStream) {
+        const canvas = document.querySelector('canvas');
+        var canvasStream = canvas.captureStream();
+        canvasFinalStream = canvasStream;
+        var finalStream = new MediaStream();
+        getTracks(audioStream, 'audio').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
+        audioFinalStream = audioStream;
+        getTracks(canvasStream, 'video').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
 
-    } else {
+        recorder = RecordRTC(finalStream, {
+            type: 'video'
+        });
 
-      recorder.start();
+        recorder.startRecording();
+        recording = true;
+        // var stop = false;
+        // (function looper() {
+        //     if (stop) {
+        //         stopRecordFunc();
+        //         return;
+        //     }
+        //     setTimeout(looper, 100);
+        // })();
 
-      capture.src = "/images/shutter-button-stop.png"
+        // var seconds = 30;
+        // var interval = setInterval(function () {
+        //     seconds--;
+        // }, 1000);
 
-      console.log("start")
-
+        // setTimeout(function () {
+        //     clearTimeout(interval);
+        //     stop = true;
+        // }, seconds * 1000);
+    });
+  }
+});
+function stopRecordFunc(){
+  recorder.stopRecording(async function (res) {
+              console.log(res);
+              var blob = await recorder.getBlob();
+              console.log('blob', blob);
+              dataURL = URL.createObjectURL(blob);
+              ZapparSharing({
+              data: dataURL,
+              fileNamePrepend: 'Hersheys WebAR',
+              shareUrl: ' ',
+              shareTitle: 'Hersheys WebAR',
+              shareText: 'Hersheys Experience',
+              onSave: () => {
+                  console.log('Video was saved');
+              },
+              onShare: () => {
+                  console.log('Share button was pressed');
+              },
+              onClose: () => {
+                  console.log('Dialog was closed');
+                  // entity.components.sound.playSound();
+              },
+              }, {
+                  containerDiv: {
+                  position: 'fixed',
+                  width: '100%',
+                  height: '100%',
+                  top: '0px',
+                  left: '0px',
+                  zIndex: 10000,
+                  backgroundColor: 'rgba(0,0,0,1)',
+                  fontFamily: 'sans-serif',
+                  color: 'rgba(255,255,255,1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+              },previewElement: {
+                  height: 'auto',
+                  width: '70%',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  backgroundColor: '#ccc',
+                  boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.5)',
+                  display: 'flex',
+              }, 
+              }, {
+              SAVE: 'SAVE',
+              SHARE: 'SHARE',
+              NowOpenFilesAppToShare: 'Now open files app to share',
+              TapAndHoldToSave: 'Tap and hold the video<br/>to save to your Photos app',
+              });
+              recording = false;
+              audioFinalStream.stop();
+              canvasFinalStream.stop();
+              capture.src = "/images/shutter-button-start.png"
+          });
+}
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
     }
+    return new Blob([u8arr], { type: mime });
+}
+function getMp3Stream(callback) {
+    var file = dataURLtoBlob(blobdataURL);
+    var reader = new FileReader();
+    reader.file = file;
+    reader.onload = (function (e) {
+        // Import callback function
+        // provides PCM audio data decoded as an audio buffer
+        context.decodeAudioData(e.target.result, function (buffer) {
+            createSoundSource(buffer, callback);
+        });
+    });
+    reader.readAsArrayBuffer(reader.file);
+}
 
-  });
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+var gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = 0; // don't play for self
+
+function createSoundSource(buffer, callback) {
+    var soundSource = context.createBufferSource();
+    soundSource.loop = true;
+    soundSource.buffer = buffer;
+    soundSource.start(0, 0 / 1000);
+    soundSource.connect(gainNode);
+    var destination = context.createMediaStreamDestination();
+    soundSource.connect(destination);
+
+    // durtion=second*1000 (milliseconds)
+    callback(destination.stream);
+}
 
 }
 
+//Video Recorder Code New (Urjit)
+
+     
 
 
 
