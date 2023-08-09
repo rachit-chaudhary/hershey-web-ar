@@ -213,7 +213,7 @@
       <h6 class="text-white appropriate">Choose the most appropriates options</h6>
     </div>
     <div class="header-rakhi-image">
-      <img class="rakhi-kiss-image" src="/images/rakhi.png" />
+      <img  class="rakhi-kiss-image" src="/images/rakhi.png" />
     </div>
     <div class="kisses-bg"><img class="image-1-rc" src="/images/image1.png" />
     </div>
@@ -737,9 +737,10 @@
 <!-- ---------------------------------/ -->
   <!-- Some UI for the user to tap to indicate they're happy with the placement -->
   <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
-  <!-- <img src="<%= imageUrl %>" alt="Uploaded Image"> -->
+  <!-- <img  src="<%= imageUrl %>" alt="Uploaded Image"> -->
+  <img id="rakhi" class="rakhi-kiss-image" src="/images/rakhi.png" />
 
-  <a-scene id="scenediv" swap-texture renderer="antialias: true;
+  <a-scene  loading-screen="enabled:false" id="scenediv" swap-texture renderer="antialias: true;
   colorManagement: true;
   sortObjects: true;
   physicallyCorrectLights: true;
@@ -749,7 +750,7 @@
 
   </canvas> -->
     <a-assets>
-
+    
       <a-asset-item id="kissesmodel" src="/models/kisses .glb"></a-asset-item>
       <a-asset-item id="barmodel" src="/models/bars final.glb"></a-asset-item>
       <a-asset-item id="exoticmodel" src="/models/exotic darkv13.glb"></a-asset-item>
@@ -762,7 +763,6 @@
     <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
     fuse: false;
     rayOrigin: mouse;" zappar-camera />
-
     <!-- Setup our instant tracker and start it in placement mode so the user can -->
     <!-- choose a location for the object -->
     <a-entity zappar-instant="placement-mode: true" id="instant-tracker">
