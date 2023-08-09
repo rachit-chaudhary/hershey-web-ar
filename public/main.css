@@ -2632,14 +2632,40 @@ a.expansion-btn {
   top: 0px;
   left: 0px;
   z-index: 10000;
-  background-color: rgb(255, 255, 255);
+  background-color: #3F000B;
   font-family: sans-serif;
   color: rgb(255, 255, 255);
   display: none;
   flex-direction: column;
   justify-content: center;
 }
-
+#closebtn{
+  position: absolute;
+  top:2vh;
+  left:5vw;
+}
+#savebtn{
+  display: block;
+  position:absolute;
+  bottom: 5vh;
+  height: 9.6vw;
+  width: 20vw;
+  left:40vw;
+  background-image: url(images/record-video-save.png);
+  background-position: center;
+  background-size: contain;
+}
+#sharebtn{
+  display: block;
+  position:absolute;
+  bottom: 5vh;
+  height: 9.6vw;
+  width: 20vw;
+  right:10vw;
+  background-image: url(images/record-video-share.png);
+  background-position: center;
+  background-size: contain;
+}
 #rakhi{
   display: none;
   position: absolute;
