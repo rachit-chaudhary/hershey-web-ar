@@ -245,36 +245,36 @@ send.onclick = function () {
   const shareData = {
 
     url: `https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
-  
+
   }
-  
+
   if (navigator.share) {
-  
+
     // only appears on mobile
-  
+
     navigator.share(shareData)
-  
+
     // message.textContent = `Custom link for ${currentText} created!`
-  
+
   } else {
-  
+
     // only appears on Desktop + VR
-  
+
     // message.textContent = `Custom link for ${currentText} copied!`
-  
+
   }
-  
+
   share.classList.add('pulse-once')
-  
+
   setTimeout(() => {
-  
+
     share.classList.remove('pulse-once')
-  
-  
-  
+
+
+
   }, 200)
 
-  
+
 
 }
 
@@ -1045,45 +1045,45 @@ async function initRecorder() {
 
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
 
-//   // const url = canvas.toDataURL('video/mp4', 0.8);
+  //   // const url = canvas.toDataURL('video/mp4', 0.8);
 
- 
 
- 
 
-//   var width = window.innerWidth
 
-//   || document.documentElement.clientWidth
 
-//   || document.body.clientWidth;
+  //   var width = window.innerWidth
 
- 
+  //   || document.documentElement.clientWidth
 
-// var height = window.innerHeight
+  //   || document.body.clientWidth;
 
-//   || document.documentElement.clientHeight
 
-//   || document.body.clientHeight;
 
- 
+  // var height = window.innerHeight
 
-// // Get canvas from dom
+  //   || document.documentElement.clientHeight
 
-// document.querySelector("a-scene").setAttribute('screenshot', {
+  //   || document.body.clientHeight;
 
-//   width: width,
 
-//   height: height
 
-// })
+  // // Get canvas from dom
 
-// const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
+  // document.querySelector("a-scene").setAttribute('screenshot', {
+
+  //   width: width,
+
+  //   height: height
+
+  // })
+
+  // const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
   let recording = false;
 
   const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
-    quality:10,
-    maxFrameRate:144,
+    quality: 10,
+    maxFrameRate: 144,
     audio: false,
   })
 
@@ -1099,25 +1099,25 @@ async function initRecorder() {
 
   });
 
- 
+
 
   // When stop recording update text, and prompt a social share dialog.
 
   recorder.onComplete.bind(async (result) => {
 
- 
+
 
     // placeButton.innerText = 'TAP TO START RECORDING';
 
     console.log("stop 2")
 
- 
+
 
     // result.arrayBuffer
 
     console.log(result.asDataURL())
 
- 
+
 
     ZapparWebGLSnapshot({
 
@@ -1135,7 +1135,7 @@ async function initRecorder() {
 
     });
 
- 
+
 
     // console.log(recorder._getData())
 
@@ -1143,13 +1143,13 @@ async function initRecorder() {
 
   });
 
- 
+
 
   // Toggle between recording
 
   capture.addEventListener('click', async () => {
 
- 
+
 
     if (recording) {
 
@@ -1340,307 +1340,348 @@ AFRAME.registerComponent("swap-texture", {
       const formData = new FormData();
       formData.append("image", imageFile);
 
-  return new Promise((resolve, reject) => {
-    fetch("/questions", {
-      method: "POST",
-      body: formData,
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Handle the response data from the server
-        const imageUrl = data.imageUrl;
-        resolve(imageUrl);
-      })
-      .catch(error => {
-        reject(error);
+      return new Promise((resolve, reject) => {
+        fetch("/questions", {
+          method: "POST",
+          body: formData,
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Handle the response data from the server
+            const imageUrl = data.imageUrl;
+            resolve(imageUrl);
+          })
+          .catch(error => {
+            reject(error);
+          });
       });
-  });
-}
-// Function to render the result after a delay
-function renderResult(imageUrl) {
-  // Replace this with your rendering logic
-  console.log("Rendering the result with imageUrl:", imageUrl);
-}
-function getimageuploaded()
-{
-  // Get uploaded image from server
-console.log("clicked different btn")
-const fileInput = document.getElementById("uploadbtn");
-const imageFile =   fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-console.log("clicked different btn1")
-uploadImage(imageFile)
-  .then(imageUrl => {
-    console.log("clicked different btn2")
-    console.log("Uploaded Image URL:", imageUrl);
-    dataURL=imageUrl
-    console.log("dataurl "+dataURL)
-    // texturechange()
-    // Delay rendering the result after 2 seconds (2000 milliseconds)
-    setTimeout(() => {
-      renderResult(imageUrl);
-      console.log("clicked different btn3")
-    }, 2000);
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
-}
+    }
+    // Function to render the result after a delay
+    function renderResult(imageUrl) {
+      // Replace this with your rendering logic
+      console.log("Rendering the result with imageUrl:", imageUrl);
+    }
+    function getimageuploaded() {
+      // Get uploaded image from server
+      console.log("clicked different btn")
+      const fileInput = document.getElementById("uploadbtn");
+      const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+      console.log("clicked different btn1")
+      uploadImage(imageFile)
+        .then(imageUrl => {
+          console.log("clicked different btn2")
+          console.log("Uploaded Image URL:", imageUrl);
+          dataURL = imageUrl
+          console.log("dataurl " + dataURL)
+          // texturechange()
+          // Delay rendering the result after 2 seconds (2000 milliseconds)
+          setTimeout(() => {
+            renderResult(imageUrl);
+            console.log("clicked different btn3")
+          }, 2000);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    }
 
-// ------------------------------
-// Click event for nextquestionid
+    // ------------------------------
+    // Click event for nextquestionid
 
-nextQuestionid.onclick = () => {
+    nextQuestionid.onclick = () => {
 
-  if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {
-    thirdscreen.style.display = "none"
+      if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {
+        thirdscreen.style.display = "none"
 
-      barsLoadingMedia.style.display = "none"
-      loadingscreen.style.display = "block"
-      kissesloadingvid.style.display = "block"
-      kissesloadingvid.play();
+        barsLoadingMedia.style.display = "none"
+        loadingscreen.style.display = "block"
+        kissesloadingvid.style.display = "block"
+        kissesloadingvid.play();
 
 
-      if (modelloaded === 1) {
-        setTimeout(() => {
-          loadingscreen.style.display = "none"
-          scene.style.zIndex = 0
-          permissions.setAttribute("zappar-permissions-ui", "")
-          taptoplace.style.display = "block"
-        }, 6000);
+        if (modelloaded === 1) {
+          setTimeout(() => {
+            loadingscreen.style.display = "none"
+            scene.style.zIndex = 0
+            permissions.setAttribute("zappar-permissions-ui", "")
+            taptoplace.style.display = "block"
+          }, 6000);
+        }
+
+
+        hereGoesID.innerHTML = `${name}`
+
+        msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+  This is my way of expressing what you mean to me. And for moments
+  <span>when words fall short,</span>`
+        console.log(msg)
+        completenote.innerHTML = msg
+        document.querySelector(".message-wrapper").classList.remove("bar-message")
+        document.querySelector(".message-wrapper").classList.remove("hed-message")
+        document.querySelector(".message-wrapper").classList.add("kisses-message")
+
+        document.querySelector(".message-header h3").classList.remove("hed-note-text")
+        document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
+        document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
+        document.getElementById("completenote").classList.remove("hed-note-text")
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.add("justify-content-center")
+        dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
+
+        // Ar scene 
+
+        // scene.style.zIndex = 0
+        console.log(uimoduleobj.packtype)
+        console.log("next")
+
+        getimageuploaded()
+      } else {
+        // alert("Please select an option for each question.");
+        questionAlert.classList.remove("invisible")
+        questionAlert.classList.add("visible")
+
       }
 
 
-      hereGoesID.innerHTML = `${name}`
-
-      msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-  This is my way of expressing what you mean to me. And for moments
-  <span>when words fall short,</span>`
-      console.log(msg)
-      completenote.innerHTML = msg
-    document.querySelector(".message-wrapper").classList.remove("bar-message")
-    document.querySelector(".message-wrapper").classList.remove("hed-message")
-    document.querySelector(".message-wrapper").classList.add("kisses-message")
-
-    document.querySelector(".message-header h3").classList.remove("hed-note-text")
-    document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
-    document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
-    document.getElementById("completenote").classList.remove("hed-note-text")
-    let dynamicImg = document.getElementById("dynamicImg")
-    dynamicImg.classList.add("justify-content-center")
-    dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
-
-      // Ar scene 
-
-      // scene.style.zIndex = 0
-      console.log(uimoduleobj.packtype)
-      console.log("next")
-
-  getimageuploaded()
-  } else {
-    // alert("Please select an option for each question.");
-    questionAlert.classList.remove("invisible")
-    questionAlert.classList.add("visible")
-
-  }
-  
- 
 
     }
 
-//nextquestionid1 for bar
-nextQuestionid1.onclick = () => {
-  if(document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
-    thirdscreenbar.style.display = "none"
-    //show bars loading screen @kartik 
-  
-    loadingHeader.src="/images/hersheyslogo.png"
-    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-    kissesloadingvid.style.display = "none"
-    barsLoadingMedia.style.display = "block"
-    loadingscreen.style.display="block"
-    
-  
-  
-    // also add if model loaded then show tap to place @kartik
-    if(modelloaded===1){
-    setTimeout(() => {
-      // Ar scene 
-      loadingscreen.style.display="none"
-      permissions.setAttribute("zappar-permissions-ui", "")
-      scene.style.zIndex = 0
-      console.log(uimoduleobj.packtype)
-      console.log("next")
-      taptoplace.style.display = "block"
-    }, 6000)
-   }   
-  
-   hereGoesID.innerHTML = `${name}`
-    //messagenote for bar comes here
-    msg = `Our bond can be described as ${option1} and that makes it special.<br>
+    //nextquestionid1 for bar
+    nextQuestionid1.onclick = () => {
+      if (document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
+        thirdscreenbar.style.display = "none"
+        //show bars loading screen @kartik 
+
+        loadingHeader.src = "/images/hersheyslogo.png"
+        loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+        loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+        kissesloadingvid.style.display = "none"
+        barsLoadingMedia.style.display = "block"
+        loadingscreen.style.display = "block"
+
+
+
+        // also add if model loaded then show tap to place @kartik
+        if (modelloaded === 1) {
+          setTimeout(() => {
+            // Ar scene 
+            loadingscreen.style.display = "none"
+            permissions.setAttribute("zappar-permissions-ui", "")
+            scene.style.zIndex = 0
+            console.log(uimoduleobj.packtype)
+            console.log("next")
+            taptoplace.style.display = "block"
+          }, 6000)
+        }
+
+        hereGoesID.innerHTML = `${name}`
+        //messagenote for bar comes here
+        msg = `Our bond can be described as ${option1} and that makes it special.<br>
     ${option2}.<br>
     Whenever we’re together, I love how we bond over ${option3}, and make every moment special.<br>
     This is my way of expressing what you mean to me, because stories with my cool sibling are #MeantToBeShared!`
 
-    console.log(msg)
-   completenote.innerHTML = msg
+        console.log(msg)
+        completenote.innerHTML = msg
 
-    document.querySelector(".message-wrapper").classList.add("bar-message")
-    document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
-    `<div class="bars-note-png"></div>`)
-    document.querySelector(".message-header h3").classList.add("bars-note-text")
-    document.getElementById("msgclosebtn").classList.add("bars-close-btn")
-    document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
-    document.getElementById("completenote").classList.add("bars-note-text")
-    document.querySelector(".dynamic-note").style.height = "320px"
-    document.querySelector(".close-icon").style.zIndex = "99"
-    let dynamicImg = document.getElementById("dynamicImg")
-    dynamicImg.classList.remove("dynamic-img")
-    dynamicImg.classList.remove("justify-content-center")
-    dynamicImg.classList.add("container-fluid")
-    dynamicImg.classList.add("bars-dynamic-img")
-    dynamicImg.children[0].style.width = "100%"
-    dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
-    dynamicImg.children[0].style.borderBottomRightRadius = "10px"
-    dynamicImg.children[0].src = "/images/bars-bottom-img.png"
-  
-    getimageuploaded()
-  } else {
-    questionAlertbar.classList.remove("invisible")
-    questionAlertbar.classList.add("visible")
-  }
+        document.querySelector(".message-wrapper").classList.add("bar-message")
+        document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
+          `<div class="bars-note-png"></div>`)
+        document.querySelector(".message-header h3").classList.add("bars-note-text")
+        document.getElementById("msgclosebtn").classList.add("bars-close-btn")
+        document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
+        document.getElementById("completenote").classList.add("bars-note-text")
+        document.querySelector(".dynamic-note").style.height = "320px"
+        document.querySelector(".close-icon").style.zIndex = "99"
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.remove("dynamic-img")
+        dynamicImg.classList.remove("justify-content-center")
+        dynamicImg.classList.add("container-fluid")
+        dynamicImg.classList.add("bars-dynamic-img")
+        dynamicImg.children[0].style.width = "100%"
+        dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
+        dynamicImg.children[0].style.borderBottomRightRadius = "10px"
+        dynamicImg.children[0].src = "/images/bars-bottom-img.png"
 
-//   thirdscreenbar.style.display = "none"
-//   //show bars loading screen @kartik 
+        getimageuploaded()
+      } else {
+        questionAlertbar.classList.remove("invisible")
+        questionAlertbar.classList.add("visible")
+      }
 
-//   loadingHeader.src="/images/hersheyslogo.png"
-//   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-//   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-//   kissesloadingvid.style.display = "none"
-//   barsLoadingMedia.style.display = "block"
-//   loadingscreen.style.display="block"
-  
+      //   thirdscreenbar.style.display = "none"
+      //   //show bars loading screen @kartik 
+
+      //   loadingHeader.src="/images/hersheyslogo.png"
+      //   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+      //   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+      //   kissesloadingvid.style.display = "none"
+      //   barsLoadingMedia.style.display = "block"
+      //   loadingscreen.style.display="block"
 
 
-//   // also add if model loaded then show tap to place @kartik
-//   if(modelloaded===1){
-//   setTimeout(() => {
-//     // Ar scene 
-//     loadingscreen.style.display="none"
-//     permissions.setAttribute("zappar-permissions-ui", "")
-//     scene.style.zIndex = 0
-//     console.log(uimoduleobj.packtype)
-//     console.log("next")
-//     taptoplace.style.display = "block"
-//   }, 6000)
-//  }   
 
-//  hereGoesID.innerHTML = `${name}`
-//   //messagenote for bar comes here
-//  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-//  This is my way of expressing what you mean to me. And for moments
-//  <span>when words fall short,</span>`
-//  console.log(msg)
-//  completenote.innerHTML = msg
+      //   // also add if model loaded then show tap to place @kartik
+      //   if(modelloaded===1){
+      //   setTimeout(() => {
+      //     // Ar scene 
+      //     loadingscreen.style.display="none"
+      //     permissions.setAttribute("zappar-permissions-ui", "")
+      //     scene.style.zIndex = 0
+      //     console.log(uimoduleobj.packtype)
+      //     console.log("next")
+      //     taptoplace.style.display = "block"
+      //   }, 6000)
+      //  }   
 
-//   getimageuploaded()
-}
+      //  hereGoesID.innerHTML = `${name}`
+      //   //messagenote for bar comes here
+      //  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+      //  This is my way of expressing what you mean to me. And for moments
+      //  <span>when words fall short,</span>`
+      //  console.log(msg)
+      //  completenote.innerHTML = msg
 
-// Click event for nextquestionid2 for exotic
-nextQuestionid2.onclick = () => {
-  if(document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
-
-    thirdscreenexotic.style.display = "none"
-    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-    loadingHeader.src = "/images/hed-logo.png"
-    barsLoadingMedia.style.display = "none"
-    loadingscreen.style.display = "block"
-    exoticloadingvid.style.display = "block"
-    exoticloadingvid.play();
-  
-  
-    if(modelloaded===1){
-      setTimeout(() => {
-        loadingscreen.style.display="none"
-        scene.style.zIndex = 0
-        permissions.setAttribute("zappar-permissions-ui", "")
-        taptoplace.style.display = "block"
-      }, 6000);
+      //   getimageuploaded()
     }
-   
-   
-    hereGoesID.innerHTML = `${name}`
-    
-    msg = `We will forever be ${option1} for years to come. 
+
+    // Click event for nextquestionid2 for exotic
+    nextQuestionid2.onclick = () => {
+      if (document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
+
+        thirdscreenexotic.style.display = "none"
+        loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+        loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+        loadingHeader.src = "/images/hed-logo.png"
+        barsLoadingMedia.style.display = "none"
+        loadingscreen.style.display = "block"
+        exoticloadingvid.style.display = "block"
+        exoticloadingvid.play();
+
+
+        if (modelloaded === 1) {
+          setTimeout(() => {
+            loadingscreen.style.display = "none"
+            scene.style.zIndex = 0
+            permissions.setAttribute("zappar-permissions-ui", "")
+            taptoplace.style.display = "block"
+          }, 6000);
+        }
+
+
+        hereGoesID.innerHTML = `${name}`
+
+        msg = `We will forever be ${option1} for years to come. 
 
   Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
   
   Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
-    console.log(msg)
-    completenote.innerHTML = msg
+        console.log(msg)
+        completenote.innerHTML = msg
 
-    document.querySelector(".message-wrapper").classList.add("hed-message")
-    document.querySelector(".message-header h3").classList.add("hed-note-text")
-    document.getElementById("msgclosebtn").classList.add("hed-close-btn")
-    document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
-    document.getElementById("completenote").classList.add("hed-note-text")
-    let dynamicImg = document.getElementById("dynamicImg")
-    dynamicImg.classList.add("justify-content-start")
-    dynamicImg.children[0].src = "/images/hed-bottom-img.png"
-  
-    // Ar scene 
-  
-    // scene.style.zIndex = 0
-    console.log(uimoduleobj.packtype)
-    console.log("next")
-  
-    getimageuploaded()
-  
+        document.querySelector(".message-wrapper").classList.add("hed-message")
+        document.querySelector(".message-header h3").classList.add("hed-note-text")
+        document.getElementById("msgclosebtn").classList.add("hed-close-btn")
+        document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
+        document.getElementById("completenote").classList.add("hed-note-text")
+        let dynamicImg = document.getElementById("dynamicImg")
+        dynamicImg.classList.add("justify-content-start")
+        dynamicImg.children[0].src = "/images/hed-bottom-img.png"
 
-  }else{
-    questionAlertexotic.classList.remove("invisible")
-    questionAlertexotic.classList.add("visible")
-  }
+        // Ar scene 
 
-  
-}
-// Optionally, you can also keep the form submission logic for the original submit button
-document.getElementById("formId").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent the default form submission behavior
-  // Perform any form-specific handling here
-});
+        // scene.style.zIndex = 0
+        console.log(uimoduleobj.packtype)
+        console.log("next")
+
+        getimageuploaded()
+
+
+      } else {
+        questionAlertexotic.classList.remove("invisible")
+        questionAlertexotic.classList.add("visible")
+      }
+
+
+    }
+    // Optionally, you can also keep the form submission logic for the original submit button
+    document.getElementById("formId").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      // Perform any form-specific handling here
+    });
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       let modelmesh
-      if ((typeofpack === 'kisses')||(pNametype==='1')) {
+      if ((typeofpack === 'kisses') || (pNametype === '1')) {
         console.log("kisses")
-        modelmesh = modelname.getObject3D('mesh').children[4].children[5]
+        modelmesh = modelname.getObject3D('mesh').children[4].children[3]
         console.log(modelname.getObject3D('mesh'))
-        console.log(modelname.getObject3D('mesh').children[4].children[5])
-      } else if ((typeofpack === 'chocolatebar')||(pNametype==='2')) {
+        console.log(modelname.getObject3D('mesh').children[4].children[3])
+      } else if ((typeofpack === 'chocolatebar') || (pNametype === '2')) {
         console.log("bar")
         modelmesh = modelname.getObject3D('mesh').children[2].children[2]
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[2].children[2])
-      } else if ((typeofpack === 'exotic')||(pNametype==='3')) {
+      } else if ((typeofpack === 'exotic') || (pNametype === '3')) {
         console.log("exotic")
         modelmesh = modelname.getObject3D('mesh').children[1].children[5]
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[1].children[5])
       }
+      const rakhiImage = document.getElementById('rakhi');
+
+      // Replace 'originalDataURL' with the actual Data URL of the original image
+      const originalDataURL = dataURL;
+
+      // Create a new Image object
+      const image = new Image();
+
+      // Set the new image's src to the original Data URL
+      image.src = originalDataURL;
+
+      image.onload = function () {
+        // Create a canvas element with the desired cropped dimensions
+        const croppedCanvas = document.createElement('canvas');
+        const cropWidth = 600; // Set to your desired cropped width
+        const cropHeight = 600; // Set to your desired cropped height
+
+        const centerX = image.width / 2;
+        const centerY = image.height / 2;
+        const cropX = centerX - cropWidth / 2;
+        const cropY = centerY - cropHeight / 2;
+
+        croppedCanvas.width = cropWidth;
+        croppedCanvas.height = cropHeight;
+
+        // Get the 2D context of the canvas
+        const ctx = croppedCanvas.getContext('2d');
+
+        // Crop the image (adjust the crop coordinates as needed)
+        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+        // Get the cropped Data URL from the canvas
+        const croppedDataURL = croppedCanvas.toDataURL();
+
+        // Set the src attribute of the image tag to the cropped Data URL
+        rakhiImage.src = croppedDataURL;
+        console.log("www" + dataURL)
+        modelmesh.material.map = loader.load(rakhiImage.src)
+        console.log(dataURL)
+        // set flipY to false to correclty rotate texture
+        modelmesh.material.map.flipY = false
+      };
 
 
-      console.log("www" + dataURL)
-      modelmesh.material.map = loader.load(dataURL)
-      console.log(dataURL)
-      // set flipY to false to correclty rotate texture
-      modelmesh.material.map.flipY = false
+
+      // console.log("www" + dataURL)
+      // modelmesh.material.map = loader.load(dataURL)
+      // console.log(dataURL)
+      // // set flipY to false to correclty rotate texture
+      // modelmesh.material.map.flipY = false
 
 
     }
@@ -1769,7 +1810,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
 
         document.querySelector(".message-wrapper").classList.add("bar-message")
         document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
-        `<div class="bars-note-png"></div>`)
+          `<div class="bars-note-png"></div>`)
         document.querySelector(".message-header h3").classList.add("bars-note-text")
         document.getElementById("msgclosebtn").classList.add("bars-close-btn")
         document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
@@ -1801,8 +1842,8 @@ document.getElementById("formId").addEventListener("submit", function (event) {
         }
         //option2
         if (op2 === 1) {
-          option2 = 
-          "Wine & Chocolates at Home"
+          option2 =
+            "Wine & Chocolates at Home"
 
         }
         else if (op2 === 2) {
@@ -1829,7 +1870,7 @@ document.getElementById("formId").addEventListener("submit", function (event) {
            Thank you for being the best Sibling! You know I am in awe of you <span>😊</span>`
         console.log(msg)
         completenote.innerHTML = msg
-        
+
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
         document.querySelector(".message-wrapper").classList.add("hed-message")
