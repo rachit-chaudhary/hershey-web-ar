@@ -1018,135 +1018,254 @@ async function initRecorder() {
 
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
 
-  //   // const url = canvas.toDataURL('video/mp4', 0.8);
-
-
-
-
-
-  //   var width = window.innerWidth
-
-  //   || document.documentElement.clientWidth
-
-  //   || document.body.clientWidth;
-
-
-
-  // var height = window.innerHeight
-
-  //   || document.documentElement.clientHeight
-
-  //   || document.body.clientHeight;
-
-
-
-  // // Get canvas from dom
-
-  // document.querySelector("a-scene").setAttribute('screenshot', {
-
-  //   width: width,
-
-  //   height: height
-
-  // })
-
-  // const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
   let recording = false;
+  let recorder;
+  let audioFinalStream;
+  let canvasFinalStream;
+  let dataURL;
+  let chunks = [];
+  let duration = 0;
+  const mimeTypes = [
+    'video/webm',
+    'video/mp4',
+    'video/ogg',
+    'audio/webm',
+    'audio/wav',
+    'audio/mpeg'
+  ];
 
-  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
-    quality: 10,
-    maxFrameRate: 144,
-    audio: false,
-  })
-
-  // When we start recording update text
-
-  recorder.onStart.bind(() => {
-
-    recording = true;
-
-    console.log("start 2")
-
-    // placeButton.innerText = 'TAP TO STOP RECORDING';
-
-  });
-
-
-
-  // When stop recording update text, and prompt a social share dialog.
-
-  recorder.onComplete.bind(async (result) => {
-
-
-
-    // placeButton.innerText = 'TAP TO START RECORDING';
-
-    console.log("stop 2")
-
-
-
-    // result.arrayBuffer
-
-    console.log(result.asDataURL())
-
-
-
-    ZapparWebGLSnapshot({
-
-      data: await result.asDataURL(),
-
-      fileNamePrepend: 'hersheys_sibling_surprise',
-
-      // data:url,
-
-      onClose: () => {
-
-        console.log('Dialog was closed');
-
-      },
-
-    });
-
-
-
-    // console.log(recorder._getData())
-
-    recording = false;
-
-  });
-
-
-
-  // Toggle between recording
-
-  capture.addEventListener('click', async () => {
-
-
-
+  let mimeTypeSelected;
+  capture.addEventListener('click', () => {
     if (recording) {
 
-      recorder.stop();
+    stopRecordFunc();
 
-      console.log("stop")
+    console.log("stop")
 
-      // capture.style.display = 'none'
+// capture.style.display = 'none'
 
-      capture.src = "/images/shutter-button-start.png"
+    capture.src = "/images/shutter-button-start.png"
+} else {
+  capture.src = "/images/shutter-button-start.png"
+    getMp3Stream(function (audioStream) {
+        const canvas = document.querySelector('canvas');
+        var canvasStream = canvas.captureStream();
+        canvasFinalStream = canvasStream;
+        var finalStream = new MediaStream();
+        getTracks(audioStream, 'audio').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
+        audioFinalStream = audioStream;
+        getTracks(canvasStream, 'video').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
+        mimeTypes.forEach(mimeType => {
+          if (MediaRecorder.isTypeSupported(mimeType)) {
+            console.log(`${mimeType} is supported`);
+            if (mimeTypeSelected == null) {
+              mimeTypeSelected = mimeType
+            }
+          } else {
+            console.log(`${mimeType} is not supported`);
+          }
+      });
 
-    } else {
+      if (mimeTypeSelected == 'video/webm') {
+          mimeTypeSelected = 'video/webm; codecs=vp9'
+          const options = {
+              audioBitsPerSecond: 128000,
+              videoBitsPerSecond: 2500000,
+              mimeType: mimeTypeSelected,
+          };
+          recorder = new MediaRecorder(finalStream, options); 
+      } else {
+      // Do something if the device is not running on Android
+          recorder = new MediaRecorder(finalStream); 
+      }
 
-      recorder.start();
+      
 
-      capture.src = "/images/shutter-button-stop.png"
+      recorder.ondataavailable = (e) => {
+          chunks.push(e.data);
+      };
 
-      console.log("start")
+      recorder.onstop = (e) => {
+        duration = Date.now(); - startTime;
+      };
 
+      recorder.start(1000);
+      const startTime = Date.now();
+
+      
+        // recorder = RecordRTC(finalStream, {
+        //     type: 'video'
+        // });
+
+        // recorder.startRecording();
+        recording = true;
+    });
+  }
+});
+
+function stopRecordFunc(){
+              let blob = new Blob(chunks, { type: `${mimeTypeSelected}` });
+              console.log('blob', blob);
+              console.log('chunks', chunks);
+              dataURL = URL.createObjectURL(blob);
+              var video = document.createElement('video');
+              video.src = dataURL;
+              video.setAttribute('style', 'height: 100%; position: absolute; top:0;');
+              var body = document.getElementById("preview-Container")
+              body.innerHTML = '';
+              body.appendChild(video);
+              video.controls = true;
+              // document.getElementById("splashimage").style.display="block"
+              document.getElementById("preview-Container").style.display='flex'
+              // document.getElementById('share-vid').setAttribute('src', dataURL);
+              // ZapparSharing({
+              // data: dataURL,
+              // type: video,
+              // fileNamePrepend: 'Hersheys WebAR',
+              // shareUrl: ' ',
+              // shareTitle: 'Hersheys WebAR',
+              // shareText: 'Hersheys Experience',
+              // onSave: () => {
+              //     console.log('Video was saved');
+              // },
+              // onShare: () => {
+              //     console.log('Share button was pressed');
+              // },
+              // onClose: () => {
+              //     console.log('Dialog was closed');
+              //     // entity.components.sound.playSound();
+              // },
+              // }, {
+              //     containerDiv: {
+              //     position: 'fixed',
+              //     width: '100%',
+              //     height: '100%',
+              //     top: '0px',
+              //     left: '0px',
+              //     zIndex: 10000,
+              //     backgroundColor: 'rgba(0,0,0,1)',
+              //     fontFamily: 'sans-serif',
+              //     color: 'rgba(255,255,255,1)',
+              //     display: 'flex',
+              //     flexDirection: 'column',
+              //     justifyContent: 'center',
+              // },previewElement: {
+              //     height: 'auto',
+              //     width: '70%',
+              //     marginLeft: 'auto',
+              //     marginRight: 'auto',
+              //     backgroundColor: '#ccc',
+              //     boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.5)',
+              //     display: 'flex',
+              // }, 
+              // }, {
+              // SAVE: 'SAVE',
+              // SHARE: 'SHARE',
+              // NowOpenFilesAppToShare: 'Now open files app to share',
+              // TapAndHoldToSave: 'Tap and hold the video<br/>to save to your Photos app',
+              // });
+              recording = false;
+              audioFinalStream.stop();
+              canvasFinalStream.stop();
+              capture.src = "/images/shutter-button-start.png"
+}
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
     }
+    return new Blob([u8arr], { type: mime });
+}
+function getMp3Stream(callback) {
+    var file = dataURLtoBlob(blobdataURL);
+    var reader = new FileReader();
+    reader.file = file;
+    reader.onload = (function (e) {
+        // Import callback function
+        // provides PCM audio data decoded as an audio buffer
+        context.decodeAudioData(e.target.result, function (buffer) {
+            createSoundSource(buffer, callback);
+        });
+    });
+    reader.readAsArrayBuffer(reader.file);
+}
 
-  });
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+var gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = 0; // don't play for self
+
+function createSoundSource(buffer, callback) {
+    var soundSource = context.createBufferSource();
+    soundSource.loop = true;
+    soundSource.buffer = buffer;
+    soundSource.start(0, 0 / 1000);
+    soundSource.connect(gainNode);
+    var destination = context.createMediaStreamDestination();
+    soundSource.connect(destination);
+
+    // durtion=second*1000 (milliseconds)
+    callback(destination.stream);
+}
 
 }
+
+
+//Video Recorder Code New (Urjit)
+
+// placeButton.addEventListener('click', () => {
+//   if (hasPlaced) {
+//     hasPlaced = false;
+//     placeButton.innerText = 'Tap to place';
+//     hologram.pauseHologram();
+//     hologram.mute();
+//     hotspot.material.opacity = 1;
+//     return;
+//   }
+//   hasPlaced = true;
+//   placeButton.innerText = 'Tap to pick up';
+//   hologram.playHologram();
+//   hologram.unmute();
+//   hotspot.material.opacity = 0;
+// });
+
+// function render() {
+//   // update();
+//   camera.updateFrame(renderer);
+//   if (!hasPlaced) {
+//     // If the user hasn't chosen a place in their room yet, update the instant tracker
+//     // to be directly in front of the user
+//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
+//   }
+//   renderer.render(scene, camera);
+//   // const clock = new THREE.Clock();
+//   const detla = clock.getDelta();
+//   mixer.update(detla)
+
+
+//   // The Zappar camera must have updateFrame called every frame
+
+//   // placeButton.onclick=()=>{
+//   //   //Zappar permission ui after tap click
+
+//   // }
+//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
+
+
+//   // Call render() again next frame
+//   requestAnimationFrame(render);
+//   // controls.update();
+// }
+
+// // Start things off
+// render();
 
 AFRAME.registerComponent("swap-texture", {
   init() {
