@@ -1524,47 +1524,40 @@ AFRAME.registerComponent("swap-texture", {
 
       // Replace 'originalDataURL' with the actual Data URL of the original image
       const originalDataURL = dataURL;
-      
+
       // Create a new Image object
       const image = new Image();
-      
+
       // Set the new image's src to the original Data URL
       image.src = originalDataURL;
-      
+
       image.onload = function () {
-        // Create a canvas element with the desired dimensions
-        const resizedCanvas = document.createElement('canvas');
-        const maxWidth = 1024; // Set to your desired maximum width
-        const maxHeight = 1024; // Set to your desired maximum height
-      
-        // Calculate the new dimensions while maintaining aspect ratio
-        let newWidth = image.width;
-        let newHeight = image.height;
-      
-        if (newWidth > maxWidth) {
-          newWidth = maxWidth;
-          newHeight = (newWidth / image.width) * image.height;
-        }
-      
-        if (newHeight > maxHeight) {
-          newHeight = maxHeight;
-          newWidth = (newHeight / image.height) * image.width;
-        }
-      
-        resizedCanvas.width = newWidth;
-        resizedCanvas.height = newHeight;
-      
+        // Create a canvas element with the desired cropped dimensions
+        const croppedCanvas = document.createElement('canvas');
+        const cropWidth = 1024; // Set to your desired cropped width
+        const cropHeight = 1024; // Set to your desired cropped height
+
+        const centerX = image.width / 2;
+        const centerY = image.height / 2;
+        const cropX = centerX - cropWidth / 2;
+        const cropY = centerY - cropHeight / 2;
+
+        croppedCanvas.width = cropWidth;
+        croppedCanvas.height = cropHeight;
+
         // Get the 2D context of the canvas
-        const ctx = resizedCanvas.getContext('2d');
-      
-        // Resize the image to fit within the new dimensions
-        ctx.drawImage(image, 0, 0, newWidth, newHeight);
-      
-        // Get the resized Data URL from the canvas
-        const resizedDataURL = resizedCanvas.toDataURL();
-      
+        const ctx = croppedCanvas.getContext('2d');
+
+        // Crop the image (adjust the crop coordinates as needed)
+        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+        // Get the cropped Data URL from the canvas
+        const croppedDataURL = croppedCanvas.toDataURL();
+
+     // Set the src attribute of the image tag to the cropped Data URL
+        rakhiImage.src = croppedDataURL;
+
         // Set the src attribute of the image tag to the resized Data URL
-        rakhiImage.src = resizedDataURL;
+       
         console.log("www" + dataURL)
         modelmesh.material.map = loader.load(rakhiImage.src)
         console.log(dataURL)
