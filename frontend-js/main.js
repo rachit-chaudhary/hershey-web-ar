@@ -1049,6 +1049,18 @@ async function initRecorder() {
   let audioFinalStream;
   let canvasFinalStream;
   let dataURL;
+  let chunks = [];
+  let duration = 0;
+  const mimeTypes = [
+    'video/webm',
+    'video/mp4',
+    'video/ogg',
+    'audio/webm',
+    'audio/wav',
+    'audio/mpeg'
+  ];
+
+  let mimeTypeSelected;
   capture.addEventListener('click', () => {
     if (recording) {
 
@@ -1073,90 +1085,119 @@ async function initRecorder() {
         getTracks(canvasStream, 'video').forEach(function (track) {
             finalStream.addTrack(track);
         });
+        mimeTypes.forEach(mimeType => {
+          if (MediaRecorder.isTypeSupported(mimeType)) {
+            console.log(`${mimeType} is supported`);
+            if (mimeTypeSelected == null) {
+              mimeTypeSelected = mimeType
+            }
+          } else {
+            console.log(`${mimeType} is not supported`);
+          }
+      });
 
-        recorder = RecordRTC(finalStream, {
-            type: 'video'
-        });
+      if (mimeTypeSelected == 'video/webm') {
+          mimeTypeSelected = 'video/webm; codecs=vp9'
+          const options = {
+              audioBitsPerSecond: 128000,
+              videoBitsPerSecond: 2500000,
+              mimeType: mimeTypeSelected,
+          };
+          recorder = new MediaRecorder(finalStream, options); 
+      } else {
+      // Do something if the device is not running on Android
+          recorder = new MediaRecorder(finalStream); 
+      }
 
-        recorder.startRecording();
+      
+
+      recorder.ondataavailable = (e) => {
+          chunks.push(e.data);
+      };
+
+      recorder.onstop = (e) => {
+        duration = Date.now(); - startTime;
+      };
+
+      recorder.start(1000);
+      const startTime = Date.now();
+
+      
+        // recorder = RecordRTC(finalStream, {
+        //     type: 'video'
+        // });
+
+        // recorder.startRecording();
         recording = true;
-        // var stop = false;
-        // (function looper() {
-        //     if (stop) {
-        //         stopRecordFunc();
-        //         return;
-        //     }
-        //     setTimeout(looper, 100);
-        // })();
-
-        // var seconds = 30;
-        // var interval = setInterval(function () {
-        //     seconds--;
-        // }, 1000);
-
-        // setTimeout(function () {
-        //     clearTimeout(interval);
-        //     stop = true;
-        // }, seconds * 1000);
     });
   }
 });
+
 function stopRecordFunc(){
-  recorder.stopRecording(async function (res) {
-              console.log(res);
-              var blob = await recorder.getBlob();
+              let blob = new Blob(chunks, { type: `${mimeTypeSelected}` });
               console.log('blob', blob);
+              console.log('chunks', chunks);
               dataURL = URL.createObjectURL(blob);
-              ZapparSharing({
-              data: dataURL,
-              fileNamePrepend: 'Hersheys WebAR',
-              shareUrl: ' ',
-              shareTitle: 'Hersheys WebAR',
-              shareText: 'Hersheys Experience',
-              onSave: () => {
-                  console.log('Video was saved');
-              },
-              onShare: () => {
-                  console.log('Share button was pressed');
-              },
-              onClose: () => {
-                  console.log('Dialog was closed');
-                  // entity.components.sound.playSound();
-              },
-              }, {
-                  containerDiv: {
-                  position: 'fixed',
-                  width: '100%',
-                  height: '100%',
-                  top: '0px',
-                  left: '0px',
-                  zIndex: 10000,
-                  backgroundColor: 'rgba(0,0,0,1)',
-                  fontFamily: 'sans-serif',
-                  color: 'rgba(255,255,255,1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-              },previewElement: {
-                  height: 'auto',
-                  width: '70%',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                  backgroundColor: '#ccc',
-                  boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.5)',
-                  display: 'flex',
-              }, 
-              }, {
-              SAVE: 'SAVE',
-              SHARE: 'SHARE',
-              NowOpenFilesAppToShare: 'Now open files app to share',
-              TapAndHoldToSave: 'Tap and hold the video<br/>to save to your Photos app',
-              });
+              var video = document.createElement('video');
+              video.src = dataURL;
+              video.setAttribute('style', 'height: 100%; position: absolute; top:0;');
+              var body = document.getElementById("preview-Container")
+              body.innerHTML = '';
+              body.appendChild(video);
+              video.controls = true;
+              // document.getElementById("splashimage").style.display="block"
+              document.getElementById("preview-Container").style.display='flex'
+              // document.getElementById('share-vid').setAttribute('src', dataURL);
+              // ZapparSharing({
+              // data: dataURL,
+              // type: video,
+              // fileNamePrepend: 'Hersheys WebAR',
+              // shareUrl: ' ',
+              // shareTitle: 'Hersheys WebAR',
+              // shareText: 'Hersheys Experience',
+              // onSave: () => {
+              //     console.log('Video was saved');
+              // },
+              // onShare: () => {
+              //     console.log('Share button was pressed');
+              // },
+              // onClose: () => {
+              //     console.log('Dialog was closed');
+              //     // entity.components.sound.playSound();
+              // },
+              // }, {
+              //     containerDiv: {
+              //     position: 'fixed',
+              //     width: '100%',
+              //     height: '100%',
+              //     top: '0px',
+              //     left: '0px',
+              //     zIndex: 10000,
+              //     backgroundColor: 'rgba(0,0,0,1)',
+              //     fontFamily: 'sans-serif',
+              //     color: 'rgba(255,255,255,1)',
+              //     display: 'flex',
+              //     flexDirection: 'column',
+              //     justifyContent: 'center',
+              // },previewElement: {
+              //     height: 'auto',
+              //     width: '70%',
+              //     marginLeft: 'auto',
+              //     marginRight: 'auto',
+              //     backgroundColor: '#ccc',
+              //     boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.5)',
+              //     display: 'flex',
+              // }, 
+              // }, {
+              // SAVE: 'SAVE',
+              // SHARE: 'SHARE',
+              // NowOpenFilesAppToShare: 'Now open files app to share',
+              // TapAndHoldToSave: 'Tap and hold the video<br/>to save to your Photos app',
+              // });
               recording = false;
               audioFinalStream.stop();
               canvasFinalStream.stop();
               capture.src = "/images/shutter-button-start.png"
-          });
 }
 function dataURLtoBlob(dataurl) {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
