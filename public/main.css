@@ -2626,7 +2626,7 @@ a.expansion-btn {
 
 
 #rakhi{
-  display: none;
+  display: block;
   position: absolute;
   z-index: 3554644;
   top: 0;
