@@ -776,50 +776,23 @@ nextbtn.onclick = () => {
       modelname.setAttribute('gltf-model', '#kissesmodel')
       console.log("ss")
       thirdscreen.style.display = "block"
-      // headerlogo.src='/images/hersheys-kisses-logo 1.png'
-      // headerlogo.classList.add("headerlogokisses");
-
-
     } else if (typeofpack === 'chocolatebar') {
       modelname.setAttribute('gltf-model', '#barmodel')
       thirdscreenbar.style.display = "block"
-      // headerlogo.src='/images/hersheyslogo.png'
-      // headerlogo.classList.add("headerlogo-bar-exotic");
     } else if (typeofpack === 'exotic') {
       //
       modelname.setAttribute('gltf-model', '#exoticmodel')
       thirdscreenexotic.style.display = "block"
-      // headerlogo.src='/images/hed-logo.png'
-      // headerlogo.classList.add("headerlogo-bar-exotic");
     }
 
     modelname.addEventListener("model-loaded", () => {
       console.log("if loaded")
       modelloaded = 1
-      //    modelloaded++
-      //     if(modelloaded===5){
-      //         console.log("loaded")
-      //         // alert("loaded!")
-      //     australiacont.setAttribute("visible", "true")
-      //     flat.style.display = 'none'
-      // blacktransparent.style.display="block"
-      // placementUI.style.display = 'block'
-      //     }
-
     });
 
   }
-  // secondscreen.style.display = "none"
-
-  // if(name==""){
-  //   alert("hwy")
-  // }
-
 }
-// closebtnsharepopup.onclick = () => {
 
-//   sharepopupdiv.style.display="none"
-// }
 reload.onclick = () => {
   previouspausevalue++
   pausevalue++
@@ -1175,58 +1148,6 @@ async function initRecorder() {
 
 }
 
-
-
-
-// placeButton.addEventListener('click', () => {
-//   if (hasPlaced) {
-//     hasPlaced = false;
-//     placeButton.innerText = 'Tap to place';
-//     hologram.pauseHologram();
-//     hologram.mute();
-//     hotspot.material.opacity = 1;
-//     return;
-//   }
-//   hasPlaced = true;
-//   placeButton.innerText = 'Tap to pick up';
-//   hologram.playHologram();
-//   hologram.unmute();
-//   hotspot.material.opacity = 0;
-// });
-
-// function render() {
-//   // update();
-//   camera.updateFrame(renderer);
-//   if (!hasPlaced) {
-//     // If the user hasn't chosen a place in their room yet, update the instant tracker
-//     // to be directly in front of the user
-//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
-//   }
-//   renderer.render(scene, camera);
-//   // const clock = new THREE.Clock();
-//   const detla = clock.getDelta();
-//   mixer.update(detla)
-
-
-//   // The Zappar camera must have updateFrame called every frame
-
-//   // placeButton.onclick=()=>{
-//   //   //Zappar permission ui after tap click
-
-//   // }
-//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
-
-
-//   // Call render() again next frame
-//   requestAnimationFrame(render);
-//   // controls.update();
-// }
-
-// // Start things off
-// render();
-
-
-
 AFRAME.registerComponent("swap-texture", {
   init() {
     console.log("init")
@@ -1514,41 +1435,7 @@ AFRAME.registerComponent("swap-texture", {
         questionAlertbar.classList.add("visible")
       }
 
-      //   thirdscreenbar.style.display = "none"
-      //   //show bars loading screen @kartik 
-
-      //   loadingHeader.src="/images/hersheyslogo.png"
-      //   loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-      //   loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-      //   kissesloadingvid.style.display = "none"
-      //   barsLoadingMedia.style.display = "block"
-      //   loadingscreen.style.display="block"
-
-
-
-      //   // also add if model loaded then show tap to place @kartik
-      //   if(modelloaded===1){
-      //   setTimeout(() => {
-      //     // Ar scene 
-      //     loadingscreen.style.display="none"
-      //     permissions.setAttribute("zappar-permissions-ui", "")
-      //     scene.style.zIndex = 0
-      //     console.log(uimoduleobj.packtype)
-      //     console.log("next")
-      //     taptoplace.style.display = "block"
-      //   }, 6000)
-      //  }   
-
-      //  hereGoesID.innerHTML = `${name}`
-      //   //messagenote for bar comes here
-      //  msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-      //  This is my way of expressing what you mean to me. And for moments
-      //  <span>when words fall short,</span>`
-      //  console.log(msg)
-      //  completenote.innerHTML = msg
-
-      //   getimageuploaded()
-    }
+}
 
     // Click event for nextquestionid2 for exotic
     nextQuestionid2.onclick = () => {
@@ -1915,15 +1802,12 @@ AFRAME.registerComponent("swap-texture", {
       initRecorder()
       texturechange()
 
-      // -------------------------
-      // capture.style.display="block"
-      // sharebtn.style.display="block"
-      // reload.style.display="block"
+      sharepopupdiv.style.display = "block"
+
       arscreen.style.display = "block"
-      setTimeout(() => {
-        sharepopupdiv.style.display = "block"
-        recordparentdiv.style.display = "none"
-      }, 3000);
+      // setTimeout(() => {
+      //   recordparentdiv.style.display = "none"
+      // }, 3000);
 
 
       //--------------------------- 
@@ -1990,3 +1874,11 @@ document.getElementById("sendthankyou").addEventListener("click", function () {
   // Update the text content
   textElement.textContent = "Say thankyou to";
 });
+
+
+/* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
+// var zappCloseBtn = document.getElementById("zapparCloseAref")
+// zappCloseBtn.children[0].style.display = "none"
+// zappCloseBtn.insertAdjacentHTML('beforeend',
+// `<h3 class="go-back-txt">Go Back</h3>`)
+/* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
