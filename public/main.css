@@ -124,6 +124,20 @@ h1 {
 #reloaddiv img {
   width: 50px;
 }
+
+.home-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 10vw;
+  z-index: 99;
+}
+
+.home-icon img {
+  width: 100%;
+}
+
 @-webkit-keyframes breathing {
   0% {
     -webkit-transform: scale(0.9);
@@ -537,7 +551,7 @@ line-height: normal;
   display: none !important;
 }
 .carosel-images{
-  width: 57% !important;
+  width: 62% !important;
   margin: 58px;
   margin-top: 52px;
 
@@ -562,7 +576,7 @@ line-height: normal;
   /* font-weight: 700; */
   line-height: normal;
   /* margin-top: 5px; */
-  width: 90%;
+  width: 100%;
   margin-left: -9px;
   font-family: Brandon Printed;
   font-size: 36px;
@@ -2115,9 +2129,9 @@ a.option-btn {
 #zapparSaveButton svg text {
   font-family: 'Walsheim'!important;
 }
-#ZapparPreviewVideo {
-  /* height: 80vh!important; */
-}
+/* #ZapparPreviewVideo {
+  height: 80vh!important;
+} */
 .zappar-mobile-only {
   background-color: rgba(63, 0, 11, .9)!important;
   font-family: "Walsheim-Medium"!important;
@@ -2624,7 +2638,47 @@ a.expansion-btn {
   text-align: center;
 }
 
-
+/* Video Preview Container */
+#preview-Container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+  background-color: #3F000B;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+#closebtn{
+  position: absolute;
+  width: 25px;
+  top: 20px;
+  right: 20px;
+}
+#savebtn{
+  display: block;
+  bottom: 5vh;
+  height: 9.6vw;
+  width: 20vw;
+  left:40vw;
+  background-image: url(images/record-video-save.png);
+  background-position: center;
+  background-size: contain;
+}
+#sharebtn{
+  display: none;
+  bottom: 5vh;
+  height: 9.6vw;
+  width: 20vw;
+  right:10vw;
+  background-image: url(images/record-video-share.png);
+  background-position: center;
+  background-size: contain;
+}
 #rakhi{
   display: none;
   position: absolute;
@@ -2632,18 +2686,11 @@ a.expansion-btn {
   top: 0;
   height: 20%;
 }
-.go-back-txt {
-  width: 85px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
-  border-radius: 10px;
-  text-align: center;
-  font-family: 'Walsheim';
-  font-size: 15px;
-  padding: 2px 5px;
-  text-transform: uppercase;
+
+.record-video-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  color: #3F000B!important;
-  cursor: pointer;
+  bottom: 35px;
 }

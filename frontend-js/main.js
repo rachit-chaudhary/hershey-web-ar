@@ -236,46 +236,39 @@ const copyToClipboard = (e) => {
   document.execCommand('copy')
   document.body.removeChild(el)
 }
-send.onclick = function () {
+send.onclick = async function () {
   console.log("copy clicked")
   // gfg_Run();
-
+  const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
+  // const url = "https://www.example.com";
+  
+  // const textToCopy = `${message} ${url}`;
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  copyToClipboard(`https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  const shareData = {
+  copyToClipboard(`${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  // const shareData = {
 
-    url: `https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
+  //   url: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
 
+  // }
+  try {
+    const shareData = {
+      text: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      share.classList.add('pulse-once');
+      setTimeout(() => {
+        share.classList.remove('pulse-once');
+      }, 200);
+    } else {
+      // Fallback for devices/browsers that do not support Web Share API
+      // You can provide an alternative sharing option or display a message.
+      console.log("Web Share API is not supported on this device/browser.");
+    }
+  } catch (error) {
+    console.error("An error occurred while trying to share:", error);
   }
-
-  if (navigator.share) {
-
-    // only appears on mobile
-
-    navigator.share(shareData)
-
-    // message.textContent = `Custom link for ${currentText} created!`
-
-  } else {
-
-    // only appears on Desktop + VR
-
-    // message.textContent = `Custom link for ${currentText} copied!`
-
-  }
-
-  share.classList.add('pulse-once')
-
-  setTimeout(() => {
-
-    share.classList.remove('pulse-once')
-
-
-
-  }, 200)
-
-
-
 }
 
 
@@ -668,23 +661,6 @@ hoverChange.onclick = () => {
   typeofpack = 'kisses'
   animtime = 13000
   pNametype = "1"
-
-
-
-  //   function disableImageById(hoverhershey) {
-  //     var imageElement = document.getElementById(hoverhershey);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverhershey');
-  // function disableImageById(hoverexotic) {
-  //   var imageElement = document.getElementById(hoverexotic);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverexotic');
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
@@ -697,20 +673,6 @@ hoverhershey.onclick = () => {
   animtime = 11000
   console.log(typeofpack)
   pNametype = "2"
-  //   function disableImageById(hoverChange) {
-  //     var imageElement = document.getElementById(hoverChange);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverChange');
-  // function disableImageById(hoverexotic) {
-  //   var imageElement = document.getElementById(hoverexotic);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverexotic');
 }
 // --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
@@ -722,27 +684,8 @@ hoverexotic.onclick = () => {
   typeofpack = 'exotic'
   animtime = 17000
   pNametype = "3"
-  //   function disableImageById(hoverhershey) {
-  //     var imageElement = document.getElementById(hoverhershey);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverhershey');
-  // function disableImageById(hoverChange) {
-  //   var imageElement = document.getElementById(hoverChange);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverChange');
+
 }
-// name =document.getElementById("siblingname").value
-// if(name!=){
-
-// }
-// -----------------------------upload validation---------------
-
 
 // ------------upload validation-----------------
 function myFunction() {
@@ -764,10 +707,7 @@ nextbtn.onclick = () => {
   if (name === "") {
     secondscreen.style.display = "block"
   } else if (x === "") {
-    // primaryAlert.style.display = "block";
-
     alert("Please upload your photo!")
-    // uploadingDiv.style.display = "block"
   }
   else {
     secondscreen.style.display = "none"
@@ -783,6 +723,9 @@ nextbtn.onclick = () => {
       //
       modelname.setAttribute('gltf-model', '#exoticmodel')
       thirdscreenexotic.style.display = "block"
+    }
+    else {
+      alert("Please reload your page!")
     }
 
     modelname.addEventListener("model-loaded", () => {
@@ -1018,135 +961,282 @@ async function initRecorder() {
 
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
 
-  //   // const url = canvas.toDataURL('video/mp4', 0.8);
-
-
-
-
-
-  //   var width = window.innerWidth
-
-  //   || document.documentElement.clientWidth
-
-  //   || document.body.clientWidth;
-
-
-
-  // var height = window.innerHeight
-
-  //   || document.documentElement.clientHeight
-
-  //   || document.body.clientHeight;
-
-
-
-  // // Get canvas from dom
-
-  // document.querySelector("a-scene").setAttribute('screenshot', {
-
-  //   width: width,
-
-  //   height: height
-
-  // })
-
-  // const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
   let recording = false;
+  let recorder;
+  let audioFinalStream;
+  let canvasFinalStream;
+  let dataURL;
+  let chunks = [];
+  let duration = 0;
+  let fileToInclude;
+  let shareObject;
+  const mimeTypes = [
+    'video/webm',
+    'video/mp4',
+    'video/ogg',
+    'audio/webm',
+    'audio/wav',
+    'audio/mpeg'
+  ];
 
-  const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
-    quality: 10,
-    maxFrameRate: 144,
-    audio: false,
-  })
-
-  // When we start recording update text
-
-  recorder.onStart.bind(() => {
-
-    recording = true;
-
-    console.log("start 2")
-
-    // placeButton.innerText = 'TAP TO STOP RECORDING';
-
-  });
-
-
-
-  // When stop recording update text, and prompt a social share dialog.
-
-  recorder.onComplete.bind(async (result) => {
-
-
-
-    // placeButton.innerText = 'TAP TO START RECORDING';
-
-    console.log("stop 2")
-
-
-
-    // result.arrayBuffer
-
-    console.log(result.asDataURL())
-
-
-
-    ZapparWebGLSnapshot({
-
-      data: await result.asDataURL(),
-
-      fileNamePrepend: 'hersheys_sibling_surprise',
-
-      // data:url,
-
-      onClose: () => {
-
-        console.log('Dialog was closed');
-
-      },
-
-    });
-
-
-
-    // console.log(recorder._getData())
-
-    recording = false;
-
-  });
-
-
-
-  // Toggle between recording
-
-  capture.addEventListener('click', async () => {
-
-
-
+  let mimeTypeSelected;
+  capture.addEventListener('click', () => {
     if (recording) {
 
-      recorder.stop();
+    stopRecordFunc();
 
-      console.log("stop")
+    console.log("stop")
 
-      // capture.style.display = 'none'
+// capture.style.display = 'none'
 
-      capture.src = "/images/shutter-button-start.png"
+    capture.src = "/images/shutter-button-start.png"
+} else {
+  capture.src = "/images/shutter-button-stop.png"
+    getMp3Stream(function (audioStream) {
+        const canvas = document.querySelector('canvas');
+        var canvasStream = canvas.captureStream();
+        canvasFinalStream = canvasStream;
+        var finalStream = new MediaStream();
+        getTracks(audioStream, 'audio').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
+        audioFinalStream = audioStream;
+        getTracks(canvasStream, 'video').forEach(function (track) {
+            finalStream.addTrack(track);
+        });
+        mimeTypes.forEach(mimeType => {
+          if (MediaRecorder.isTypeSupported(mimeType)) {
+            console.log(`${mimeType} is supported`);
+            if (mimeTypeSelected == null) {
+              mimeTypeSelected = mimeType
+            }
+          } else {
+            console.log(`${mimeType} is not supported`);
+          }
+      });
 
-    } else {
+      if (mimeTypeSelected == 'video/webm') {
+          mimeTypeSelected = 'video/webm; codecs=vp9'
+          const options = {
+              audioBitsPerSecond: 128000,
+              videoBitsPerSecond: 2500000,
+              mimeType: mimeTypeSelected,
+          };
+          recorder = new MediaRecorder(finalStream, options); 
+      } else {
+      // Do something if the device is not running on Android
+          recorder = new MediaRecorder(finalStream); 
+      }
 
-      recorder.start();
+      
 
-      capture.src = "/images/shutter-button-stop.png"
+      recorder.ondataavailable = (e) => {
+          chunks.push(e.data);
+      };
 
-      console.log("start")
+      recorder.onstop = (e) => {
+        duration = Date.now(); - startTime;
+      };
 
+      recorder.start(1000);
+      const startTime = Date.now();
+
+      
+        // recorder = RecordRTC(finalStream, {
+        //     type: 'video'
+        // });
+
+        // recorder.startRecording();
+        recording = true;
+    });
+  }
+});
+
+function stopRecordFunc(){
+              let blob = new Blob(chunks, { type: `${mimeTypeSelected}` });
+              console.log('blob', blob);
+              console.log('chunks', chunks);
+              dataURL = URL.createObjectURL(blob);
+              var video = document.getElementById('videotag');
+              video.src = dataURL;
+              video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
+              autoPlayCheck(video);
+              // var body = document.getElementById("preview-Container")
+              // body.innerHTML = '';
+              // body.appendChild(video);
+              video.controls = true;
+              document.getElementById("preview-Container").style.display='flex'
+              fileToInclude = new File([blob], `hersheys_${Date.now()}.mp4`, {
+                    type: `${mimeTypeSelected}`,
+                    lastModified: Date.now(),
+                })
+                const shareObject = {
+                  title: '',
+                  text: '',
+                  files: [fileToInclude],                       
+              }
+              recording = false;
+              audioFinalStream.stop();
+              canvasFinalStream.stop();
+              capture.src = "/images/shutter-button-start.png"
+              
+}
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
     }
+    return new Blob([u8arr], { type: mime });
+}
+function getMp3Stream(callback) {
+    var file = dataURLtoBlob(blobdataURL);
+    var reader = new FileReader();
+    reader.file = file;
+    reader.onload = (function (e) {
+        // Import callback function
+        // provides PCM audio data decoded as an audio buffer
+        context.decodeAudioData(e.target.result, function (buffer) {
+            createSoundSource(buffer, callback);
+        });
+    });
+    reader.readAsArrayBuffer(reader.file);
+}
 
-  });
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+var gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = 0; // don't play for self
+
+function createSoundSource(buffer, callback) {
+    var soundSource = context.createBufferSource();
+    soundSource.loop = true;
+    soundSource.buffer = buffer;
+    soundSource.start(0, 0 / 1000);
+    soundSource.connect(gainNode);
+    var destination = context.createMediaStreamDestination();
+    soundSource.connect(destination);
+
+    // durtion=second*1000 (milliseconds)
+    callback(destination.stream);
+}
+document.getElementById('closebtn').addEventListener('click', (e) =>{
+  document.getElementById("preview-Container").style.display='none';
+});
+document.getElementById('sharebtn').addEventListener('click', (e) => {
+  try {
+      if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
+          navigator.share(shareObject)
+              .then(() => console.log('Successful share'))
+              .catch((error) => console.log('Error sharing', error));
+      } else {
+          alert("Web Share API is not supported in your browser.")
+      }
+  } catch {
+      alert("Sharing is not supported in your browser")
+  }
+});
+
+document.getElementById('savebtn').addEventListener('click', (e) => {
+    downloadFile(dataURL);
+});
+}
+
+const clickAnchor = (properties) => {
+  const anchor = document.createElement('a')
+  Object.assign(anchor, properties)
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+}
+const downloadFile = (currentDownloadUrl) => {
+  clickAnchor({
+      href: currentDownloadUrl,
+      download: 'hersheys.mp4',
+  })
 
 }
+function autoPlayCheck(v) {
+  v.muted = true
+  const playPromise = v.play()
+  setTimeout(() => {
+      if (playPromise !== undefined) {
+          playPromise.then((_) => {
+              // Automatic playback started!
+              // Show playing UI.
+              // We can now safely pause video...
+              console.log('inside play promise')
+              v.pause()
+              v.muted = false
+          })
+              .catch((error) => {
+                  // Auto-play was prevented
+                  // Show paused UI.
+              })
+      }
+  }, 1100)
+
+
+  v.addEventListener('click', () => {
+      if (!playing) {
+          v.play()
+          playing = true
+      } else {
+          v.pause()
+          playing = false
+      }
+  })
+}
+//Video Recorder Code New (Urjit)
+
+// placeButton.addEventListener('click', () => {
+//   if (hasPlaced) {
+//     hasPlaced = false;
+//     placeButton.innerText = 'Tap to place';
+//     hologram.pauseHologram();
+//     hologram.mute();
+//     hotspot.material.opacity = 1;
+//     return;
+//   }
+//   hasPlaced = true;
+//   placeButton.innerText = 'Tap to pick up';
+//   hologram.playHologram();
+//   hologram.unmute();
+//   hotspot.material.opacity = 0;
+// });
+
+// function render() {
+//   // update();
+//   camera.updateFrame(renderer);
+//   if (!hasPlaced) {
+//     // If the user hasn't chosen a place in their room yet, update the instant tracker
+//     // to be directly in front of the user
+//     instantTrackerGroup.setAnchorPoseFromCameraOffset(0, 0, -5);
+//   }
+//   renderer.render(scene, camera);
+//   // const clock = new THREE.Clock();
+//   const detla = clock.getDelta();
+//   mixer.update(detla)
+
+
+//   // The Zappar camera must have updateFrame called every frame
+
+//   // placeButton.onclick=()=>{
+//   //   //Zappar permission ui after tap click
+
+//   // }
+//   // Draw the ThreeJS scene in the usual way, but using the Zappar camera
+
+
+//   // Call render() again next frame
+//   requestAnimationFrame(render);
+//   // controls.update();
+// }
+
+// // Start things off
+// render();
 
 AFRAME.registerComponent("swap-texture", {
   init() {
@@ -1166,8 +1256,13 @@ AFRAME.registerComponent("swap-texture", {
           const fileMb = fileSize / 1024 ** 2;
           console.log(fileMb);
 
-          if (fileMb >= 12) {
-            alert("please upload file less then 10mb")
+          if (fileMb > 4) {
+            alert("please upload file less then 4mb")
+            console.log("size is large")
+            // fileResult.innerHTML = "Please select a file less than 2MB.";
+            // fileSubmit.disabled = true;
+          }else if (fileMb < 1) {
+            alert("please upload file more then 1mb")
             console.log("size is large")
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
@@ -1524,47 +1619,44 @@ AFRAME.registerComponent("swap-texture", {
 
       // Replace 'originalDataURL' with the actual Data URL of the original image
       const originalDataURL = dataURL;
-      
+
       // Create a new Image object
       const image = new Image();
-      
+
       // Set the new image's src to the original Data URL
       image.src = originalDataURL;
-      
+
       image.onload = function () {
-        // Create a canvas element with the desired dimensions
-        const resizedCanvas = document.createElement('canvas');
-        const maxWidth = 1024; // Set to your desired maximum width
-        const maxHeight = 1024; // Set to your desired maximum height
-      
-        // Calculate the new dimensions while maintaining aspect ratio
-        let newWidth = image.width;
-        let newHeight = image.height;
-      
-        if (newWidth > maxWidth) {
-          newWidth = maxWidth;
-          newHeight = (newWidth / image.width) * image.height;
-        }
-      
-        if (newHeight > maxHeight) {
-          newHeight = maxHeight;
-          newWidth = (newHeight / image.height) * image.width;
-        }
-      
-        resizedCanvas.width = newWidth;
-        resizedCanvas.height = newHeight;
-      
+        console.log("Image loaded:", image.width, image.height);
+        // Create a canvas element with the desired cropped dimensions
+        const croppedCanvas = document.createElement('canvas');
+        const cropWidth = 1624; // Set to your desired cropped width
+        const cropHeight = 1624; // Set to your desired cropped height
+
+        const centerX = image.width / 2;
+        const centerY = image.height / 2;
+        const cropX = centerX - cropWidth / 2;
+        const cropY = centerY - cropHeight / 2;
+
+        console.log("Center:", centerX, centerY);
+        console.log("Crop:", cropX, cropY);
+
+        croppedCanvas.width = cropWidth;
+        croppedCanvas.height = cropHeight;
+
         // Get the 2D context of the canvas
-        const ctx = resizedCanvas.getContext('2d');
-      
-        // Resize the image to fit within the new dimensions
-        ctx.drawImage(image, 0, 0, newWidth, newHeight);
-      
-        // Get the resized Data URL from the canvas
-        const resizedDataURL = resizedCanvas.toDataURL();
-      
+        const ctx = croppedCanvas.getContext('2d');
+
+        // Crop the image (adjust the crop coordinates as needed)
+        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+        // Get the cropped Data URL from the canvas
+        const croppedDataURL = croppedCanvas.toDataURL();
+
+     // Set the src attribute of the image tag to the cropped Data URL
+        rakhiImage.src = croppedDataURL;
+
         // Set the src attribute of the image tag to the resized Data URL
-        rakhiImage.src = resizedDataURL;
+       
         console.log("www" + dataURL)
         modelmesh.material.map = loader.load(rakhiImage.src)
         console.log(dataURL)
@@ -1869,13 +1961,6 @@ siblingNameInput.addEventListener("input", function () {
   }
 });
 
-// const hers=document.getElementById("siblingname").addEventListener("click", function() {
-//   if(hers.length>6){
-//     document.getElementById("selectPack").focus();
-
-//   }
-// });
-
 // -------------------- changing text based on user selection---------------------
 document.getElementById("sendthankyou").addEventListener("click", function () {
   // Get the text element by its ID
@@ -1885,6 +1970,11 @@ document.getElementById("sendthankyou").addEventListener("click", function () {
   textElement.textContent = "Say thankyou to";
 });
 
+const homebtn = document.getElementById("homeIcon")
+
+homebtn.onclick = () => {
+  window.location.reload()
+}
 
 /* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
 // var zappCloseBtn = document.getElementById("zapparCloseAref")

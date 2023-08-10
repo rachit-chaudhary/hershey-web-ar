@@ -671,7 +671,14 @@
 
 
 
-
+<div id="preview-Container">
+  <img id="closebtn" src="images/close-record-video.png"/>
+  <video id="videotag"></video>
+  <div class="record-video-controls">
+    <div id="savebtn"></div>
+    <div id="sharebtn"></div>
+  </div>
+</div>
   <div id="tap-to-place">Tap to Place</div>
   <div id="arscreen">
     <!-- <div id="headerdiv" class=" header">
@@ -690,6 +697,10 @@
         Win exciting prizes by sharing on Instagram. Tag your sibling & @hersheysindia
       </div>
   
+    </div>
+
+    <div id="homeIcon" class="home-icon">
+      <img class="home-icon-img" src="/images/home-icon.png" alt="home-icon">
     </div>
     
     <div id="tapOnEnvelope">
@@ -837,28 +848,5 @@
     } else {
       document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
     }
-
-// -----------------------------------------
-// document.addEventListener('DOMContentLoaded', function() {
-//   const uploadBtn = document.getElementById('uploadbtn');
-//   const submitBtn = document.getElementById('nextbtn');
-
-//   function checkFileSelection(event) {
-//     if (uploadBtn.files.length === 0) {
-//       event.preventDefault(); 
-//       alert('Please select a file before submitting.');
-      
-//     }
-//   }
-
-//   submitBtn.addEventListener('click', checkFileSelection);
-// });
-
-// document.getElementById("uploadbtn").addEventListener("click", function() {
-//             var fileIdElement = document.getElementById("changeFileName");
-//             var newFileName = "newfilename.txt"; // Replace with your desired new file name
-//             fileIdElement.innerHTML = newFileName;
-//         });
-
      
   </script>
