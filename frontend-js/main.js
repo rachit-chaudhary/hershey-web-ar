@@ -239,12 +239,15 @@ const copyToClipboard = (e) => {
 send.onclick = function () {
   console.log("copy clicked")
   // gfg_Run();
-
+  const message = "To the best sibling, ❤️ Thank you for always having my back! Here’s a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY’S Chocolates. Click on the link to view ";
+  // const url = "https://www.example.com";
+  
+  // const textToCopy = `${message} ${url}`;
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  copyToClipboard(`https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
   const shareData = {
 
-    url: `https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
+    url: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
 
   }
 
