@@ -1669,43 +1669,7 @@ function resizeImage(imagePath, newWidth, newHeight) {
   resizeImage(dataURL, 1024, 1024);
 
 
-    //   image.onload = function () {
-    //     console.log("Image loaded:", image.width, image.height);
-    //     // Create a canvas element with the desired cropped dimensions
-    //     const croppedCanvas = document.createElement('canvas');
-    //     const cropWidth = 1624; // Set to your desired cropped width
-    //     const cropHeight = 1624; // Set to your desired cropped height
 
-    //     const centerX = image.width / 2;
-    //     const centerY = image.height / 2;
-    //     const cropX = centerX - cropWidth / 2;
-    //     const cropY = centerY - cropHeight / 2;
-
-    //     console.log("Center:", centerX, centerY);
-    //     console.log("Crop:", cropX, cropY);
-
-    //     croppedCanvas.width = cropWidth;
-    //     croppedCanvas.height = cropHeight;
-
-    //     // Get the 2D context of the canvas
-    //     const ctx = croppedCanvas.getContext('2d');
-
-    //     // Crop the image (adjust the crop coordinates as needed)
-    //     ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
-    //     // Get the cropped Data URL from the canvas
-    //     const croppedDataURL = croppedCanvas.toDataURL();
-
-    //  // Set the src attribute of the image tag to the cropped Data URL
-    //     rakhiImage.src = croppedDataURL;
-
-    //     // Set the src attribute of the image tag to the resized Data URL
-       
-    //     console.log("www" + dataURL)
-    //     modelmesh.material.map = loader.load(rakhiImage.src)
-    //     console.log(dataURL)
-    //     // set flipY to false to correclty rotate texture
-    //     modelmesh.material.map.flipY = false
-    //   };
 
 
 setTimeout(() => {

@@ -11,9 +11,9 @@ export class UImodule  {
             loop: false,
             margin: -70,
             nav: true,
-            autoplay : true,
-            autoplayTimeout: 5500,
-            autoplayHoverPause : true,
+            // autoplay : false,
+            // autoplayTimeout: 5500,
+            // autoplayHoverPause : false,
             responsive: {
                 0: {
                     items: 1
