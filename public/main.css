@@ -2641,12 +2641,12 @@ a.expansion-btn {
 }
 #closebtn{
   position: absolute;
-  top:2vh;
-  left:5vw;
+  width: 25px;
+  top: 20px;
+  right: 20px;
 }
 #savebtn{
   display: block;
-  position:absolute;
   bottom: 5vh;
   height: 9.6vw;
   width: 20vw;
@@ -2656,8 +2656,7 @@ a.expansion-btn {
   background-size: contain;
 }
 #sharebtn{
-  display: block;
-  position:absolute;
+  display: none;
   bottom: 5vh;
   height: 9.6vw;
   width: 20vw;
@@ -2672,4 +2671,12 @@ a.expansion-btn {
   z-index: 3554644;
   top: 0;
   height: 20%;
+}
+
+.record-video-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 35px;
 }
