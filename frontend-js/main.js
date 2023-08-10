@@ -1674,8 +1674,8 @@ AFRAME.registerComponent("swap-texture", {
       image.onload = function () {
         // Create a canvas element with the desired cropped dimensions
         const croppedCanvas = document.createElement('canvas');
-        const cropWidth = 1024; // Set to your desired cropped width
-        const cropHeight = 1024; // Set to your desired cropped height
+        const cropWidth = 1624; // Set to your desired cropped width
+        const cropHeight = 1624; // Set to your desired cropped height
 
         const centerX = image.width / 2;
         const centerY = image.height / 2;
