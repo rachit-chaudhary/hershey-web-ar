@@ -11,6 +11,9 @@ export class UImodule  {
             loop: false,
             margin: -70,
             nav: true,
+            autoplay : true,
+            autoplayTimeout: 5500,
+            autoplayHoverPause : true,
             responsive: {
                 0: {
                     items: 1
@@ -23,7 +26,6 @@ export class UImodule  {
                 }
             }
         })
-
     }
 
     untapKisses(){

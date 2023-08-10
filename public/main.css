@@ -124,6 +124,20 @@ h1 {
 #reloaddiv img {
   width: 50px;
 }
+
+.home-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 10vw;
+  z-index: 99;
+}
+
+.home-icon img {
+  width: 100%;
+}
+
 @-webkit-keyframes breathing {
   0% {
     -webkit-transform: scale(0.9);
@@ -537,7 +551,7 @@ line-height: normal;
   display: none !important;
 }
 .carosel-images{
-  width: 57% !important;
+  width: 72% !important;
   margin: 58px;
   margin-top: 52px;
 
@@ -562,7 +576,7 @@ line-height: normal;
   /* font-weight: 700; */
   line-height: normal;
   /* margin-top: 5px; */
-  width: 90%;
+  width: 100%;
   margin-left: -9px;
   font-family: Brandon Printed;
   font-size: 36px;

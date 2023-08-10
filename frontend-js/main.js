@@ -661,23 +661,6 @@ hoverChange.onclick = () => {
   typeofpack = 'kisses'
   animtime = 13000
   pNametype = "1"
-
-
-
-  //   function disableImageById(hoverhershey) {
-  //     var imageElement = document.getElementById(hoverhershey);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverhershey');
-  // function disableImageById(hoverexotic) {
-  //   var imageElement = document.getElementById(hoverexotic);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverexotic');
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
@@ -690,20 +673,6 @@ hoverhershey.onclick = () => {
   animtime = 11000
   console.log(typeofpack)
   pNametype = "2"
-  //   function disableImageById(hoverChange) {
-  //     var imageElement = document.getElementById(hoverChange);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverChange');
-  // function disableImageById(hoverexotic) {
-  //   var imageElement = document.getElementById(hoverexotic);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverexotic');
 }
 // --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
@@ -715,27 +684,8 @@ hoverexotic.onclick = () => {
   typeofpack = 'exotic'
   animtime = 17000
   pNametype = "3"
-  //   function disableImageById(hoverhershey) {
-  //     var imageElement = document.getElementById(hoverhershey);
-  //     if (imageElement) {
-  //         imageElement.style.pointerEvents = "none";
-  //     }
-  // }
-  // disableImageById('hoverhershey');
-  // function disableImageById(hoverChange) {
-  //   var imageElement = document.getElementById(hoverChange);
-  //   if (imageElement) {
-  //       imageElement.style.pointerEvents = "none";
-  //   }
-  // }
-  // disableImageById('hoverChange');
+
 }
-// name =document.getElementById("siblingname").value
-// if(name!=){
-
-// }
-// -----------------------------upload validation---------------
-
 
 // ------------upload validation-----------------
 function myFunction() {
@@ -757,10 +707,7 @@ nextbtn.onclick = () => {
   if (name === "") {
     secondscreen.style.display = "block"
   } else if (x === "") {
-    // primaryAlert.style.display = "block";
-
     alert("Please upload your photo!")
-    // uploadingDiv.style.display = "block"
   }
   else {
     secondscreen.style.display = "none"
@@ -776,6 +723,9 @@ nextbtn.onclick = () => {
       //
       modelname.setAttribute('gltf-model', '#exoticmodel')
       thirdscreenexotic.style.display = "block"
+    }
+    else {
+      alert("Please reload your page!")
     }
 
     modelname.addEventListener("model-loaded", () => {
@@ -2011,13 +1961,6 @@ siblingNameInput.addEventListener("input", function () {
   }
 });
 
-// const hers=document.getElementById("siblingname").addEventListener("click", function() {
-//   if(hers.length>6){
-//     document.getElementById("selectPack").focus();
-
-//   }
-// });
-
 // -------------------- changing text based on user selection---------------------
 document.getElementById("sendthankyou").addEventListener("click", function () {
   // Get the text element by its ID
@@ -2027,6 +1970,11 @@ document.getElementById("sendthankyou").addEventListener("click", function () {
   textElement.textContent = "Say thankyou to";
 });
 
+const homebtn = document.getElementById("homeIcon")
+
+homebtn.onclick = () => {
+  window.location.reload()
+}
 
 /* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
 // var zappCloseBtn = document.getElementById("zapparCloseAref")
