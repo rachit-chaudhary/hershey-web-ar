@@ -1306,8 +1306,13 @@ AFRAME.registerComponent("swap-texture", {
           const fileMb = fileSize / 1024 ** 2;
           console.log(fileMb);
 
-          if (fileMb >= 12) {
-            alert("please upload file less then 10mb")
+          if (fileMb > 4) {
+            alert("please upload file less then 4mb")
+            console.log("size is large")
+            // fileResult.innerHTML = "Please select a file less than 2MB.";
+            // fileSubmit.disabled = true;
+          }else if (fileMb < 1) {
+            alert("please upload file more then 1mb")
             console.log("size is large")
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
@@ -1673,48 +1678,41 @@ AFRAME.registerComponent("swap-texture", {
 
       image.onload = function () {
         console.log("Image loaded:", image.width, image.height);
-      
+        // Create a canvas element with the desired cropped dimensions
         const croppedCanvas = document.createElement('canvas');
-        const cropWidth = 600; // Set the desired width of the cropped image
-        const cropHeight = 650; // Set the desired height of the cropped image
-      
-        const imageAspectRatio = image.width / image.height;
-        const canvasAspectRatio = cropWidth / cropHeight;
-      
-        let drawWidth, drawHeight, cropX, cropY;
-      
-        if (imageAspectRatio > canvasAspectRatio) {
-          // Image is wider than the canvas, fit to canvas width and adjust height
-          drawWidth = cropWidth;
-          drawHeight = cropWidth / imageAspectRatio;
-          cropX = 0;
-          cropY = (image.height - drawHeight) / 2;
-        } else {
-          // Image is taller than or equal to the canvas, fit to canvas height and adjust width
-          drawHeight = cropHeight;
-          drawWidth = cropHeight * imageAspectRatio;
-          cropX = (image.width - drawWidth) / 2;
-          cropY = 0;
-        }
-      
-        console.log("Draw width:", drawWidth);
-        console.log("Draw height:", drawHeight);
-        console.log("Crop X:", cropX);
-        console.log("Crop Y:", cropY);
-      
+        const cropWidth = 1624; // Set to your desired cropped width
+        const cropHeight = 1624; // Set to your desired cropped height
+
+        const centerX = image.width / 2;
+        const centerY = image.height / 2;
+        const cropX = centerX - cropWidth / 2;
+        const cropY = centerY - cropHeight / 2;
+
+        console.log("Center:", centerX, centerY);
+        console.log("Crop:", cropX, cropY);
+
         croppedCanvas.width = cropWidth;
         croppedCanvas.height = cropHeight;
-      
+
+        // Get the 2D context of the canvas
         const ctx = croppedCanvas.getContext('2d');
-        ctx.drawImage(image, cropX, cropY, drawWidth, drawHeight, 0, 0, cropWidth, cropHeight);
+
+        // Crop the image (adjust the crop coordinates as needed)
+        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+        // Get the cropped Data URL from the canvas
         const croppedDataURL = croppedCanvas.toDataURL();
-      
+
+     // Set the src attribute of the image tag to the cropped Data URL
         rakhiImage.src = croppedDataURL;
-      
-        modelmesh.material.map = loader.load(rakhiImage.src);
-        modelmesh.material.map.flipY = false;
+
+        // Set the src attribute of the image tag to the resized Data URL
+       
+        console.log("www" + dataURL)
+        modelmesh.material.map = loader.load(rakhiImage.src)
+        console.log(dataURL)
+        // set flipY to false to correclty rotate texture
+        modelmesh.material.map.flipY = false
       };
-      
 
 
 
