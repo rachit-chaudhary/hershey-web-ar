@@ -13,7 +13,7 @@ export class UImodule  {
             nav: true,
             autoplay : true,
             autoplayTimeout: 5500,
-            autoplayHoverPause : true,
+            autoplayHoverPause : false,
             responsive: {
                 0: {
                     items: 1
