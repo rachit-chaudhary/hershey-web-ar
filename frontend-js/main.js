@@ -1029,6 +1029,8 @@ async function initRecorder() {
   let dataURL;
   let chunks = [];
   let duration = 0;
+  let fileToInclude;
+  let shareObject;
   const mimeTypes = [
     'video/webm',
     'video/mp4',
@@ -1050,7 +1052,7 @@ async function initRecorder() {
 
     capture.src = "/images/shutter-button-start.png"
 } else {
-  capture.src = "/images/shutter-button-start.png"
+  capture.src = "/images/shutter-button-stop.png"
     getMp3Stream(function (audioStream) {
         const canvas = document.querySelector('canvas');
         var canvasStream = canvas.captureStream();
@@ -1116,66 +1118,29 @@ function stopRecordFunc(){
               console.log('blob', blob);
               console.log('chunks', chunks);
               dataURL = URL.createObjectURL(blob);
-              var video = document.createElement('video');
+              var video = document.getElementById('videotag');
               video.src = dataURL;
-              video.setAttribute('style', 'height: 100%; position: absolute; top:0;');
-              var body = document.getElementById("preview-Container")
-              body.innerHTML = '';
-              body.appendChild(video);
+              video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
+              autoPlayCheck(video);
+              // var body = document.getElementById("preview-Container")
+              // body.innerHTML = '';
+              // body.appendChild(video);
               video.controls = true;
-              // document.getElementById("splashimage").style.display="block"
               document.getElementById("preview-Container").style.display='flex'
-              // document.getElementById('share-vid').setAttribute('src', dataURL);
-              // ZapparSharing({
-              // data: dataURL,
-              // type: video,
-              // fileNamePrepend: 'Hersheys WebAR',
-              // shareUrl: ' ',
-              // shareTitle: 'Hersheys WebAR',
-              // shareText: 'Hersheys Experience',
-              // onSave: () => {
-              //     console.log('Video was saved');
-              // },
-              // onShare: () => {
-              //     console.log('Share button was pressed');
-              // },
-              // onClose: () => {
-              //     console.log('Dialog was closed');
-              //     // entity.components.sound.playSound();
-              // },
-              // }, {
-              //     containerDiv: {
-              //     position: 'fixed',
-              //     width: '100%',
-              //     height: '100%',
-              //     top: '0px',
-              //     left: '0px',
-              //     zIndex: 10000,
-              //     backgroundColor: 'rgba(0,0,0,1)',
-              //     fontFamily: 'sans-serif',
-              //     color: 'rgba(255,255,255,1)',
-              //     display: 'flex',
-              //     flexDirection: 'column',
-              //     justifyContent: 'center',
-              // },previewElement: {
-              //     height: 'auto',
-              //     width: '70%',
-              //     marginLeft: 'auto',
-              //     marginRight: 'auto',
-              //     backgroundColor: '#ccc',
-              //     boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.5)',
-              //     display: 'flex',
-              // }, 
-              // }, {
-              // SAVE: 'SAVE',
-              // SHARE: 'SHARE',
-              // NowOpenFilesAppToShare: 'Now open files app to share',
-              // TapAndHoldToSave: 'Tap and hold the video<br/>to save to your Photos app',
-              // });
+              fileToInclude = new File([blob], `hersheys_${Date.now()}.mp4`, {
+                    type: `${mimeTypeSelected}`,
+                    lastModified: Date.now(),
+                })
+                const shareObject = {
+                  title: '',
+                  text: '',
+                  files: [fileToInclude],                       
+              }
               recording = false;
               audioFinalStream.stop();
               canvasFinalStream.stop();
               capture.src = "/images/shutter-button-start.png"
+              
 }
 function dataURLtoBlob(dataurl) {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
@@ -1217,10 +1182,73 @@ function createSoundSource(buffer, callback) {
     // durtion=second*1000 (milliseconds)
     callback(destination.stream);
 }
+document.getElementById('closebtn').addEventListener('click', (e) =>{
+  document.getElementById("preview-Container").style.display='none';
+});
+document.getElementById('sharebtn').addEventListener('click', (e) => {
+  try {
+      if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
+          navigator.share(shareObject)
+              .then(() => console.log('Successful share'))
+              .catch((error) => console.log('Error sharing', error));
+      } else {
+          alert("Web Share API is not supported in your browser.")
+      }
+  } catch {
+      alert("Sharing is not supported in your browser")
+  }
+});
 
+document.getElementById('savebtn').addEventListener('click', (e) => {
+    downloadFile(dataURL);
+});
 }
 
+const clickAnchor = (properties) => {
+  const anchor = document.createElement('a')
+  Object.assign(anchor, properties)
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+}
+const downloadFile = (currentDownloadUrl) => {
+  clickAnchor({
+      href: currentDownloadUrl,
+      download: 'hersheys.mp4',
+  })
 
+}
+function autoPlayCheck(v) {
+  v.muted = true
+  const playPromise = v.play()
+  setTimeout(() => {
+      if (playPromise !== undefined) {
+          playPromise.then((_) => {
+              // Automatic playback started!
+              // Show playing UI.
+              // We can now safely pause video...
+              console.log('inside play promise')
+              v.pause()
+              v.muted = false
+          })
+              .catch((error) => {
+                  // Auto-play was prevented
+                  // Show paused UI.
+              })
+      }
+  }, 1100)
+
+
+  v.addEventListener('click', () => {
+      if (!playing) {
+          v.play()
+          playing = true
+      } else {
+          v.pause()
+          playing = false
+      }
+  })
+}
 //Video Recorder Code New (Urjit)
 
 // placeButton.addEventListener('click', () => {
