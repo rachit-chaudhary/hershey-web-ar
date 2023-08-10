@@ -11,7 +11,7 @@ import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 
-
+let imagevalue
 
 
 // modules code
@@ -1256,13 +1256,8 @@ AFRAME.registerComponent("swap-texture", {
           const fileMb = fileSize / 1024 ** 2;
           console.log(fileMb);
 
-          if (fileMb > 4) {
-            alert("please upload file less then 4mb")
-            console.log("size is large")
-            // fileResult.innerHTML = "Please select a file less than 2MB.";
-            // fileSubmit.disabled = true;
-          }else if (fileMb < 1) {
-            alert("please upload file more then 1mb")
+          if (fileMb >= 12) {
+            alert("please upload file less then 10mb")
             console.log("size is large")
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
@@ -1596,6 +1591,48 @@ AFRAME.registerComponent("swap-texture", {
       event.preventDefault(); // Prevent the default form submission behavior
       // Perform any form-specific handling here
     });
+  
+
+//resize the image and draw it to the canvas
+function resizeImage(imagePath, newWidth, newHeight) {
+    //create an image object from the path
+    const originalImage = new Image();
+    originalImage.src = imagePath;
+ 
+    //get a reference to the canvas
+    // const canvas = document.getElementById('canvas');
+    const croppedCanvas = document.createElement('canvas');
+    const ctx = croppedCanvas.getContext('2d');
+ 
+    //wait for the image to load
+    originalImage.addEventListener('load', function() {
+        
+        //get the original image size and aspect ratio
+        const originalWidth = originalImage.naturalWidth;
+        const originalHeight = originalImage.naturalHeight;
+        const aspectRatio = originalWidth/originalHeight;
+ 
+        //if the new height wasn't specified, use the width and the original aspect ratio
+        if (newHeight === undefined) {
+            //calculate the new height
+            newHeight = newWidth/aspectRatio;
+            newHeight = Math.floor(newHeight);
+            
+            //update the input element with the new height
+            hInput.placeholder = `Height (${newHeight})`;
+            hInput.value = newHeight;
+        }
+      
+        //set the canvas size
+        croppedCanvas.width = newWidth;
+        croppedCanvas.height = newHeight;
+         
+        //render the image
+        ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
+        imagevalue=croppedCanvas.toDataURL("image/jpeg", 0.9);
+        console.log(imagevalue)
+    });
+}
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       let modelmesh
@@ -1615,62 +1652,70 @@ AFRAME.registerComponent("swap-texture", {
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[1].children[5])
       }
-      const rakhiImage = document.getElementById('rakhi');
 
-      // Replace 'originalDataURL' with the actual Data URL of the original image
-      const originalDataURL = dataURL;
+      // const rakhiImage = document.getElementById('rakhi');
 
-      // Create a new Image object
-      const image = new Image();
+      // // Replace 'originalDataURL' with the actual Data URL of the original image
+      // const originalDataURL = dataURL;
 
-      // Set the new image's src to the original Data URL
-      image.src = originalDataURL;
+      // // Create a new Image object
+      // const image = new Image();
 
-      image.onload = function () {
-        console.log("Image loaded:", image.width, image.height);
-        // Create a canvas element with the desired cropped dimensions
-        const croppedCanvas = document.createElement('canvas');
-        const cropWidth = 1624; // Set to your desired cropped width
-        const cropHeight = 1624; // Set to your desired cropped height
+      // // Set the new image's src to the original Data URL
+      // image.src = originalDataURL;
 
-        const centerX = image.width / 2;
-        const centerY = image.height / 2;
-        const cropX = centerX - cropWidth / 2;
-        const cropY = centerY - cropHeight / 2;
+      // const croppedCanvas = document.createElement('canvas');
+ 
+  resizeImage(dataURL, 1024, 1024);
 
-        console.log("Center:", centerX, centerY);
-        console.log("Crop:", cropX, cropY);
 
-        croppedCanvas.width = cropWidth;
-        croppedCanvas.height = cropHeight;
+    //   image.onload = function () {
+    //     console.log("Image loaded:", image.width, image.height);
+    //     // Create a canvas element with the desired cropped dimensions
+    //     const croppedCanvas = document.createElement('canvas');
+    //     const cropWidth = 1624; // Set to your desired cropped width
+    //     const cropHeight = 1624; // Set to your desired cropped height
 
-        // Get the 2D context of the canvas
-        const ctx = croppedCanvas.getContext('2d');
+    //     const centerX = image.width / 2;
+    //     const centerY = image.height / 2;
+    //     const cropX = centerX - cropWidth / 2;
+    //     const cropY = centerY - cropHeight / 2;
 
-        // Crop the image (adjust the crop coordinates as needed)
-        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
-        // Get the cropped Data URL from the canvas
-        const croppedDataURL = croppedCanvas.toDataURL();
+    //     console.log("Center:", centerX, centerY);
+    //     console.log("Crop:", cropX, cropY);
 
-     // Set the src attribute of the image tag to the cropped Data URL
-        rakhiImage.src = croppedDataURL;
+    //     croppedCanvas.width = cropWidth;
+    //     croppedCanvas.height = cropHeight;
 
-        // Set the src attribute of the image tag to the resized Data URL
+    //     // Get the 2D context of the canvas
+    //     const ctx = croppedCanvas.getContext('2d');
+
+    //     // Crop the image (adjust the crop coordinates as needed)
+    //     ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+    //     // Get the cropped Data URL from the canvas
+    //     const croppedDataURL = croppedCanvas.toDataURL();
+
+    //  // Set the src attribute of the image tag to the cropped Data URL
+    //     rakhiImage.src = croppedDataURL;
+
+    //     // Set the src attribute of the image tag to the resized Data URL
        
-        console.log("www" + dataURL)
-        modelmesh.material.map = loader.load(rakhiImage.src)
-        console.log(dataURL)
-        // set flipY to false to correclty rotate texture
-        modelmesh.material.map.flipY = false
-      };
+    //     console.log("www" + dataURL)
+    //     modelmesh.material.map = loader.load(rakhiImage.src)
+    //     console.log(dataURL)
+    //     // set flipY to false to correclty rotate texture
+    //     modelmesh.material.map.flipY = false
+    //   };
 
 
-
-      // console.log("www" + dataURL)
-      // modelmesh.material.map = loader.load(dataURL)
-      // console.log(dataURL)
-      // // set flipY to false to correclty rotate texture
-      // modelmesh.material.map.flipY = false
+setTimeout(() => {
+  console.log("www" + dataURL)
+  modelmesh.material.map = loader.load(imagevalue)
+  console.log(dataURL)
+  // set flipY to false to correclty rotate texture
+  modelmesh.material.map.flipY = false
+}, 3000);
+  
 
 
     }
@@ -1982,3 +2027,66 @@ homebtn.onclick = () => {
 // zappCloseBtn.insertAdjacentHTML('beforeend',
 // `<h3 class="go-back-txt">Go Back</h3>`)
 /* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
+
+
+
+// //resize and draw the image on first load
+// resizeImage(imagePath, 1024, 1024);
+
+// //resize the image and draw it to the canvas
+// function resizeImage(imagePath, newWidth, newHeight) {
+//     //create an image object from the path
+//     const originalImage = new Image();
+//     originalImage.src = imagePath;
+ 
+//     //get a reference to the canvas
+//     const canvas = document.getElementById('canvas');
+//     const ctx = canvas.getContext('2d');
+ 
+//     //wait for the image to load
+//     originalImage.addEventListener('load', function() {
+        
+//         //get the original image size and aspect ratio
+//         const originalWidth = originalImage.naturalWidth;
+//         const originalHeight = originalImage.naturalHeight;
+//         const aspectRatio = originalWidth/originalHeight;
+ 
+//         //if the new height wasn't specified, use the width and the original aspect ratio
+//         if (newHeight === undefined) {
+//             //calculate the new height
+//             newHeight = newWidth/aspectRatio;
+//             newHeight = Math.floor(newHeight);
+            
+//             //update the input element with the new height
+//             hInput.placeholder = `Height (${newHeight})`;
+//             hInput.value = newHeight;
+//         }
+      
+//         //set the canvas size
+//         canvas.width = newWidth;
+//         canvas.height = newHeight;
+         
+//         //render the image
+//         ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
+//     });
+// }
+
+// const downloadBtn = document.querySelector("button.download");
+ 
+// //a click event handler for the download button
+// //download the resized image to the client computer
+// downloadBtn.addEventListener('click', function() {
+//     //create a temporary link for the download item
+//     let tempLink = document.createElement('a');
+
+//     //generate a new filename
+//     let fileName = `image-resized.jpg`;
+  
+//     //configure the link to download the resized image
+//     tempLink.download = fileName;
+//     tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
+  
+//     //trigger a click on the link to start the download
+//     tempLink.click();
+// });
+
