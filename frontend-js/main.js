@@ -236,49 +236,39 @@ const copyToClipboard = (e) => {
   document.execCommand('copy')
   document.body.removeChild(el)
 }
-send.onclick = function () {
+send.onclick = async function () {
   console.log("copy clicked")
   // gfg_Run();
-  const message = "To the best sibling, ❤️ Thank you for always having my back! Here’s a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY’S Chocolates. Click on the link to view ";
+  const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
   // const url = "https://www.example.com";
   
   // const textToCopy = `${message} ${url}`;
   // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
   copyToClipboard(`${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  const shareData = {
+  // const shareData = {
 
-    url: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
+  //   url: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
 
+  // }
+  try {
+    const shareData = {
+      text: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      share.classList.add('pulse-once');
+      setTimeout(() => {
+        share.classList.remove('pulse-once');
+      }, 200);
+    } else {
+      // Fallback for devices/browsers that do not support Web Share API
+      // You can provide an alternative sharing option or display a message.
+      console.log("Web Share API is not supported on this device/browser.");
+    }
+  } catch (error) {
+    console.error("An error occurred while trying to share:", error);
   }
-
-  if (navigator.share) {
-
-    // only appears on mobile
-
-    navigator.share(shareData)
-
-    // message.textContent = `Custom link for ${currentText} created!`
-
-  } else {
-
-    // only appears on Desktop + VR
-
-    // message.textContent = `Custom link for ${currentText} copied!`
-
-  }
-
-  share.classList.add('pulse-once')
-
-  setTimeout(() => {
-
-    share.classList.remove('pulse-once')
-
-
-
-  }, 200)
-
-
-
 }
 
 
