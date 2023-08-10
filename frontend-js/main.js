@@ -1666,7 +1666,7 @@ function resizeImage(imagePath, newWidth, newHeight) {
 
       // const croppedCanvas = document.createElement('canvas');
  
-  resizeImage(dataURL, 1024, 1024);
+  resizeImage(dataURL, 1024, 1524);
 
 
 
