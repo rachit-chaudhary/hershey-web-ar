@@ -1060,7 +1060,7 @@ function stopRecordFunc(){
               dataURL = URL.createObjectURL(blob);
               var video = document.getElementById('videotag');
               video.src = dataURL;
-              video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
+              // video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
               autoPlayCheck(video);
               // var body = document.getElementById("preview-Container")
               // body.innerHTML = '';

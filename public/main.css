@@ -2670,7 +2670,7 @@ a.expansion-btn {
   background-size: contain;
 }
 #sharebtn{
-  display: none;
+  display: block;
   bottom: 5vh;
   height: 9.6vw;
   width: 20vw;
@@ -2685,6 +2685,16 @@ a.expansion-btn {
   z-index: 3554644;
   top: 0;
   height: 20%;
+}
+#videotag {
+  height: 75%;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 90%;
 }
 
 .record-video-controls {
