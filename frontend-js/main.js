@@ -1014,22 +1014,21 @@ AFRAME.registerComponent("swap-texture", {
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
   
+    //upload btn pop up
     const fileInput = document.getElementById("uploadbtn");
     const uploadLabel = document.getElementById("fileUploadLabel")
-    console.log("1")
+
     uploadLabel.onclick = function () {
       let uploadAlert = document.querySelector(".alert-check-upload")
-      uploadAlert.classList.remove("invisible")
-      uploadAlert.classList.add("add")
+      //uploadAlert.classList.remove("invisible")
+      //uploadAlert.classList.add("add")
 
-      let uploadAlertClose = document.querySelector("#alertCloseBtnUpload")
-      
-      uploadAlertClose.onclick = () => {
-        uploadAlert.classList.remove("add")
-        uploadAlert.classList.add("invisible")
-        fileInput.click()        
-      }
-
+      fileInput.click() 
+      // let uploadAlertClose = document.querySelector("#alertCloseBtnUpload")
+      // uploadAlertClose.onclick = () => {
+      //   uploadAlert.classList.remove("add")
+      //   uploadAlert.classList.add("invisible")   
+      // }
     }
     
     //upload image function

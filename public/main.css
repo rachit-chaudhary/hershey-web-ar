@@ -568,6 +568,7 @@ line-height: normal;
   line-height: normal;
 }
 .userName{
+  caret-color: #fff;
   background: transparent;
   border: none;
   color: #EFBE7F;
@@ -621,6 +622,9 @@ margin: 22px;
 }
 #uploadbtn {
   display: none;
+  width: 100%;
+  position: absolute;
+  height: 100%;
 }
 .uploadbutton{
   border-radius: 66px !important;
@@ -677,13 +681,13 @@ color: #EFBE7F;
 }
 
 .photo{
-     width: 56%;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-family: "Walsheim";
-
+  width: 56%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-family: "Walsheim";
+  position: relative;
 }
 .upload-section{
   margin-top: 0px;
