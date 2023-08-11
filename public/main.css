@@ -644,7 +644,7 @@ margin: 22px;
 .base-title{
   text-align: center;
 font-family: "Walsheim";
-font-size: 11px;
+font-size: 17px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
@@ -652,7 +652,7 @@ color: #EFBE7F;
 }
 .uploader{
   height: 53px;
-  margin: 18px;
+  margin: 8px 18px;
   border-radius: 32px;
   margin-top: -7px;
   background: rgba(255, 255, 255, 0.20);
@@ -667,6 +667,12 @@ color: #EFBE7F;
   line-height: normal;
   text-transform: lowercase;
   border-radius: 51px;
+}
+.caption-ns {
+  color: #EFBE7F;
+  font-family: 'Walsheim-Medium';
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 /* #imagediv{
   width: 100px;
