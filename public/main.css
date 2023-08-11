@@ -221,7 +221,7 @@ h1 {
   border-radius: 12px;
   background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
   color: #3C131C;
-  width: 142px;
+  width: 100%;
   text-align: center;
   padding: 2px;
   box-sizing: border-box;
