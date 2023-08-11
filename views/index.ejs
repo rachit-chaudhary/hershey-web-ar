@@ -138,6 +138,21 @@
     <div class=" header d-flex justify-content-center">
       <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
     </div>
+
+    <div class="alert-check-upload invisible">
+      <div class="alert-content" style="flex-direction: column;
+      align-items: flex-end;">
+        <div id="alertCloseBtnUpload" class="close-btn-alert">
+          <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
+        </div>
+        <div class=" alert alert-warning" role="alert">
+          <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
+          <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
+          <h2>Upload square picture for best resolution</h2>
+        </div>
+      </div>
+    </div>
+
     <div class="wrapperdiv">
       <div class="username-section">
         <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
@@ -173,8 +188,8 @@
               <p class="filejpeg " id="changeFileName">Sibling's Photo</p>
             </div>
             <div class="photo">
-              <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
               <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
+              <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
             </div>
           </div>
           <div class="d-flex justify-content-center">
