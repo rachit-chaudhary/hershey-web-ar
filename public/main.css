@@ -30,6 +30,7 @@ body {
 }
 #firstscreen {
   display: block;
+  /* change to block qwerty */
 }
 h1 {
     /* display: none;
@@ -435,7 +436,6 @@ line-height: normal;
 }
 .flower-carousel-bottom{
   height: 108px;
-  top: -190px;
 }
 
 .username-section{
@@ -609,7 +609,8 @@ color: #EFBE7F;
   margin-top: 0px;
 }
 .next-button{
-  margin: 15px 0px 60px;
+  position: relative;
+  /* bottom: 68px; */
     /* border-radius: 12px; */
     width: 207px;
     font-size: 24px;
@@ -684,7 +685,7 @@ color: #EFBE7F;
     z-index: 1;
 }
 
-.qns-1{
+/* .qns-1{
   position: relative;
   z-index: 2;
   margin: 0px 0px 25px;
@@ -696,7 +697,7 @@ color: #EFBE7F;
   background-image: url(/images/smallKisses.png);
   box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: "Walsheim";
-}
+} */
 .image1{
   padding-bottom: 7px;
 }
@@ -733,7 +734,7 @@ color: #EFBE7F;
 .hersheyBackgroundImageSection-6{
   margin-top: -62px;
 }
-.qns-2{
+/* .qns-2{
   margin: 0px 0px 15px;
   color: #410E0F;
   font-family:"Walsheim";
@@ -741,10 +742,10 @@ color: #EFBE7F;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
-.options-row {
+} */
+/* .options-row {
   height: 60px;
-}
+} */
 .appropriate{
   font-size: 12px;
   font-family: "Walsheim";
@@ -875,6 +876,18 @@ color: #EFBE7F;
     color: white;
     font-family:"snavely";
     text-transform: lowercase;
+  }
+  .qns-2{
+    margin: 0px 0px 15px;
+    color: #410E0F;
+    font-family:"Walsheim";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .options-row {
+    height: 60px;
   }
   /* .expanded-div{
       width:60%;
@@ -1231,7 +1244,7 @@ body {
 }
 .bottom-image-bar{
   width: 100%;
-  margin: 50px 0px 0px;
+  margin-top: 29px;
 }
 .top-image-bar{
   width: 100%;
@@ -1321,6 +1334,19 @@ body {
     font-family:"snavely";
     text-transform: lowercase;
   }
+  .qns-1{
+    position: relative;
+    z-index: 2;
+    margin: 0px 0px 25px;
+    min-height: 210px;
+    padding: 25px 0px;
+    border: 7px solid  hsl(44, 79%, 67%);
+    border-radius: 15px;
+    background: #E8B377;
+    background-image: url(/images/smallKisses.png);
+    box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: "Walsheim";
+  }
   /* .expanded-div-bar{
       width:60%;
       background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
@@ -1329,6 +1355,13 @@ body {
       font-family:"snavely";
       text-transform: lowercase;
   } */
+  .question-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 145px;
+    padding: 0px 15px;
+  }
   .compressed-div-bar{
     width:18.5%;
     
@@ -1366,7 +1399,7 @@ body {
     color: white;
     font-family:"snavely";
     text-transform: lowercase;
-    border: 2px solid #fff;
+    border: 2px solid;
   }
   .qns-bar-1{
     border: 7px solid  hsl(44, 79%, 67%);
@@ -1524,7 +1557,7 @@ button[disabled]{
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid #fff;
+  border: 2px solid;
 }
 
 .new-qns-bar-1 {
@@ -1593,7 +1626,7 @@ a.new-expansion-btn {
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #fff;
-  border: 2px solid #fff;
+  border: 2px solid;
 }
 
 .option-bar {
@@ -1680,13 +1713,13 @@ a.option-btn {
   right: -27px;
   top: -45px;
 }
-.question-elements {
+/* .question-elements {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 145px;
   padding: 0px 15px;
-}
+} */
 .hanging-circles {
   width: 100%;
   position: relative;
@@ -1996,3 +2029,280 @@ border-right: none;
   opacity: 0.5; /* You can change the style to make disabled images appear faded or grayed out */
   pointer-events: none; /* Prevent clicks on disabled images */
 }
+/* -----------------------------------------------------------hershey exotic */
+.window-exotic{
+  background: rgba(65, 14, 15, 1);
+  /* height: 115; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+.window-exotic .rakhi-kiss-image {
+    width: 165px;
+    position: absolute;
+    top: 19px;
+    right: 0px;
+}
+.image-1-rc-exotic {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 3;
+}
+.hersheyBackgroundImageSection-4-duplicate-exotic{
+  right: -14px;
+    top: -52px;
+}
+.hersheyBackgroundImage-exotic{
+  margin-top: -36px;
+  left: -9px;
+}
+.image-9-exotic{
+  right: -15px;
+  top: -45px;
+}
+.qns-exotic-1{
+  position: relative;
+  z-index: 2;
+  min-height: 210px;
+  padding: 25px 0px;
+  border: 7px solid  hsl(44, 79%, 67%);
+  border-radius: 15px;
+  background:  #F2C869;
+  background-image: url(/images/card-background.png);
+  background-repeat: no-repeat;
+  background-size: 102% 104%;
+  background-position: center;
+  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Walsheim";
+  margin-bottom: 25px;
+}
+.img2-exotic{
+    height: 102px;
+    position: relative;
+    bottom: 85px;
+}
+.gliter-with-group{
+  height: 42px;
+}
+.gliter-with-groups{
+  position: relative;
+    z-index: 4;
+    top: -109px;
+    height: 116px;
+    margin-left: -23px;
+}
+.hershey-exotic-div{
+  margin-top: 33px;
+}
+.exotic-content{
+  margin-left: 16px;
+}
+/* ---------------------------hershey exotic cards */
+
+
+
+
+
+
+
+.exotic-dark {
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  margin: 1px;
+  width: 32.33%;
+  height: 100%;
+  font-size: 12px;
+  /* position: relative; */
+  float: left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: white;
+  font-family: "snavely";
+  text-transform: lowercase;
+}
+
+.exotic-hershey {
+  width: 60%;
+  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
+  border: 2px solid hsl(44, 79%, 67%);
+  color: #37140B;
+  font-family: "snavely";
+  text-transform: lowercase;
+  font-size: 17px;
+}
+
+.compressed-div {
+  width: 18.5%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#exotic-hershey-1 {
+  background-color: #774629;
+}
+
+#exotic-hershey-2 {
+  background-color: #774629;
+}
+
+#exotic-hershey-3 {
+  background-color: #774629;
+}
+
+a.expansion-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2vw;
+  margin-left: 13px;
+  margin-top: 27px;
+}
+
+.expansion-btn {
+  margin-top: 11px;
+  margin-left: 12px;
+}
+/* -------------------------------- */
+.exotic-card2 {
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+}
+
+/* Styles for the exotic divs */
+.exotic-div {
+  margin: 1px;
+  width: 32.33%;
+  height: 104%;
+  font-size: 12px;
+  float: left;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  font-family: "snavely";
+  text-transform: lowercase;
+}
+
+.exotic-expanded-div {
+  width: 60%;
+  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
+  border: 2px solid hsl(44, 79%, 67%);
+  color: #37140B;
+  font-family: "snavely";
+  text-transform: lowercase;
+}
+
+.exotic-compressed-div {
+  width: 18.5%;
+}
+
+/* Styles for the exotic div backgrounds */
+#exotic-dark-card2-1 {
+  background-color: #774629;
+}
+
+#exotic-dark-card2-2 {
+  background-color: #774629;
+}
+
+#exotic-dark-card2-3 {
+  background-color: #774629;
+}
+
+/* Styles for the expansion buttons */
+.exotic-expansion-btn {
+  font-size: 14px;
+  margin-left: 13px;
+  margin-top: 9px !important;
+}
+
+/* ---------------------------------------------- */
+.exotic-card-container {
+  justify-content: center;
+}
+
+.exotic-option-container {
+  width: 80%;
+  max-width: 800px;
+}
+
+.exotic-question {
+  font-size: 24px;
+  font-family: "snavely";
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------------card3 */
+
+.sibling-bond-option {
+  margin: 1px;
+  width: 32.33%;
+  height: 104%;
+  font-size: 12px;
+  float: left;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  font-family: "snavely";
+  text-transform: lowercase;
+}
+
+.expanded-option {
+  width: 60%;
+  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%),
+    linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%),
+    linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
+  border: 2px solid hsl(44, 79%, 67%);
+  color: #37140B;
+  font-family: "snavely";
+  text-transform: lowercase;
+}
+
+.compressed-option {
+  width: 18.5%;
+}
+
+#option-exotic-1 {
+  background-color: #774629;
+}
+
+#option-exotic-2 {
+  background-color: #774629;
+}
+
+#option-exotic-3 {
+  background-color: #774629;
+}
+
+.option-text {
+  font-size: 14px;
+  margin-left: 13px;
+  margin-top: 9px !important;
+}
+
+
+
+
+
+
+
