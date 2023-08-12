@@ -47,10 +47,9 @@ export class UImodule  {
     //    this.untapKisses();
         if (Image_Id.src.match("/images/kisses.png")) {
             Image_Id.src = "/images/tapkisses.png"
-            console.log("kisses")
             this.packtype = "kisses"
             console.log("module" +  this.packtype)
-
+            
         }
         else {
             Image_Id.src = "/images/kisses.png";

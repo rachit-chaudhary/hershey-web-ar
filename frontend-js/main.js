@@ -329,27 +329,35 @@ linkEl.href = blobUrl;
 document.body.appendChild(linkEl);
 // dataURL=blobUrl
 
+var hoverChange = document.getElementById('hoverChange')
+var hoverHershey = document.getElementById('hoverhershey')
+var hoverExotic = document.getElementById('hoverexotic')
 
-//upload button
+  hoverChange.src = '/images/kisses.png'
+  hoverHershey.src = '/images/hershey.png'
+  hoverExotic.src = '/images/exotic.png'
+
 // ---------------------------pack1----------
 hoverChange.onclick = () => {
-  var choice1 = document.getElementById('hoverhershey').value
-  var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
-  // hoverhershey
-  // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
+
+  hoverHershey.src = '/images/hershey.png'
+  hoverExotic.src = '/images/exotic.png'
+
   typeofpack = 'kisses'
   animtime = 13000
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
-  var choice3 = document.getElementById('hoverChange').value
-  var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
+
+  hoverChange.src = '/images/kisses.png'
+  hoverExotic.src = '/images/exotic.png'
+
   typeofpack = 'chocolatebar'
   animtime = 11000
   console.log(typeofpack)
@@ -362,6 +370,10 @@ hoverexotic.onclick = () => {
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
+  
+  hoverChange.src = '/images/kisses.png'
+  hoverHershey.src = '/images/hershey.png'
+
   typeofpack = 'exotic'
   animtime = 17000
   pNametype = "3"

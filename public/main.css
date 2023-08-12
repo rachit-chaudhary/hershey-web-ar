@@ -646,7 +646,7 @@ margin: 22px;
 .base-title{
   text-align: center;
 font-family: "Walsheim";
-font-size: 17px;
+font-size: 16px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
@@ -654,7 +654,7 @@ color: #EFBE7F;
 }
 .uploader{
   height: 53px;
-  margin: 8px 18px;
+  margin: 24px 18px;
   border-radius: 32px;
   margin-top: -7px;
   background: rgba(255, 255, 255, 0.20);
@@ -2733,4 +2733,8 @@ a.expansion-btn {
   justify-content: space-evenly;
   position: absolute;
   bottom: 35px;
+}
+
+.packSelectedOne {
+  border: 5px solid greenyellow;
 }
