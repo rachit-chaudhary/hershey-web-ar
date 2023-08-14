@@ -54,7 +54,7 @@ console.log(imageUrl)
    res.json({ imageUrl });
   }
 });
-router.get('/questions', (req, res) => {
+router.get('/', (req, res) => {
   imageUrl = "";
   res.render('index', { imageUrl });
 })
@@ -63,9 +63,9 @@ router.get('/', (req, res) => {
     res.render('get-coupon');
   });
   
-  router.get('/questions', (req, res) => {
-    res.render('index');
-  });
+  // router.get('/questions', (req, res) => {
+  //   res.render('index');
+  // });
   
   router.get('/get-coupon', (req, res) => {
 
