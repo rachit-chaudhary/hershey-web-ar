@@ -141,31 +141,31 @@
 
 // ------------------------------------------------------
 
-const carouselImages = document.querySelectorAll('.carosel-images');
+// const carouselImages = document.querySelectorAll('.carosel-images');
 
-carouselImages.forEach((image) => {
-  image.addEventListener('click', handleCarouselClick);
-});
+// carouselImages.forEach((image) => {
+//   image.addEventListener('click', handleCarouselClick);
+// });
 
-function handleCarouselClick(event) {
-  const clickedImage = event.target;
-  const carouselId = clickedImage.getAttribute('data-carousel-id');
+// function handleCarouselClick(event) {
+//   const clickedImage = event.target;
+//   const carouselId = clickedImage.getAttribute('data-carousel-id');
 
-  if (clickedImage.classList.contains('active')) {
-    carouselImages.forEach((image) => {
-      image.classList.remove('disabled');
-    });
-  } else {
-    carouselImages.forEach((image) => {
-      if (image !== clickedImage) {
-        image.classList.add('disabled');
-      }
-    });
+//   if (clickedImage.classList.contains('active')) {
+//     carouselImages.forEach((image) => {
+//       image.classList.remove('disabled');
+//     });
+//   } else {
+//     carouselImages.forEach((image) => {
+//       if (image !== clickedImage) {
+//         image.classList.add('disabled');
+//       }
+//     });
     
-  }
+//   }
 
-  clickedImage.classList.toggle('active');
-}
+//   clickedImage.classList.toggle('active');
+// }
 // ---------------------------------------------hershey exotic jquery--------------------------------
 
 

@@ -138,10 +138,25 @@
     <div class=" header d-flex justify-content-center">
       <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
     </div>
+
+    <div class="alert-check-upload invisible">
+      <div class="alert-content" style="flex-direction: column;
+      align-items: flex-end;">
+        <div id="alertCloseBtnUpload" class="close-btn-alert">
+          <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
+        </div>
+        <div class=" alert alert-warning" role="alert">
+          <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
+          <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
+          <h2>Upload square picture for best resolution</h2>
+        </div>
+      </div>
+    </div>
+
     <div class="wrapperdiv">
       <div class="username-section">
         <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
-        <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal Sibling’s Name</p>
+        <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal</p>
         <input id="siblingname" type="text" placeholder="SIBLING'S NAME" class="userName" required />
       </div>
       <div class="d-flex justify-content-start">
@@ -173,13 +188,13 @@
               <p class="filejpeg " id="changeFileName">Sibling's Photo</p>
             </div>
             <div class="photo">
-              <label for="uploadbtn" class=" uploadbutton">UPLOAD</label>
               <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
+              <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
             </div>
           </div>
-          <div class="d-flex justify-content-center">
-            <p class="base-title">Select a lovely photo together OR of your sibling alone!</p>
-
+          <div class="d-flex justify-content-center flex-column text-center">
+            <p class="base-title">For best resolution upload a <br> square photo.</p>
+            <p class="caption-ns">Select a lovely photo together OR of your sibling alone!</p>
           </div>
         </div>
       </div>
@@ -707,7 +722,7 @@
       Tap on envelope
     </div>
     <div id="recordparentdiv">
-      <div id="recordbannerdiv">Record & save</div>
+      <div id="recordbannerdiv">Tap Rec button to record</div>
       <div class="arrow-down"></div>
     </div>
     

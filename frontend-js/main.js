@@ -11,7 +11,7 @@ import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 
-
+let imagevalue
 
 
 // modules code
@@ -236,20 +236,13 @@ const copyToClipboard = (e) => {
   document.execCommand('copy')
   document.body.removeChild(el)
 }
-send.onclick = async function () {
+let shareOnWhatsapp = async function() {
   console.log("copy clicked")
   // gfg_Run();
   const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
-  // const url = "https://www.example.com";
-  
-  // const textToCopy = `${message} ${url}`;
-  // copyToClipboard(`http://localhost:3000/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+
   copyToClipboard(`${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
-  // const shareData = {
 
-  //   url: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,
-
-  // }
   try {
     const shareData = {
       text: `${message} https://hersheysgifting.co.in/questions?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
@@ -271,6 +264,8 @@ send.onclick = async function () {
   }
 }
 
+send.addEventListener('click', shareOnWhatsapp)
+sharebtn.addEventListener('click', shareOnWhatsapp)
 
 // image fill function
 function drawImageScaled(img, ctx) {
@@ -334,341 +329,35 @@ linkEl.href = blobUrl;
 document.body.appendChild(linkEl);
 // dataURL=blobUrl
 
+var hoverChange = document.getElementById('hoverChange')
+var hoverHershey = document.getElementById('hoverhershey')
+var hoverExotic = document.getElementById('hoverexotic')
 
-// console.log(modelmesh)
-// modelmesh.material.map = loader.load(src)
-// console.log(dataURL)
-// modelmesh.material.map.flipY = false
+  hoverChange.src = '/images/kisses.png'
+  hoverHershey.src = '/images/hershey.png'
+  hoverExotic.src = '/images/exotic.png'
 
-// to load the model
-// const gltfLoader = new GLTFLoader(manager);
-// gltfLoader.load(model, (gltf) => {
-//   // gfg_Rundec();
-//   modelobj=gltf.scene
-//   modelobj.visible=false
-//   //traverse mesh 
-//   function traversal() {
-//     gltf.scene.traverse(function (child) {
-//       if (child.name === "Picture_Picture_0") {
-//         // dataURL = blobUrl
-//         // pName = dataURL
-
-//         dataURL = pName
-//         console.log("cube texture loaded")
-//         loader = new THREE.TextureLoader()
-//         texture = loader.load(dataURL)
-//         console.log(22222 + dataURL)
-//         child.material.map = texture;
-//         child.material.map.flipY = false
-//       }
-//     })
-//   }
-//   traversal()
-//   // document.getElementById("uploadbtn").onchange = function () { preview_image(event) };
-//   // function preview_image(event) {
-//   //   var reader = new FileReader();
-//   //   reader.onload = function () {
-//   //     console.log("image upload clicked")
-
-//   //     output = document.getElementById('galleryimg');
-//   //     output.src = reader.result;
-//   //     console.log(output.src)
-//   //      uploadpicture=1
-
-//   //   }
-//   //   reader.readAsDataURL(event.target.files[0]);
-//   // }
-//   //upload button
-// const uploadbtn=document.getElementById("uploadbtn")
-// uploadbtn.onchange = function () { preview_image(event) };
-// function preview_image(event) {
-//   var reader = new FileReader();
-//   reader.onload = function () {
-//     //check size of the file
-//     if (uploadbtn.files.length > 0) {
-//       const fileSize = uploadbtn.files.item(0).size;
-//       const fileMb = fileSize / 1024 ** 2;
-//       console.log(fileMb);
-
-//       if (fileMb >= 12) {
-//         console.log("size is large")
-//         // fileResult.innerHTML = "Please select a file less than 2MB.";
-//         // fileSubmit.disabled = true;
-//       } else {
-//         console.log("size is ohk")
-//         // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-//         // fileSubmit.disabled = true;
-//       }
-//     }
-
-//     console.log("image upload clicked")
-
-//     output = document.getElementById('galleryimg');
-//     output.src = reader.result;
-//     console.log(output.src)
-//     dataURL = output.src
-//     // dataURL=blobUrl
-
-//     const file = event.target.files[0];
-//     contentType = file.type;
-
-//     if (contentType === "image/jpeg") {
-//       console.log(contentType);
-//       b64Data = dataURL.substring(23, dataURL.length);
-//     } else if (contentType === "image/png") {
-//       console.log(contentType);
-//       b64Data = dataURL.substring(22, dataURL.length);
-//     }
-
-
-//     var blob = b64toBlob(b64Data, contentType);
-//     blobUrl = URL.createObjectURL(blob);
-//     dataURL = blobUrl
-//     pName = dataURL
-//     // traversal()
-//     // gltf.scene.traverse(function (child) {..
-
-//     //   if (child.name === "Cube001_1") {
-//     //     console.log("model loaded")
-//     //     loader = new THREE.TextureLoader()
-//     //     texture = loader.load(dataURL)
-
-//     //     child.material.map = texture;
-//     //     child.material.map.flipY = false
-//     //   }
-//     // })
-//   }
-//   reader.readAsDataURL(event.target.files[0]);
-// }
-
-//   //div texture image 
-//   var imageElement = document.getElementById('galleryimg')
-//   var canvas = document.createElement('canvas');
-//   var context = canvas.getContext('2d');
-
-//   canvas.width = 350;
-//   canvas.height = 350;
-//   drawImageScaled(imageElement, context)
-//   // context.drawImage(imageElement, 20, 20);
-//   dataURL = canvas.toDataURL('image/jpg');
-//   console.log(dataURL)
-// scene.tapplace="true"
-// console.log(scene)
-//   scene.add(instantTrackerGroup);
-//   // const elem = document.querySelector('#screenshot');
-//   // elem.addEventListener('click', () => {
-
-//   //   canvas.toBlob((blob) => {
-//   //     saveBlob(blob, `screencapture-${canvas.width}x${canvas.height}.png`);
-//   //     console.log(blob)
-//   //   });
-//   // });
-//   // const saveBlob = (function () {
-//   //   const a = document.createElement('a');
-//   //   document.body.appendChild(a);
-//   //   a.style.display = 'block';
-//   //   return function saveData(blob, fileName) {
-//   //     const url = window.URL.createObjectURL(blob);
-//   //     a.href = url;
-//   //     a.download = fileName;
-//   //     a.click();
-//   //     //  texture = loader.load(require('../assets/trees.jpg'))
-//   //     //  console.log("base   "+dataURL)
-
-//   //   };
-//   // }());
-//   // Now the model has been loaded, we can add it to our instant_tracker_group
-
-//   gltf.scene.scale.set(0.1, 0.1, 0.1);
-//   gltf.scene.position.set(0,-0,0);
-
-//   // gltf.scene.gesturehandler="true"
-//   // console.log( gltf.setObject3D('light', new THREE.PointLight()))
-
-
-
-//   instantTrackerGroup.add(gltf.scene);
-//   mixer = new THREE.AnimationMixer(gltf.scene);
-//   const clips = gltf.animations;
-//   const clip = THREE.AnimationClip.findByName(clips,'Animation');
-//   const action= mixer.clipAction(clip);
-
-//  action.play();
-
-
-
-// }, undefined, () => {
-//   console.log('An error ocurred loading the GLTF model');
-// });
-// Let's add some lighting, first a directional light above the model pointing down
-// const directionalLight = new THREE.DirectionalLight('white', 0.8);
-// directionalLight.position.set(0,3.5,7);
-// // directionalLight.rotateX(1.4)
-// directionalLight.scale.set(3,3,3);
-
-// // directionalLight.lookAt(0, 0, 0);
-// instantTrackerGroup.add(directionalLight);
-// btn1.onclick = () => {
-//   console.log("btn1")
-//   option1="Sweet Troublemakers"
-// }
-// btn2.onclick = () => {
-//   console.log("btn2")
-//   option1="Partners in crime"
-// }
-// btn3.onclick = () => {
-//   console.log("btn3")
-//   option1="Top Secret keepers"
-// }
-
-// btn4.onclick = () => {
-//   console.log("btn4")
-//   option2="Caring nature"
-// }
-// btn5.onclick = () => {
-//   console.log("btn5")
-//   option2="Delightfully annoying nature"
-// }
-// btn6.onclick = () => {
-//   console.log("btn6")
-//   option2="Giving mature advices"
-// }
-
-
-// btn7.onclick = () => {
-//   console.log("btn7")
-//   option3="Crazy"
-// }
-// btn8.onclick = () => {
-//   console.log("btn8")
-//   option3="Realistic"
-// }
-// btn9.onclick = () => {
-//   console.log("btn9")
-//   option3="Determined"
-// }
-
-
-// next.onclick = () => {
-//   console.log("next")
-//    msg = `Dear ${name}, Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling.You are the best I could ask for and I am sure with your crazy and determined attitude all your dreams will turn into reality. My words fall short of expressing my love, hence Saying it with a Kiss.`
-// console.log(msg)
-
-
-//   // if (option1 === "button1") {
-//   //   console.log("option1 button1")
-//   // } else if (option1 === "button2") {
-//   //   console.log("option1 button2")
-//   // } else if (option1 === "button3") {
-//   //   console.log("option1 button3")
-//   // }
-
-//   // if (option2 === "button1") {
-//   //   console.log("option2 button1")
-//   // } else if (option2 === "button2") {
-//   //   console.log("option2 button2")
-//   // } else if (option2 === "button3") {
-//   //   console.log("option2 button3")
-//   // }
-
-//   // if (option3 === "button1") {
-//   //   console.log("option3 button1")
-//   // } else if (option3 === "button2") {
-//   //   console.log("option3 button2")
-//   // } else if (option3 === "button3") {
-//   //   console.log("option3 button3")
-//   // }
-
-// }
-
-// //zapparsharing feature
-// // Get canvas from dom
-// const canvas = document.querySelector('canvas');
-
-// // Convert canvas data to url
-
-// const url1 = canvas.toDataURL('image/jpeg', 0.8);
-
-// ZapparSharing({
-//   data: url1,
-//   fileNamePrepend: 'Zappar',
-//   shareUrl: 'www.zappar.com',
-//   shareTitle: 'Hello World!',
-//   shareText: 'Hello World!',
-//   onSave: () => {
-//     console.log('Image was saved');
-//   },
-//   onShare: () => {
-//     console.log('Share button was pressed');
-//   },
-//   onClose: () => {
-//     console.log('Dialog was closed');
-//   },
-// }, {
-//   containerDiv: {
-//     position: 'fixed',
-//     width: '100%',
-//     height: '100%',
-//     top: '0px',
-//     left: '0px',
-//     zIndex: 10000,
-//     backgroundImage: "url('https://source.unsplash.com/user/c_v_r/1900x800')",
-//     fontFamily: 'sans-serif',
-//     color: 'rgba(255,255,255,1)',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     justifyContent: 'center',
-//   },
-//   saveShareAnchor: {
-//     display: 'flex',
-//     width: '70px',
-//     height: '70px',
-//     marginTop: '2.5%',
-//     marginLeft: '5%',
-//     marginRight: '5%',
-//     backgroundImage: "url('https://source.unsplash.com/user/c_v_r/1900x800')",
-//   },
-// }, {}, {
-//   SAVE: 'SAVE',
-//   SHARE: 'SHARE',
-//   NowOpenFilesAppToShare: 'Now open files app to share',
-//   TapAndHoldToSave: 'Tap and hold the image<br/>to save to your Photos app',
-// });
-
-
-
-// And then a little ambient light to brighten the model up a bit
-// const ambientLight = new THREE.AmbientLight('white', 0.8);
-// instantTrackerGroup.add(ambientLight);
-
-// When the experience loads we'll let the user choose a place in their room for
-// the content to appear using setAnchorPoseFromCameraOffset (see below)
-// The user can confirm the location by tapping on the screen
-
-// Use a function to render our scene as usual
-
-
-
-//upload button
 // ---------------------------pack1----------
 hoverChange.onclick = () => {
-  var choice1 = document.getElementById('hoverhershey').value
-  var choice2 = document.getElementById('hoverexotic').value
   console.log("clickedkisses")
-  // hoverhershey
-  // uimoduleobj.untapK``isses()
   uimoduleobj.changeKissesPack()
+
+  hoverHershey.src = '/images/hershey.png'
+  hoverExotic.src = '/images/exotic.png'
+
   typeofpack = 'kisses'
   animtime = 13000
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
 hoverhershey.onclick = () => {
-  var choice3 = document.getElementById('hoverChange').value
-  var choice4 = document.getElementById('hoverexotic').value
   console.log("clickedchocolatebar")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeHersheyPack()
+
+  hoverChange.src = '/images/kisses.png'
+  hoverExotic.src = '/images/exotic.png'
+
   typeofpack = 'chocolatebar'
   animtime = 11000
   console.log(typeofpack)
@@ -681,6 +370,10 @@ hoverexotic.onclick = () => {
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
+  
+  hoverChange.src = '/images/kisses.png'
+  hoverHershey.src = '/images/hershey.png'
+
   typeofpack = 'exotic'
   animtime = 17000
   pNametype = "3"
@@ -960,6 +653,7 @@ option3div3exotic.onclick = () => {
 async function initRecorder() {
 
   const canvas = document.querySelector('canvas') || document.createElement('canvas');
+  const recMsg = document.getElementById('recordbannerdiv')
 
 
   let recording = false;
@@ -991,7 +685,10 @@ async function initRecorder() {
 // capture.style.display = 'none'
 
     capture.src = "/images/shutter-button-start.png"
+    recMsg.innerHTML = "Tap Rec Button to Record"
+
 } else {
+  recMsg.innerHTML = "Tap Stop Button to Save"
   capture.src = "/images/shutter-button-stop.png"
     getMp3Stream(function (audioStream) {
         const canvas = document.querySelector('canvas');
@@ -1060,7 +757,7 @@ function stopRecordFunc(){
               dataURL = URL.createObjectURL(blob);
               var video = document.getElementById('videotag');
               video.src = dataURL;
-              video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
+              // video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
               autoPlayCheck(video);
               // var body = document.getElementById("preview-Container")
               // body.innerHTML = '';
@@ -1080,6 +777,7 @@ function stopRecordFunc(){
               audioFinalStream.stop();
               canvasFinalStream.stop();
               capture.src = "/images/shutter-button-start.png"
+              recMsg.innerHTML = "Tap Rec Button to Record"
               
 }
 function dataURLtoBlob(dataurl) {
@@ -1125,19 +823,19 @@ function createSoundSource(buffer, callback) {
 document.getElementById('closebtn').addEventListener('click', (e) =>{
   document.getElementById("preview-Container").style.display='none';
 });
-document.getElementById('sharebtn').addEventListener('click', (e) => {
-  try {
-      if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
-          navigator.share(shareObject)
-              .then(() => console.log('Successful share'))
-              .catch((error) => console.log('Error sharing', error));
-      } else {
-          alert("Web Share API is not supported in your browser.")
-      }
-  } catch {
-      alert("Sharing is not supported in your browser")
-  }
-});
+// document.getElementById('sharebtn').addEventListener('click', (e) => {
+//   try {
+//       if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
+//           navigator.share(shareObject)
+//               .then(() => console.log('Successful share'))
+//               .catch((error) => console.log('Error sharing', error));
+//       } else {
+//           alert("Web Share API is not supported in your browser.")
+//       }
+//   } catch {
+//       alert("Sharing is not supported in your browser")
+//   }
+// });
 
 document.getElementById('savebtn').addEventListener('click', (e) => {
     downloadFile(dataURL);
@@ -1256,13 +954,8 @@ AFRAME.registerComponent("swap-texture", {
           const fileMb = fileSize / 1024 ** 2;
           console.log(fileMb);
 
-          if (fileMb > 4) {
-            alert("please upload file less then 4mb")
-            console.log("size is large")
-            // fileResult.innerHTML = "Please select a file less than 2MB.";
-            // fileSubmit.disabled = true;
-          }else if (fileMb < 1) {
-            alert("please upload file more then 1mb")
+          if (fileMb >= 12) {
+            alert("please upload file less then 10mb")
             console.log("size is large")
             // fileResult.innerHTML = "Please select a file less than 2MB.";
             // fileSubmit.disabled = true;
@@ -1337,21 +1030,25 @@ AFRAME.registerComponent("swap-texture", {
 
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
-    //   modelname.addEventListener("model-loaded",()=>{
-    //     console.log("if loaded")
+  
+    //upload btn pop up
+    const fileInput = document.getElementById("uploadbtn");
+    const uploadLabel = document.getElementById("fileUploadLabel")
 
-    // //    modelloaded++
-    // //     if(modelloaded===5){
-    // //         console.log("loaded")
-    // //         // alert("loaded!")
-    // //     australiacont.setAttribute("visible", "true")
-    // //     flat.style.display = 'none'
-    // // blacktransparent.style.display="block"
-    // // placementUI.style.display = 'block'
-    // //     }
+    uploadLabel.onclick = function () {
+      let uploadAlert = document.querySelector(".alert-check-upload")
+      //uploadAlert.classList.remove("invisible")
+      //uploadAlert.classList.add("add")
 
-    // });
-    // Function to perform the AJAX request to the server and return the imageUrl value as a Promise
+      fileInput.click() 
+      // let uploadAlertClose = document.querySelector("#alertCloseBtnUpload")
+      // uploadAlertClose.onclick = () => {
+      //   uploadAlert.classList.remove("add")
+      //   uploadAlert.classList.add("invisible")   
+      // }
+    }
+    
+    //upload image function
     function uploadImage(imageFile) {
       const formData = new FormData();
       formData.append("image", imageFile);
@@ -1385,11 +1082,10 @@ AFRAME.registerComponent("swap-texture", {
     function getimageuploaded() {
       // Get uploaded image from server
       console.log("clicked different btn")
-      const fileInput = document.getElementById("uploadbtn");
+      
       const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
       console.log("clicked different btn1")
-      uploadImage(imageFile)
-        .then(imageUrl => {
+      uploadImage(imageFile).then(imageUrl => {
           console.log("clicked different btn2")
           console.log("Uploaded Image URL:", imageUrl);
           dataURL = imageUrl
@@ -1400,8 +1096,7 @@ AFRAME.registerComponent("swap-texture", {
             renderResult(imageUrl);
             console.log("clicked different btn3")
           }, 2000);
-        })
-        .catch(error => {
+        }).catch(error => {
           console.error("Error:", error);
         });
     }
@@ -1596,6 +1291,48 @@ AFRAME.registerComponent("swap-texture", {
       event.preventDefault(); // Prevent the default form submission behavior
       // Perform any form-specific handling here
     });
+  
+
+//resize the image and draw it to the canvas
+function resizeImage(imagePath, newWidth, newHeight) {
+    //create an image object from the path
+    const originalImage = new Image();
+    originalImage.src = imagePath;
+ 
+    //get a reference to the canvas
+    // const canvas = document.getElementById('canvas');
+    const croppedCanvas = document.createElement('canvas');
+    const ctx = croppedCanvas.getContext('2d');
+ 
+    //wait for the image to load
+    originalImage.addEventListener('load', function() {
+        
+        //get the original image size and aspect ratio
+        const originalWidth = originalImage.naturalWidth;
+        const originalHeight = originalImage.naturalHeight;
+        const aspectRatio = originalWidth/originalHeight;
+ 
+        //if the new height wasn't specified, use the width and the original aspect ratio
+        if (newHeight === undefined) {
+            //calculate the new height
+            newHeight = newWidth/aspectRatio;
+            newHeight = Math.floor(newHeight);
+            
+            //update the input element with the new height
+            hInput.placeholder = `Height (${newHeight})`;
+            hInput.value = newHeight;
+        }
+      
+        //set the canvas size
+        croppedCanvas.width = newWidth;
+        croppedCanvas.height = newHeight;
+         
+        //render the image
+        ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
+        imagevalue=croppedCanvas.toDataURL("image/jpeg", 0.9);
+        console.log(imagevalue)
+    });
+}
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       let modelmesh
@@ -1615,62 +1352,34 @@ AFRAME.registerComponent("swap-texture", {
         console.log(modelname.getObject3D('mesh'))
         console.log(modelname.getObject3D('mesh').children[1].children[5])
       }
-      const rakhiImage = document.getElementById('rakhi');
 
-      // Replace 'originalDataURL' with the actual Data URL of the original image
-      const originalDataURL = dataURL;
+      // const rakhiImage = document.getElementById('rakhi');
 
-      // Create a new Image object
-      const image = new Image();
+      // // Replace 'originalDataURL' with the actual Data URL of the original image
+      // const originalDataURL = dataURL;
 
-      // Set the new image's src to the original Data URL
-      image.src = originalDataURL;
+      // // Create a new Image object
+      // const image = new Image();
 
-      image.onload = function () {
-        console.log("Image loaded:", image.width, image.height);
-        // Create a canvas element with the desired cropped dimensions
-        const croppedCanvas = document.createElement('canvas');
-        const cropWidth = 1624; // Set to your desired cropped width
-        const cropHeight = 1624; // Set to your desired cropped height
+      // // Set the new image's src to the original Data URL
+      // image.src = originalDataURL;
 
-        const centerX = image.width / 2;
-        const centerY = image.height / 2;
-        const cropX = centerX - cropWidth / 2;
-        const cropY = centerY - cropHeight / 2;
-
-        console.log("Center:", centerX, centerY);
-        console.log("Crop:", cropX, cropY);
-
-        croppedCanvas.width = cropWidth;
-        croppedCanvas.height = cropHeight;
-
-        // Get the 2D context of the canvas
-        const ctx = croppedCanvas.getContext('2d');
-
-        // Crop the image (adjust the crop coordinates as needed)
-        ctx.drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
-        // Get the cropped Data URL from the canvas
-        const croppedDataURL = croppedCanvas.toDataURL();
-
-     // Set the src attribute of the image tag to the cropped Data URL
-        rakhiImage.src = croppedDataURL;
-
-        // Set the src attribute of the image tag to the resized Data URL
-       
-        console.log("www" + dataURL)
-        modelmesh.material.map = loader.load(rakhiImage.src)
-        console.log(dataURL)
-        // set flipY to false to correclty rotate texture
-        modelmesh.material.map.flipY = false
-      };
+      // const croppedCanvas = document.createElement('canvas');
+ 
+  resizeImage(dataURL, 1024, 1524);
 
 
 
-      // console.log("www" + dataURL)
-      // modelmesh.material.map = loader.load(dataURL)
-      // console.log(dataURL)
-      // // set flipY to false to correclty rotate texture
-      // modelmesh.material.map.flipY = false
+
+
+setTimeout(() => {
+  console.log("www" + dataURL)
+  modelmesh.material.map = loader.load(imagevalue)
+  console.log(dataURL)
+  // set flipY to false to correclty rotate texture
+  modelmesh.material.map.flipY = false
+}, 3000);
+  
 
 
     }
@@ -1982,3 +1691,66 @@ homebtn.onclick = () => {
 // zappCloseBtn.insertAdjacentHTML('beforeend',
 // `<h3 class="go-back-txt">Go Back</h3>`)
 /* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
+
+
+
+// //resize and draw the image on first load
+// resizeImage(imagePath, 1024, 1024);
+
+// //resize the image and draw it to the canvas
+// function resizeImage(imagePath, newWidth, newHeight) {
+//     //create an image object from the path
+//     const originalImage = new Image();
+//     originalImage.src = imagePath;
+ 
+//     //get a reference to the canvas
+//     const canvas = document.getElementById('canvas');
+//     const ctx = canvas.getContext('2d');
+ 
+//     //wait for the image to load
+//     originalImage.addEventListener('load', function() {
+        
+//         //get the original image size and aspect ratio
+//         const originalWidth = originalImage.naturalWidth;
+//         const originalHeight = originalImage.naturalHeight;
+//         const aspectRatio = originalWidth/originalHeight;
+ 
+//         //if the new height wasn't specified, use the width and the original aspect ratio
+//         if (newHeight === undefined) {
+//             //calculate the new height
+//             newHeight = newWidth/aspectRatio;
+//             newHeight = Math.floor(newHeight);
+            
+//             //update the input element with the new height
+//             hInput.placeholder = `Height (${newHeight})`;
+//             hInput.value = newHeight;
+//         }
+      
+//         //set the canvas size
+//         canvas.width = newWidth;
+//         canvas.height = newHeight;
+         
+//         //render the image
+//         ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
+//     });
+// }
+
+// const downloadBtn = document.querySelector("button.download");
+ 
+// //a click event handler for the download button
+// //download the resized image to the client computer
+// downloadBtn.addEventListener('click', function() {
+//     //create a temporary link for the download item
+//     let tempLink = document.createElement('a');
+
+//     //generate a new filename
+//     let fileName = `image-resized.jpg`;
+  
+//     //configure the link to download the resized image
+//     tempLink.download = fileName;
+//     tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
+  
+//     //trigger a click on the link to start the download
+//     tempLink.click();
+// });
+
