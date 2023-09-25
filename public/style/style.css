@@ -1,0 +1,398 @@
+@font-face {
+    font-family: "GothamBold";
+    src: url("../assets/fonts/GothamBold.ttf");
+}
+@font-face {
+    font-family: "GothamBook";
+    src: url("../assets/fonts/GothamBook.ttf");
+}
+@font-face {
+    font-family: "GothamLight";
+    src: url("../assets/fonts/GothamLight.ttf");
+}
+body {
+    margin: 0;
+    font-family: "GothamBold";
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* navbar starts */
+.site-navbar {
+    display: flex;
+    justify-content: center;
+    padding: 22px 0px;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    color: #fff;
+}
+
+.site-navbar span {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #fff;
+    background: #DF1D4E;
+    padding: 1px 11px;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    padding: 0px 30px;
+}
+
+.overlay a {
+    text-transform: uppercase;
+    font-family: "GothamBold";
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    z-index: 10;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+/* navbar ends */
+
+.start-screen {
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    top: 0px;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+}
+.enter-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.enter-button h1 {
+    color: #fff;
+}
+.enter-button button {
+    background: none;
+    border: 1px solid #fff;
+    font-family: "GothamBook";
+    font-size: 16px;
+    color: #fff;
+    width: 250px;
+    padding: 15px;
+}
+.scroll-wrap {
+    position: relative;
+}
+
+.scroll-wrap li {
+    height: 100vh;
+}
+
+.movie {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: #111;
+}
+
+.movie .bg {
+    width: 100vw;
+    height: 100vh;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.movie .bg img {
+    /*   height:100vh; */
+    transition: 1s;
+}
+
+.movie.step-2 .bg img {
+    transform: scale(0.9);
+}
+
+.movie.step-3 .bg img {
+    transform: scale(0.8);
+}
+
+.movie.step-4 .bg img {
+    transform: scale(0.7);
+}
+
+.movie.step-5 .bg img {
+    transform: scale(0.6);
+}
+
+h4,
+ul li h4 {
+    font-size: 21px;
+}
+h4 span,
+ul li h4 span {
+    font-size: 40px;
+}
+ul li h4 b {
+    border-bottom: 1px solid #fff;
+}
+
+.story,
+.actor,
+.system,
+.screen4,
+.screen5,
+.screen6,
+.screen7 {
+    position: absolute;
+    top: 0;
+    bottom: 0px;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    opacity: 0;
+    transition: 1s;
+}
+
+.story:before,
+.actor:before,
+.system:before,
+.screen4:before,
+.screen5:before,
+.screen6:before,
+.screen7:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.story-content,
+.actor ul,
+.system-content,
+.screen4-content,
+.screen5-content,
+.screen6-content,
+.screen7-content {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 10%;
+    width: 600px;
+    transform: scale(2);
+    transition: 1s;
+}
+
+.actor ul {
+    margin-bottom: 20%;
+}
+
+.actor ul li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.actor ul li+li {
+    margin-left: 40px;
+}
+.new-age-content {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    top: -50%;
+    left: -20%;
+}
+
+/* story */
+.movie.step-2 .story,
+.movie.step-3 .story {
+    opacity: 1;
+}
+
+.movie.step-2 .story-content {
+    transform: scale(1);
+}
+
+.movie.step-3 .story-content {
+    transform: scale(0.5);
+}
+
+.movie.step-4 .story-content {
+    opacity: 0;
+    transform: scale(0.25);
+}
+
+/* actor */
+.movie.step-3 .actor,
+.movie.step-4 .actor {
+    opacity: 1;
+}
+
+.movie.step-3 .actor ul {
+    transform: scale(1);
+}
+
+.movie.step-4 .actor ul {
+    transform: scale(0.5);
+}
+
+.movie.step-5 .actor ul {
+    transform: scale(0.25);
+}
+
+.movie.step-5 .actor {
+    opacity: 0;
+}
+
+/* system */
+.movie.step-4 .system,
+.movie.step-5 .system {
+    opacity: 1;
+}
+
+.movie.step-4 .system-content {
+    transform: scale(1);
+}
+
+.movie.step-5 .system-content {
+    transform: scale(0.5);
+}
+
+.movie.step-6 .system-content {
+    transform: scale(0.25);
+}
+
+.movie.step-6 .system {
+    opacity: 0;
+}
+
+/* screen4 */
+.movie.step-5 .screen4,
+.movie.step-6 .screen4 {
+    opacity: 1;
+}
+
+.movie.step-5 .screen4-content {
+    transform: scale(1);
+}
+
+.movie.step-6 .screen4-content {
+    transform: scale(0.5);
+}
+
+.movie.step-7 .screen4-content {
+    transform: scale(0.25);
+}
+
+/* screen5 */
+.movie.step-6 .screen5,
+.movie.step-7 .screen5 {
+    opacity: 1;
+}
+.movie.step-6 .screen5-content {
+    transform: scale(1);
+}
+.movie.step-7 .screen5-content {
+    transform: scale(0.5);
+}
+.movie.step-8 .screen5-content {
+    transform: scale(0.25);
+}
+.movie.step-8 .screen5 {
+    opacity: 0;
+}
+
+/* screen6 */
+.movie.step-7 .screen6 {
+    opacity: 1;
+}
+.movie.step-7 .screen6-content {
+    transform: scale(1);
+}
+.movie.step-8 .screen6-content {
+    transform: scale(0.5);
+}
+.movie.step-9 .screen6-content {
+    transform: scale(0.25);
+}
+.movie.step-9 .screen6 {
+    opacity: 0;
+}
+
+/* screen7 */
+.movie.step-8 .screen7 {
+    opacity: 1;
+}
+.movie.step-8 .screen7-content {
+    transform: scale(1);
+}
