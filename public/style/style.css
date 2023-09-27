@@ -276,7 +276,9 @@ ul li h4 b {
 .story-content {
     padding-left: 30px;
 }
-
+.story-content h4 {
+    font-family: "GothamBold";
+}
 .actor ul {
     margin-bottom: 20%;
 }
@@ -350,14 +352,46 @@ ul li h4 b {
     width: 15vw;
 }
 .system-content ul li h4 {
+    font-family: "GothamBold";
     color: #DF1D4E;
 }
-.screen5-content ul li h4 span {
-    font-family: "GothamBold";    
+.screen5 li {
+    width: 80%;
+    margin: 0px auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
 }
-.screen5-content ul li h4 {
+.screen5-content li h4 span {
+    font-family: "GothamBold";
+    /* line-height: 35px; */
+}
+.screen5-content li p {
+    margin: 15px 0px;
     font-family: "GothamLight";
     font-size: 14px;
+    width: 17vw;
+}
+.screen6-content li{
+    width: 80%;
+    margin: 0px auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+screen6-content li h4 span {
+    font-family: "GothamBold";
+    /* line-height: 35px; */
+}
+.screen6-content li p {
+    margin: 15px 0px;
+    font-family: "GothamLight";
+    font-size: 14px;
+    width: 17vw;
 }
 .screen7-content ul {
     position: relative;
@@ -477,10 +511,7 @@ ul li h4 b {
 .movie.step-7 .screen5-content {
     transform: scale(0.5);
 }
-.movie.step-8 .screen5-content {
-    transform: scale(0.25);
-}
-.movie.step-8 .screen5 {
+.movie.step-7 .screen5 {
     opacity: 0;
 }
 

@@ -60,6 +60,12 @@ $(window).scroll(function () {
           bg.children[0].src = "assets/images/bg-actor.png"
       } else if(imageSteps == "step-4") {
         bg.children[0].src = "assets/images/bg-system.png"
+      } else if (imageSteps == "step-5") {
+        //change image tag with video and add src path.
+        bg.children[0].style.display = "none"
+        var video = document.createElement('video')
+        video.src = 'assets/videos/pexels-google-deepmind.mp4'
+        video.autoplay = true;
       } else if (imageSteps == "step-8") {
         bg.children[0].src = "assets/images/alexander-andrews-JYGnB9gTCls-unsplash.jpg"
       }else {
