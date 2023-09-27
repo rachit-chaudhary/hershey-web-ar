@@ -192,6 +192,18 @@ nav {
 .movie.step-5 .bg img {
     transform: scale(0.6);
 }
+.movie.step-6 .bg img {
+    transform: scale(0.5);
+}
+.movie.step-7 .bg img {
+    transform: scale(0.4);
+}
+.movie.step-8 .bg img {
+    transform: scale(0.3);
+}
+.movie.step-9 .bg img {
+    transform: scale(0.2);
+}
 
 h4,
 ul li h4 {
@@ -218,7 +230,7 @@ ul li h4 b {
     margin: auto;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
     text-align: center;
     opacity: 0;
     transition: 1s;
@@ -246,31 +258,139 @@ ul li h4 b {
 .screen7-content {
     display: inline-block;
     text-align: left;
-    margin-bottom: 10%;
-    width: 600px;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    padding-left: 0px;
     transform: scale(2);
     transition: 1s;
+    /* background-color: red; */
+}
+
+.step-2-content {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: grey;
+}
+.story-content {
+    padding-left: 30px;
 }
 
 .actor ul {
     margin-bottom: 20%;
 }
 
-.actor ul li {
-    position: relative;
-    display: inline-block;
+.actor ul li,
+.story-content {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto 0px;
     vertical-align: top;
 }
 
 .actor ul li+li {
     margin-left: 40px;
 }
+.actor-content {
+    /* background: black; */
+    width: 50%;
+    position: relative;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .new-age-content {
     position: absolute;
     z-index: -1;
-    opacity: 0.3;
-    top: -50%;
-    left: -20%;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    /* background: rebeccapurple; */
+}
+.age-content-inner {
+    position: absolute;
+    /* background: green; */
+    width: 100%;
+    height: 90%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+.age-content-inner img {
+    position: absolute;
+}
+.age-content-inner .music-player {
+    left: 22vw;
+    bottom: 0px;
+    width: 20vw;
+}
+.age-content-inner .news-article {
+    top: -111px;
+    left: 0px;
+    width: 24vw;
+}
+.age-content-inner .video-player {
+    bottom: -160px;
+    right: 0px;
+    width: 30vw;
+}
+.age-content-inner .product-scan {
+    top: -20px;
+    right: 165px;
+    width: 15vw;
+}
+.system-content ul li h4 {
+    color: #DF1D4E;
+}
+.screen5-content ul li h4 span {
+    font-family: "GothamBold";    
+}
+.screen5-content ul li h4 {
+    font-family: "GothamLight";
+    font-size: 14px;
+}
+.screen7-content ul {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background: GREY; */
+}
+.screen7-content ul li {
+    position: absolute;
+    bottom: 6vw;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    /* background: darkgoldenrod; */
+}
+.screen7-content ul li h4 {
+    font-size: 24px;
+    line-height: 30px;
+    color: #000;
+    text-align: center;
+    font-family: "GothamBold";
+}
+.screen7-content ul li button {
+    cursor: pointer;
+    font-family: "GothamBold";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: 0px auto;
+    height: 40px;
 }
 
 /* story */
@@ -286,20 +406,21 @@ ul li h4 b {
 .movie.step-3 .story-content {
     transform: scale(0.5);
 }
-
-.movie.step-4 .story-content {
+.movie.step-3 .story {
     opacity: 0;
-    transform: scale(0.25);
 }
 
 /* actor */
-.movie.step-3 .actor,
-.movie.step-4 .actor {
+.movie.step-3 .actor {
     opacity: 1;
 }
 
 .movie.step-3 .actor ul {
     transform: scale(1);
+}
+
+.movie.step-4 .actor {
+    opacity: 0;
 }
 
 .movie.step-4 .actor ul {
@@ -308,10 +429,6 @@ ul li h4 b {
 
 .movie.step-5 .actor ul {
     transform: scale(0.25);
-}
-
-.movie.step-5 .actor {
-    opacity: 0;
 }
 
 /* system */
@@ -328,17 +445,12 @@ ul li h4 b {
     transform: scale(0.5);
 }
 
-.movie.step-6 .system-content {
-    transform: scale(0.25);
-}
-
-.movie.step-6 .system {
+.movie.step-5 .system {
     opacity: 0;
 }
 
 /* screen4 */
-.movie.step-5 .screen4,
-.movie.step-6 .screen4 {
+.movie.step-5 .screen4 {
     opacity: 1;
 }
 

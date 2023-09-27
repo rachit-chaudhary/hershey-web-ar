@@ -54,10 +54,15 @@ $(window).scroll(function () {
 
       if (imageSteps == "step-1") {
           bg.children[0].src = "assets/images/gerard-siderius-Iv_Q-zzNerE-unsplash.jpg"
+      } else if (imageSteps == "step-2") {
+        bg.children[0].src = "assets/images/step-2-bg.png"
+      } else if (imageSteps == "step-3") {
+          bg.children[0].src = "assets/images/bg-actor.png"
       } else if(imageSteps == "step-4") {
-        console.log("step4")
-        bg.children[0].src = "assets/images/gerard-siderius-4hQYGZ6tiA0-unsplash.jpg"
-      } else {
+        bg.children[0].src = "assets/images/bg-system.png"
+      } else if (imageSteps == "step-8") {
+        bg.children[0].src = "assets/images/alexander-andrews-JYGnB9gTCls-unsplash.jpg"
+      }else {
         bg.children[0].src = "assets/images/taro-ohtani-PrgOionplMo-unsplash.jpg"
       }
   });
