@@ -190,19 +190,16 @@ nav {
 }
 
 .movie.step-5 .bg img {
-    transform: scale(0.6);
+    transform: scale(0.8);
 }
 .movie.step-6 .bg img {
-    transform: scale(0.5);
+    transform: scale(.78);
 }
 .movie.step-7 .bg img {
-    transform: scale(0.4);
+    transform: scale(.75);
 }
 .movie.step-8 .bg img {
-    transform: scale(0.3);
-}
-.movie.step-9 .bg img {
-    transform: scale(0.2);
+    transform: scale(.6);
 }
 
 h4,
@@ -332,6 +329,7 @@ ul li h4 b {
     position: absolute;
 }
 .age-content-inner .music-player {
+    display: none;
     left: 22vw;
     bottom: 0px;
     width: 20vw;
@@ -351,9 +349,34 @@ ul li h4 b {
     right: 165px;
     width: 15vw;
 }
+.age-content-inner .content-img {
+    width: 25vw;
+    bottom: -130px;
+    left: 100px;
+}
 .system-content ul li h4 {
     font-family: "GothamBold";
     color: #DF1D4E;
+}
+.screen4 li {
+    width: 80%;
+    margin: 0px auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    color: #DF1D4E;
+}
+.screen4-content li h4 span {
+    font-family: "GothamBold";
+    /* line-height: 35px; */
+}
+.screen4-content li p {
+    margin: 15px 0px;
+    font-family: "GothamLight";
+    font-size: 14px;
+    width: 17vw;
 }
 .screen5 li {
     width: 80%;
@@ -363,6 +386,7 @@ ul li h4 b {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+    color: #DF1D4E;
 }
 .screen5-content li h4 span {
     font-family: "GothamBold";
@@ -375,13 +399,18 @@ ul li h4 b {
     width: 17vw;
 }
 .screen6-content li{
-    width: 80%;
-    margin: 0px auto;
-    height: 100%;
+    color: #fff;
+    background: rgba(236,26,79,1);
+    border-radius: 10px;
+    height: 30%;
+    width: 60%;
+    padding: 0px 25px;
+    margin: 0px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 6px 10px 13px rgba(0,0,0,0.3);
 }
 screen6-content li h4 span {
     font-family: "GothamBold";
