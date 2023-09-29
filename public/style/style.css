@@ -13,6 +13,7 @@
 body {
     margin: 0;
     font-family: "GothamBold";
+    background-color: #DF1D4E;
 }
 
 ul,
@@ -56,8 +57,9 @@ nav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.9);
+    /* background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9); */
+    background-color: rgba(223, 29, 78, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
 }
@@ -77,7 +79,7 @@ nav {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
-    color: #818181;
+    color: #dfdfdf;
     display: block;
     transition: 0.3s;
 }
@@ -116,7 +118,20 @@ nav {
     margin: auto;
     left: 0px;
     right: 0px;
-    height: 50px;
+    height: 52vh;
+    display: flex;
+    justify-content: center;
+}
+.ar-example-video {
+    display: flex;
+}
+.ar-example-video video {
+    width: 80%;
+    margin: 0px auto;
+    width: 70%;
+    margin: 0px auto 40px;
+    border-radius: 20px;
+    box-shadow: 6px 10px 13px rgba(0,0,0,0.3);
 }
 .enter-button {
     display: flex;
@@ -129,12 +144,17 @@ nav {
 }
 .enter-button button {
     background: none;
-    border: 1px solid #fff;
+    border: 1px solid #DF1D4E;
     font-family: "GothamBook";
     font-size: 16px;
-    color: #fff;
+    color: #DF1D4E;
     width: 250px;
     padding: 15px;
+    transition: .5s;
+}
+.enter-button button:hover {
+    color: #fff;
+    background: #DF1D4E;
 }
 .scroll-wrap {
     position: relative;
@@ -151,7 +171,7 @@ nav {
     width: 100%;
     height: 100%;
     color: #fff;
-    background: #111;
+    background: #DF1D4E;
 }
 
 .movie .bg {
@@ -175,6 +195,9 @@ nav {
 .movie .bg img {
     /*   height:100vh; */
     transition: 1s;
+}
+.movie.step-1 .bg img {
+    transform: scale(0.7);
 }
 
 .movie.step-2 .bg img {
@@ -270,24 +293,47 @@ ul li h4 b {
     top: 0px;
     background: grey;
 }
+.step-2-content .step-2-inner video {
+    /* transform: scale(1.5); */
+    width: 100%;
+}
 .story-content {
     padding-left: 30px;
+    color: #fff;
+    background: rgba(236,26,79,1);
+    border-radius: 10px;
+    width: 40%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 50px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto 0px;
+    vertical-align: top;
 }
-.story-content h4 {
+.story-content p {
+    font-family: 'GothamBook';
+    font-size: 24px;
+}
+.story-content p span {
     font-family: "GothamBold";
+    font-size: 42px;
 }
 .actor ul {
     margin-bottom: 20%;
 }
 
-.actor ul li,
-.story-content {
+.actor ul li {
     width: 100%;
     height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: absolute;
+    left: 50px;
     top: 0px;
     bottom: 0px;
     margin: auto 0px;
@@ -374,7 +420,7 @@ ul li h4 b {
 }
 .screen4-content li p {
     margin: 15px 0px;
-    font-family: "GothamLight";
+    font-family: "GothamBook";
     font-size: 14px;
     width: 17vw;
 }
@@ -394,7 +440,7 @@ ul li h4 b {
 }
 .screen5-content li p {
     margin: 15px 0px;
-    font-family: "GothamLight";
+    font-family: "GothamBook";
     font-size: 14px;
     width: 17vw;
 }
@@ -403,7 +449,7 @@ ul li h4 b {
     background: rgba(236,26,79,1);
     border-radius: 10px;
     height: 30%;
-    width: 60%;
+    width: 45%;
     padding: 0px 25px;
     margin: 0px;
     display: flex;
@@ -418,9 +464,9 @@ screen6-content li h4 span {
 }
 .screen6-content li p {
     margin: 15px 0px;
-    font-family: "GothamLight";
+    font-family: "GothamBook";
     font-size: 14px;
-    width: 17vw;
+    width: 22vw;
 }
 .screen7-content ul {
     position: relative;
@@ -429,6 +475,9 @@ screen6-content li h4 span {
     /* background: GREY; */
 }
 .screen7-content ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 6vw;
     left: 0px;
@@ -441,9 +490,15 @@ screen6-content li h4 span {
 .screen7-content ul li h4 {
     font-size: 24px;
     line-height: 30px;
-    color: #000;
+    color: #fff;
     text-align: center;
     font-family: "GothamBold";
+    padding: 25px;
+    border-radius: 13px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    background-color: #DF1D4E;
 }
 .screen7-content ul li button {
     cursor: pointer;
@@ -463,6 +518,7 @@ screen6-content li h4 span {
 }
 
 .movie.step-2 .story-content {
+    box-shadow: 6px 10px 13px rgba(0,0,0,0.3);
     transform: scale(1);
 }
 

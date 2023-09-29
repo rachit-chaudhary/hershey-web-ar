@@ -53,9 +53,9 @@ $(window).scroll(function () {
       let imageSteps = "step-".concat(inViewEq)
 
       if (imageSteps == "step-1") {
-          bg.children[0].src = "assets/images/gerard-siderius-Iv_Q-zzNerE-unsplash.jpg"
+          bg.children[0].src = "assets/images/scroll-down-image.png"
       } else if (imageSteps == "step-2") {
-        bg.children[0].src = "assets/images/step-2-bg.png"
+        // bg.children[0].src = "assets/images/step-2-bg.png"
       } else if (imageSteps == "step-3") {
           bg.children[0].src = "assets/images/bg-actor.png"
       } else if(imageSteps == "step-4") {
@@ -67,9 +67,10 @@ $(window).scroll(function () {
       } else if ( imageSteps == "step-7" ) {
         bg.children[0].src = "assets/images/bg-step-7.png"
       } else if ( imageSteps == "step-8" ) {
-        bg.children[0].src = "assets/images/alexander-andrews-JYGnB9gTCls-unsplash.jpg"
+        bg.children[0].src = "assets/images/bg-step-7.png"
+        bg.children[0].style.borderRadius = "25px"
       }else {
-        bg.children[0].src = "assets/images/taro-ohtani-PrgOionplMo-unsplash.jpg"
+        //bg.children[0].src = "assets/images/"
       }
   });
   // 判斷scroll往上滑或往下滑
