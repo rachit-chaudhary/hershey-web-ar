@@ -6,4 +6,7 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
+router.get('/why-makear', (req, res) => {
+    res.render('why-makear.ejs')
+})
 module.exports = router
