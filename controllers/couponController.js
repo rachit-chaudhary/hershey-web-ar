@@ -57,6 +57,7 @@ console.log(imageUrl)
 router.get('/', (req, res) => {
   imageUrl = "";
   res.render('index', { imageUrl });
+
 })
 
 router.get('/', (req, res) => {
