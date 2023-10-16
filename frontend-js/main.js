@@ -1597,9 +1597,60 @@ setTimeout(() => {
     });
 
     msgclosebtn.onclick = () => {
-      messagenote.style.display = "none"
+     
+      var captureDiv = document.getElementById('messagenote');
+     
+  
+      // Specify the name of the mesh you want to modify messagenote
+      var targetMeshName = 'postcard';
+  
+      // Find the mesh by name
+      var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+  
+      if (targetMesh) {
+          console.log("Mesh found");
+         
+          // Use html2canvas to capture the content of the div
+          html2canvas(captureDiv).then(function(canvas) {
+              console.log('Canvas created:', canvas);
+  
+              // Convert the canvas to a data URL
+              var dataURL = canvas.toDataURL();
+  
+              // Create a new texture using the data URL
+              var texture = new THREE.TextureLoader().load(dataURL);
+              texture.minFilter = THREE.LinearFilter;
+              texture.magFilter = THREE.LinearFilter;
+              // Create a new material using the texture
+              var material = new THREE.MeshBasicMaterial({
+                map: texture,
+                minFilter: THREE.LinearFilter,
+                magFilter: THREE.LinearFilter
+            });
+  
+              // Set the material to the target mesh
+              targetMesh.material = material;
+          });
+        
+      } else {
+          console.warn('Mesh not found:', targetMeshName);
+      }
+  
+      function findMeshByName(object3D, targetName) {
+          var resultMesh = null;
+  
+          object3D.traverse(function(node) {
+              if (node.isMesh && node.name === targetName) {
+                  resultMesh = node;
+              }
+          });
+  
+          return resultMesh;
+      }
+      messagenote.style.display = "none";
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
-    }
+  }
+  
     notebox.addEventListener('click', function (evt) {
       console.log("envolope clicked")
       tapOnEnvelope.style.display = "none"
