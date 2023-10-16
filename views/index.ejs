@@ -79,57 +79,69 @@
     </div>
 
     <div class="wrapperdiv">
-      <div class="username-section">
-        <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
-        <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal</p>
-        <input id="siblingname" type="text" placeholder="SIBLING'S NAME" class="userName" required />
-      </div>
-      <div class="d-flex justify-content-start">
-        <img class="carousel-ns" src="/images/Asset 24.png" />
-      </div>
-      <div class="golden-wrapper">
-        <h2 class="title-ns">Select your pack</h2>
-        <div class="owl-carousel owl-theme d-flex justify-content-center">
-          <div class="item" id="selectPack">
-            <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item data-carousel-id="carousel1"/></h4>
-          </div>
-          <div class="item">
-            <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item data-carousel-id="carousel2"/></h4>
-          </div>
-          <div class="item">
-            <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item data-carousel-id="carousel3"/></h4>
-          </div>
+      <img class="diwali-diya" src="images/diya.png" alt="diya">
+      <img class="diwali-rocket" src="images/rocket.png" alt="rocket">
+      
+      <div class="form-part-1">
+        <div class="username-section">
+          <p class="surprise-heading" id="changeTextScreen">Sending Diwali Greetings to</p>
+          <p class="surprise-heading-ns" id="changeContent">Bhaiya, Bestie, Mom, Dad <span>🙂</span> Add nicknames to make it personal</p>
+          <input id="siblingname" type="text" placeholder="ENTER NAME" class="userName" required />
         </div>
-       
-        
-      </div>
-      <div class="upload-section">
-        <div class="upload-outerdiv">
-          <div class=" d-flex justify-content-center">
-            <p class="camera-tag">Make it special with a 📷</p>
-          </div>
-          <div class=" uploader d-flex justify-content-between">
-            <div id="imagediv" class="upload-file-text">
-              <p class="filejpeg " id="changeFileName">Sibling's Photo</p>
+        <div class="d-flex justify-content-start">
+          <img class="carousel-ns" src="/images/Asset 24.png" />
+        </div>
+        <div class="golden-wrapper">
+          <h2 class="title-ns">Select your pack</h2>
+          <div class="owl-carousel owl-theme d-flex justify-content-center">
+            <div class="item" id="selectPack">
+              <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item data-carousel-id="carousel1"/></h4>
             </div>
-            <div class="photo">
-              <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
-              <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
+            <div class="item">
+              <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item data-carousel-id="carousel2"/></h4>
+            </div>
+            <div class="item">
+              <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item data-carousel-id="carousel3"/></h4>
             </div>
           </div>
-          <div class="d-flex justify-content-center flex-column text-center">
-            <p class="base-title">For best resolution upload a <br> square photo.</p>
-            <p class="caption-ns">Select a lovely photo together OR of your sibling alone!</p>
+        </div>
+        <button class="diwali-btn create-postcard"><h3><span>C</span>reate personal post card <span class="card-emoji">🖼️</span></h3></button>
+      </div>
+
+      <div class="form-part-2">
+        <div class="upload-section">
+          <div class="upload-outerdiv">
+            <div class=" d-flex justify-content-center">
+              <p class="camera-tag">Make it special with a <span>📷</span></p>
+            </div>
+            <div class=" uploader d-flex justify-content-between">
+              <div id="imagediv" class="upload-file-text">
+                <p class="filejpeg " id="changeFileName">Upload Photo</p>
+              </div>
+              <div class="photo">
+                <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
+                <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
+              </div>
+            </div>
+            <div class="d-flex justify-content-center flex-column text-center">
+              <!-- <p class="base-title">For best resolution upload a <br> square photo.</p> -->
+              <p class="caption-ns">Select a photo of your loved one and you together OR your loved one alone!</p>
+            </div>
           </div>
         </div>
+  
+        <div class="textarea-messages">
+          <textarea name="diwali-text" id="diwaliMessage" cols="30" rows="10" placeholder="Add your Diwali message here to make it special."></textarea>
+        </div>
+  
+        <button class="diwali-btn"><h3><span>G</span>enerate your surprise!</h3></button>
+  
+        <!-- <hr class="breakline" /> -->
+        <div class="d-flex justify-content-center">
+          <button id="nextbtn" class="next-button" type="submit">Next</button>
+        </div>
       </div>
-      <div class="kisses-bg">
-        <img class="flower-carousel-bottom" src="/images/flower-combo-2.png" />
-      </div>
-      <!-- <hr class="breakline" /> -->
-      <div class="d-flex justify-content-center">
-        <button id="nextbtn" class="next-button" type="submit">Next</button>
-      </div>
+
     </div>
   </div>
 </form>
