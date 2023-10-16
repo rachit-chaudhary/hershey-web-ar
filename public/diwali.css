@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+.landing-page-ns {
+    height: 100dvh;
+    position: relative;
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.led-lights {
+    mix-blend-mode: screen;
+    position: absolute;
+    top: -2px;
+    width: 100%;
+}
+.diwali-lamp {
+    width: 25%;
+    position: absolute;
+    right: 3px;
+}
+.diwali-diya {
+    width: 30%;
+    position: absolute;
+    bottom: 45px;
+    right: 0px;
+}
+.diwali-rocket {
+    width: 30%;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+}
+.brown-color {
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.page-wrapper {
+    width: 100%;
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    z-index: 2;
+}
+.top-div {
+    margin: 0px auto;
+    width: 100%;
+}
+.top-div h3 {
+    font-family: "Walsheim";
+    font-size: 24px;
+    text-align: center;
+}
+.top-div .home-diwali-text {
+    font-family:"snavely";
+    font-size: 60px;
+}
+.top-div h3 .home-diwali-text .home-diwali-d {
+    font-family: 'Poller One', serif;
+}
+.center-btn {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    justify-content: space-between;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+}
+.send-surprise-message,
+.send-thankyounote{
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    text-align: center;
+}
+.heading-div,
+.text-landing-page {
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.text-landing-page {
+    text-align: center;
+}
