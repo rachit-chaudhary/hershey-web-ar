@@ -94,7 +94,10 @@ background-clip: text;
 
 
 /* media query */
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 370px) {
+    .page-wrapper {
+        padding: 50px 0px;
+    }
     .top-div h3 {
         font-size: 20px;
     }
@@ -103,5 +106,8 @@ background-clip: text;
     }
     .top-div {
         margin: 0px auto 10px;
+    }
+    .center-btn {
+        height: 320px;
     }
 }
