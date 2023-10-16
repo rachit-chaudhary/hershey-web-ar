@@ -94,7 +94,7 @@ background-clip: text;
 
 
 /* media query */
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 390px) {
     .page-wrapper {
         padding: 50px 0px;
     }
