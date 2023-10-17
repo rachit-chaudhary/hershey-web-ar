@@ -48,7 +48,7 @@ router.post('/questions', upload.single('image'), (req, res) => {
     res.status(400).send('No file uploaded.');
   } else {
     imageUrl = '/' + req.file.filename;
-console.log(imageUrl)
+    console.log(imageUrl)
 
   //  res.render('index', { imageUrl });
    res.json({ imageUrl });
@@ -57,7 +57,6 @@ console.log(imageUrl)
 router.get('/', (req, res) => {
   imageUrl = "";
   res.render('index', { imageUrl });
-
 })
 
 router.get('/', (req, res) => {

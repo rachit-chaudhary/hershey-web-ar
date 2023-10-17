@@ -173,7 +173,11 @@ background-clip: text;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: initial;
 }
+.textarea-messages {
+    position: relative;
+}
 .textarea-messages textarea {
+    font-family: 'Walsheim-Medium';
     margin: 0px auto 20px;
     display: flex;
     padding: 10px;
@@ -193,6 +197,13 @@ background-clip: text;
     color: #452012;
     
 }
+#character-counter {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    font-family: 'Walsheim';
+    color: #2D1415;
+}
 .golden-wrapper {
     background: #2D1415;
 }
@@ -208,12 +219,17 @@ background-clip: text;
 .wrapperdiv .diwali-rocket {
     bottom: -40px;
 }
+.alert-box {
+    padding-top: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
 .form-part-1 {
     display: none;
 }
-/* .form-part-2 {
+.form-part-2 {
     display: none;
-} */
+}
 .camera-tag {
     color: unset;
     background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
