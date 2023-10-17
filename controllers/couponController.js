@@ -56,7 +56,7 @@ router.post('/questions', upload.single('image'), (req, res) => {
 });
 router.get('/', (req, res) => {
   imageUrl = "";
-  res.render('index', { imageUrl });
+  res.render('index', { imagePath: imageUrl });
 })
 
 router.get('/', (req, res) => {

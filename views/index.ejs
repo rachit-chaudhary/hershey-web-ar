@@ -123,18 +123,33 @@
                 <p class="filejpeg " id="changeFileName">Upload Photo</p>
               </div>
               <div class="photo">
+                
                 <input type="file" name="fileUploadBtn" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
                 <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
               </div>
             </div>
 
-            <% if (imageUrl) { %>
-              <% alert("Image available") %>
-            <% } %>
-
             <div class="d-flex justify-content-center flex-column text-center">
               <!-- <p class="base-title">For best resolution upload a <br> square photo.</p> -->
               <p class="caption-ns">Select a photo of your loved one and you together OR your loved one alone!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-crop-box hide-content">
+          <div class="container">
+            <div class="row">
+              <div class="window-title">
+                <h4><span>C</span>rop <span>I</span>mage</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="cropped-image">
+                <img id="preview" src="" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <button id="cropBtn" class="diwali-btn"><h4><span>C</span>rop</h4></button>
             </div>
           </div>
         </div>
@@ -149,12 +164,8 @@
         </div>
          
   
-        <button class="diwali-btn"><h3><span>G</span>enerate your surprise!</h3></button>
-  
-        <!-- <hr class="breakline" /> -->
-        <div class="d-flex justify-content-center">
-          <button id="nextbtn" class="next-button" type="submit">Next</button>
-        </div>
+        <button id="nextbtn" class="diwali-btn"><h3><span>G</span>enerate your surprise!</h3></button>
+        
       </div>
 
     </div>
@@ -715,7 +726,7 @@
 <!-- ---------------------------------/ -->
   <!-- Some UI for the user to tap to indicate they're happy with the placement -->
   <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
-  <!-- <img  src="<%= imageUrl %>" alt="Uploaded Image"> -->
+  <!-- <img  src="" alt="Uploaded Image"> -->
   <img id="rakhi" class="rakhi-kiss-image" src="/images/rakhi.png" />
 
   <a-scene  loading-screen="enabled:false" id="scenediv" swap-texture renderer="antialias: true;

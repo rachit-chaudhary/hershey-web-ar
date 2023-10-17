@@ -859,66 +859,36 @@ AFRAME.registerComponent("swap-texture", {
           if (fileMb >= 12) {
             alert("please upload file less then 10mb")
             console.log("size is large")
-            // fileResult.innerHTML = "Please select a file less than 2MB.";
-            // fileSubmit.disabled = true;
           } else {
             var fileIdElement = document.getElementById("changeFileName");
             var newFileName = "Uploaded!"; // Replace with your desired new file name
             fileIdElement.innerHTML = newFileName;
 
             console.log("size is ohk")
-
-
-            // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-            // fileSubmit.disabled = true;
           }
         }
 
         console.log("image upload clicked")
 
         output = document.getElementById('uploadbtn');
+               
         output.src = reader.result;
         console.log(output.src)
-        // dataURL = output.src
-
-        // dataURL=blobUrl
-
-        // const file = event.target.files[0];
-        // contentType = file.type;
-
-        // if (contentType === "image/jpeg") {
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(23, dataURL.length);
-        // } else if (contentType === "image/png") {
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(22, dataURL.length);
-        // } else if (contentType!="image/jpeg" || contentType!="image/png" ){
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(22, dataURL.length);
-        //   alert("please upload png/jpeg file only")
-
-
-        // }
-
-
-        // var blob = b64toBlob(b64Data, contentType);
-        // blobUrl = URL.createObjectURL(blob);
-        // dataURL = blobUrl
-        // pName = dataURL
+        
         console.log("sss" + pName)
-        // texturechange()
-        // traversal()
-        // gltf.scene.traverse(function (child) {..
 
-        //   if (child.name === "Cube001_1") {
-        //     console.log("model loaded")
-        //     loader = new THREE.TextureLoader()
-        //     texture = loader.load(dataURL)
+        //crop image
+        let preview = document.getElementById('preview')
+        let imageCropBox = document.querySelector('.image-crop-box')
+        let cropBtn = document.getElementById("cropBtn")
 
-        //     child.material.map = texture;
-        //     child.material.map.flipY = false
-        //   }
-        // })
+        imageCropBox.classList.remove("hide-content")
+        preview.src = output.src
+
+        cropBtn.addEventListener('click', () => {
+          imageCropBox.classList.add("hide-content")
+        })
+
       }
       reader.readAsDataURL(event.target.files[0]);
     }
@@ -939,19 +909,14 @@ AFRAME.registerComponent("swap-texture", {
 
     uploadLabel.onclick = function () {
       let uploadAlert = document.querySelector(".alert-check-upload")
-      //uploadAlert.classList.remove("invisible")
-      //uploadAlert.classList.add("add")
 
       fileInput.click() 
-      // let uploadAlertClose = document.querySelector("#alertCloseBtnUpload")
-      // uploadAlertClose.onclick = () => {
-      //   uploadAlert.classList.remove("add")
-      //   uploadAlert.classList.add("invisible")   
-      // }
+
     }
     
     //upload image function
     function uploadImage(imageFile) {
+      console.log("uploadImage ran")
       const formData = new FormData();
       formData.append("image", imageFile);
 
@@ -982,6 +947,7 @@ AFRAME.registerComponent("swap-texture", {
       console.log("Rendering the result with imageUrl:", imageUrl);
     }
     function getimageuploaded() {
+
       // Get uploaded image from server
       console.log("clicked different btn")
       
@@ -991,6 +957,7 @@ AFRAME.registerComponent("swap-texture", {
           console.log("clicked different btn2")
           console.log("Uploaded Image URL:", imageUrl);
           dataURL = imageUrl
+          
           console.log("dataurl " + dataURL)
           // texturechange()
           // Delay rendering the result after 2 seconds (2000 milliseconds)
@@ -1640,7 +1607,6 @@ const typedCharactersElement = document.querySelector("#typed-characters");
 
 //events
 postCardBtn.addEventListener("click", runFormPart2)
-
 textAreaElement.addEventListener("keyup", textAreaCounter);
 
 // methods
@@ -1673,6 +1639,8 @@ function runFormPart2() {
   
 }
 
+
+//text string counter for user form
 function textAreaCounter(event) {
 
   const maximumCharacters = 150

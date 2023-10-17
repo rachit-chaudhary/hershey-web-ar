@@ -129,6 +129,7 @@ background-clip: text;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
+    overflow-y: hidden;
 }
 .surprise-heading-ns {
     font-style: unset;
@@ -172,6 +173,56 @@ background-clip: text;
     background-clip: unset;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: initial;
+}
+.image-crop-box {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 2;
+    background-image: url(images/diwali-bg.png);
+}
+.window-title h4 {
+    margin: 25px 15px 15px;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#cropBtn h4 {
+    margin: 0px;
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.window-title h4,
+#cropBtn h4 {
+    font-family:"snavely";
+}
+.window-title h4 span,
+#cropBtn h4 span {
+    font-family: 'Poller One', serif;
+}
+#cropBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 80%;
+    margin: 15px auto;
+}
+.cropped-image {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cropped-image img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
 }
 .textarea-messages {
     position: relative;
