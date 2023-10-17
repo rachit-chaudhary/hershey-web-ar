@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+.landing-page-ns {
+    height: 100dvh;
+    position: relative;
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.led-lights {
+    mix-blend-mode: screen;
+    position: absolute;
+    top: -2px;
+    width: 100%;
+}
+.diwali-lamp {
+    width: 25%;
+    position: absolute;
+    right: 3px;
+}
+.diwali-diya {
+    width: 30%;
+    position: absolute;
+    bottom: 45px;
+    right: 0px;
+    z-index: 2;
+}
+.diwali-rocket {
+    width: 30%;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    z-index: 2;
+}
+.brown-color {
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.page-wrapper {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    z-index: 1;
+}
+.top-div {
+    margin: 0px auto 50px;
+    width: 100%;
+}
+.top-div h3 {
+    font-family: "Walsheim";
+    font-size: 24px;
+    text-align: center;
+}
+.top-div .home-diwali-text {
+    font-family:"snavely";
+    font-size: 60px;
+}
+.top-div h3 .home-diwali-text .home-diwali-d {
+    font-family: 'Poller One', serif;
+}
+.center-btn {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    justify-content: space-between;
+}
+.send-surprise-message,
+.send-thankyounote{
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    text-align: center;
+}
+.heading-div,
+.text-landing-page {
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.text-landing-page {
+    text-align: center;
+}
+
+
+/* media query */ 
+/* iphone12 and below */
+@media screen and (max-width: 390px) {
+    .page-wrapper {
+        padding: 50px 0px;
+    }
+    .top-div h3 {
+        font-size: 20px;
+    }
+    .top-div .home-diwali-text {
+        font-size: 48px;
+    }
+    .top-div {
+        margin: 0px auto 10px;
+    }
+    .center-btn {
+        height: 320px;
+    }
+}
+
+/* iphone se 2020 */
+@media screen and (max-width: 375px) {
+    .diwali-rocket {
+        display: none;
+    }
+}
+
+/* landing page ends here */
+
+.wrapper {
+    height: 100dvh;
+    position: relative;
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    overflow-y: hidden;
+}
+.surprise-heading-ns {
+    font-style: unset;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.surprise-heading-ns span {
+    -webkit-text-fill-color: initial;
+}
+.surprise-heading {
+    margin-bottom: 0px;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.diwali-btn {
+    width: 90%;
+    display: flex;
+    margin: 0px auto;
+    font-family:"snavely";
+    border-radius: 93px;
+    background: #2D1415;
+    border: none;
+}
+.diwali-btn h3 {
+    margin: 0px;
+    padding: 10px 20px;   
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.diwali-btn h3 span {
+    font-family: 'Poller One', serif;
+}
+.diwali-btn h3 span.card-emoji {
+    background: unset;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: initial;
+}
+.image-crop-box {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 2;
+    background-image: url(images/diwali-bg.png);
+}
+.window-title h4 {
+    margin: 25px 15px 15px;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#cropBtn h4 {
+    margin: 0px;
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.window-title h4,
+#cropBtn h4 {
+    font-family:"snavely";
+}
+.window-title h4 span,
+#cropBtn h4 span {
+    font-family: 'Poller One', serif;
+}
+#cropBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 80%;
+    margin: 15px auto;
+}
+.cropped-image {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cropped-image img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+.textarea-messages {
+    position: relative;
+}
+.textarea-messages textarea {
+    font-family: 'Walsheim-Medium';
+    margin: 0px auto 20px;
+    display: flex;
+    padding: 10px;
+    width: 90%;
+    height: 100px;
+    border-radius: 10px;
+    border: 5px solid #DFBC66;
+    background: linear-gradient(0deg, rgba(15, 15, 15, 0.15) 0%, rgba(15, 15, 15, 0.15) 100%), linear-gradient(94deg, rgba(223, 188, 102, 0.10) 0.29%, rgba(210, 172, 71, 0.10) 23.42%, rgba(247, 239, 138, 0.10) 41.19%, rgba(255, 244, 197, 0.10) 68.09%, rgba(237, 201, 103, 0.10) 98.89%);
+}
+.textarea-messages textarea::placeholder,
+.userName {
+    font-family: "brandon printed";
+    color: #452012!important;
+    filter: opacity(0.5);
+}
+::-webkit-input-placeholder { /* Edge */
+    color: #452012;
+    
+}
+#character-counter {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    font-family: 'Walsheim';
+    color: #2D1415;
+}
+.golden-wrapper {
+    background: #2D1415;
+}
+.title-ns {
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.wrapperdiv .diwali-diya {
+    bottom: -7px;
+}
+.wrapperdiv .diwali-rocket {
+    bottom: -40px;
+}
+.alert-box {
+    padding-top: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+.form-part-1 {
+    display: none;
+}
+.form-part-2 {
+    display: none;
+}
+.camera-tag {
+    color: unset;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.camera-tag span {
+    -webkit-text-fill-color: initial;
+}
+.caption-ns {
+    width: 90%;
+    margin: 0px auto 15px;
+    font-family: "Walsheim";
+    color: unset;
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.upload-outerdiv {
+    background-image: url('images/kisses-shape-bg.png');
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
+/* form ends here */
+
+
+.loading-screen {
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.loading-message h4 span {
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* .loading-spinner .spinner-ns {
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+} */

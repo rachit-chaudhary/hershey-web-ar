@@ -29,7 +29,7 @@ body {
     
 }
 #firstscreen {
-  display: none;
+  display: block;
   /* change to block qwerty */
 }
 #receiverfirstscreen {
@@ -307,9 +307,6 @@ button { pointer-events:initial; }
   line-height: 89.5%;
   color: #EFBE7F;
 }
-.landing-page-ns-position{
-  margin-left: 18px;
-}
 .landing-page-sibling{
   color: #EFBE7F;
   font-family: "Walsheim";
@@ -489,8 +486,7 @@ line-height: normal;
 .surprise-heading{
   font-family: "Walsheim";
   color: #EFBE7F;
-  padding-top: 16px;
-  line-height: 10px;
+  padding-top: 0px;
 }
 ::-webkit-input-placeholder { /* Edge */
   color: #EFBE7F;
@@ -586,7 +582,7 @@ line-height: normal;
   font-weight: 250;
 
 }
-.userName::placeholder {
+/* .userName::placeholder {
   color: rgba(246, 218, 173, 0.1);
 }
 input:-webkit-autofill,
@@ -597,7 +593,7 @@ input:-webkit-autofill:active{
     -webkit-text-fill-color: #EFBE7F;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px #23232329;
-}
+} */
 .userName:focus {
   outline: none;
 }
@@ -2000,7 +1996,7 @@ a.option-btn {
 }
 .loading-spinner .spinner-ns {
   border: unset;
-  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
+  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

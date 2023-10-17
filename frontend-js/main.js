@@ -24,11 +24,15 @@ const scene = document.getElementById("scenediv")
 let thirdscreenbar = document.getElementById("thirdscreen-bar")
 let thirdscreen = document.getElementById("thirdscreen")
 let thirdscreenexotic = document.getElementById("thirdscreen-exotic")
-let typeofpack
+let typeofpack = ""
 // let headerlogo = document.getElementById("headerlogo")
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
+
+const formPart1 = document.querySelector(".form-part-1")
+const formPart2 = document.querySelector(".form-part-2")
+
 const inputElement = document.querySelector('#siblingname');
 let hereGoesID = document.getElementById("#hereGoesID")
 
@@ -58,94 +62,27 @@ questionAlertexoticClose.onclick = () => {
 }
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
-// alert("i")
 
-// firstscreen.style.display = "none"
-// scene.style.display="block"
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
   bgaudio.play()
 
-
-
   secondscreen.style.display = "block"
+  formPart1.style.display = "block"
 }
+
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
   bgaudio.play()
 
-
-
   secondscreen.style.display = "block"
+  formPart1.style.display = "block"
 }
-//import '../public/main.css';
-// The SDK is supported on many different browsers, but there are some that
-// don't provide camera access. This function detects if the browser is supported
-// For more information on support, check out the readme over at
-// https://www.npmjs.com/package/@zappar/zappar-threejs
-// if (ZapparThree.browserIncompatible()) {
-//   // The browserIncompatibleUI() function shows a full-page dialog that informs the user
-//   // they're using an unsupported browser, and provides a button to 'copy' the current page
-//   // URL so they can 'paste' it into the address bar of a compatible alternative.
-//   ZapparThree.browserIncompatibleUI();
 
-//   // If the browser is not compatible, we can avoid setting up the rest of the page
-//   // so we throw an exception here.
-//   throw new Error('Unsupported browser');
-// }
-
-// ZapparThree provides a LoadingManager that shows a progress bar while
-// the assets are downloaded. You can use this if it's helpful, or use
-// your own loading UI - it's up to you :-)
-// const manager = new ZapparThree.LoadingManager();
-
-// // Construct our ThreeJS renderer and scene as usual
-// const renderer = new THREE.WebGLRenderer({ antialias: true},
-//   {colorManagement: true },
-//   {sortObjects: true},
-//   // {physicallyCorrectLights: true},
-//   {maxCanvasWidth: 1920},
-//   { maxCanvasHeight: 1920}
-//   );
-//   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-//   // renderer.outputEncoding = sRGBEncoding
-// // renderer.toneMapping = ACESFilmicToneMapping
-//   renderer.physicallyBasedLights = true
-// const scene = new THREE.Scene();
-// document.body.appendChild(renderer.domElement);
-
-// // As with a normal ThreeJS scene, resize the canvas if the window resizes
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// window.addEventListener('resize', () => {
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-// });
-
-// // Create a Zappar camera that we'll use instead of a ThreeJS camera
-// const camera = new ZapparThree.Camera();
-
-// In order to use camera and motion data, we need to ask the users for permission
-// The Zappar library comes with some UI to help with that, so let's use it
-// ZapparThree.permissionRequestUI().then((granted) => {
-//   // If the user granted us the permissions we need then we can start the camera
-//   // Otherwise let's them know that it's necessary with Zappar's permission denied UI
-//   if (granted) camera.start();
-//   else ZapparThree.permissionDeniedUI();
-// });
-
-// // The Zappar component needs to know our WebGL context, so set it like this:
-// ZapparThree.glContextSet(renderer.getContext());
-
-// // Set the background of our scene to be the camera background texture
-// // that's provided by the Zappar camera
-// scene.background = camera.backgroundTexture;
-
-
-// const instantTracker = new ZapparThree.InstantWorldTracker();
-// const instantTrackerGroup = new ZapparThree.InstantWorldAnchorGroup(camera, instantTracker);
 var texture
 var loader
 var output
@@ -171,41 +108,6 @@ let modelloaded = 0
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
 let modelobj;
-// params = new URLSearchParams(document.location.search.substring(1))
-
-// pName = params.get('name') ? params.get('name') : 'friend'
-// console.log(pName)
-// if (pName === "friend") {
-//   pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
-// }
-
-
-// * *** SET UP PLACEMENT HOTSPOT ***
-
-// Load in a hostpot texture from our ../assets folder
-// const hotspotTexture = new THREE.TextureLoader().load(hotspotImg);
-// // Create a mesh for the texture to attach to
-// const hotspot = new THREE.Mesh(
-//   new THREE.PlaneBufferGeometry(),
-//   new THREE.MeshBasicMaterial({
-//     // Get the hotspot texture and set it as the map
-//     map: hotspotTexture,
-//     // Make sure we can see it from all angles
-//     side: THREE.DoubleSide,
-//     // Set the transparency so we can see the ring
-//     transparent: true,
-//     alphaTest: 0.5,
-//   }),
-// );
-// hotspot.scale.setScalar(2);
-// // Prevent z-fighting between the hotspot and the shadow plane
-// hotspot.renderOrder = 1;
-// // Rotate the hotspot so that it is flat on the floor
-// hotspot.rotateX(-0.5 * Math.PI);
-
-// instantTrackerGroup.add(hotspot);
-
-
 
 //copy to clipboard function
 const copyToClipboard = (e) => {
@@ -957,66 +859,36 @@ AFRAME.registerComponent("swap-texture", {
           if (fileMb >= 12) {
             alert("please upload file less then 10mb")
             console.log("size is large")
-            // fileResult.innerHTML = "Please select a file less than 2MB.";
-            // fileSubmit.disabled = true;
           } else {
             var fileIdElement = document.getElementById("changeFileName");
             var newFileName = "Uploaded!"; // Replace with your desired new file name
             fileIdElement.innerHTML = newFileName;
 
             console.log("size is ohk")
-
-
-            // fileResult.innerHTML = "Success, your file is " + fileMb.toFixed(1) + "MB.";
-            // fileSubmit.disabled = true;
           }
         }
 
         console.log("image upload clicked")
 
         output = document.getElementById('uploadbtn');
+               
         output.src = reader.result;
         console.log(output.src)
-        // dataURL = output.src
-
-        // dataURL=blobUrl
-
-        // const file = event.target.files[0];
-        // contentType = file.type;
-
-        // if (contentType === "image/jpeg") {
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(23, dataURL.length);
-        // } else if (contentType === "image/png") {
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(22, dataURL.length);
-        // } else if (contentType!="image/jpeg" || contentType!="image/png" ){
-        //   console.log(contentType);
-        //   b64Data = dataURL.substring(22, dataURL.length);
-        //   alert("please upload png/jpeg file only")
-
-
-        // }
-
-
-        // var blob = b64toBlob(b64Data, contentType);
-        // blobUrl = URL.createObjectURL(blob);
-        // dataURL = blobUrl
-        // pName = dataURL
+        
         console.log("sss" + pName)
-        // texturechange()
-        // traversal()
-        // gltf.scene.traverse(function (child) {..
 
-        //   if (child.name === "Cube001_1") {
-        //     console.log("model loaded")
-        //     loader = new THREE.TextureLoader()
-        //     texture = loader.load(dataURL)
+        //crop image
+        let preview = document.getElementById('preview')
+        let imageCropBox = document.querySelector('.image-crop-box')
+        let cropBtn = document.getElementById("cropBtn")
 
-        //     child.material.map = texture;
-        //     child.material.map.flipY = false
-        //   }
-        // })
+        imageCropBox.classList.remove("hide-content")
+        preview.src = output.src
+
+        cropBtn.addEventListener('click', () => {
+          imageCropBox.classList.add("hide-content")
+        })
+
       }
       reader.readAsDataURL(event.target.files[0]);
     }
@@ -1037,19 +909,14 @@ AFRAME.registerComponent("swap-texture", {
 
     uploadLabel.onclick = function () {
       let uploadAlert = document.querySelector(".alert-check-upload")
-      //uploadAlert.classList.remove("invisible")
-      //uploadAlert.classList.add("add")
 
       fileInput.click() 
-      // let uploadAlertClose = document.querySelector("#alertCloseBtnUpload")
-      // uploadAlertClose.onclick = () => {
-      //   uploadAlert.classList.remove("add")
-      //   uploadAlert.classList.add("invisible")   
-      // }
+
     }
     
     //upload image function
     function uploadImage(imageFile) {
+      console.log("uploadImage ran")
       const formData = new FormData();
       formData.append("image", imageFile);
 
@@ -1080,6 +947,7 @@ AFRAME.registerComponent("swap-texture", {
       console.log("Rendering the result with imageUrl:", imageUrl);
     }
     function getimageuploaded() {
+
       // Get uploaded image from server
       console.log("clicked different btn")
       
@@ -1089,6 +957,7 @@ AFRAME.registerComponent("swap-texture", {
           console.log("clicked different btn2")
           console.log("Uploaded Image URL:", imageUrl);
           dataURL = imageUrl
+          
           console.log("dataurl " + dataURL)
           // texturechange()
           // Delay rendering the result after 2 seconds (2000 milliseconds)
@@ -1597,9 +1466,60 @@ setTimeout(() => {
     });
 
     msgclosebtn.onclick = () => {
-      messagenote.style.display = "none"
+     
+      var captureDiv = document.getElementById('messagenote');
+     
+  
+      // Specify the name of the mesh you want to modify messagenote
+      var targetMeshName = 'postcard';
+  
+      // Find the mesh by name
+      var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+  
+      if (targetMesh) {
+          console.log("Mesh found");
+         
+          // Use html2canvas to capture the content of the div
+          html2canvas(captureDiv).then(function(canvas) {
+              console.log('Canvas created:', canvas);
+  
+              // Convert the canvas to a data URL
+              var dataURL = canvas.toDataURL();
+  
+              // Create a new texture using the data URL
+              var texture = new THREE.TextureLoader().load(dataURL);
+              texture.minFilter = THREE.LinearFilter;
+              texture.magFilter = THREE.LinearFilter;
+              // Create a new material using the texture
+              var material = new THREE.MeshBasicMaterial({
+                map: texture,
+                minFilter: THREE.LinearFilter,
+                magFilter: THREE.LinearFilter
+            });
+  
+              // Set the material to the target mesh
+              targetMesh.material = material;
+          });
+        
+      } else {
+          console.warn('Mesh not found:', targetMeshName);
+      }
+  
+      function findMeshByName(object3D, targetName) {
+          var resultMesh = null;
+  
+          object3D.traverse(function(node) {
+              if (node.isMesh && node.name === targetName) {
+                  resultMesh = node;
+              }
+          });
+  
+          return resultMesh;
+      }
+      messagenote.style.display = "none";
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
-    }
+  }
+  
     notebox.addEventListener('click', function (evt) {
       console.log("envolope clicked")
       tapOnEnvelope.style.display = "none"
@@ -1644,11 +1564,6 @@ setTimeout(() => {
       }, 1000);
 
     });
-    // modelname.onclick = () => {
-    //   console.log("clicked")sendgift
-    // }
-
-
   },
 })
 // ------------------autofocus for input field----------------------
@@ -1684,73 +1599,62 @@ const homebtn = document.getElementById("homeIcon")
 homebtn.onclick = () => {
   window.location.reload()
 }
+//dom selection
+const postCardBtn = document.querySelector(".create-postcard")
+const textAreaElement = document.querySelector("#diwaliMessage")
+const characterCounterElement = document.querySelector("#character-counter")
+const typedCharactersElement = document.querySelector("#typed-characters");
 
-/* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
-// var zappCloseBtn = document.getElementById("zapparCloseAref")
-// zappCloseBtn.children[0].style.display = "none"
-// zappCloseBtn.insertAdjacentHTML('beforeend',
-// `<h3 class="go-back-txt">Go Back</h3>`)
-/* --------**---------**-----DON'T DELETE THIS COMMENT-----**-----**-----*/
+//events
+postCardBtn.addEventListener("click", runFormPart2)
+textAreaElement.addEventListener("keyup", textAreaCounter);
 
+// methods
+function runFormPart2() {
 
+  let err = []
 
-// //resize and draw the image on first load
-// resizeImage(imagePath, 1024, 1024);
+  let inputValue = document.getElementById("siblingname")
+  let username = inputValue.value
 
-// //resize the image and draw it to the canvas
-// function resizeImage(imagePath, newWidth, newHeight) {
-//     //create an image object from the path
-//     const originalImage = new Image();
-//     originalImage.src = imagePath;
- 
-//     //get a reference to the canvas
-//     const canvas = document.getElementById('canvas');
-//     const ctx = canvas.getContext('2d');
- 
-//     //wait for the image to load
-//     originalImage.addEventListener('load', function() {
-        
-//         //get the original image size and aspect ratio
-//         const originalWidth = originalImage.naturalWidth;
-//         const originalHeight = originalImage.naturalHeight;
-//         const aspectRatio = originalWidth/originalHeight;
- 
-//         //if the new height wasn't specified, use the width and the original aspect ratio
-//         if (newHeight === undefined) {
-//             //calculate the new height
-//             newHeight = newWidth/aspectRatio;
-//             newHeight = Math.floor(newHeight);
-            
-//             //update the input element with the new height
-//             hInput.placeholder = `Height (${newHeight})`;
-//             hInput.value = newHeight;
-//         }
-      
-//         //set the canvas size
-//         canvas.width = newWidth;
-//         canvas.height = newHeight;
-         
-//         //render the image
-//         ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
-//     });
-// }
+  if(username == "" || typeofpack == "") {
+    err.push("Please fill all the details.")
+  }
 
-// const downloadBtn = document.querySelector("button.download");
- 
-// //a click event handler for the download button
-// //download the resized image to the client computer
-// downloadBtn.addEventListener('click', function() {
-//     //create a temporary link for the download item
-//     let tempLink = document.createElement('a');
+  if(err.length > 0) {
+   
+    let alertBox = document.querySelector(".alert-box")
+    let alertDiv = document.createElement('div')
+    alertDiv.classList.add("alert", "alert-danger")
+    alertDiv.setAttribute("role", "alert")
+    alertDiv.innerHTML = err[0]
+    alertBox.appendChild(alertDiv)
 
-//     //generate a new filename
-//     let fileName = `image-resized.jpg`;
+  } else if (err.length === 0) {
+    formPart1.style.display = "none"
+    formPart2.style.display = "block"
+  } else {
+    alert("Something went wrong please reload page.")
+  }
   
-//     //configure the link to download the resized image
-//     tempLink.download = fileName;
-//     tempLink.href = document.getElementById('canvas').toDataURL("image/jpeg", 0.9);
-  
-//     //trigger a click on the link to start the download
-//     tempLink.click();
-// });
+}
 
+
+//text string counter for user form
+function textAreaCounter(event) {
+
+  const maximumCharacters = 150
+  const typedCharacters = textAreaElement.value.length
+
+  if (typedCharacters > maximumCharacters) {
+      return false
+  }
+
+  typedCharactersElement.textContent = typedCharacters
+  
+  // if (typedCharacters >= 80 && typedCharacters < 125) {
+  //     characterCounterElement.classList = "text-warning";
+  // } else if (typedCharacters >= 150) {
+  //     characterCounterElement.classList = "text-danger";
+  // }
+}
