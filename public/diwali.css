@@ -281,6 +281,14 @@ background-clip: text;
 .form-part-2 {
     display: none;
 }
+.form-part-2 .carosel-images {
+    width: 60% !important;
+    /* margin: 58px 0px; */
+    margin-top: 45px;
+}
+/* #distancewali {
+    margin-left: 58px;
+} */
 .camera-tag {
     color: unset;
     background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);

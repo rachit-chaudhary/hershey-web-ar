@@ -294,6 +294,7 @@ function myFunction() {
 nextbtn.onclick = () => {
   name = document.getElementById("siblingname").value
   var x = document.getElementById("uploadbtn").value;
+  var diwaliMessage = textAreaElement.value
   // const primaryAlert = document.getElementById("uploadingDiv");
 
 
@@ -303,8 +304,9 @@ nextbtn.onclick = () => {
     secondscreen.style.display = "block"
   } else if (x === "") {
     alert("Please upload your photo!")
-  }
-  else {
+  } else if(diwaliMessage.length > 150) {
+    alert("Message character limit is over!")
+  } else {
     secondscreen.style.display = "none"
     if (typeofpack === 'kisses') {
       //
@@ -1012,7 +1014,6 @@ AFRAME.registerComponent("swap-texture", {
         let dynamicImg = document.getElementById("dynamicImg")
         dynamicImg.classList.add("justify-content-center")
         dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
-
         // Ar scene 
 
         // scene.style.zIndex = 0
@@ -1026,9 +1027,6 @@ AFRAME.registerComponent("swap-texture", {
         questionAlert.classList.add("visible")
 
       }
-
-
-
     }
 
     //nextquestionid1 for bar
@@ -1093,7 +1091,6 @@ AFRAME.registerComponent("swap-texture", {
         questionAlertbar.classList.remove("invisible")
         questionAlertbar.classList.add("visible")
       }
-
 }
 
     // Click event for nextquestionid2 for exotic
@@ -1602,8 +1599,9 @@ homebtn.onclick = () => {
 //dom selection
 const postCardBtn = document.querySelector(".create-postcard")
 const textAreaElement = document.querySelector("#diwaliMessage")
+
 const characterCounterElement = document.querySelector("#character-counter")
-const typedCharactersElement = document.querySelector("#typed-characters");
+const typedCharactersElement = document.querySelector("#typed-characters")
 
 //events
 postCardBtn.addEventListener("click", runFormPart2)
@@ -1639,7 +1637,6 @@ function runFormPart2() {
   
 }
 
-
 //text string counter for user form
 function textAreaCounter(event) {
 
@@ -1657,4 +1654,24 @@ function textAreaCounter(event) {
   // } else if (typedCharacters >= 150) {
   //     characterCounterElement.classList = "text-danger";
   // }
+}
+
+const distanceWali = document.getElementById("distancewali")
+const friendWali = document.getElementById("friendwali")
+const familyWali = document.getElementById("familywali")
+
+distanceWali.addEventListener("click", checkDistanceWali)
+friendWali.addEventListener("click", checkFriendWali)
+familyWali.addEventListener("click", checkFamilyWali)
+
+function checkDistanceWali() {
+  uimoduleobj.changeLongDistance()
+}
+
+function checkFriendWali() {
+  uimoduleobj.changeFriendWali()
+}
+
+function checkFamilyWali() {
+  uimoduleobj.changeFamilyWali()
 }

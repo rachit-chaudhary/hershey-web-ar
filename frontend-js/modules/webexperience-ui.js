@@ -6,6 +6,7 @@ export class UImodule  {
         // alert("executed from experience ui")
 
         this.packtype = "hello"
+        this.template = "yo"
         $('.owl-carousel').owlCarousel({
             center:true,
             loop: false,
@@ -87,6 +88,45 @@ export class UImodule  {
             Image_Id.src = "/images/exotic.png";
             this.packtype = ""
         }
+    }
+
+    changeLongDistance() {
+        var imageId = document.getElementById('distancewali')
+
+        if(imageId.src.match('/images/distancewali.png')) {
+            imageId.src = '/images/tap-distancewali.png'
+            this.template = "long-distance"
+        } else {
+            imageId.src = '/images/distancewali.png'
+            this.template = ""
+        }
+        console.log(this.template)
+    }
+
+    changeFriendWali() {
+        var imageId = document.getElementById('friendwali')
+
+        if(imageId.src.match('/images/friendwali.png')) {
+            imageId.src = '/images/tap-friendwali.png'
+            this.template = 'friend-wali'
+        } else {
+            imageId.src = '/images/friendwali.png'
+            this.template = ""
+        }
+        console.log(this.template)
+    }
+
+    changeFamilyWali() {
+        var imageId = document.getElementById('familywali')
+
+        if(imageId.src.match('/images/familywali.png')) {
+            imageId.src = '/images/tap-familywali.png'
+            this.template = 'family-wali'
+        } else {
+            imageId.src = '/images/familywali.png'
+            this.template = ''
+        }
+        console.log(this.template)
     }
 
     
