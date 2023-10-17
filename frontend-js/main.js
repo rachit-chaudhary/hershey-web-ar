@@ -39,7 +39,7 @@ let hereGoesID = document.getElementById("#hereGoesID")
 //questions hiding DOM elements
 const questionAlert = document.querySelector(".alert-check-questions")
 const questionAlertClose = document.getElementById("alertCloseBtn")
-
+var cropedImage;
 questionAlertClose.onclick = () => {
   questionAlert.classList.remove("visible")
   questionAlert.classList.add("invisible")
@@ -906,13 +906,52 @@ AFRAME.registerComponent("swap-texture", {
     //upload btn pop up
     const fileInput = document.getElementById("uploadbtn");
     const uploadLabel = document.getElementById("fileUploadLabel")
+    var cropper;
 
     uploadLabel.onclick = function () {
-      let uploadAlert = document.querySelector(".alert-check-upload")
-
-      fileInput.click() 
-
-    }
+      let uploadAlert = document.querySelector(".alert-check-upload");
+      let crop = document.getElementById("preview");
+      fileInput.click();
+    
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+    
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const image = new Image();
+            image.src = e.target.result;
+    
+            image.onload = function () {
+              // Destroy the previous cropper instance if it exists
+              if (cropper) {
+                cropper.destroy();
+              }
+    
+              // Set the source of the preview element to the selected image
+              crop.src = e.target.result;
+    
+              // Initialize Cropper with the preview element
+              cropper = new Cropper(crop, {
+                aspectRatio: 1,
+                viewMode: 0,
+              });
+            };
+          };
+    
+          reader.readAsDataURL(file);
+        }
+      });
+    };
+    
+    cropBtn.onclick = function () {
+      if (cropper) {
+        cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        console.log(cropedImage);
+      } else {
+        console.error("Cropper not initialized or has been destroyed.");
+      }
+    };
     
     //upload image function
     function uploadImage(imageFile) {
@@ -1487,7 +1526,8 @@ setTimeout(() => {
               var dataURL = canvas.toDataURL();
   
               // Create a new texture using the data URL
-              var texture = new THREE.TextureLoader().load(dataURL);
+              // var texture = new THREE.TextureLoader().load(dataURL);
+              var texture = new THREE.TextureLoader().load(cropedImage);
               texture.minFilter = THREE.LinearFilter;
               texture.magFilter = THREE.LinearFilter;
               // Create a new material using the texture
