@@ -18,7 +18,7 @@ let imagevalue
 const uimoduleobj = new UImodule();
 new ZAPPPermissionUI()
 
-const model = new URL('/public/models/kisses .glb', import.meta.url).href;
+const model = new URL('/public/models/kissesfile.glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
 let thirdscreenbar = document.getElementById("thirdscreen-bar")
@@ -290,7 +290,62 @@ function myFunction() {
 
 // --------------------------------
 
-// ---------------------------------------
+// ---------------------------------------diwali changes
+function renderResult(imageUrl) {
+  // Replace this with your rendering logic
+  console.log("Rendering the result with imageUrl:", imageUrl);
+}
+const fileInput = document.getElementById("uploadbtn");
+ //upload image function
+ function uploadImage(imageFile) {
+  console.log("uploadImage ran")
+  const formData = new FormData();
+  formData.append("image", imageFile);
+
+  return new Promise((resolve, reject) => {
+    fetch("/questions", {
+      method: "POST",
+      body: formData,
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Handle the response data from the server
+        const imageUrl = data.imageUrl;
+        resolve(imageUrl);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+function getimageuploaded() {
+
+  // Get uploaded image from server
+  console.log("clicked different btn")
+  
+  const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+  console.log("clicked different btn1")
+  uploadImage(imageFile).then(imageUrl => {
+      console.log("clicked different btn2")
+      console.log("Uploaded Image URL:", imageUrl);
+      dataURL = imageUrl
+      
+      console.log("dataurl " + dataURL)
+      // texturechange()
+      // Delay rendering the result after 2 seconds (2000 milliseconds)
+      setTimeout(() => {
+        renderResult(imageUrl);
+        console.log("clicked different btn3")
+      }, 2000);
+    }).catch(error => {
+      console.error("Error:", error);
+    });
+}
 nextbtn.onclick = () => {
   name = document.getElementById("siblingname").value
   var x = document.getElementById("uploadbtn").value;
@@ -308,18 +363,19 @@ nextbtn.onclick = () => {
     alert("Message character limit is over!")
   } else {
     secondscreen.style.display = "none"
+   
     if (typeofpack === 'kisses') {
       //
       modelname.setAttribute('gltf-model', '#kissesmodel')
       console.log("ss")
-      thirdscreen.style.display = "block"
+     // thirdscreen.style.display = "block"
     } else if (typeofpack === 'chocolatebar') {
       modelname.setAttribute('gltf-model', '#barmodel')
-      thirdscreenbar.style.display = "block"
+     // thirdscreenbar.style.display = "block"
     } else if (typeofpack === 'exotic') {
       //
       modelname.setAttribute('gltf-model', '#exoticmodel')
-      thirdscreenexotic.style.display = "block"
+     // thirdscreenexotic.style.display = "block"
     }
     else {
       alert("Please reload your page!")
@@ -329,7 +385,60 @@ nextbtn.onclick = () => {
       console.log("if loaded")
       modelloaded = 1
     });
+ // if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1)
+    //  {
+      thirdscreen.style.display = "none"
+      thirdscreenbar.style.display = "none"
+      thirdscreenexotic.style.display = "none"
 
+      barsLoadingMedia.style.display = "none"
+      loadingscreen.style.display = "block"
+      kissesloadingvid.style.display = "block"
+      kissesloadingvid.play();
+
+
+      // if (modelloaded === 1) {
+        setTimeout(() => {
+          loadingscreen.style.display = "none"
+          scene.style.zIndex = 0
+          permissions.setAttribute("zappar-permissions-ui", "")
+          taptoplace.style.display = "block"
+        }, 6000);
+      // }
+
+
+      hereGoesID.innerHTML = `${name}`
+
+      msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+This is my way of expressing what you mean to me. And for moments
+<span>when words fall short,</span>`
+      console.log(msg)
+      completenote.innerHTML = msg
+      document.querySelector(".message-wrapper").classList.remove("bar-message")
+      document.querySelector(".message-wrapper").classList.remove("hed-message")
+      document.querySelector(".message-wrapper").classList.add("kisses-message")
+
+      document.querySelector(".message-header h3").classList.remove("hed-note-text")
+      document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
+      document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
+      document.getElementById("completenote").classList.remove("hed-note-text")
+      let dynamicImg = document.getElementById("dynamicImg")
+      dynamicImg.classList.add("justify-content-center")
+      dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
+      // Ar scene 
+
+      // scene.style.zIndex = 0
+      console.log(uimoduleobj.packtype)
+      console.log("next")
+
+      getimageuploaded()
+    // } 
+    // else {
+      // alert("Please select an option for each question.");
+      // questionAlert.classList.remove("invisible")
+      // questionAlert.classList.add("visible")
+
+    //}
   }
 }
 
@@ -906,7 +1015,7 @@ AFRAME.registerComponent("swap-texture", {
     const notebox = document.getElementById('notebox')
   
     //upload btn pop up
-    const fileInput = document.getElementById("uploadbtn");
+    
     const uploadLabel = document.getElementById("fileUploadLabel")
     var cropper;
 
@@ -955,61 +1064,10 @@ AFRAME.registerComponent("swap-texture", {
       }
     };
     
-    //upload image function
-    function uploadImage(imageFile) {
-      console.log("uploadImage ran")
-      const formData = new FormData();
-      formData.append("image", imageFile);
-
-      return new Promise((resolve, reject) => {
-        fetch("/questions", {
-          method: "POST",
-          body: formData,
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Handle the response data from the server
-            const imageUrl = data.imageUrl;
-            resolve(imageUrl);
-          })
-          .catch(error => {
-            reject(error);
-          });
-      });
-    }
+   
     // Function to render the result after a delay
-    function renderResult(imageUrl) {
-      // Replace this with your rendering logic
-      console.log("Rendering the result with imageUrl:", imageUrl);
-    }
-    function getimageuploaded() {
-
-      // Get uploaded image from server
-      console.log("clicked different btn")
-      
-      const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-      console.log("clicked different btn1")
-      uploadImage(imageFile).then(imageUrl => {
-          console.log("clicked different btn2")
-          console.log("Uploaded Image URL:", imageUrl);
-          dataURL = imageUrl
-          
-          console.log("dataurl " + dataURL)
-          // texturechange()
-          // Delay rendering the result after 2 seconds (2000 milliseconds)
-          setTimeout(() => {
-            renderResult(imageUrl);
-            console.log("clicked different btn3")
-          }, 2000);
-        }).catch(error => {
-          console.error("Error:", error);
-        });
-    }
+   
+   
 
     // ------------------------------
     // Click event for nextquestionid
@@ -1331,7 +1389,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 13000
-        modelname.setAttribute('gltf-model', '/models/kisses .glb')
+        modelname.setAttribute('gltf-model', '/models/kissesfile.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1366,7 +1424,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 11000
-        modelname.setAttribute('gltf-model', '/models/bars final.glb')
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1423,7 +1481,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 17000
-        modelname.setAttribute('gltf-model', '/models/exotic darkv13.glb')
+        modelname.setAttribute('gltf-model', '/models/edfinal.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
