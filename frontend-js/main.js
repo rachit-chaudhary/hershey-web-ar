@@ -944,7 +944,11 @@ AFRAME.registerComponent("swap-texture", {
               if (cropper) {
                 cropper.destroy();
               }
-    
+              window.addEventListener('beforeunload', function() {
+                if (cropper) {
+                  cropper.destroy();
+                }
+              });
               // Set the source of the preview element to the selected image
               crop.src = e.target.result;
     
@@ -952,6 +956,9 @@ AFRAME.registerComponent("swap-texture", {
               cropper = new Cropper(crop, {
                 aspectRatio: 1,
                 viewMode: 0,
+                responsive: true,
+                autoCropArea: 0.8,
+                enableWorker: true,
               });
             };
           };
@@ -962,11 +969,11 @@ AFRAME.registerComponent("swap-texture", {
     };
     
     cropBtn.onclick = function () {
-      if (cropper) {
+      try {
         cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
         console.log(cropedImage);
-      } else {
-        console.error("Cropper not initialized or has been destroyed.");
+      } catch (error) {
+        console.error("Error during image cropping:", error);
       }
     };
     
