@@ -1063,11 +1063,11 @@ AFRAME.registerComponent("swap-texture", {
     };
     
     cropBtn.onclick = function () {
-      if (cropper) {
+      try {
         cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
         console.log(cropedImage);
-      } else {
-        console.error("Cropper not initialized or has been destroyed.");
+      } catch (error) {
+        console.error("Error during image cropping:", error);
       }
     };
     
