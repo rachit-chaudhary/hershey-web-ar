@@ -84,9 +84,9 @@
 .heading-div,
 .text-landing-page {
     background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .text-landing-page {
     text-align: center;
@@ -333,3 +333,88 @@ background-clip: text;
 /* .loading-spinner .spinner-ns {
     background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
 } */
+
+/* loading screen ends here */
+
+.msg-led-lights,
+.msg-hanging-lamp {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+.msg-led-lights img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    mix-blend-mode: screen;
+    width: 100%;
+}
+.msg-hanging-lamp img {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 63px;
+}
+.diwali-msg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.diwali-msg-heading {
+    position: relative;
+    z-index: 2;
+}
+.diwali-msg-h4 {
+    font-size: 24px;
+    text-align: center;
+    font-family:"snavely";
+    background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.diwali-msg-h4 span {
+    font-family: 'Poller One', serif;
+}
+.vertical-gold-bar {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+}
+.vertical-bar {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    height: inherit;
+}
+.vertical-bar span {
+    width: 3px;
+    height: inherit;
+    background: #4C2414;
+    display: block;
+}
+.polaroid-frame {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background: linear-gradient(94deg, #3F000B 0.3%, #823C48 61.22%, #3F000B 124.73%), #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 10px 25px 10px;
+}
+.user-img {
+    background: white;
+    width: 100%;
+}
+.user-img img{
+    width: 100%;
+}
+.brand-wish {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px 0px 10px;
+}
+.brand-wish img {
+    width: 100%;
+}
