@@ -346,101 +346,7 @@ function getimageuploaded() {
       console.error("Error:", error);
     });
 }
-nextbtn.onclick = () => {
-  name = document.getElementById("siblingname").value
-  var x = document.getElementById("uploadbtn").value;
-  var diwaliMessage = textAreaElement.value
-  // const primaryAlert = document.getElementById("uploadingDiv");
 
-
-  console.log(name)
-  console.log(x);
-  if (name === "") {
-    secondscreen.style.display = "block"
-  } else if (x === "") {
-    alert("Please upload your photo!")
-  } else if(diwaliMessage.length > 150) {
-    alert("Message character limit is over!")
-  } else {
-    secondscreen.style.display = "none"
-   
-    if (typeofpack === 'kisses') {
-      //
-      modelname.setAttribute('gltf-model', '#kissesmodel')
-      console.log("ss")
-     // thirdscreen.style.display = "block"
-    } else if (typeofpack === 'chocolatebar') {
-      modelname.setAttribute('gltf-model', '#barmodel')
-     // thirdscreenbar.style.display = "block"
-    } else if (typeofpack === 'exotic') {
-      //
-      modelname.setAttribute('gltf-model', '#exoticmodel')
-     // thirdscreenexotic.style.display = "block"
-    }
-    else {
-      alert("Please reload your page!")
-    }
-
-    modelname.addEventListener("model-loaded", () => {
-      console.log("if loaded")
-      modelloaded = 1
-    });
- // if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1)
-    //  {
-      thirdscreen.style.display = "none"
-      thirdscreenbar.style.display = "none"
-      thirdscreenexotic.style.display = "none"
-
-      barsLoadingMedia.style.display = "none"
-      loadingscreen.style.display = "block"
-      kissesloadingvid.style.display = "block"
-      kissesloadingvid.play();
-
-
-      // if (modelloaded === 1) {
-        setTimeout(() => {
-          loadingscreen.style.display = "none"
-          scene.style.zIndex = 0
-          permissions.setAttribute("zappar-permissions-ui", "")
-          taptoplace.style.display = "block"
-        }, 6000);
-      // }
-
-
-      hereGoesID.innerHTML = `${name}`
-
-      msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-This is my way of expressing what you mean to me. And for moments
-<span>when words fall short,</span>`
-      console.log(msg)
-      completenote.innerHTML = msg
-      document.querySelector(".message-wrapper").classList.remove("bar-message")
-      document.querySelector(".message-wrapper").classList.remove("hed-message")
-      document.querySelector(".message-wrapper").classList.add("kisses-message")
-
-      document.querySelector(".message-header h3").classList.remove("hed-note-text")
-      document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
-      document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
-      document.getElementById("completenote").classList.remove("hed-note-text")
-      let dynamicImg = document.getElementById("dynamicImg")
-      dynamicImg.classList.add("justify-content-center")
-      dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
-      // Ar scene 
-
-      // scene.style.zIndex = 0
-      console.log(uimoduleobj.packtype)
-      console.log("next")
-
-      getimageuploaded()
-    // } 
-    // else {
-      // alert("Please select an option for each question.");
-      // questionAlert.classList.remove("invisible")
-      // questionAlert.classList.add("visible")
-
-    //}
-  }
-}
 
 reload.onclick = () => {
   previouspausevalue++
@@ -1072,178 +978,178 @@ AFRAME.registerComponent("swap-texture", {
     // ------------------------------
     // Click event for nextquestionid
 
-    nextQuestionid.onclick = () => {
+    // nextQuestionid.onclick = () => {
 
-      if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {
-        thirdscreen.style.display = "none"
+    //   if (document.querySelectorAll(".options-row .expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-div").length == 1 && document.querySelectorAll(".options-row .custom-expanded-option").length == 1) {
+    //     thirdscreen.style.display = "none"
 
-        barsLoadingMedia.style.display = "none"
-        loadingscreen.style.display = "block"
-        kissesloadingvid.style.display = "block"
-        kissesloadingvid.play();
+    //     barsLoadingMedia.style.display = "none"
+    //     loadingscreen.style.display = "block"
+    //     kissesloadingvid.style.display = "block"
+    //     kissesloadingvid.play();
 
 
-        if (modelloaded === 1) {
-          setTimeout(() => {
-            loadingscreen.style.display = "none"
-            scene.style.zIndex = 0
-            permissions.setAttribute("zappar-permissions-ui", "")
-            taptoplace.style.display = "block"
-          }, 6000);
-        }
+    //     if (modelloaded === 1) {
+    //       setTimeout(() => {
+    //         loadingscreen.style.display = "none"
+    //         scene.style.zIndex = 0
+    //         permissions.setAttribute("zappar-permissions-ui", "")
+    //         taptoplace.style.display = "block"
+    //       }, 6000);
+    //     }
         
-        hereGoesID.innerHTML = `${name}`
+    //     hereGoesID.innerHTML = `${name}`
 
-        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(msg)
-        completenote.innerHTML = msg
-        document.querySelector(".message-wrapper").classList.remove("bar-message")
-        document.querySelector(".message-wrapper").classList.remove("hed-message")
-        document.querySelector(".message-wrapper").classList.add("long-distance-bg")
+    //     msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+    //     console.log(msg)
+    //     completenote.innerHTML = msg
+    //     document.querySelector(".message-wrapper").classList.remove("bar-message")
+    //     document.querySelector(".message-wrapper").classList.remove("hed-message")
+    //     document.querySelector(".message-wrapper").classList.add("long-distance-bg")
 
-        document.querySelector(".message-header h3").classList.remove("hed-note-text")
-        document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
-        document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
-        document.getElementById("completenote").classList.remove("hed-note-text")
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.add("long-distance-dynamic")
-        dynamicImg.children[0].src = "/images/both-kisses.png"
+    //     document.querySelector(".message-header h3").classList.remove("hed-note-text")
+    //     document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
+    //     document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
+    //     document.getElementById("completenote").classList.remove("hed-note-text")
+    //     let dynamicImg = document.getElementById("dynamicImg")
+    //     dynamicImg.classList.add("long-distance-dynamic")
+    //     dynamicImg.children[0].src = "/images/both-kisses.png"
 
-        // Ar scene 
+    //     // Ar scene 
 
-        // scene.style.zIndex = 0
-        console.log(uimoduleobj.packtype)
-        console.log("next")
+    //     // scene.style.zIndex = 0
+    //     console.log(uimoduleobj.packtype)
+    //     console.log("next")
 
-        getimageuploaded()
-      } else {
-        // alert("Please select an option for each question.");
-        questionAlert.classList.remove("invisible")
-        questionAlert.classList.add("visible")
+    //     getimageuploaded()
+    //   } else {
+    //     // alert("Please select an option for each question.");
+    //     questionAlert.classList.remove("invisible")
+    //     questionAlert.classList.add("visible")
 
-      }
-    }
+    //   }
+    // }
 
     //nextquestionid1 for bar
-    nextQuestionid1.onclick = () => {
-      if (document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
-        thirdscreenbar.style.display = "none"
-        //show bars loading screen @kartik 
+//     nextQuestionid1.onclick = () => {
+//       if (document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
+//         thirdscreenbar.style.display = "none"
+//         //show bars loading screen @kartik 
 
-        loadingHeader.src = "/images/hersheyslogo.png"
-        loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-        loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-        kissesloadingvid.style.display = "none"
-        barsLoadingMedia.style.display = "block"
-        loadingscreen.style.display = "block"
+//         loadingHeader.src = "/images/hersheyslogo.png"
+//         loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+//         loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+//         kissesloadingvid.style.display = "none"
+//         barsLoadingMedia.style.display = "block"
+//         loadingscreen.style.display = "block"
 
 
 
-        // also add if model loaded then show tap to place @kartik
-        if (modelloaded === 1) {
-          setTimeout(() => {
-            // Ar scene 
-            loadingscreen.style.display = "none"
-            permissions.setAttribute("zappar-permissions-ui", "")
-            scene.style.zIndex = 0
-            console.log(uimoduleobj.packtype)
-            console.log("next")
-            taptoplace.style.display = "block"
-          }, 6000)
-        }
+//         // also add if model loaded then show tap to place @kartik
+//         if (modelloaded === 1) {
+//           setTimeout(() => {
+//             // Ar scene 
+//             loadingscreen.style.display = "none"
+//             permissions.setAttribute("zappar-permissions-ui", "")
+//             scene.style.zIndex = 0
+//             console.log(uimoduleobj.packtype)
+//             console.log("next")
+//             taptoplace.style.display = "block"
+//           }, 6000)
+//         }
 
-        hereGoesID.innerHTML = `${name}`
-        //messagenote for bar comes here
-        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+//         hereGoesID.innerHTML = `${name}`
+//         //messagenote for bar comes here
+//         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
 
-        console.log(msg)
-        completenote.innerHTML = msg
+//         console.log(msg)
+//         completenote.innerHTML = msg
 
-        document.querySelector(".message-wrapper").classList.add("bar-message")
-        document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
-          `<div class="bars-note-png"></div>`)
-        document.querySelector(".message-header h3").classList.add("bars-note-text")
-        document.getElementById("msgclosebtn").classList.add("bars-close-btn")
-        document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
-        document.getElementById("completenote").classList.add("bars-note-text")
-        document.querySelector(".dynamic-note").style.height = "320px"
-        document.querySelector(".close-icon").style.zIndex = "99"
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.remove("dynamic-img")
-        dynamicImg.classList.remove("justify-content-center")
-        dynamicImg.classList.add("container-fluid")
-        dynamicImg.classList.add("bars-dynamic-img")
-        dynamicImg.children[0].style.width = "100%"
-        dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
-        dynamicImg.children[0].style.borderBottomRightRadius = "10px"
-        dynamicImg.children[0].src = "/images/bars-bottom-img.png"
+//         document.querySelector(".message-wrapper").classList.add("bar-message")
+//         document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
+//           `<div class="bars-note-png"></div>`)
+//         document.querySelector(".message-header h3").classList.add("bars-note-text")
+//         document.getElementById("msgclosebtn").classList.add("bars-close-btn")
+//         document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
+//         document.getElementById("completenote").classList.add("bars-note-text")
+//         document.querySelector(".dynamic-note").style.height = "320px"
+//         document.querySelector(".close-icon").style.zIndex = "99"
+//         let dynamicImg = document.getElementById("dynamicImg")
+//         dynamicImg.classList.remove("dynamic-img")
+//         dynamicImg.classList.remove("justify-content-center")
+//         dynamicImg.classList.add("container-fluid")
+//         dynamicImg.classList.add("bars-dynamic-img")
+//         dynamicImg.children[0].style.width = "100%"
+//         dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
+//         dynamicImg.children[0].style.borderBottomRightRadius = "10px"
+//         dynamicImg.children[0].src = "/images/bars-bottom-img.png"
 
-        getimageuploaded()
-      } else {
-        questionAlertbar.classList.remove("invisible")
-        questionAlertbar.classList.add("visible")
-      }
-}
+//         getimageuploaded()
+//       } else {
+//         questionAlertbar.classList.remove("invisible")
+//         questionAlertbar.classList.add("visible")
+//       }
+// }
 
     // Click event for nextquestionid2 for exotic
-    nextQuestionid2.onclick = () => {
-      if (document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
+  //   nextQuestionid2.onclick = () => {
+  //     if (document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
 
-        thirdscreenexotic.style.display = "none"
-        loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-        loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-        loadingHeader.src = "/images/hed-logo.png"
-        barsLoadingMedia.style.display = "none"
-        loadingscreen.style.display = "block"
-        exoticloadingvid.style.display = "block"
-        exoticloadingvid.play();
-
-
-        if (modelloaded === 1) {
-          setTimeout(() => {
-            loadingscreen.style.display = "none"
-            scene.style.zIndex = 0
-            permissions.setAttribute("zappar-permissions-ui", "")
-            taptoplace.style.display = "block"
-          }, 6000);
-        }
+  //       thirdscreenexotic.style.display = "none"
+  //       loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+  //       loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+  //       loadingHeader.src = "/images/hed-logo.png"
+  //       barsLoadingMedia.style.display = "none"
+  //       loadingscreen.style.display = "block"
+  //       exoticloadingvid.style.display = "block"
+  //       exoticloadingvid.play();
 
 
-        hereGoesID.innerHTML = `${name}`
+  //       if (modelloaded === 1) {
+  //         setTimeout(() => {
+  //           loadingscreen.style.display = "none"
+  //           scene.style.zIndex = 0
+  //           permissions.setAttribute("zappar-permissions-ui", "")
+  //           taptoplace.style.display = "block"
+  //         }, 6000);
+  //       }
 
-        msg = `We will forever be ${option1} for years to come. 
 
-  Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
+  //       hereGoesID.innerHTML = `${name}`
+
+  //       msg = `We will forever be ${option1} for years to come. 
+
+  // Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
   
-  Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
-        console.log(msg)
-        completenote.innerHTML = msg
+  // Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
+  //       console.log(msg)
+  //       completenote.innerHTML = msg
 
-        document.querySelector(".message-wrapper").classList.add("hed-message")
-        document.querySelector(".message-header h3").classList.add("hed-note-text")
-        document.getElementById("msgclosebtn").classList.add("hed-close-btn")
-        document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
-        document.getElementById("completenote").classList.add("hed-note-text")
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.add("justify-content-start")
-        dynamicImg.children[0].src = "/images/hed-bottom-img.png"
+  //       document.querySelector(".message-wrapper").classList.add("hed-message")
+  //       document.querySelector(".message-header h3").classList.add("hed-note-text")
+  //       document.getElementById("msgclosebtn").classList.add("hed-close-btn")
+  //       document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
+  //       document.getElementById("completenote").classList.add("hed-note-text")
+  //       let dynamicImg = document.getElementById("dynamicImg")
+  //       dynamicImg.classList.add("justify-content-start")
+  //       dynamicImg.children[0].src = "/images/hed-bottom-img.png"
 
-        // Ar scene 
+  //       // Ar scene 
 
-        // scene.style.zIndex = 0
-        console.log(uimoduleobj.packtype)
-        console.log("next")
+  //       // scene.style.zIndex = 0
+  //       console.log(uimoduleobj.packtype)
+  //       console.log("next")
 
-        getimageuploaded()
-
-
-      } else {
-        questionAlertexotic.classList.remove("invisible")
-        questionAlertexotic.classList.add("visible")
-      }
+  //       getimageuploaded()
 
 
-    }
+  //     } else {
+  //       questionAlertexotic.classList.remove("invisible")
+  //       questionAlertexotic.classList.add("visible")
+  //     }
+
+
+  //   }
     // Optionally, you can also keep the form submission logic for the original submit button
     document.getElementById("formId").addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the default form submission behavior
@@ -1681,6 +1587,7 @@ const homebtn = document.getElementById("homeIcon")
 homebtn.onclick = () => {
   window.location.reload()
 }
+
 //dom selection
 const postCardBtn = document.querySelector(".create-postcard")
 const textAreaElement = document.querySelector("#diwaliMessage")
@@ -1725,7 +1632,7 @@ function runFormPart2() {
 //text string counter for user form
 function textAreaCounter(event) {
 
-  const maximumCharacters = 150
+  const maximumCharacters = 100
   const typedCharacters = textAreaElement.value.length
 
   if (typedCharacters > maximumCharacters) {
@@ -1741,9 +1648,58 @@ function textAreaCounter(event) {
   // }
 }
 
+let errLengthMsg
+let errLengthTemp
+
+function validateDiwaliMessage() {
+
+  let err = []
+  if(textAreaElement.value.length === 0) {
+    err.push("Please write a message.")
+  }
+
+  if(err.length > 0) {
+   
+    let alertBox = document.querySelectorAll(".alert-box")
+    let alertDiv = document.createElement('div')
+    alertDiv.classList.add("alert", "alert-danger")
+    alertDiv.setAttribute("role", "alert")
+    alertDiv.innerHTML = err[0]
+    alertBox[1].appendChild(alertDiv)
+
+  } else if (err.length === 0) {
+    errLengthMsg = "nil"
+  }
+}
+
+function validateTemplate() {
+
+  let err = []
+  if(selectedTemplate === "") {
+    alert("please select template")
+    err.push("Please select a template.")
+  }
+
+  if(err.length > 0) {
+   
+    let alertBox = document.querySelectorAll(".alert-box")
+    let alertDiv = document.createElement('div')
+    alertDiv.classList.add("alert", "alert-danger")
+    alertDiv.setAttribute("role", "alert")
+    alertDiv.innerHTML = err[0]
+    alertBox[1].appendChild(alertDiv)
+
+  } else if (err.length === 0) {
+    errLengthTemp = "nil"
+  }
+
+}
+
 const distanceWali = document.getElementById("distancewali")
 const friendWali = document.getElementById("friendwali")
 const familyWali = document.getElementById("familywali")
+
+let selectedTemplate = ""
 
 distanceWali.addEventListener("click", checkDistanceWali)
 friendWali.addEventListener("click", checkFriendWali)
@@ -1751,12 +1707,204 @@ familyWali.addEventListener("click", checkFamilyWali)
 
 function checkDistanceWali() {
   uimoduleobj.changeLongDistance()
+  friendWali.src = "/images/friendwali.png"
+  familyWali.src = "/images/familywali.png"
+  selectedTemplate = "distance-wali"
 }
 
 function checkFriendWali() {
   uimoduleobj.changeFriendWali()
+  distanceWali.src = "/images/distancewali.png"
+  familyWali.src = "/images/familywali.png"
+  selectedTemplate = "friend-wali"
 }
 
 function checkFamilyWali() {
   uimoduleobj.changeFamilyWali()
+  distanceWali.src = "/images/distancewali.png"
+  friendWali.src = "/images/friendwali.png"
+  selectedTemplate = "family-wali"
+}
+
+function hideQuestionsScreen() {
+  thirdscreen.style.display = "none"
+  thirdscreenbar.style.display = "none"
+  thirdscreenexotic.style.display = "none"
+}
+
+function checkSelectedPackAndLoading() {
+
+  if (typeofpack === 'kisses') {
+
+    modelname.setAttribute('gltf-model', '#kissesmodel')
+
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display = "block"
+    kissesloadingvid.style.display = "block"
+    kissesloadingvid.play();
+
+  } else if (typeofpack === 'chocolatebar') {
+
+    modelname.setAttribute('gltf-model', '#barmodel')
+
+    loadingHeader.src = "/images/hersheyslogo.png"
+    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    kissesloadingvid.style.display = "none"
+    barsLoadingMedia.style.display = "block"
+    loadingscreen.style.display = "block"
+
+  } else if (typeofpack === 'exotic') {
+    modelname.setAttribute('gltf-model', '#exoticmodel')
+
+    loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    loadingHeader.src = "/images/hed-logo.png"
+    barsLoadingMedia.style.display = "none"
+    loadingscreen.style.display = "block"
+    exoticloadingvid.style.display = "block"
+    exoticloadingvid.play();
+  }
+  else {
+    alert("Please reload your page!")
+  }
+}
+
+function adjustMessageNoteDistanceWali() {
+  
+  document.querySelector(".message-wrapper").classList.remove("family-bg")
+  document.querySelector(".message-wrapper").classList.remove("friend-bg")
+  document.querySelector(".message-wrapper").classList.add("long-distance-bg")
+  document.querySelector(".message-header h3").classList.remove("hed-note-text")
+  document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
+  document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
+  document.getElementById("completenote").classList.remove("hed-note-text")
+
+  let dynamicImg = document.getElementById("dynamicImg")
+  dynamicImg.classList.add("long-distance-dynamic")
+  dynamicImg.children[0].src = "/images/both-kisses.png"
+
+}
+
+function adjustMessageNoteFriendWali() {
+
+  document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
+  document.querySelector(".message-wrapper").classList.remove("family-bg")
+  document.querySelector(".message-wrapper").classList.add("friend-bg")
+
+  var polaroidFrame = document.querySelector(".polaroid-frame")
+  polaroidFrame.classList.add("friend-bg-polaroid")
+  document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
+
+  var pipImageNode = document.createElement("div")
+  var pipNode = document.createElement("img")
+
+  pipImageNode.className = "kiss-cascade"
+  pipNode.className = "kiss-cascade-img"
+
+  pipNode.src = "/images/both-kisses.png"
+
+  pipImageNode.appendChild(pipNode)
+  polaroidFrame.appendChild(pipImageNode)
+
+
+
+  let dynamicImg = document.getElementById("dynamicImg")
+  dynamicImg.classList.add("long-distance-dynamic")
+  dynamicImg.children[0].style.display = "none"
+
+}
+
+function adjustMessageNoteFamilyWali() {
+
+    document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
+    document.querySelector(".message-wrapper").classList.remove("friend-bg")
+    document.querySelector(".message-wrapper").classList.add("family-bg")
+
+    var polaroidFrame = document.querySelector(".polaroid-frame")
+    polaroidFrame.classList.add("friend-bg-polaroid")
+    document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
+
+    document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
+
+    document.querySelector(".diwali-msg-h4").classList.add("family-gold-text")
+    document.querySelector(".message-header").classList.add("family-gold-text")
+    document.querySelector("#completenote").classList.add("family-gold-text")
+
+    let dynamicImg = document.getElementById("dynamicImg")
+    dynamicImg.classList.add("long-distance-dynamic")
+    dynamicImg.children[0].style.display = "none"
+
+}
+
+nextbtn.addEventListener("click", runExperience)
+
+function runExperience() {
+  
+  validateDiwaliMessage()
+  validateTemplate()
+
+  if(errLengthMsg === "nil" && errLengthTemp === "nil") {
+    name = document.getElementById("siblingname").value
+    var x = document.getElementById("uploadbtn").value;
+    var diwaliMessage = textAreaElement.value
+
+    if (name === "") {
+      secondscreen.style.display = "block"
+    } else if (x === "") {
+      alert("Please upload your photo!")
+    } else if(diwaliMessage.length > 150) {
+      alert("Message character limit is over!")
+    } else {
+
+      secondscreen.style.display = "none"
+
+      hideQuestionsScreen()
+
+      checkSelectedPackAndLoading()
+      
+      msg = diwaliMessage
+      completenote.innerHTML = msg
+
+      if( selectedTemplate === "distance-wali") {
+    
+        adjustMessageNoteDistanceWali()
+    
+        getimageuploaded()
+      }
+
+      if( selectedTemplate === "friend-wali") {
+
+        adjustMessageNoteFriendWali()
+
+        getimageuploaded()
+
+      }
+
+      if( selectedTemplate === "family-wali" ) {
+
+        adjustMessageNoteFamilyWali()
+
+        getimageuploaded()
+
+      }
+      
+      modelname.addEventListener("model-loaded", () => {
+        modelloaded = 1
+      });
+      
+
+
+      // if (modelloaded === 1) {
+        setTimeout(() => {
+          loadingscreen.style.display = "none"
+          scene.style.zIndex = 0
+          permissions.setAttribute("zappar-permissions-ui", "")
+          taptoplace.style.display = "block"
+        }, 6000);
+      // }
+
+        hereGoesID.innerHTML = `${name}`
+    }
+  }
 }

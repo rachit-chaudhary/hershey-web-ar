@@ -2040,7 +2040,7 @@ a.option-btn {
   font-size: 16px;
 }
 .message-header .dynamic-name h2 {
-  font-size: 25px;
+  font-size: 20px;
 }
 @-webkit-keyframes bummer {
   100% {
@@ -2106,7 +2106,7 @@ a.option-btn {
   justify-content: center;
 }
 .dynamic-img img {
-  width: 70%;
+  width: 50%;
 }
 .preview-text {
   z-index: 2;
@@ -2337,8 +2337,8 @@ border-right: none;
 }
 #completenote {
   color: #2D100C;
-  font-size: smaller;
-  margin: 1rem 0px;
+  font-size: 12px;
+  margin: 0px;
   font-family: "Walsheim-Medium";
 }
 .message-header .hed-note-text,
