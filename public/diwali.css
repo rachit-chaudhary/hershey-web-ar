@@ -418,3 +418,13 @@
 .brand-wish img {
     width: 100%;
 }
+.long-distance-dynamic {
+    position: absolute;
+    width: 40%!important;
+    bottom: -10px;
+    right: -30px;
+}
+.long-distance-bg {
+    background: #E8C898;
+    background-image: url(/images/white-kisses-long-distance.png);
+}
