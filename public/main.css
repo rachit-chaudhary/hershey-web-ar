@@ -2008,7 +2008,8 @@ a.option-btn {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 0px;
+  position: relative;
 }
 .close-icon {
   position: relative;
@@ -2016,9 +2017,13 @@ a.option-btn {
 }
 .close-icon img {
   position: absolute;
-  right: 0px;
+  right: -20px;
   width: 24px;
   cursor: pointer;
+  top: -52px;
+  background: #f3f3f3;
+  padding: 5px;
+  border-radius: 25px;
 }
 .message-header h3,
 .message-header .dynamic-name h2 {
@@ -2058,7 +2063,7 @@ a.option-btn {
   border-radius: 10px;
   padding: 25px;
   display: none;
-  width: 90%;
+  width: 99%;
   height: fit-content;
   margin: auto;
   -webkit-transform: scale(0, 0);
@@ -2331,6 +2336,8 @@ border-right: none;
   padding: 0px!important;
 }
 #completenote {
+  color: #2D100C;
+  font-size: smaller;
   margin: 1rem 0px;
   font-family: "Walsheim-Medium";
 }

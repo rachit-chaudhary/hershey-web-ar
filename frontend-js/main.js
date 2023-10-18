@@ -1091,26 +1091,24 @@ AFRAME.registerComponent("swap-texture", {
             taptoplace.style.display = "block"
           }, 6000);
         }
-
-
+        
         hereGoesID.innerHTML = `${name}`
 
-        msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-  This is my way of expressing what you mean to me. And for moments
-  <span>when words fall short,</span>`
+        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         console.log(msg)
         completenote.innerHTML = msg
         document.querySelector(".message-wrapper").classList.remove("bar-message")
         document.querySelector(".message-wrapper").classList.remove("hed-message")
-        document.querySelector(".message-wrapper").classList.add("kisses-message")
+        document.querySelector(".message-wrapper").classList.add("long-distance-bg")
 
         document.querySelector(".message-header h3").classList.remove("hed-note-text")
         document.getElementById("msgclosebtn").classList.remove("hed-close-btn")
         document.querySelector(".dynamic-name").classList.remove("hed-dynamic-name")
         document.getElementById("completenote").classList.remove("hed-note-text")
         let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.add("justify-content-center")
-        dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
+        dynamicImg.classList.add("long-distance-dynamic")
+        dynamicImg.children[0].src = "/images/both-kisses.png"
+
         // Ar scene 
 
         // scene.style.zIndex = 0
@@ -1156,10 +1154,7 @@ AFRAME.registerComponent("swap-texture", {
 
         hereGoesID.innerHTML = `${name}`
         //messagenote for bar comes here
-        msg = `Our bond can be described as ${option1} and that makes it special.<br>
-    ${option2}.<br>
-    Whenever we’re together, I love how we bond over ${option3}, and make every moment special.<br>
-    This is my way of expressing what you mean to me, because stories with my cool sibling are #MeantToBeShared!`
+        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
 
         console.log(msg)
         completenote.innerHTML = msg
@@ -1414,9 +1409,7 @@ setTimeout(() => {
         } else {
           option2 = "Giving mature advices"
         }
-        msg = `Our bond can be described as ${option1} and that makes it special. Your ${option2} makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-        This is my way of expressing what you mean to me. And for moments
-        <span>when words fall short,</span>`
+        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         console.log(msg)
         completenote.innerHTML = msg
 
@@ -1461,9 +1454,7 @@ setTimeout(() => {
         } else {
           option3 = "Gaming"
         }
-        msg = `Our bond can be described as ${option1} and that makes it special.<br>
-           ${option2}.<br>
-           Whenever we’re together, I love how we bond over ${option3}, and make every moment special.`
+        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         console.log(msg)
         completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
@@ -1524,11 +1515,7 @@ setTimeout(() => {
         } else {
           option3 = "Laughing at Silly Jokes "
         }
-        msg = `We will forever be ${option1} for years to come. 
-
-           Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
-           
-           Thank you for being the best Sibling! You know I am in awe of you <span>😊</span>`
+        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         console.log(msg)
         completenote.innerHTML = msg
 
