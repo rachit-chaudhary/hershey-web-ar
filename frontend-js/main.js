@@ -69,6 +69,11 @@ sendgift.onclick = () => {
   // inputElement.focus();
   bgaudio.play()
 
+  var diwaliRocket = document.querySelectorAll(".diwali-rocket")
+  for(let i =0; i < diwaliRocket.length; i++) {
+    diwaliRocket[i].style.display = "none"
+  }
+
   secondscreen.style.display = "block"
   formPart1.style.display = "block"
 }
@@ -89,13 +94,13 @@ var output
 const copy = document.getElementById("copy")
 let params
 let params1
-let params2, params3, params4, params5
+let params2, params3, params4, params5, params6, params7
 let pNametype
 let pName
 let op1, op2, op3
 var dataURL
 var mimeType
-var msg
+var msg = document.getElementById("diwaliMessage").value
 let name
 let i = 1
 let pausevalue = 0
@@ -143,7 +148,7 @@ let shareOnWhatsapp = async function() {
   // gfg_Run();
   const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
 
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
@@ -944,7 +949,7 @@ AFRAME.registerComponent("swap-texture", {
               if (cropper) {
                 cropper.destroy();
               }
-              window.addEventListener('beforeunload', function() {
+    window.addEventListener('beforeunload', function() {
                 if (cropper) {
                   cropper.destroy();
                 }
@@ -956,7 +961,7 @@ AFRAME.registerComponent("swap-texture", {
               cropper = new Cropper(crop, {
                 aspectRatio: 1,
                 viewMode: 0,
-                responsive: true,
+responsive: true,
                 autoCropArea: 0.8,
                 enableWorker: true,
               });
@@ -1271,6 +1276,8 @@ setTimeout(() => {
     params3 = new URLSearchParams(document.location.search.substring(4))
     params4 = new URLSearchParams(document.location.search.substring(5))
     params5 = new URLSearchParams(document.location.search.substring(6))
+    params6 = new URLSearchParams(document.location.search.substring(7))
+    params7 = new URLSearchParams(document.location.search.substring(8))
 
     pName = params.get('name') ? params.get('name') : 'friend'
 
@@ -1297,6 +1304,24 @@ setTimeout(() => {
       console.log("Options=" + op1 + " " + op2 + " " + op3)
       console.log(pNametype)
       console.log("receiver side")
+      msg = params6.get('name6')
+      selectedTemplate = params7.get('name7')
+      
+      function runReceiverMsgNote() {
+        if(selectedTemplate === "distance-wali") {
+          adjustMessageNoteDistanceWali()
+          getimageuploaded()
+        }
+        if(selectedTemplate === "friend-wali") {
+          adjustMessageNoteFriendWali()
+          getimageuploaded()
+        }
+        if(selectedTemplate === "family-wali") {
+          adjustMessageNoteFamilyWali()
+          getimageuploaded()
+        }
+      }
+
       //kisses
       if (pNametype === "1") {
         console.log("pnametype" + pNametype);
@@ -1322,14 +1347,16 @@ setTimeout(() => {
         } else {
           option2 = "Giving mature advices"
         }
-        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+        
         console.log(msg)
         completenote.innerHTML = msg
 
-        document.querySelector(".message-wrapper").classList.add("kisses-message")
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.add("justify-content-center")
-        dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
+        runReceiverMsgNote()
+
+        // document.querySelector(".message-wrapper").classList.add("kisses-message")
+        // let dynamicImg = document.getElementById("dynamicImg")
+        // dynamicImg.classList.add("justify-content-center")
+        // dynamicImg.children[0].src = "/images/say it with a kiss (brown).png"
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
       }
@@ -1373,22 +1400,7 @@ setTimeout(() => {
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
 
-        document.querySelector(".message-wrapper").classList.add("bar-message")
-        document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
-          `<div class="bars-note-png"></div>`)
-        document.querySelector(".message-header h3").classList.add("bars-note-text")
-        document.getElementById("msgclosebtn").classList.add("bars-close-btn")
-        document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
-        document.getElementById("completenote").classList.add("bars-note-text")
-        document.querySelector(".dynamic-note").style.height = "320px"
-        document.querySelector(".close-icon").style.zIndex = "99"
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.remove("dynamic-img")
-        dynamicImg.classList.remove("justify-content-center")
-        dynamicImg.classList.add("container-fluid")
-        dynamicImg.classList.add("bars-dynamic-img")
-        dynamicImg.children[0].style.width = "100%"
-        dynamicImg.children[0].src = "/images/bars-bottom-img.png"
+        runReceiverMsgNote()
       }
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
@@ -1432,16 +1444,7 @@ setTimeout(() => {
         console.log(msg)
         completenote.innerHTML = msg
 
-        // headerlogo.src='/images/hersheys-kisses-logo 1.png'
-        // headerlogo.classList.add("headerlogokisses");
-        document.querySelector(".message-wrapper").classList.add("hed-message")
-        document.querySelector(".message-header h3").classList.add("hed-note-text")
-        document.getElementById("msgclosebtn").classList.add("hed-close-btn")
-        document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
-        document.getElementById("completenote").classList.add("hed-note-text")
-        let dynamicImg = document.getElementById("dynamicImg")
-        dynamicImg.classList.add("justify-content-start")
-        dynamicImg.children[0].src = "/images/hed-bottom-img.png"
+        runReceiverMsgNote()
       }
 
     }
@@ -1683,7 +1686,6 @@ function validateTemplate() {
 
   let err = []
   if(selectedTemplate === "") {
-    alert("please select template")
     err.push("Please select a template.")
   }
 
