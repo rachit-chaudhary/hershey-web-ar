@@ -1993,13 +1993,9 @@ a.option-btn {
   height: 10%;
   display: flex;
   align-items: center;
+  color: #2E100C;
 }
 .loading-spinner .spinner-ns {
-  border: unset;
-  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: flex;
   justify-content: center;
   margin: 0px auto;
