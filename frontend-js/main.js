@@ -152,7 +152,7 @@ let shareOnWhatsapp = async function() {
 
   try {
     const shareData = {
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
     };
 
     if (navigator.share) {
