@@ -971,6 +971,7 @@ AFRAME.registerComponent("swap-texture", {
     cropBtn.onclick = function () {
       try {
         cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        document.getElementById("cropimgdisplay").src = cropedImage;
         console.log(cropedImage);
       } catch (error) {
         console.error("Error during image cropping:", error);
@@ -1481,8 +1482,13 @@ setTimeout(() => {
               var dataURL = canvas.toDataURL();
   
               // Create a new texture using the data URL
-              // var texture = new THREE.TextureLoader().load(dataURL);
-              var texture = new THREE.TextureLoader().load(cropedImage);
+               var texture = new THREE.TextureLoader().load(dataURL);
+             // var texture = new THREE.TextureLoader().load(cropedImage);
+              texture.wrapS = THREE.RepeatWrapping;
+              texture.wrapT = THREE.RepeatWrapping;
+              texture.repeat.set(1, 1);
+              texture.center.set(0.5, 0.5);
+              texture.rotation = Math.PI;
               texture.minFilter = THREE.LinearFilter;
               texture.magFilter = THREE.LinearFilter;
               // Create a new material using the texture
