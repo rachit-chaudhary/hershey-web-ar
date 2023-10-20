@@ -460,3 +460,29 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* diwali message note end here */
+
+.receiver-wrapper {
+    height: 100dvh;
+    position: relative;
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.receiver-div {
+    background-image: url("images/diwali-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 100dvh;
+}
+.receiver-div-button button {
+    background: #2D1415;
+}
+.receiver-div-button button span {
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
