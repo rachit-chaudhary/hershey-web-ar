@@ -8,22 +8,26 @@ let Mailer = function(data) {
     this.errors = []
 }
 
-// Mailer.prototype.validate = function() {
-//     return new Promise((resolve, reject) => {
+Mailer.prototype.validate = function() {
+    return new Promise((resolve, reject) => {
 
-//     })
-// }
+    })
+}
 
 Mailer.prototype.cleanUp = function() {
     this.data = {
-        email: this.data.email.trim().toLowerCase()
+        name: this.data.name.trim().toLowerCase(),
+        phone: this.data.full.trim().toLowerCase(),
+        email: this.data.email.trim().toLowerCase(),
+        message: this.data.message.trim().toLowerCase()
     }
 }
 
 Mailer.prototype.register = function() {
     console.log(this.data)
+    this.cleanUp()
     return new Promise(async (resolve, reject) => {
-        let result = await dataCollection.insertOne({email: this.data.email})
+        let result = await dataCollection.insertOne(this.data)
         resolve(result)
     })
 }

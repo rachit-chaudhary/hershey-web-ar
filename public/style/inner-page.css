@@ -207,8 +207,12 @@ section {
     width: 100%;
     position: relative;
 }
-#sendEmail {
-    width: 100%;
+.name-and-phone {
+    display: flex;
+    justify-content: space-between;
+}
+.email-form form input,
+.email-form form textarea {
     height: 50px;
     border-radius: 10px;
     background: #F1F1F1;
@@ -218,19 +222,120 @@ section {
     font-family: 'GothamBook';
     color: #000;
 }
+.email-form form textarea {
+    height: 100px;
+}
+.email-form form textarea::placeholder {
+    vertical-align: middle;
+}
+.name-and-phone,
+.email-input,
+.message-area {
+    margin: 10px 0px 0px;
+}
+#phone {
+    padding: 0px 10px 0px 50px;
+}
 #submitBtn {
-    position: absolute;
     border-radius: 10px;
     background: #DF1D4E;
     border: none;
-    height: 80%;
-    top: 0px;
-    bottom: 0px;
-    margin-top: auto;
-    margin-bottom: auto;
-    right: 4px;
+    height: 50px;
     padding: 0px 20px;
     font-family: 'GothamBold';
     text-transform: capitalize;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.video-parent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    column-gap: 8px;
+    row-gap: 1px;
+}
+.video-child video {
+    width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+    .step-2-content {
+        height: 100%;
+    }
+    .step-2-inner {
+        height: inherit;
+    }
+    .step-2-content .step-2-inner video {
+        object-fit: cover;
+        height: 100%;
+    }
+    .story-content {
+        left: 30px;
+        width: 80%;
+    }
+    .actor ul li {
+        left: 0px;
+    }
+    .actor-content {
+        margin-left: unset;
+        margin-right: unset;
+        left: 20px;
+    }
+    .age-content-inner .news-article {
+        width: 60vw;
+    }
+    .age-content-inner .video-player {
+        width: 70vw;
+    }
+    .age-content-inner .product-scan {
+        top: 50px;
+        right: 10px;
+        width: 35vw;
+    }
+    .age-content-inner .content-img {
+        width: 45vw;
+        bottom: 10px;
+        left: 0px;
+    }
+    .actor-content p {
+        width: 80vw;
+        font-size: 18px!important;
+    }
+    .screen4-content li p {
+        font-size: 20px!important;
+    }
+    .screen4-content li p {
+        width: 65vw;
+    }
+    .screen5-content li p {
+        width: 60vw;
+        font-size: 20px!important;
+    }
+    .screen6 {
+        top: 60px;
+    }
+    .screen6-content li {
+        height: 40%;
+        width: 80%;
+    }
+    .screen6-content li p {
+        width: 70vw;
+        font-size: 20px!important;
+    }
+    .screen7-content ul li {
+        top: 0px;
+        bottom: 0px;
+    }
+    .movie .bg {
+        height: inherit;
+    }
+    .movie .bg img {
+        height: 140%;
+    }
+    .step-4 .bg img {
+        height: unset;
+    }
 }

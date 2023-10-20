@@ -1,13 +1,22 @@
 <form action="/view-emails" method="POST">
     <button>View submitted email address</button>
 </form>
-<ul>
-    <% if(locals.data) { %>
-        <% locals.data.map((list) => { %>
+
+<% if(locals.data) { %>
+    <% locals.data.map((list) => { %>
+        <ul>
+            <li>
+                <%= list.name %>
+            </li>
+            <li>
+                <%= list.phone %>
+            </li>
             <li>
                 <%= list.email %>
             </li>
-        <% }) %>
-    <% } %>
-</ul>
-
+            <li>
+                <%= list.message %>
+            </li>
+        </ul>
+    <% }) %>
+<% } %>

@@ -82,28 +82,10 @@ $(window).scroll(function () {
   lasScrTop = winTop;
 });
 
-//project-thumbnail
-const projectItem = document.querySelectorAll(".project-item")
-const projectBtn = document.querySelectorAll(".project-btn")
-
-for (let i = 0; i < projectItem.length; i++) {
-  projectItem[i].addEventListener("mouseover", showMe)
-}
-
-for (let i = 0; i < projectItem.length; i++) {
-  projectItem[i].addEventListener("mouseout", hideMe)
-}
-
-function showMe() {
-  for (let i = 0; i < projectBtn.length; i++) {
-    projectBtn[i].classList.remove("hide-me")
-  }
-}
-
-function hideMe() {
-  for (let i = 0; i < projectBtn.length; i++) {
-    projectBtn[i].classList.add("hide-me")
-  }
-}
-
 console.log("item 2")
+
+enterBtn.children[0].addEventListener("click", scrollWin)
+
+function scrollWin() {
+  window.scrollBy(0, 620);
+}

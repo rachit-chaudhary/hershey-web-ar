@@ -21,6 +21,10 @@ router.get('/why-makear', (req, res) => {
     res.render('why-makear.ejs')
 })
 
+router.get('/our-work', (req, res) => {
+    res.render('our-work')
+})
+
 router.get('/contact', (req, res) => {
     res.render('contact')
 })
