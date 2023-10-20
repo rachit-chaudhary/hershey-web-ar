@@ -8,10 +8,11 @@ export default class Activate{
 
     // Events
     events() {
-        this.enterBtn.addEventListener("click", (e) => {
-            e.preventDefault()
-            this.scrollDiv()
-        })
+        // this.enterBtn.addEventListener("click", (e) => {
+        //     e.preventDefault()
+        //     this.scrollDiv()
+        // })
+        console.log("activate js")
     }
 
     //Methods

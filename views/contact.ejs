@@ -1,0 +1,33 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navbar.ejs') %>
+
+<section>
+    <div class="container">
+
+        <% success.forEach(function(message) { %>
+            <div class="alert alert-success text-center"><%= message %></div>
+        <% }) %>
+
+        <div class="row">
+            <div class="section-wrapper col-md-8 col-xs-12">
+                <div class="section-header">
+                    <h3>Contact Us</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center ">
+            <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                <div class="email-form">
+                    <form action="/send-email" method="POST">
+                        <input type="email" name="email" id="sendEmail" placeholder="someone@company.com">
+                        <button id="submitBtn">drop email</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<%- include('includes/footer.ejs') %>
