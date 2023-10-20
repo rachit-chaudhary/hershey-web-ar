@@ -40,7 +40,7 @@ let hereGoesID = document.getElementById("#hereGoesID")
 const questionAlert = document.querySelector(".alert-check-questions")
 const questionAlertClose = document.getElementById("alertCloseBtn")
 var cropedImage;
-var incodedcropper;
+//var cropedImage;
 questionAlertClose.onclick = () => {
   questionAlert.classList.remove("visible")
   questionAlert.classList.add("invisible")
@@ -150,12 +150,12 @@ let shareOnWhatsapp = async function() {
   const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
 
   //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${incodedcropper}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${incodedcropper}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
    
     };
 
@@ -1298,9 +1298,9 @@ setTimeout(() => {
       // pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
     }
     else {
-      var decodecropimg = decodeURIComponent(pName);
+     // var decodecropimg = decodeURIComponent(pName);
       //Receiver screen
-      document.getElementById("cropimgdisplay").src = decodecropimg;
+      document.getElementById("cropimgdisplay").src = pName;
       document.querySelector(".preview-text").style.display = "none"
       receiverfirstscreen.style.display = "block"
       firstscreen.style.display = "none"
