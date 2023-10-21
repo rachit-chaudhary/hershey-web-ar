@@ -962,25 +962,26 @@ AFRAME.registerComponent("swap-texture", {
     
             image.onload = function () {
     //           // Destroy the previous cropper instance if it exists
-    //           if (cropper) {
-    //             cropper.destroy();
-    //           }
-    // window.addEventListener('beforeunload', function() {
-    //             if (cropper) {
-    //               cropper.destroy();
-    //             }
-    //           });
+             
+     if (cropper) {
+                cropper.destroy();
+              }
+    window.addEventListener('beforeunload', function() {
+                if (cropper) {
+                  cropper.destroy();
+                }
+              });
               // Set the source of the preview element to the selected image
               crop.src = e.target.result;
     
               // Initialize Cropper with the preview element
-//               cropper = new Cropper(crop, {
-//                 aspectRatio: 1,
-//                 viewMode: 0,
-// responsive: true,
-//                 autoCropArea: 0.8,
-//                 enableWorker: true,
-//               });
+              cropper = new Cropper(crop, {
+                aspectRatio: 1,
+                viewMode: 0,
+responsive: true,
+                autoCropArea: 0.8,
+                enableWorker: true,
+              });
             };
           };
     
@@ -991,9 +992,9 @@ AFRAME.registerComponent("swap-texture", {
     
     taptoplace.onclick = function () {
       try {
-        //cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-        document.getElementById("cropimgdisplay").src = dataURL;
-        incodedcropper = encodeURIComponent(cropedImage);
+        cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        document.getElementById("cropimgdisplay").src = cropedImage;
+       // incodedcropper = encodeURIComponent(cropedImage);
         //document.getElementById("recivercropimg").src = cropedImage;
         console.log("cropped img uploaded");
       } catch (error) {
