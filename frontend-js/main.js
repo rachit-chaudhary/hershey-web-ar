@@ -1385,7 +1385,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 14000
-        modelname.setAttribute('gltf-model', '/models/barsfinalfile3.glb')
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile5.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1490,10 +1490,30 @@ setTimeout(() => {
   
       // Specify the name of the mesh you want to modify messagenote
       var targetMeshName = 'postcard';
-  
+      var transMeshName = 'Plane048';
       // Find the mesh by name
       var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-  
+      console.log("mesh name"+targetMesh)
+    //   var transparentMesh = findMeshByName(modelname.object3D, transMeshName);
+    //   if (transparentMesh) {
+     
+       
+     
+    //    // Create a new texture using the data URL
+    //    var texture = new THREE.TextureLoader().load('/images/transmodel.png');
+      
+            
+    //    // Create a new material using the texture
+    //    var material = new THREE.MeshBasicMaterial({
+    //      map: texture,
+      
+    //  });
+    //  console.log(" transparent Mesh found");
+    //    // Set the material to the target mesh
+    //    targetMesh.material = material;
+    // } else {
+    //     console.warn('Mesh not found:', targetMeshName);
+    // }
       if (targetMesh) {
           console.log("Mesh found");
          
@@ -1523,10 +1543,11 @@ setTimeout(() => {
   
               // Set the material to the target mesh
               targetMesh.material = material;
+              console.log( "material"+targetMesh.material)
           });
         
       } else {
-          console.warn('Mesh not found:', targetMeshName);
+          console.warn('transparent Mesh not found:');
       }
   
       function findMeshByName(object3D, targetName) {
