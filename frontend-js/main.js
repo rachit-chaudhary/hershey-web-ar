@@ -88,143 +88,19 @@ sendthankyou.onclick = () => {
   secondscreen.style.display = "block"
   formPart1.style.display = "block"
 }
+var encodedMsg = "encode this text"
+var encodedMsgErl = "message with spaces"
 
-var texture
-var loader
-var output
-const copy = document.getElementById("copy")
-let params
-let params1
-let params2, params3, params4, params5, params6, params7
-let pNametype
-let pName
-let op1, op2, op3
-var dataURL
-var mimeType
-var msg = document.getElementById("diwaliMessage").value
-let name
-let i = 1
-let pausevalue = 0
-let previouspausevalue = 0
-let innerpausevalue = 1
-let animtime = 0
-let taptoplace = document.getElementById('tap-to-place')
-let modelloaded = 0
-// const clock = new THREE.Clock();
-// let mixer= new THREE.AnimationMixer;
-let option1, option2, option3
-let modelobj;
+var secretMsg
 
-//copy to clipboard function
-const copyToClipboard = (e) => {
-  const el = document.createElement('textarea')
-  el.value = e
-  document.body.appendChild(el)
-  Object.assign(el.style, {
-    zIndex: '-99999',
-    position: 'absolute',
-  })
-  async function resizeImage() {
-    const widthValue = document.getElementById("widthRange").value;
-    const heightValue = document.getElementById("heightRange").value;
-
-    // Simulate an asynchronous operation (you can replace this with your actual async code)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    const image = document.getElementById("preview");
-
-    image.style.width = `${widthValue}px`;
-    image.style.height = `${heightValue}px`;
-  }
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera
-  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
-    el.contentEditable = true
-    el.readOnly = false
-    const s = window.getSelection()
-    s.removeAllRanges()
-
-    const range = document.createRange()
-    range.selectNodeContents(el)
-    s.addRange(range)
-
-    el.setSelectionRange(0, 999999)
-  } else {
-    el.select()
-  }
-
-  document.execCommand('copy')
-  document.body.removeChild(el)
-}
-let shareOnWhatsapp = async function() {
-  console.log("copy clicked")
-  // gfg_Run();
-  const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
-
-  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-
-  try {
-    const shareData = {
-      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-   
-    };
-
-    if (navigator.share) {
-      await navigator.share(shareData);
-      share.classList.add('pulse-once');
-      setTimeout(() => {
-        share.classList.remove('pulse-once');
-      }, 200);
-    } else {
-      // Fallback for devices/browsers that do not support Web Share API
-      // You can provide an alternative sharing option or display a message.
-      console.log("Web Share API is not supported on this device/browser.");
-    }
-  } catch (error) {
-    console.error("An error occurred while trying to share:", error);
-  }
+nextbtn.onclick = function() {
+  encodedMsgErl = document.getElementById("diwaliMessage").value
+  encodedMsg = encodeURIComponent(encodedMsgErl)
+  secretMsg = encodedMsg
+  alert(encodedMsg)
 }
 
-send.addEventListener('click', shareOnWhatsapp)
-sharebtn.addEventListener('click', shareOnWhatsapp)
 
-// image fill function
-function drawImageScaled(img, ctx) {
-  var canvas = ctx.canvas;
-  var hRatio = canvas.width / img.width;
-  var vRatio = canvas.height / img.height;
-  var ratio = Math.min(hRatio, vRatio);
-  var centerShift_x = (canvas.width - img.width * ratio) / 2;
-  var centerShift_y = (canvas.height - img.height * ratio) / 2;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(img, 0, 0, img.width, img.height,
-    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
-}
-//convert base64 to blob
-function b64toBlob(b64Data, contentType, sliceSize) {
-  contentType = contentType || '';
-  sliceSize = sliceSize || 512;
-
-  var byteCharacters = atob(b64Data);
-  var byteArrays = [];
-
-  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-    var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-    var byteNumbers = new Array(slice.length);
-    for (var i = 0; i < slice.length; i++) {
-      byteNumbers[i] = slice.charCodeAt(i);
-    }
-
-    var byteArray = new Uint8Array(byteNumbers);
-
-    byteArrays.push(byteArray);
-  }
-
-  var blob = new Blob(byteArrays, { type: contentType });
-  return blob;
-}
 //default image in blob
 var contentType = 'image/png';
 var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
@@ -1326,7 +1202,7 @@ setTimeout(() => {
       console.log("Options=" + op1 + " " + op2 + " " + op3)
       console.log(pNametype)
       console.log("receiver side")
-      msg = params6.get('name6')
+      encodedMsg = params6.get('name6')
       selectedTemplate = params7.get('name7')
       
       function runReceiverMsgNote() {
@@ -1369,9 +1245,9 @@ setTimeout(() => {
         } else {
           option2 = "Giving mature advices"
         }
-        
-        console.log(msg)
-        completenote.innerHTML = msg
+
+        console.log(encodedMsg)
+        completenote.innerHTML = encodedMsg
 
         runReceiverMsgNote()
 
@@ -1417,8 +1293,8 @@ setTimeout(() => {
           option3 = "Gaming"
         }
         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(msg)
-        completenote.innerHTML = msg
+        console.log(encodedMsg)
+        completenote.innerHTML = encodedMsg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
 
@@ -1463,8 +1339,8 @@ setTimeout(() => {
           option3 = "Laughing at Silly Jokes "
         }
         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(msg)
-        completenote.innerHTML = msg
+        console.log(encodedMsg)
+        completenote.innerHTML = encodedMsg
 
         runReceiverMsgNote()
       }
@@ -1920,8 +1796,8 @@ function runExperience() {
 
       checkSelectedPackAndLoading()
       
-      msg = diwaliMessage
-      completenote.innerHTML = msg
+      var msgNote = diwaliMessage
+      completenote.innerHTML = msgNote
 
       if( selectedTemplate === "distance-wali") {
     
@@ -1964,4 +1840,143 @@ function runExperience() {
         hereGoesID.innerHTML = `${name}`
     }
   }
+}
+
+
+var texture
+var loader
+var output
+const copy = document.getElementById("copy")
+let params
+let params1
+let params2, params3, params4, params5, params6, params7
+let pNametype
+let pName
+let op1, op2, op3
+var dataURL
+var mimeType
+
+let name
+let i = 1
+let pausevalue = 0
+let previouspausevalue = 0
+let innerpausevalue = 1
+let animtime = 0
+let taptoplace = document.getElementById('tap-to-place')
+let modelloaded = 0
+// const clock = new THREE.Clock();
+// let mixer= new THREE.AnimationMixer;
+let option1, option2, option3
+let modelobj;
+
+//copy to clipboard function
+const copyToClipboard = (e) => {
+  const el = document.createElement('textarea')
+  el.value = e
+  document.body.appendChild(el)
+  Object.assign(el.style, {
+    zIndex: '-99999',
+    position: 'absolute',
+  })
+  async function resizeImage() {
+    const widthValue = document.getElementById("widthRange").value;
+    const heightValue = document.getElementById("heightRange").value;
+
+    // Simulate an asynchronous operation (you can replace this with your actual async code)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const image = document.getElementById("preview");
+
+    image.style.width = `${widthValue}px`;
+    image.style.height = `${heightValue}px`;
+  }
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera
+  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
+    el.contentEditable = true
+    el.readOnly = false
+    const s = window.getSelection()
+    s.removeAllRanges()
+
+    const range = document.createRange()
+    range.selectNodeContents(el)
+    s.addRange(range)
+
+    el.setSelectionRange(0, 999999)
+  } else {
+    el.select()
+  }
+
+  document.execCommand('copy')
+  document.body.removeChild(el)
+}
+let shareOnWhatsapp = async function() {
+  console.log("copy clicked")
+  alert(secretMsg)
+  // gfg_Run();
+  const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
+
+  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${secretMsg}&name7=${selectedTemplate}`)
+
+  try {
+    const shareData = {
+      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${secretMsg}&name7=${selectedTemplate}`,  // Message + URL
+   
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      share.classList.add('pulse-once');
+      setTimeout(() => {
+        share.classList.remove('pulse-once');
+      }, 200);
+    } else {
+      // Fallback for devices/browsers that do not support Web Share API
+      // You can provide an alternative sharing option or display a message.
+      console.log("Web Share API is not supported on this device/browser.");
+    }
+  } catch (error) {
+    console.error("An error occurred while trying to share:", error);
+  }
+}
+
+send.addEventListener('click', shareOnWhatsapp)
+sharebtn.addEventListener('click', shareOnWhatsapp)
+
+// image fill function
+function drawImageScaled(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+}
+//convert base64 to blob
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    byteArrays.push(byteArray);
+  }
+
+  var blob = new Blob(byteArrays, { type: contentType });
+  return blob;
 }
