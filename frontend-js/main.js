@@ -870,8 +870,9 @@ responsive: true,
       try {
         cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
         document.getElementById("cropimgdisplay").src = cropedImage;
+      //  document.getElementById("cropimgdisplay").src = dataURL;
        // incodedcropper = encodeURIComponent(cropedImage);
-        //document.getElementById("recivercropimg").src = cropedImage;
+       
         console.log("cropped img uploaded");
       } catch (error) {
         console.error("Error during image cropping:", error);
