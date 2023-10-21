@@ -44,6 +44,7 @@ router.get('/', (req, res) => {
   res.render('index', { imagePath: imageUrl });
 });
 
+
 router.get('/clear', (req, res) => {
   imageUrl = ""; // Optionally clear the imageUrl when needed
   res.redirect('/');

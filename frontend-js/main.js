@@ -18,7 +18,7 @@ let imagevalue
 const uimoduleobj = new UImodule();
 new ZAPPPermissionUI()
 
-const model = new URL('/public/models/kissesfile2.glb', import.meta.url).href;
+const model = new URL('/public/models/kissesfile3.glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
 let thirdscreenbar = document.getElementById("thirdscreen-bar")
@@ -124,7 +124,18 @@ const copyToClipboard = (e) => {
     zIndex: '-99999',
     position: 'absolute',
   })
+  async function resizeImage() {
+    const widthValue = document.getElementById("widthRange").value;
+    const heightValue = document.getElementById("heightRange").value;
 
+    // Simulate an asynchronous operation (you can replace this with your actual async code)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const image = document.getElementById("preview");
+
+    image.style.width = `${widthValue}px`;
+    image.style.height = `${heightValue}px`;
+  }
   const userAgent = navigator.userAgent || navigator.vendor || window.opera
   if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
     el.contentEditable = true
@@ -270,7 +281,7 @@ hoverhershey.onclick = () => {
   hoverExotic.src = '/images/exotic.png'
 
   typeofpack = 'chocolatebar'
-  animtime = 13000
+  animtime = 14000
   console.log(typeofpack)
   pNametype = "2"
 }
@@ -286,7 +297,7 @@ hoverexotic.onclick = () => {
   hoverHershey.src = '/images/hershey.png'
 
   typeofpack = 'exotic'
-  animtime = 16000
+  animtime = 17000
   pNametype = "3"
 
 }
@@ -950,26 +961,26 @@ AFRAME.registerComponent("swap-texture", {
             image.src = e.target.result;
     
             image.onload = function () {
-              // Destroy the previous cropper instance if it exists
-              if (cropper) {
-                cropper.destroy();
-              }
-    window.addEventListener('beforeunload', function() {
-                if (cropper) {
-                  cropper.destroy();
-                }
-              });
+    //           // Destroy the previous cropper instance if it exists
+    //           if (cropper) {
+    //             cropper.destroy();
+    //           }
+    // window.addEventListener('beforeunload', function() {
+    //             if (cropper) {
+    //               cropper.destroy();
+    //             }
+    //           });
               // Set the source of the preview element to the selected image
               crop.src = e.target.result;
     
               // Initialize Cropper with the preview element
-              cropper = new Cropper(crop, {
-                aspectRatio: 1,
-                viewMode: 0,
-responsive: true,
-                autoCropArea: 0.8,
-                enableWorker: true,
-              });
+//               cropper = new Cropper(crop, {
+//                 aspectRatio: 1,
+//                 viewMode: 0,
+// responsive: true,
+//                 autoCropArea: 0.8,
+//                 enableWorker: true,
+//               });
             };
           };
     
@@ -980,8 +991,8 @@ responsive: true,
     
     taptoplace.onclick = function () {
       try {
-        cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-        document.getElementById("cropimgdisplay").src = cropedImage;
+        //cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        document.getElementById("cropimgdisplay").src = dataURL;
         incodedcropper = encodeURIComponent(cropedImage);
         //document.getElementById("recivercropimg").src = cropedImage;
         console.log("cropped img uploaded");
@@ -1337,7 +1348,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 13000
-        modelname.setAttribute('gltf-model', '/models/kissesfile2.glb')
+        modelname.setAttribute('gltf-model', '/models/kissesfile3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1373,8 +1384,8 @@ setTimeout(() => {
       else if (pNametype === "2") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 12000
-        modelname.setAttribute('gltf-model', '/models/barsfinalfile2.glb')
+        animtime = 14000
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1415,8 +1426,8 @@ setTimeout(() => {
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 16000
-        modelname.setAttribute('gltf-model', '/models/edfinal2.glb')
+        animtime = 17000
+        modelname.setAttribute('gltf-model', '/models/edfinal3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {

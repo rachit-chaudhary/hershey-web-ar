@@ -153,10 +153,17 @@
           </div>
         </div>
 
-        <div class="image-crop-box hide-content">
+        <div id = "cropdiv" class="image-crop-box hide-content">
           <div class="container">
             <div class="row">
               <div class="window-title">
+                <label for="width">Width:</label>
+                <input type="range" name="width" id="widthRange" min="1" max="1200" step="10" value="100" oninput="resizeImage()">
+               
+                <label for="height">Height:</label>
+                <input type="range" name="height" id="heightRange" min="1" max="1200" step="10" value="100" oninput="resizeImage()">
+              
+                
                 <h4><span>C</span>rop <span>I</span>mage</h4>
               </div>
             </div>
@@ -791,9 +798,9 @@
 
   </canvas> -->
     <a-assets>
-   <a-asset-item id="kissesmodel" src="/models/kissesfile2.glb"></a-asset-item>
-      <a-asset-item id="barmodel" src="/models/barsfinalfile2.glb"></a-asset-item>
-      <a-asset-item id="exoticmodel" src="/models/edfinal2.glb"></a-asset-item>
+   <a-asset-item id="kissesmodel" src="/models/kissesfile3.glb"></a-asset-item>
+      <a-asset-item id="barmodel" src="/models/barsfinalfile3.glb"></a-asset-item>
+      <a-asset-item id="exoticmodel" src="/models/edfinal3.glb"></a-asset-item>
     </a-assets>
     <!-- Ask user for camera permissions, display some text if permission is denied -->
     <a-entity id="permissions"></a-entity>
@@ -879,3 +886,14 @@
     }
      
   </script>
+<script>
+  function resizeImage() {
+    const widthValue = document.getElementById("widthRange").value;
+    const heightValue = document.getElementById("heightRange").value;
+
+    const image = document.getElementById("preview");
+
+    image.style.width = `${widthValue}px`;
+    image.style.height = `${heightValue}px`;
+  }
+</script>
