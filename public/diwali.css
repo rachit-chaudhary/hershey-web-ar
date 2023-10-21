@@ -181,6 +181,8 @@
     height: 100dvh;
     z-index: 2;
     background-image: url(images/diwali-bg.png);
+    background-size: contain;
+    background-position: top;
 }
 .window-title h4 {
     margin: 25px 15px 15px;
@@ -214,7 +216,7 @@
 }
 .cropped-image {
     width: 100%;
-    height: 80vh;
+    height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
