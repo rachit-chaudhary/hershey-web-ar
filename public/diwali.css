@@ -371,6 +371,7 @@
     font-size: 19px;
     text-align: center;
     font-family:"snavely";
+    color: #fff;
     background: linear-gradient(90deg, #2D100C 0%, #61311A 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -457,6 +458,7 @@
     background-repeat: no-repeat;
 }
 .family-gold-text {
+    color: #2D100C;
     background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
     background-clip: text;
     -webkit-background-clip: text;
