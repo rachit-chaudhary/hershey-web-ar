@@ -97,7 +97,7 @@ nextbtn.onclick = function() {
   encodedMsgErl = document.getElementById("diwaliMessage").value
   encodedMsg = encodeURIComponent(encodedMsgErl)
   secretMsg = encodedMsg
-  alert(encodedMsg)
+  //alert(encodedMsg)
 }
 
 
@@ -1912,7 +1912,7 @@ const copyToClipboard = (e) => {
 }
 let shareOnWhatsapp = async function() {
   console.log("copy clicked")
-  alert(secretMsg)
+  //alert(secretMsg)
   // gfg_Run();
   const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
 
