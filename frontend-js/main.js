@@ -18,7 +18,7 @@ let imagevalue
 const uimoduleobj = new UImodule();
 new ZAPPPermissionUI()
 
-const model = new URL('/public/models/kissesfile.glb', import.meta.url).href;
+const model = new URL('/public/models/kissesfile3.glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
 const scene = document.getElementById("scenediv")
 let thirdscreenbar = document.getElementById("thirdscreen-bar")
@@ -40,6 +40,7 @@ let hereGoesID = document.getElementById("#hereGoesID")
 const questionAlert = document.querySelector(".alert-check-questions")
 const questionAlertClose = document.getElementById("alertCloseBtn")
 var cropedImage;
+//var cropedImage;
 questionAlertClose.onclick = () => {
   questionAlert.classList.remove("visible")
   questionAlert.classList.add("invisible")
@@ -123,7 +124,18 @@ const copyToClipboard = (e) => {
     zIndex: '-99999',
     position: 'absolute',
   })
+  async function resizeImage() {
+    const widthValue = document.getElementById("widthRange").value;
+    const heightValue = document.getElementById("heightRange").value;
 
+    // Simulate an asynchronous operation (you can replace this with your actual async code)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const image = document.getElementById("preview");
+
+    image.style.width = `${widthValue}px`;
+    image.style.height = `${heightValue}px`;
+  }
   const userAgent = navigator.userAgent || navigator.vendor || window.opera
   if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
     el.contentEditable = true
@@ -148,11 +160,14 @@ let shareOnWhatsapp = async function() {
   // gfg_Run();
   const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
 
+  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
   copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
+      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
       text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
+   
     };
 
     if (navigator.share) {
@@ -929,6 +944,7 @@ AFRAME.registerComponent("swap-texture", {
     
     const uploadLabel = document.getElementById("fileUploadLabel")
     var cropper;
+   
 
     uploadLabel.onclick = function () {
       let uploadAlert = document.querySelector(".alert-check-upload");
@@ -945,26 +961,26 @@ AFRAME.registerComponent("swap-texture", {
             image.src = e.target.result;
     
             image.onload = function () {
-              // Destroy the previous cropper instance if it exists
-              if (cropper) {
-                cropper.destroy();
-              }
-    window.addEventListener('beforeunload', function() {
-                if (cropper) {
-                  cropper.destroy();
-                }
-              });
+    //           // Destroy the previous cropper instance if it exists
+    //           if (cropper) {
+    //             cropper.destroy();
+    //           }
+    // window.addEventListener('beforeunload', function() {
+    //             if (cropper) {
+    //               cropper.destroy();
+    //             }
+    //           });
               // Set the source of the preview element to the selected image
               crop.src = e.target.result;
     
               // Initialize Cropper with the preview element
-              cropper = new Cropper(crop, {
-                aspectRatio: 1,
-                viewMode: 0,
-responsive: true,
-                autoCropArea: 0.8,
-                enableWorker: true,
-              });
+//               cropper = new Cropper(crop, {
+//                 aspectRatio: 1,
+//                 viewMode: 0,
+// responsive: true,
+//                 autoCropArea: 0.8,
+//                 enableWorker: true,
+//               });
             };
           };
     
@@ -973,11 +989,13 @@ responsive: true,
       });
     };
     
-    cropBtn.onclick = function () {
+    taptoplace.onclick = function () {
       try {
-        cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-        document.getElementById("cropimgdisplay").src = cropedImage;
-        console.log(cropedImage);
+        //cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        document.getElementById("cropimgdisplay").src = dataURL;
+        incodedcropper = encodeURIComponent(cropedImage);
+        //document.getElementById("recivercropimg").src = cropedImage;
+        console.log("cropped img uploaded");
       } catch (error) {
         console.error("Error during image cropping:", error);
       }
@@ -1281,9 +1299,9 @@ setTimeout(() => {
     params7 = new URLSearchParams(document.location.search.substring(8))
 
     pName = params.get('name') ? params.get('name') : 'friend'
+   
 
-
-    console.log(pName)
+    //console.log(pName)
     //Sender screen
     if (pName === "friend") {
       receiverfirstscreen.style.display = "none"
@@ -1291,7 +1309,9 @@ setTimeout(() => {
       // pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
     }
     else {
+     // var decodecropimg = decodeURIComponent(pName);
       //Receiver screen
+      document.getElementById("cropimgdisplay").src = pName;
       document.querySelector(".preview-text").style.display = "none"
       receiverfirstscreen.style.display = "block"
       firstscreen.style.display = "none"
@@ -1328,7 +1348,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 13000
-        modelname.setAttribute('gltf-model', '/models/kissesfile.glb')
+        modelname.setAttribute('gltf-model', '/models/kissesfile3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1364,8 +1384,8 @@ setTimeout(() => {
       else if (pNametype === "2") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 11000
-        modelname.setAttribute('gltf-model', '/models/barsfinalfile.glb')
+        animtime = 14000
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
@@ -1407,7 +1427,7 @@ setTimeout(() => {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 17000
-        modelname.setAttribute('gltf-model', '/models/edfinal.glb')
+        modelname.setAttribute('gltf-model', '/models/edfinal3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
