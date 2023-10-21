@@ -981,8 +981,8 @@ responsive: true,
     taptoplace.onclick = function () {
       try {
         cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-       // document.getElementById("cropimgdisplay").src = cropedImage;
-        document.getElementById("cropimgdisplay").src = dataURL;
+        document.getElementById("cropimgdisplay").src = cropedImage;
+      //  document.getElementById("cropimgdisplay").src = dataURL;
        // incodedcropper = encodeURIComponent(cropedImage);
        
         console.log("cropped img uploaded");
