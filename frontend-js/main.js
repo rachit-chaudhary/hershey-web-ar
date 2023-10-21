@@ -124,18 +124,6 @@ const copyToClipboard = (e) => {
     zIndex: '-99999',
     position: 'absolute',
   })
-  async function resizeImage() {
-    const widthValue = document.getElementById("widthRange").value;
-    const heightValue = document.getElementById("heightRange").value;
-
-    // Simulate an asynchronous operation (you can replace this with your actual async code)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    const image = document.getElementById("preview");
-
-    image.style.width = `${widthValue}px`;
-    image.style.height = `${heightValue}px`;
-  }
   const userAgent = navigator.userAgent || navigator.vendor || window.opera
   if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
     el.contentEditable = true
