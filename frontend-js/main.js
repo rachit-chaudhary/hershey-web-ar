@@ -932,64 +932,179 @@ AFRAME.registerComponent("swap-texture", {
     
     const uploadLabel = document.getElementById("fileUploadLabel")
     var cropper;
+
+uploadLabel.onclick = function () {
+  let uploadAlert = document.querySelector(".alert-check-upload");
+  let crop = document.getElementById("preview");
+  fileInput.click();
+
+  fileInput.addEventListener("change", function () {
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const image = new Image();
+        image.src = e.target.result;
+
+        image.onload = function () {
+          // Destroy the previous cropper instance if it exists
+          if (cropper) {
+            cropper.destroy();
+          }
+
+          // Log the image source to check if it's loaded correctly
+          console.log("Image source:", e.target.result);
+
+          // Initialize Cropper with the preview element
+          cropper = new Croppie(crop, {
+          
+            viewport: {
+              width: 300,
+              height: 300,
+              type: 'square'
+            },
+            boundary: {
+              width: 400,
+              height: 400
+            }
+          });
+          cropper.bind({
+            url: e.target.result,
+          });
+  
+          // Log the Cropper instance for inspection
+          console.log("Croppie instance:", cropper);
+        };
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+};
+document.getElementById('cropBtn').addEventListener('click', function () {
+  if (cropper) {
+    // Attach an event listener for the 'result' event
+    cropper.result('base64').then(function (base64String) {
+      console.log("Base64 data:", base64String);
+      document.getElementById("cropimgdisplay").src = base64String;
+      // Create a temporary anchor element
+      // const downloadLink = document.createElement("a");
+      // downloadLink.href = base64String;
+      // downloadLink.download = "cropped_image.png"; // You can set the download filename
+
+      // // Trigger a click event on the anchor element to initiate the download
+      // downloadLink.click();
+    });
+    
+    // Add an event listener to wait for the 'result' event
+    cropper.element.addEventListener('update', function (ev) {
+      if (ev.detail.points) {
+        cropper.result('base64').then(function (base64String) {
+          console.log("Base64 data:", base64String);
+        });
+      }
+    });
+  }
+});
+
+
+
+// document.getElementById("cropBtn").addEventListener("click", async function () {
+//   if (cropper) {
+//     try {
+//       const base64String = await cropper.result('base64');
+//       console.log("Base64 RESULT  data:", base64String);
+//     } catch (error) {
+//       console.error("Error getting base64 data:", error);
+//     }
+//   } else {
+//     console.error("Croppie instance is not defined.");
+//   }
+// });
+//     var cropper;
    
 
-    uploadLabel.onclick = function () {
-      let uploadAlert = document.querySelector(".alert-check-upload");
-      let crop = document.getElementById("preview");
-      fileInput.click();
+//     uploadLabel.onclick = function () {
+//       let uploadAlert = document.querySelector(".alert-check-upload");
+//       let crop = document.getElementById("preview");
+//       fileInput.click();
     
-      fileInput.addEventListener("change", function () {
-        const file = fileInput.files[0];
+//       fileInput.addEventListener("change", function () {
+//         const file = fileInput.files[0];
     
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            const image = new Image();
-            image.src = e.target.result;
+//         if (file) {
+//           const reader = new FileReader();
+//           reader.onload = function (e) {
+//             const image = new Image();
+//             image.src = e.target.result;
     
-            image.onload = function () {
-    //           // Destroy the previous cropper instance if it exists
+//             image.onload = function () {
+//     //           // Destroy the previous cropper instance if it exists
              
-     if (cropper) {
-                cropper.destroy();
-              }
-    window.addEventListener('beforeunload', function() {
-                if (cropper) {
-                  cropper.destroy();
-                }
-              });
-              // Set the source of the preview element to the selected image
-              crop.src = e.target.result;
+//      if (cropper) {
+//                 cropper.destroy();
+//               }
+//     window.addEventListener('beforeunload', function() {
+//                 if (cropper) {
+//                   cropper.destroy();
+//                 }
+//               });
+           
+
     
-              // Initialize Cropper with the preview element
-              cropper = new Cropper(crop, {
-                aspectRatio: 1,
-                viewMode: 0,
-responsive: true,
-                autoCropArea: 0.8,
-                enableWorker: true,
-              });
-            };
-          };
+//               // Initialize Cropper with the preview element
+// //               cropper = new Cropper(crop, {
+// //                 aspectRatio: 1,
+// //                 viewMode: 0,
+// // responsive: true,
+// //                 autoCropArea: 0.8,
+// //                 enableWorker: true,
+// //               });
+// cropper = new Croppie(crop, {
+//   enableExif: true,
+//   enableResize: true, // Enable resizing
+//   mouseWheelZoom: 'ctrl', // Change zoom behavior
+
+//   viewport: {
+//       width: 300, // Set the desired width for the cropped image
+//       height: 300, // Set the desired height for the cropped image
+//       type: 'square' // You can choose 'circle' or 'square'
+//   },
+//   boundary: {
+//       width: 400, // Set the width of the container
+//       height: 400 // Set the height of the container
+//   }
+// });
+//             };
+//           };
     
-          reader.readAsDataURL(file);
-        }
-      });
-    };
+//           reader.readAsDataURL(file);
+//         }
+//       });
+//     };document.getElementById('nextbtn').addEventListener('click', function () {
+//       cropper.result('base64').then(function (base64String) {
+//         console.log("base data "+base64String);
+//     });
+//   });
     
-    taptoplace.onclick = function () {
-      try {
-        cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-        document.getElementById("cropimgdisplay").src = cropedImage;
-      //  document.getElementById("cropimgdisplay").src = dataURL;
-       // incodedcropper = encodeURIComponent(cropedImage);
-       
-        console.log("cropped img uploaded");
-      } catch (error) {
-        console.error("Error during image cropping:", error);
-      }
-    };
+    // nextbtn.onclick = function () {
+    //   try {
+    //     cropper.result('base64').then(function (base64) {
+    //       // 'base64' contains the base64 data of the cropped image
+    //       if (base64) {
+    //         document.getElementById("cropimgdisplay").src = base64;
+    //         console.log("Cropped image in base64:", base64);
+    //       } else {
+    //         console.error("Cropped image data is empty.");
+    //       }
+    //     }).catch(function (error) {
+    //       console.error("Error during image cropping:", error);
+    //     });
+    //   } catch (error) {
+    //     console.error("Error during image cropping:", error);
+    //   }
+    // };
     
    
     // Function to render the result after a delay
