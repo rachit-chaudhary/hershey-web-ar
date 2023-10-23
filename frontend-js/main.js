@@ -75,6 +75,11 @@ sendgift.onclick = () => {
   // inputElement.focus();
   bgaudio.play()
 
+  var diwaliDiya = document.querySelectorAll(".diwali-diya")
+    for(let i=0; i < diwaliDiya.length; i++) {
+      diwaliDiya[i].style.display = "none"
+    }
+
   var diwaliRocket = document.querySelectorAll(".diwali-rocket")
   for(let i =0; i < diwaliRocket.length; i++) {
     diwaliRocket[i].style.display = "none"
@@ -1841,6 +1846,8 @@ function adjustMessageNoteFriendWali() {
   document.querySelector(".message-wrapper").classList.remove("family-bg")
   document.querySelector(".message-wrapper").classList.add("friend-bg")
 
+  document.querySelector(".diwali-msg-h4").innerHTML = "<span>F</span>estive <span>M</span>oments with <span>F</span>riends"
+
   var polaroidFrame = document.querySelector(".polaroid-frame")
   polaroidFrame.classList.add("friend-bg-polaroid")
   document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
@@ -1877,6 +1884,7 @@ function adjustMessageNoteFamilyWali() {
     document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
 
     document.querySelector(".diwali-msg-h4").classList.add("family-gold-text")
+    document.querySelector(".diwali-msg-h4").innerHTML = `<span>F</span>estive <span>M</span>oments with <span>F</span>amily!`
     document.querySelector(".message-header").classList.add("family-gold-text")
     document.querySelector("#completenote").classList.add("family-gold-text")
 
