@@ -862,6 +862,31 @@ function autoPlayCheck(v) {
 
 // // Start things off
 // render();
+AFRAME.registerComponent("postcardinvisible", {
+  tock() {
+    var targetMeshName = 'postcard';
+      
+// Find the mesh by name
+
+var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+console.log("mesh name"+targetMesh)
+
+
+
+function findMeshByName(object3D, targetName) {
+    var resultMesh = null;
+
+    object3D.traverse(function(node) {
+        if (node.isMesh && node.name === targetName) {
+            resultMesh = node;
+        }
+    });
+
+    return resultMesh;
+}
+
+  },
+});
 
 AFRAME.registerComponent("swap-texture", {
   init() {
@@ -949,6 +974,7 @@ AFRAME.registerComponent("swap-texture", {
             image.src = e.target.result;
     
             image.onload = function () {
+              crop.src = e.target.result;
     //           // Destroy the previous cropper instance if it exists
              
     //  if (cropper) {
@@ -960,7 +986,7 @@ AFRAME.registerComponent("swap-texture", {
     //             }
     //           });
               // Set the source of the preview element to the selected image
-              crop.src = e.target.result;
+            
     
               // Initialize Cropper with the preview element
 //               cropper = new Cropper(crop, {
@@ -980,10 +1006,34 @@ AFRAME.registerComponent("swap-texture", {
     
     taptoplace.onclick = function () {
       try {
-        // cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
-       // document.getElementById("cropimgdisplay").src = cropedImage;
         document.getElementById("cropimgdisplay").src = dataURL;
-       // incodedcropper = encodeURIComponent(cropedImage);
+        var targetMeshName = 'postcard';
+        var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+        
+     
+        if (targetMesh) {
+          console.log("mesh name"+targetMesh)
+               targetMesh.material.opacity = 0;
+              targetMesh.material.transparent = true;
+              targetMesh.material.needsUpdate = true;
+             }
+         else{
+          console.log("mesh not found")
+         }
+    
+             function findMeshByName(object3D, targetName) {
+              var resultMesh = null;
+      
+              object3D.traverse(function(node) {
+                  if (node.isMesh && node.name === targetName) {
+                      resultMesh = node;
+                  }
+              });
+      
+              return resultMesh;
+          }
+       
+
        
         console.log("cropped img uploaded");
       } catch (error) {
@@ -1480,65 +1530,56 @@ setTimeout(() => {
   
       // Specify the name of the mesh you want to modify messagenote
       var targetMeshName = 'postcard';
-      var transMeshName = 'Plane048';
+      
       // Find the mesh by name
       var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
       console.log("mesh name"+targetMesh)
-    //   var transparentMesh = findMeshByName(modelname.object3D, transMeshName);
-    //   if (transparentMesh) {
-     
-       
-     
-    //    // Create a new texture using the data URL
-    //    var texture = new THREE.TextureLoader().load('/images/transmodel.png');
-      
-            
-    //    // Create a new material using the texture
-    //    var material = new THREE.MeshBasicMaterial({
-    //      map: texture,
-      
-    //  });
-    //  console.log(" transparent Mesh found");
-    //    // Set the material to the target mesh
-    //    targetMesh.material = material;
-    // } else {
-    //     console.warn('Mesh not found:', targetMeshName);
-    // }
+   
       if (targetMesh) {
-          console.log("Mesh found");
+        
+        html2canvas(captureDiv).then(function(canvas) {
+          console.log('Canvas created:', canvas);
+
+          // Convert the canvas to a data URL
+          var dataURL = canvas.toDataURL();
+
+          // Create a new texture using the data URL
+           var texture = new THREE.TextureLoader().load(dataURL);
+         // var texture = new THREE.TextureLoader().load(cropedImage);
+          texture.wrapS = THREE.RepeatWrapping;
+          texture.wrapT = THREE.RepeatWrapping;
+          texture.repeat.set(1, 1);
+          texture.center.set(0.5, 0.5);
+          texture.rotation = Math.PI;
+          texture.minFilter = THREE.LinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          // Create a new material using the texture
+          var material = new THREE.MeshBasicMaterial({
+            map: texture,
+            minFilter: THREE.LinearFilter,
+            magFilter: THREE.LinearFilter
+        });
+
+          // Set the material to the target mesh
+          targetMesh.material = material;
+          setTimeout(() => {
+            console.log("model visible after 2 secs")
+            targetMesh.material.opacity = 1;
+            targetMesh.material.transparent = false;
+            targetMesh.material.needsUpdate = true;
+          }, 2000);
+     
+      });
+      
+       
+          
          
           // Use html2canvas to capture the content of the div
-          html2canvas(captureDiv).then(function(canvas) {
-              console.log('Canvas created:', canvas);
-  
-              // Convert the canvas to a data URL
-              var dataURL = canvas.toDataURL();
-  
-              // Create a new texture using the data URL
-               var texture = new THREE.TextureLoader().load(dataURL);
-             // var texture = new THREE.TextureLoader().load(cropedImage);
-              texture.wrapS = THREE.RepeatWrapping;
-              texture.wrapT = THREE.RepeatWrapping;
-              texture.repeat.set(1, 1);
-              texture.center.set(0.5, 0.5);
-              texture.rotation = Math.PI;
-              texture.minFilter = THREE.LinearFilter;
-              texture.magFilter = THREE.LinearFilter;
-              // Create a new material using the texture
-              var material = new THREE.MeshBasicMaterial({
-                map: texture,
-                minFilter: THREE.LinearFilter,
-                magFilter: THREE.LinearFilter
-            });
-  
-              // Set the material to the target mesh
-              targetMesh.material = material;
-              console.log( "material"+targetMesh.material)
-          });
+      
+         
         
-      } else {
-          console.warn('transparent Mesh not found:');
       }
+       
   
       function findMeshByName(object3D, targetName) {
           var resultMesh = null;
