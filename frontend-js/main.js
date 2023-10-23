@@ -10,7 +10,12 @@
 import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
-
+var msg 
+var encodedMsg
+nextbtn.onclick = () => {
+  msg = document.getElementById("diwaliMessage").value
+  encodedMsg = encodeURIComponent(msg)
+}
 let imagevalue
 
 
@@ -70,6 +75,11 @@ sendgift.onclick = () => {
   // inputElement.focus();
   bgaudio.play()
 
+  var diwaliDiya = document.querySelectorAll(".diwali-diya")
+    for(let i=0; i < diwaliDiya.length; i++) {
+      diwaliDiya[i].style.display = "none"
+    }
+
   var diwaliRocket = document.querySelectorAll(".diwali-rocket")
   for(let i =0; i < diwaliRocket.length; i++) {
     diwaliRocket[i].style.display = "none"
@@ -101,7 +111,6 @@ let pName
 let op1, op2, op3
 var dataURL
 var mimeType
-var msg = document.getElementById("diwaliMessage").value
 let name
 let i = 1
 let pausevalue = 0
@@ -149,13 +158,12 @@ let shareOnWhatsapp = async function() {
   const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
 
   //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-   
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
     };
 
     if (navigator.share) {
@@ -1879,6 +1887,8 @@ function adjustMessageNoteFriendWali() {
   document.querySelector(".message-wrapper").classList.remove("family-bg")
   document.querySelector(".message-wrapper").classList.add("friend-bg")
 
+  document.querySelector(".diwali-msg-h4").innerHTML = "<span>F</span>estive <span>M</span>oments with <span>F</span>riends"
+
   var polaroidFrame = document.querySelector(".polaroid-frame")
   polaroidFrame.classList.add("friend-bg-polaroid")
   document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
@@ -1915,6 +1925,7 @@ function adjustMessageNoteFamilyWali() {
     document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
 
     document.querySelector(".diwali-msg-h4").classList.add("family-gold-text")
+    document.querySelector(".diwali-msg-h4").innerHTML = `<span>F</span>estive <span>M</span>oments with <span>F</span>amily!`
     document.querySelector(".message-header").classList.add("family-gold-text")
     document.querySelector("#completenote").classList.add("family-gold-text")
 

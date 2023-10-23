@@ -151,6 +151,7 @@
 .diwali-btn {
     width: 90%;
     display: flex;
+    justify-content: center;
     margin: 0px auto;
     font-family:"snavely";
     border-radius: 93px;
@@ -158,6 +159,7 @@
     border: none;
 }
 .diwali-btn h3 {
+    font-size: 18px;
     margin: 0px;
     padding: 10px 20px;   
     background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
@@ -237,10 +239,18 @@
     width: 90%;
     height: 100px;
     border-radius: 10px;
-    border: 5px solid #DFBC66;
-    background: linear-gradient(0deg, rgba(15, 15, 15, 0.15) 0%, rgba(15, 15, 15, 0.15) 100%), linear-gradient(94deg, rgba(223, 188, 102, 0.10) 0.29%, rgba(210, 172, 71, 0.10) 23.42%, rgba(247, 239, 138, 0.10) 41.19%, rgba(255, 244, 197, 0.10) 68.09%, rgba(237, 201, 103, 0.10) 98.89%);
+    border: 5px solid #2D1415;
+    background: linear-gradient(0deg, rgba(66, 24, 18, 0.40) 0%, rgba(66, 24, 18, 0.40) 100%), linear-gradient(0deg, rgba(15, 15, 15, 0.15) 0%, rgba(15, 15, 15, 0.15) 100%), linear-gradient(94deg, rgba(223, 188, 102, 0.10) 0.29%, rgba(210, 172, 71, 0.10) 23.42%, rgba(247, 239, 138, 0.10) 41.19%, rgba(255, 244, 197, 0.10) 68.09%, rgba(237, 201, 103, 0.10) 98.89%);
 }
-.textarea-messages textarea::placeholder,
+.textarea-messages textarea {
+    color: #D2AC47;
+}
+.textarea-messages textarea::placeholder {
+    background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .userName {
     font-family: "brandon printed";
     color: #452012!important;
