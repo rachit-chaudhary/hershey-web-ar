@@ -88,19 +88,131 @@ sendthankyou.onclick = () => {
   secondscreen.style.display = "block"
   formPart1.style.display = "block"
 }
-var encodedMsg = "encode this text"
-var encodedMsgErl = "message with spaces"
 
-var secretMsg
+var texture
+var loader
+var output
+const copy = document.getElementById("copy")
+let params
+let params1
+let params2, params3, params4, params5, params6, params7
+let pNametype
+let pName
+let op1, op2, op3
+var dataURL
+var mimeType
+var msg = document.getElementById("diwaliMessage").value
+let name
+let i = 1
+let pausevalue = 0
+let previouspausevalue = 0
+let innerpausevalue = 1
+let animtime = 0
+let taptoplace = document.getElementById('tap-to-place')
+let modelloaded = 0
+// const clock = new THREE.Clock();
+// let mixer= new THREE.AnimationMixer;
+let option1, option2, option3
+let modelobj;
 
-nextbtn.onclick = function() {
-  encodedMsgErl = document.getElementById("diwaliMessage").value
-  encodedMsg = encodeURIComponent(encodedMsgErl)
-  secretMsg = encodedMsg
-  //alert(encodedMsg)
+//copy to clipboard function
+const copyToClipboard = (e) => {
+  const el = document.createElement('textarea')
+  el.value = e
+  document.body.appendChild(el)
+  Object.assign(el.style, {
+    zIndex: '-99999',
+    position: 'absolute',
+  })
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera
+  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
+    el.contentEditable = true
+    el.readOnly = false
+    const s = window.getSelection()
+    s.removeAllRanges()
+
+    const range = document.createRange()
+    range.selectNodeContents(el)
+    s.addRange(range)
+
+    el.setSelectionRange(0, 999999)
+  } else {
+    el.select()
+  }
+
+  document.execCommand('copy')
+  document.body.removeChild(el)
+}
+let shareOnWhatsapp = async function() {
+  console.log("copy clicked")
+  // gfg_Run();
+  const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
+
+  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
+
+  try {
+    const shareData = {
+      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
+   
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      share.classList.add('pulse-once');
+      setTimeout(() => {
+        share.classList.remove('pulse-once');
+      }, 200);
+    } else {
+      // Fallback for devices/browsers that do not support Web Share API
+      // You can provide an alternative sharing option or display a message.
+      console.log("Web Share API is not supported on this device/browser.");
+    }
+  } catch (error) {
+    console.error("An error occurred while trying to share:", error);
+  }
 }
 
+send.addEventListener('click', shareOnWhatsapp)
+sharebtn.addEventListener('click', shareOnWhatsapp)
 
+// image fill function
+function drawImageScaled(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.min(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+}
+//convert base64 to blob
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    byteArrays.push(byteArray);
+  }
+
+  var blob = new Blob(byteArrays, { type: contentType });
+  return blob;
+}
 //default image in blob
 var contentType = 'image/png';
 var b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=='
@@ -792,15 +904,15 @@ AFRAME.registerComponent("swap-texture", {
 
         //crop image
         let preview = document.getElementById('preview')
-        let imageCropBox = document.querySelector('.image-crop-box')
-        let cropBtn = document.getElementById("cropBtn")
+        // let imageCropBox = document.querySelector('.image-crop-box')
+        // let cropBtn = document.getElementById("cropBtn")
 
-        imageCropBox.classList.remove("hide-content")
-        preview.src = output.src
+        // imageCropBox.classList.remove("hide-content")
+        // preview.src = output.src
 
-        cropBtn.addEventListener('click', () => {
-          imageCropBox.classList.add("hide-content")
-        })
+        // cropBtn.addEventListener('click', () => {
+        //   imageCropBox.classList.add("hide-content")
+        // })
 
       }
       reader.readAsDataURL(event.target.files[0]);
@@ -820,179 +932,64 @@ AFRAME.registerComponent("swap-texture", {
     
     const uploadLabel = document.getElementById("fileUploadLabel")
     var cropper;
-
-uploadLabel.onclick = function () {
-  let uploadAlert = document.querySelector(".alert-check-upload");
-  let crop = document.getElementById("preview");
-  fileInput.click();
-
-  fileInput.addEventListener("change", function () {
-    const file = fileInput.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const image = new Image();
-        image.src = e.target.result;
-
-        image.onload = function () {
-          // Destroy the previous cropper instance if it exists
-          if (cropper) {
-            cropper.destroy();
-          }
-
-          // Log the image source to check if it's loaded correctly
-          console.log("Image source:", e.target.result);
-
-          // Initialize Cropper with the preview element
-          cropper = new Croppie(crop, {
-          
-            viewport: {
-              width: 300,
-              height: 300,
-              type: 'square'
-            },
-            boundary: {
-              width: 400,
-              height: 400
-            }
-          });
-          cropper.bind({
-            url: e.target.result,
-          });
-  
-          // Log the Cropper instance for inspection
-          console.log("Croppie instance:", cropper);
-        };
-      };
-
-      reader.readAsDataURL(file);
-    }
-  });
-};
-document.getElementById('cropBtn').addEventListener('click', function () {
-  if (cropper) {
-    // Attach an event listener for the 'result' event
-    cropper.result('base64').then(function (base64String) {
-      console.log("Base64 data:", base64String);
-      document.getElementById("cropimgdisplay").src = base64String;
-      // Create a temporary anchor element
-      // const downloadLink = document.createElement("a");
-      // downloadLink.href = base64String;
-      // downloadLink.download = "cropped_image.png"; // You can set the download filename
-
-      // // Trigger a click event on the anchor element to initiate the download
-      // downloadLink.click();
-    });
-    
-    // Add an event listener to wait for the 'result' event
-    cropper.element.addEventListener('update', function (ev) {
-      if (ev.detail.points) {
-        cropper.result('base64').then(function (base64String) {
-          console.log("Base64 data:", base64String);
-        });
-      }
-    });
-  }
-});
-
-
-
-// document.getElementById("cropBtn").addEventListener("click", async function () {
-//   if (cropper) {
-//     try {
-//       const base64String = await cropper.result('base64');
-//       console.log("Base64 RESULT  data:", base64String);
-//     } catch (error) {
-//       console.error("Error getting base64 data:", error);
-//     }
-//   } else {
-//     console.error("Croppie instance is not defined.");
-//   }
-// });
-//     var cropper;
    
 
-//     uploadLabel.onclick = function () {
-//       let uploadAlert = document.querySelector(".alert-check-upload");
-//       let crop = document.getElementById("preview");
-//       fileInput.click();
+    uploadLabel.onclick = function () {
+      let uploadAlert = document.querySelector(".alert-check-upload");
+      let crop = document.getElementById("preview");
+      fileInput.click();
     
-//       fileInput.addEventListener("change", function () {
-//         const file = fileInput.files[0];
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
     
-//         if (file) {
-//           const reader = new FileReader();
-//           reader.onload = function (e) {
-//             const image = new Image();
-//             image.src = e.target.result;
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const image = new Image();
+            image.src = e.target.result;
     
-//             image.onload = function () {
-//     //           // Destroy the previous cropper instance if it exists
+            image.onload = function () {
+    //           // Destroy the previous cropper instance if it exists
              
-//      if (cropper) {
-//                 cropper.destroy();
-//               }
-//     window.addEventListener('beforeunload', function() {
-//                 if (cropper) {
-//                   cropper.destroy();
-//                 }
+    //  if (cropper) {
+    //             cropper.destroy();
+    //           }
+    // window.addEventListener('beforeunload', function() {
+    //             if (cropper) {
+    //               cropper.destroy();
+    //             }
+    //           });
+              // Set the source of the preview element to the selected image
+              crop.src = e.target.result;
+    
+              // Initialize Cropper with the preview element
+//               cropper = new Cropper(crop, {
+//                 aspectRatio: 1,
+//                 viewMode: 0,
+// responsive: true,
+//                 autoCropArea: 0.8,
+//                 enableWorker: true,
 //               });
-           
-
+            };
+          };
     
-//               // Initialize Cropper with the preview element
-// //               cropper = new Cropper(crop, {
-// //                 aspectRatio: 1,
-// //                 viewMode: 0,
-// // responsive: true,
-// //                 autoCropArea: 0.8,
-// //                 enableWorker: true,
-// //               });
-// cropper = new Croppie(crop, {
-//   enableExif: true,
-//   enableResize: true, // Enable resizing
-//   mouseWheelZoom: 'ctrl', // Change zoom behavior
-
-//   viewport: {
-//       width: 300, // Set the desired width for the cropped image
-//       height: 300, // Set the desired height for the cropped image
-//       type: 'square' // You can choose 'circle' or 'square'
-//   },
-//   boundary: {
-//       width: 400, // Set the width of the container
-//       height: 400 // Set the height of the container
-//   }
-// });
-//             };
-//           };
+          reader.readAsDataURL(file);
+        }
+      });
+    };
     
-//           reader.readAsDataURL(file);
-//         }
-//       });
-//     };document.getElementById('nextbtn').addEventListener('click', function () {
-//       cropper.result('base64').then(function (base64String) {
-//         console.log("base data "+base64String);
-//     });
-//   });
-    
-    // nextbtn.onclick = function () {
-    //   try {
-    //     cropper.result('base64').then(function (base64) {
-    //       // 'base64' contains the base64 data of the cropped image
-    //       if (base64) {
-    //         document.getElementById("cropimgdisplay").src = base64;
-    //         console.log("Cropped image in base64:", base64);
-    //       } else {
-    //         console.error("Cropped image data is empty.");
-    //       }
-    //     }).catch(function (error) {
-    //       console.error("Error during image cropping:", error);
-    //     });
-    //   } catch (error) {
-    //     console.error("Error during image cropping:", error);
-    //   }
-    // };
+    taptoplace.onclick = function () {
+      try {
+        // cropedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+       // document.getElementById("cropimgdisplay").src = cropedImage;
+        document.getElementById("cropimgdisplay").src = dataURL;
+       // incodedcropper = encodeURIComponent(cropedImage);
+       
+        console.log("cropped img uploaded");
+      } catch (error) {
+        console.error("Error during image cropping:", error);
+      }
+    };
     
    
     // Function to render the result after a delay
@@ -1318,7 +1315,7 @@ setTimeout(() => {
       console.log("Options=" + op1 + " " + op2 + " " + op3)
       console.log(pNametype)
       console.log("receiver side")
-      encodedMsg = params6.get('name6')
+      msg = params6.get('name6')
       selectedTemplate = params7.get('name7')
       
       function runReceiverMsgNote() {
@@ -1361,9 +1358,9 @@ setTimeout(() => {
         } else {
           option2 = "Giving mature advices"
         }
-
-        console.log(encodedMsg)
-        completenote.innerHTML = encodedMsg
+        
+        console.log(msg)
+        completenote.innerHTML = msg
 
         runReceiverMsgNote()
 
@@ -1409,8 +1406,8 @@ setTimeout(() => {
           option3 = "Gaming"
         }
         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(encodedMsg)
-        completenote.innerHTML = encodedMsg
+        console.log(msg)
+        completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
 
@@ -1455,8 +1452,8 @@ setTimeout(() => {
           option3 = "Laughing at Silly Jokes "
         }
         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(encodedMsg)
-        completenote.innerHTML = encodedMsg
+        console.log(msg)
+        completenote.innerHTML = msg
 
         runReceiverMsgNote()
       }
@@ -1912,8 +1909,8 @@ function runExperience() {
 
       checkSelectedPackAndLoading()
       
-      var msgNote = diwaliMessage
-      completenote.innerHTML = msgNote
+      msg = diwaliMessage
+      completenote.innerHTML = msg
 
       if( selectedTemplate === "distance-wali") {
     
@@ -1956,143 +1953,4 @@ function runExperience() {
         hereGoesID.innerHTML = `${name}`
     }
   }
-}
-
-
-var texture
-var loader
-var output
-const copy = document.getElementById("copy")
-let params
-let params1
-let params2, params3, params4, params5, params6, params7
-let pNametype
-let pName
-let op1, op2, op3
-var dataURL
-var mimeType
-
-let name
-let i = 1
-let pausevalue = 0
-let previouspausevalue = 0
-let innerpausevalue = 1
-let animtime = 0
-let taptoplace = document.getElementById('tap-to-place')
-let modelloaded = 0
-// const clock = new THREE.Clock();
-// let mixer= new THREE.AnimationMixer;
-let option1, option2, option3
-let modelobj;
-
-//copy to clipboard function
-const copyToClipboard = (e) => {
-  const el = document.createElement('textarea')
-  el.value = e
-  document.body.appendChild(el)
-  Object.assign(el.style, {
-    zIndex: '-99999',
-    position: 'absolute',
-  })
-  async function resizeImage() {
-    const widthValue = document.getElementById("widthRange").value;
-    const heightValue = document.getElementById("heightRange").value;
-
-    // Simulate an asynchronous operation (you can replace this with your actual async code)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    const image = document.getElementById("preview");
-
-    image.style.width = `${widthValue}px`;
-    image.style.height = `${heightValue}px`;
-  }
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera
-  if (/iPads|iPod/.test(userAgent) && !window.MSStream) {
-    el.contentEditable = true
-    el.readOnly = false
-    const s = window.getSelection()
-    s.removeAllRanges()
-
-    const range = document.createRange()
-    range.selectNodeContents(el)
-    s.addRange(range)
-
-    el.setSelectionRange(0, 999999)
-  } else {
-    el.select()
-  }
-
-  document.execCommand('copy')
-  document.body.removeChild(el)
-}
-let shareOnWhatsapp = async function() {
-  console.log("copy clicked")
-  //alert(secretMsg)
-  // gfg_Run();
-  const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
-
-  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${secretMsg}&name7=${selectedTemplate}`)
-
-  try {
-    const shareData = {
-      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${secretMsg}&name7=${selectedTemplate}`,  // Message + URL
-   
-    };
-
-    if (navigator.share) {
-      await navigator.share(shareData);
-      share.classList.add('pulse-once');
-      setTimeout(() => {
-        share.classList.remove('pulse-once');
-      }, 200);
-    } else {
-      // Fallback for devices/browsers that do not support Web Share API
-      // You can provide an alternative sharing option or display a message.
-      console.log("Web Share API is not supported on this device/browser.");
-    }
-  } catch (error) {
-    console.error("An error occurred while trying to share:", error);
-  }
-}
-
-send.addEventListener('click', shareOnWhatsapp)
-sharebtn.addEventListener('click', shareOnWhatsapp)
-
-// image fill function
-function drawImageScaled(img, ctx) {
-  var canvas = ctx.canvas;
-  var hRatio = canvas.width / img.width;
-  var vRatio = canvas.height / img.height;
-  var ratio = Math.min(hRatio, vRatio);
-  var centerShift_x = (canvas.width - img.width * ratio) / 2;
-  var centerShift_y = (canvas.height - img.height * ratio) / 2;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(img, 0, 0, img.width, img.height,
-    centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
-}
-//convert base64 to blob
-function b64toBlob(b64Data, contentType, sliceSize) {
-  contentType = contentType || '';
-  sliceSize = sliceSize || 512;
-
-  var byteCharacters = atob(b64Data);
-  var byteArrays = [];
-
-  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-    var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-    var byteNumbers = new Array(slice.length);
-    for (var i = 0; i < slice.length; i++) {
-      byteNumbers[i] = slice.charCodeAt(i);
-    }
-
-    var byteArray = new Uint8Array(byteNumbers);
-
-    byteArrays.push(byteArray);
-  }
-
-  var blob = new Blob(byteArrays, { type: contentType });
-  return blob;
 }
