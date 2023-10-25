@@ -1534,7 +1534,8 @@ setTimeout(() => {
     msgclosebtn.onclick = () => {
      
       var captureDiv = document.getElementById('messagenote');
-     
+      var plane =document.getElementById("tempplane")
+      plane.setAttribute("visible", false);
   
       // Specify the name of the mesh you want to modify messagenote
       var targetMeshName = 'postcard';
@@ -1547,7 +1548,7 @@ setTimeout(() => {
         
         html2canvas(captureDiv).then(function(canvas) {
           console.log('Canvas created:', canvas);
-
+          
           // Convert the canvas to a data URL
           var dataURL = canvas.toDataURL();
 
@@ -1570,7 +1571,8 @@ setTimeout(() => {
 
           // Set the material to the target mesh
           targetMesh.material = material;
-          setTimeout(() => {
+          
+                   setTimeout(() => {
             console.log("model visible after 2 secs")
             targetMesh.material.opacity = 1;
             targetMesh.material.transparent = false;
@@ -1579,13 +1581,7 @@ setTimeout(() => {
      
       });
       
-       
-          
-         
-          // Use html2canvas to capture the content of the div
-      
-         
-        
+     
       }
        
   
@@ -1605,6 +1601,20 @@ setTimeout(() => {
   }
   
     notebox.addEventListener('click', function (evt) {
+      var captureDiv = document.getElementById('messagenote');
+      setTimeout(() => {
+        var plane =document.getElementById("tempplane")
+        
+        html2canvas(captureDiv).then(function (canvas) {
+          console.log('Canvas created:', canvas);
+          
+          // Convert the canvas to a data URL
+          var dataURLt = canvas.toDataURL();
+          plane.setAttribute("material", "src", dataURLt);
+          plane.setAttribute("visible", true);
+        });
+      }, 1000);
+
       console.log("envolope clicked")
       tapOnEnvelope.style.display = "none"
       messagenote.style.display = "block"
