@@ -118,14 +118,14 @@
         <div class="golden-wrapper">
           <h2 class="title-ns">Select the post card</h2>
           <div class="owl-carousel owl-theme d-flex justify-content-center">
-            <div class="item" id="selectTemplate">
-              <img class="carosel-images" id="distancewali" src="/images/distancewali.png" carousel-item data-carousel-id="carouselItem1"/>
+            <div class="item">
+              <img class="carosel-images" id="familywali" src="/images/familywali.png" carousel-item data-carousel-id="carouselItem3"/>
             </div>
             <div class="item">
               <img class="carosel-images" id="friendwali" src="/images/friendwali.png" carousel-item data-carousel-id="carouselItem2"/>
             </div>
-            <div class="item">
-              <img class="carosel-images" id="familywali" src="/images/familywali.png" carousel-item data-carousel-id="carouselItem3"/>
+            <div class="item" id="selectTemplate">
+              <img class="carosel-images" id="distancewali" src="/images/distancewali.png" carousel-item data-carousel-id="carouselItem1"/>
             </div>
           </div>
         </div>
@@ -810,15 +810,18 @@
     <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
     fuse: false;
     rayOrigin: mouse;" zappar-camera />
+    <a-plane id="tempplane" height=".1" width=".15" position="0 0 -.3" visible="false" material="" geometry=""></a-plane>
     <!-- Setup our instant tracker and start it in placement mode so the user can -->
     <!-- choose a location for the object -->
     <a-entity zappar-instant="placement-mode: true" id="instant-tracker">
       <a-entity id="modelname" class="cantap" visible="true" scale="0.1 0.1 0.1" position="0 -1 0"
         gesture-handler="minScale: 0.25; maxScale: 10">
 
-        <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" material="" geometry=""
+        <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" mater
+        ial="" geometry=""
           visible="false"></a-box>
       </a-entity>
+      
       <!-- Include a 3D model inside our instant tracker -->
       <!-- <a-entity id="australiacont" gesture-handler gltf-model="url(assets/kisses .glb)" scale="0.1 0.1 0.1"  animation-mixer="clip: Animation; loop: repeat"></a-entity> -->
       <a-entity scale="7 7 7" light="type: directional;

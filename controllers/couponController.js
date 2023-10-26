@@ -30,6 +30,22 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage: storage });
   var imageUrl = "";
+  router.post('/questions', upload.single('image'), (req, res) => {
+    if (!req.file) {
+      res.status(400).send('No file uploaded.');
+    } else {
+      imageUrl = '/' + req.file.filename;
+  console.log(imageUrl)
+  
+    //  res.render('index', { imageUrl });
+     res.json({ imageUrl });
+    }
+  });
+  router.get('/', (req, res) => {
+    imageUrl = "";
+    res.render('index', { imageUrl });
+  })
+  
 //let couponMessage = '';
 //public routes
 // router.get('/', (req, res) => {
@@ -43,21 +59,6 @@ const storage = multer.diskStorage({
 //   res.render('get-coupon', { couponMessage });
 //   res.json({ couponMessage });
 // });
-router.post('/questions', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    res.status(400).send('No file uploaded.');
-  } else {
-    imageUrl = '/' + req.file.filename;
-console.log(imageUrl)
-
-  //  res.render('index', { imageUrl });
-   res.json({ imageUrl });
-  }
-});
-router.get('/', (req, res) => {
-  imageUrl = "";
-  res.render('index', { imageUrl });
-})
 
 router.get('/', (req, res) => {
     res.render('get-coupon');
