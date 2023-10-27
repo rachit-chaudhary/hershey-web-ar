@@ -157,13 +157,13 @@ let shareOnWhatsapp = async function() {
   // gfg_Run();
   const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
 
-  //copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+ // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
-      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${msg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+     // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
     };
 
     if (navigator.share) {
@@ -393,190 +393,190 @@ reload.onclick = () => {
 
 // ---------------cards for kisses---------------
 // Option 1
-const option1div1 = document.getElementById('div-1')
-const option1div2 = document.getElementById('div-2')
-const option1div3 = document.getElementById('div-3')
-option1div1.onclick = () => {
-  console.log("option1 div 1")
-  option1 = "Sweet Troublemakers"
-  op1 = 1
-}
-option1div2.onclick = () => {
-  console.log("option1 div 2")
-  option1 = "Partners in crime"
-  op1 = 2
-}
-option1div3.onclick = () => {
-  console.log("option1 div 3")
-  option1 = "Top Secret keepers"
-  op1 = 3
-}
+// const option1div1 = document.getElementById('div-1')
+// const option1div2 = document.getElementById('div-2')
+// const option1div3 = document.getElementById('div-3')
+// option1div1.onclick = () => {
+//   console.log("option1 div 1")
+//   option1 = "Sweet Troublemakers"
+//   op1 = 1
+// }
+// option1div2.onclick = () => {
+//   console.log("option1 div 2")
+//   option1 = "Partners in crime"
+//   op1 = 2
+// }
+// option1div3.onclick = () => {
+//   console.log("option1 div 3")
+//   option1 = "Top Secret keepers"
+//   op1 = 3
+// }
 
-// Option2
-const option2div1 = document.getElementById('custom-div-1')
-const option2div2 = document.getElementById('custom-div-2')
-const option2div3 = document.getElementById('custom-div-3')
-option2div1.onclick = () => {
-  console.log("option2 div 1")
-  option2 = "Caring nature"
-  op2 = 1
-}
-option2div2.onclick = () => {
-  console.log("option2 div 2")
-  option2 = "Delightfully annoying nature"
-  op2 = 2
-}
-option2div3.onclick = () => {
-  console.log("option2 div 3")
-  option2 = "Giving mature advices"
-  op2 = 3
-}
-// Option3
-const option3div1 = document.getElementById('custom-option-1')
-const option3div2 = document.getElementById('custom-option-2')
-const option3div3 = document.getElementById('custom-option-3')
-option3div1.onclick = () => {
-  console.log("option3 div 1")
+// // Option2
+// const option2div1 = document.getElementById('custom-div-1')
+// const option2div2 = document.getElementById('custom-div-2')
+// const option2div3 = document.getElementById('custom-div-3')
+// option2div1.onclick = () => {
+//   console.log("option2 div 1")
+//   option2 = "Caring nature"
+//   op2 = 1
+// }
+// option2div2.onclick = () => {
+//   console.log("option2 div 2")
+//   option2 = "Delightfully annoying nature"
+//   op2 = 2
+// }
+// option2div3.onclick = () => {
+//   console.log("option2 div 3")
+//   option2 = "Giving mature advices"
+//   op2 = 3
+// }
+// // Option3
+// const option3div1 = document.getElementById('custom-option-1')
+// const option3div2 = document.getElementById('custom-option-2')
+// const option3div3 = document.getElementById('custom-option-3')
+// option3div1.onclick = () => {
+//   console.log("option3 div 1")
 
-  option3 = "Crazy"
-  op3 = 1
+//   option3 = "Crazy"
+//   op3 = 1
 
-}
-option3div2.onclick = () => {
-  console.log("option3 div 2")
-  option3 = "Realistic"
-  op3 = 1
-}
-option3div3.onclick = () => {
-  console.log("option3 div 3")
-  option3 = "Determined"
-  op3 = 1
-}
+// }
+// option3div2.onclick = () => {
+//   console.log("option3 div 2")
+//   option3 = "Realistic"
+//   op3 = 1
+// }
+// option3div3.onclick = () => {
+//   console.log("option3 div 3")
+//   option3 = "Determined"
+//   op3 = 1
+// }
 
-// ---------------cards for bars---------------
-// Option 1
-const option1div1bar = document.getElementById('hershey-bar-1')
-const option1div2bar = document.getElementById('hershey-bar-2')
-const option1div3bar = document.getElementById('hershey-bar-3')
-option1div1bar.onclick = () => {
-  console.log("option1 div 1")
-  option1 = "Sweet Siblings"
-  op1 = 1
-}
-option1div2bar.onclick = () => {
-  console.log("option1 div 2")
-  option1 = "Nutty Friends"
-  op1 = 2
-}
-option1div3bar.onclick = () => {
-  console.log("option1 div 3")
-  option1 = "Trusted Partners"
-  op1 = 3
-}
+// // ---------------cards for bars---------------
+// // Option 1
+// const option1div1bar = document.getElementById('hershey-bar-1')
+// const option1div2bar = document.getElementById('hershey-bar-2')
+// const option1div3bar = document.getElementById('hershey-bar-3')
+// option1div1bar.onclick = () => {
+//   console.log("option1 div 1")
+//   option1 = "Sweet Siblings"
+//   op1 = 1
+// }
+// option1div2bar.onclick = () => {
+//   console.log("option1 div 2")
+//   option1 = "Nutty Friends"
+//   op1 = 2
+// }
+// option1div3bar.onclick = () => {
+//   console.log("option1 div 3")
+//   option1 = "Trusted Partners"
+//   op1 = 3
+// }
 
-// Option2
-const option2div1bar = document.getElementById('new-hershey-bar-1')
-const option2div2bar = document.getElementById('new-hershey-bar-2')
-const option2div3bar = document.getElementById('new-hershey-bar-3')
-option2div1bar.onclick = () => {
-  console.log("option2 div 1")
-  option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
-  op2 = 1
-}
-option2div2bar.onclick = () => {
-  console.log("option2 div 2")
-  option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
-  op2 = 2
-}
-option2div3bar.onclick = () => {
-  console.log("option2 div 3")
-  option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
-  op2 = 3
-}
-// Option3
-const option3div1bar = document.getElementById('option-1')
-const option3div2bar = document.getElementById('option-2')
-const option3div3bar = document.getElementById('option-3')
-option3div1bar.onclick = () => {
-  console.log("option3 div 1")
+// // Option2
+// const option2div1bar = document.getElementById('new-hershey-bar-1')
+// const option2div2bar = document.getElementById('new-hershey-bar-2')
+// const option2div3bar = document.getElementById('new-hershey-bar-3')
+// option2div1bar.onclick = () => {
+//   console.log("option2 div 1")
+//   option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
+//   op2 = 1
+// }
+// option2div2bar.onclick = () => {
+//   console.log("option2 div 2")
+//   option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
+//   op2 = 2
+// }
+// option2div3bar.onclick = () => {
+//   console.log("option2 div 3")
+//   option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
+//   op2 = 3
+// }
+// // Option3
+// const option3div1bar = document.getElementById('option-1')
+// const option3div2bar = document.getElementById('option-2')
+// const option3div3bar = document.getElementById('option-3')
+// option3div1bar.onclick = () => {
+//   console.log("option3 div 1")
 
-  option3 = "Music"
-  op3 = 1
+//   option3 = "Music"
+//   op3 = 1
 
-}
-option3div2bar.onclick = () => {
-  console.log("option3 div 2")
-  option3 = "Street food"
-  op3 = 1
-}
-option3div3bar.onclick = () => {
-  console.log("option3 div 3")
-  option3 = "Gaming"
-  op3 = 1
-}
+// }
+// option3div2bar.onclick = () => {
+//   console.log("option3 div 2")
+//   option3 = "Street food"
+//   op3 = 1
+// }
+// option3div3bar.onclick = () => {
+//   console.log("option3 div 3")
+//   option3 = "Gaming"
+//   op3 = 1
+// }
 
 // ---------------cards for exotic dark hed---------------
 // Option 1
-const option1div1exotic = document.getElementById('exotic-hershey-1')
-const option1div2exotic = document.getElementById('exotic-hershey-2')
-const option1div3exotic = document.getElementById('exotic-hershey-3')
-option1div1exotic.onclick = () => {
-  console.log("option1 div 1")
-  option1 = "Berry Good Friends"
-  op1 = 1
-}
-option1div2exotic.onclick = () => {
-  console.log("option1 div 2")
-  option1 = "Nutty Partners"
-  op1 = 2
-}
-option1div3exotic.onclick = () => {
-  console.log("option1 div 3")
-  option1 = "Trusted Confidantes"
-  op1 = 3
-}
+// const option1div1exotic = document.getElementById('exotic-hershey-1')
+// const option1div2exotic = document.getElementById('exotic-hershey-2')
+// const option1div3exotic = document.getElementById('exotic-hershey-3')
+// option1div1exotic.onclick = () => {
+//   console.log("option1 div 1")
+//   option1 = "Berry Good Friends"
+//   op1 = 1
+// }
+// option1div2exotic.onclick = () => {
+//   console.log("option1 div 2")
+//   option1 = "Nutty Partners"
+//   op1 = 2
+// }
+// option1div3exotic.onclick = () => {
+//   console.log("option1 div 3")
+//   option1 = "Trusted Confidantes"
+//   op1 = 3
+// }
 
-// Option2
-const option2div1exotic = document.getElementById('exotic-dark-card2-1')
-const option2div2exotic = document.getElementById('exotic-dark-card2-2')
-const option2div3exotic = document.getElementById('exotic-dark-card2-3')
-option2div1exotic.onclick = () => {
-  console.log("option2 div 1")
-  option2 = "Wine & Chocolates at Home"
-  op2 = 1
-}
-option2div2exotic.onclick = () => {
-  console.log("option2 div 2")
-  option2 = "Sundowners at Beach Resort"
-  op2 = 2
-}
-option2div3exotic.onclick = () => {
-  console.log("option2 div 3")
-  option2 = "Bollywood Music Festival "
-  op2 = 3
-}
+// // Option2
+// const option2div1exotic = document.getElementById('exotic-dark-card2-1')
+// const option2div2exotic = document.getElementById('exotic-dark-card2-2')
+// const option2div3exotic = document.getElementById('exotic-dark-card2-3')
+// option2div1exotic.onclick = () => {
+//   console.log("option2 div 1")
+//   option2 = "Wine & Chocolates at Home"
+//   op2 = 1
+// }
+// option2div2exotic.onclick = () => {
+//   console.log("option2 div 2")
+//   option2 = "Sundowners at Beach Resort"
+//   op2 = 2
+// }
+// option2div3exotic.onclick = () => {
+//   console.log("option2 div 3")
+//   option2 = "Bollywood Music Festival "
+//   op2 = 3
+// }
 
-// Option3
-const option3div1exotic = document.getElementById('option-exotic-1')
-const option3div2exotic = document.getElementById('option-exotic-2')
-const option3div3exotic = document.getElementById('option-exotic-3')
-option3div1exotic.onclick = () => {
-  console.log("option3 div 1")
+// // Option3
+// const option3div1exotic = document.getElementById('option-exotic-1')
+// const option3div2exotic = document.getElementById('option-exotic-2')
+// const option3div3exotic = document.getElementById('option-exotic-3')
+// option3div1exotic.onclick = () => {
+//   console.log("option3 div 1")
 
-  option3 = "Discussing family"
-  op3 = 1
+//   option3 = "Discussing family"
+//   op3 = 1
 
-}
-option3div2exotic.onclick = () => {
-  console.log("option3 div 2")
-  option3 = "Remembering childhood days"
-  op3 = 1
-}
-option3div3exotic.onclick = () => {
-  console.log("option3 div 3")
-  option3 = "Laughing at Silly Jokes "
-  op3 = 1
-}
+// }
+// option3div2exotic.onclick = () => {
+//   console.log("option3 div 2")
+//   option3 = "Remembering childhood days"
+//   op3 = 1
+// }
+// option3div3exotic.onclick = () => {
+//   console.log("option3 div 3")
+//   option3 = "Laughing at Silly Jokes "
+//   op3 = 1
+// }
 // When the experience loads we'll let the user choose a place in their room for
 // the content to appear using setAnchorPoseFromCameraOffset (see below)
 // The user can confirm the location by tapping on the screen
@@ -1288,7 +1288,7 @@ function resizeImage(imagePath, newWidth, newHeight) {
         console.log("bar")
         modelmesh = modelname.getObject3D('mesh').children[2].children[2]
         console.log(modelname.getObject3D('mesh'))
-        console.log(modelname.getObject3D('mesh').children[2].children[2])
+        console.log(modelname.getObject3D('mesh').children[2].children[2])   
       } else if ((typeofpack === 'exotic') || (pNametype === '3')) {
         console.log("exotic")
         modelmesh = modelname.getObject3D('mesh').children[1].children[5]
@@ -1365,9 +1365,9 @@ setTimeout(() => {
       firstscreen.style.display = "none"
       send.classList.add("invisible")
       pNametype = params1.get('name1')
-      op1 = params2.get('name2')
-      op2 = params3.get('name3')
-      op3 = params4.get('name4')
+      // op1 = params2.get('name2')
+      // op2 = params3.get('name3')
+      // op3 = params4.get('name4')
       name = params5.get('name5')
       console.log(name)
       console.log("Options=" + op1 + " " + op2 + " " + op3)
@@ -1399,23 +1399,23 @@ setTimeout(() => {
         modelname.setAttribute('gltf-model', '/models/kissesfile3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
-        if (op1 === 1) {
-          option1 = "Sweet Troublemakers"
-        }
-        else if (op1 === 2) {
-          option1 = "Partners in crime"
-        } else {
-          option1 = "Top Secret keepers"
-        }
-        //option2
-        if (op2 === 1) {
-          option2 = "Caring nature"
-        }
-        else if (op2 === 2) {
-          option2 = "Delightfully annoying nature"
-        } else {
-          option2 = "Giving mature advices"
-        }
+        // if (op1 === 1) {
+        //   option1 = "Sweet Troublemakers"
+        // }
+        // else if (op1 === 2) {
+        //   option1 = "Partners in crime"
+        // } else {
+        //   option1 = "Top Secret keepers"
+        // }
+        // //option2
+        // if (op2 === 1) {
+        //   option2 = "Caring nature"
+        // }
+        // else if (op2 === 2) {
+        //   option2 = "Delightfully annoying nature"
+        // } else {
+        //   option2 = "Giving mature advices"
+        // }
         
         console.log(msg)
         completenote.innerHTML = msg
@@ -1436,36 +1436,36 @@ setTimeout(() => {
         modelname.setAttribute('gltf-model', '/models/barsfinalfile5.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
-        if (op1 === 1) {
-          option1 = "Sweet Siblings"
+        // if (op1 === 1) {
+        //   option1 = "Sweet Siblings"
 
-        }
-        else if (op1 === 2) {
-          option1 = "Nutty Friends"
-        } else {
-          option1 = "Trusted Partners"
-        }
-        //option2
-        if (op2 === 1) {
-          option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
-        }
-        else if (op2 === 2) {
-          option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
-        } else {
-          option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
-        }
-        //option3
-        if (op3 === 1) {
-          option3 = "Music"
-        }
-        else if (op3 === 2) {
-          option3 = "Street food"
-        } else {
-          option3 = "Gaming"
-        }
-        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(msg)
-        completenote.innerHTML = msg
+        // }
+        // else if (op1 === 2) {
+        //   option1 = "Nutty Friends"
+        // } else {
+        //   option1 = "Trusted Partners"
+        // }
+        // //option2
+        // if (op2 === 1) {
+        //   option2 = "You are a closet rockstar, unleashing brilliance and leaving everyone in awe"
+        // }
+        // else if (op2 === 2) {
+        //   option2 = "You are always in FOMO mode, eager to seize every opportunity and get the best out of it"
+        // } else {
+        //   option2 = "You are the Ultimate Foodie, never hesitating to try new and exciting cuisines"
+        // }
+        // //option3
+        // if (op3 === 1) {
+        //   option3 = "Music"
+        // }
+        // else if (op3 === 2) {
+        //   option3 = "Street food"
+        // } else {
+        //   option3 = "Gaming"
+        // }
+        // msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+        // console.log(msg)
+        // completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
 
@@ -1478,40 +1478,40 @@ setTimeout(() => {
         modelname.setAttribute('gltf-model', '/models/edfinal3.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
-        if (op1 === 1) {
-          option1 = "Berry Good Friends"
-        }
-        else if (op1 === 2) {
-          option1 = "Nutty Partners"
-        } else {
-          option1 = "Trusted Confidantes"
-        }
-        //option2
-        if (op2 === 1) {
-          option2 =
-            "Wine & Chocolates at Home"
+        // if (op1 === 1) {
+        //   option1 = "Berry Good Friends"
+        // }
+        // else if (op1 === 2) {
+        //   option1 = "Nutty Partners"
+        // } else {
+        //   option1 = "Trusted Confidantes"
+        // }
+        // //option2
+        // if (op2 === 1) {
+        //   option2 =
+        //     "Wine & Chocolates at Home"
 
-        }
-        else if (op2 === 2) {
-          option2 = "Sundowners at Beach Resort"
-        } else {
-          option2 =
-            "Bollywood Music Festival "
-        }
-        //option3
-        if (op3 === 1) {
-          option3 = "Discussing family"
+        // }
+        // else if (op2 === 2) {
+        //   option2 = "Sundowners at Beach Resort"
+        // } else {
+        //   option2 =
+        //     "Bollywood Music Festival "
+        // }
+        // //option3
+        // if (op3 === 1) {
+        //   option3 = "Discussing family"
 
 
-        }
-        else if (op3 === 2) {
-          option3 = "Remembering childhood days"
-        } else {
-          option3 = "Laughing at Silly Jokes "
-        }
-        msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
-        console.log(msg)
-        completenote.innerHTML = msg
+        // }
+        // else if (op3 === 2) {
+        //   option3 = "Remembering childhood days"
+        // } else {
+        //   option3 = "Laughing at Silly Jokes "
+        // }
+        // msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+        // console.log(msg)
+        // completenote.innerHTML = msg
 
         runReceiverMsgNote()
       }
@@ -1546,7 +1546,10 @@ setTimeout(() => {
    
       if (targetMesh) {
         
-        html2canvas(captureDiv).then(function(canvas) {
+        html2canvas(captureDiv, {
+          scale: 3, // Adjust as needed
+          dpi: 500, // Set the DPI (dots per inch) for higher quality
+        }).then(function (canvas) {
           console.log('Canvas created:', canvas);
           
           // Convert the canvas to a data URL
@@ -1604,8 +1607,12 @@ setTimeout(() => {
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
         var plane =document.getElementById("tempplane")
-        
-        html2canvas(captureDiv).then(function (canvas) {
+      
+
+        html2canvas(captureDiv, {
+          scale: 3, // Adjust as needed
+          dpi: 500, // Set the DPI (dots per inch) for higher quality
+        }).then(function (canvas) {
           console.log('Canvas created:', canvas);
           
           // Convert the canvas to a data URL
@@ -1747,11 +1754,7 @@ function textAreaCounter(event) {
 
   typedCharactersElement.textContent = typedCharacters
   
-  // if (typedCharacters >= 80 && typedCharacters < 125) {
-  //     characterCounterElement.classList = "text-warning";
-  // } else if (typedCharacters >= 150) {
-  //     characterCounterElement.classList = "text-danger";
-  // }
+  
 }
 
 let errLengthMsg
