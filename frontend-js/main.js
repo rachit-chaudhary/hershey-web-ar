@@ -1378,6 +1378,7 @@ setTimeout(() => {
       
       function runReceiverMsgNote() {
         if(selectedTemplate === "distance-wali") {
+          
           adjustMessageNoteDistanceWali()
           getimageuploaded()
         }
@@ -1879,7 +1880,8 @@ function checkSelectedPackAndLoading() {
 }
 
 function adjustMessageNoteDistanceWali() {
-  
+  //console.log("3rd option choose") 
+  //document.getElementById("imagewithhand").src = "/images/imagewithhand.png"
   document.querySelector(".message-wrapper").classList.remove("family-bg")
   document.querySelector(".message-wrapper").classList.remove("friend-bg")
   document.querySelector(".message-wrapper").classList.add("long-distance-bg")
@@ -1891,10 +1893,13 @@ function adjustMessageNoteDistanceWali() {
   let dynamicImg = document.getElementById("dynamicImg")
   dynamicImg.classList.add("long-distance-dynamic")
   dynamicImg.children[0].src = "/images/both-kisses.png"
-
+  var pipNode = document.createElement("img")
+  pipNode.src = "/images/hand.png"
+  pipNode.className = "handstyle"
+  document.getElementById("imagewithhand").appendChild(pipNode)
 }
 
-function adjustMessageNoteFriendWali() {
+function adjustMessageNoteFriendWali() { 
 
   document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
   document.querySelector(".message-wrapper").classList.remove("family-bg")
