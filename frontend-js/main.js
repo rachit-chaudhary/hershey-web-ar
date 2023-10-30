@@ -155,9 +155,8 @@ const copyToClipboard = (e) => {
 let shareOnWhatsapp = async function() {
   console.log("copy clicked")
   // gfg_Run();
-  const message = "To the my loved one, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate this auspicious occasion of Diwali with HERSHEY'S Chocolates.\nClick on the link to view \n Happy Diwali! ✨";
-
- // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  const message = "To my special person! ❤️Wishing you a very Happy Diwali 🪔🎇Here’s a custom surprise for you, to celebrate this festive season season with lots of happiness, joy and delicious HERSHEY’S Chocolates."
+   // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
   copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
