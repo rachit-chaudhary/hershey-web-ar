@@ -472,7 +472,7 @@
     background-repeat: no-repeat;
 }
 .family-gold-text {
-    color: #DFBC66;
+    color: #DFBC66!important;
     /* background: linear-gradient(94deg, #DFBC66 0.3%, #F7EF8A 29.46%, #FFF4C5 59.92%, #D2AC47 94.92%, #EDC967 124.73%);
     background-clip: text;
     -webkit-background-clip: text;

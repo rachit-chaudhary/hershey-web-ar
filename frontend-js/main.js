@@ -1931,7 +1931,8 @@ function adjustMessageNoteFriendWali() {
 }
 
 function adjustMessageNoteFamilyWali() {
-
+  document.getElementById("#hereGoesID").style.color ="#DFBC66";
+  document.getElementById("dear").style.color ="#DFBC66";
     document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
     document.querySelector(".message-wrapper").classList.remove("friend-bg")
     document.querySelector(".message-wrapper").classList.add("family-bg")
