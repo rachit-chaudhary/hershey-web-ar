@@ -179,7 +179,7 @@
         </div>
   
         <div class="textarea-messages">
-          <textarea name="diwali-text" id="diwaliMessage" cols="30" rows="10" placeholder="Add your Diwali message here to make it special."></textarea>
+          <textarea name="diwali-text" id="diwaliMessage" cols="30" rows="10" placeholder="Add your Diwali message here to make it special." oninput="checkCharacterLimit()" ></textarea>
           <div id="character-counter">
             <span id="typed-characters">0</span>
             <span>/</span>
@@ -860,6 +860,20 @@
   <script src="main-bundled.js"></script>
 
   <script>
+     function checkCharacterLimit() {
+            var textarea = document.getElementById("diwaliMessage");
+            var charCount = textarea.value.length;
+            var charLimit = 100;
+
+            if (charCount > charLimit) {
+                // Limit the text to 100 characters
+                textarea.value = textarea.value.substring(0, charLimit);
+                console.log("exceeded")
+                // Display a message indicating the character limit has been exceeded
+                // var charCountElement = document.getElementById("charCount");
+                // charCountElement.innerHTML = "Character limit exceeded! You can only enter up to " + charLimit + " characters.";
+            } 
+        }
     let kissesLoading = document.querySelector(".kisses-loading-video")
 
     if (isChrome) {
