@@ -11,10 +11,16 @@ import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 var msg 
+var nameone
+
 var encodedMsg
+var encodedname
 nextbtn.onclick = () => {
   msg = document.getElementById("diwaliMessage").value
+  nameone = document.getElementById("siblingname").value
   encodedMsg = encodeURIComponent(msg)
+  encodedname = encodeURIComponent(nameone)
+  console.log("encoded "+encodedname);
 }
 let imagevalue
 
@@ -157,17 +163,21 @@ let shareOnWhatsapp = async function() {
   // gfg_Run();
   const message = "To my special person! ❤️Wishing you a very Happy Diwali 🪔🎇Here’s a custom surprise for you, to celebrate this festive season season with lots of happiness, joy and delicious HERSHEY’S Chocolates."
    // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
+      text: `${message}`,
+     
      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  
     };
 
     if (navigator.share) {
       await navigator.share(shareData);
       share.classList.add('pulse-once');
+      console.log(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
       setTimeout(() => {
         share.classList.remove('pulse-once');
       }, 200);
