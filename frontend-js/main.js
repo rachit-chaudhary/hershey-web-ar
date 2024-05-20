@@ -7,7 +7,7 @@
 // import * as ZapparThree from '@zappar/zappar-threejs';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
-import ZAPPPermissionUI from './modules/permission-ui'
+//import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 var msg 
@@ -27,7 +27,7 @@ let imagevalue
 
 // modules code
 const uimoduleobj = new UImodule();
-new ZAPPPermissionUI()
+//new ZAPPPermissionUI()
 
 const model = new URL('/public/models/kissesfile3.glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
