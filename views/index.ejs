@@ -829,8 +829,10 @@
     <a-entity  xrextras-hold-drag
     xrextras-two-finger-rotate
     xrextras-pinch-scale id="instant-tracker">
-      <a-entity id="modelname" class="cantap" visible="true" scale="0.1 0.1 0.1" position="0 -1 0"
-        gesture-handler="minScale: 0.25; maxScale: 10">
+      <a-entity id="modelname" class="cantap" visible="true" scale="1 1 1" position="0 -1 0"
+      xrextras-hold-drag
+      xrextras-two-finger-rotate
+      xrextras-pinch-scale>
 
         <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" mater
         ial="" geometry=""
