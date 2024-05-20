@@ -44,8 +44,8 @@ h1 {
     color: yellow;
 }
 #tap-to-place {
-  /* display: none; */
-  display: block;
+  display: none;
+  /* display: block; */
     position: fixed;
     bottom: 60px;
     left: 50%;
