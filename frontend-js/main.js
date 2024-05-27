@@ -7,7 +7,7 @@
 // import * as ZapparThree from '@zappar/zappar-threejs';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
-import ZAPPPermissionUI from './modules/permission-ui'
+// import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 
@@ -16,7 +16,7 @@ let imagevalue
 
 // modules code
 const uimoduleobj = new UImodule();
-new ZAPPPermissionUI()
+// new ZAPPPermissionUI()
 
 const model = new URL('/public/models/kisses .glb', import.meta.url).href;
 const hotspotImg = new URL('/public/images/hotspot.png', import.meta.url).href;
@@ -1119,7 +1119,7 @@ AFRAME.registerComponent("swap-texture", {
           setTimeout(() => {
             loadingscreen.style.display = "none"
             scene.style.zIndex = 0
-            permissions.setAttribute("zappar-permissions-ui", "")
+            // permissions.setAttribute("zappar-permissions-ui", "")
             taptoplace.style.display = "block"
           }, 6000);
         }
@@ -1182,7 +1182,7 @@ AFRAME.registerComponent("swap-texture", {
           setTimeout(() => {
             // Ar scene 
             loadingscreen.style.display = "none"
-            permissions.setAttribute("zappar-permissions-ui", "")
+            // permissions.setAttribute("zappar-permissions-ui", "")
             scene.style.zIndex = 0
             console.log(uimoduleobj.packtype)
             console.log("next")
@@ -1245,7 +1245,7 @@ AFRAME.registerComponent("swap-texture", {
           setTimeout(() => {
             loadingscreen.style.display = "none"
             scene.style.zIndex = 0
-            permissions.setAttribute("zappar-permissions-ui", "")
+            // permissions.setAttribute("zappar-permissions-ui", "")
             taptoplace.style.display = "block"
           }, 6000);
         }
@@ -1588,7 +1588,7 @@ setTimeout(() => {
       bgaudio.play()
       receiverfirstscreen.style.display = "none"
       scene.style.zIndex = 0
-      permissions.setAttribute("zappar-permissions-ui", "")
+      // permissions.setAttribute("zappar-permissions-ui", "")
       taptoplace.style.display = "block"
 
 
@@ -1623,7 +1623,7 @@ setTimeout(() => {
 
       //--------------------------- 
       const instantTracker = document.getElementById("instant-tracker");
-      instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+      // instantTracker.setAttribute("zappar-instant", "placement-mode: false");
       taptoplace.remove();
       setTimeout(() => {
         modelname.setAttribute('animation-mixer', {

@@ -766,12 +766,20 @@
   <!-- <img  src="<%= imageUrl %>" alt="Uploaded Image"> -->
   <img id="rakhi" class="rakhi-kiss-image" src="/images/rakhi.png" />
 
-  <a-scene  loading-screen="enabled:false" id="scenediv" swap-texture renderer="antialias: true;
+  <a-scene  loading-screen="enabled:false" id="scenediv" swap-texture renderer="" gesture-detector
+   
+  xrextras-gesture-detector
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement:true,
+  antialias: true;
   colorManagement: true;
   sortObjects: true;
   physicallyCorrectLights: true;
   maxCanvasWidth: 1920;
-  maxCanvasHeight: 1920;" gesture-detector>
+  maxCanvasHeight: 1920;"
+  xrweb="allowedDevices: any">
     <!-- <canvas id="div">
 
   </canvas> -->
@@ -783,15 +791,23 @@
     </a-assets>
     <!-- Ask user for camera permissions, display some text if permission is denied -->
     <a-entity id="permissions"></a-entity>
-    <!-- shows a full-page dialog that informs the user they're using an unsupported browser -->
-    <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
-    <!-- <canvas id="div"></canvas> -->
-    <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
+    <!-- shows a full-page dialog that informs the user they're using an unsupported browser zappar-compatibility-ui -->
+    <a-entity  id="compatibility"></a-entity>
+    <!-- <canvas id="div"></canvas> zappar-camera -->
+    <a-camera
+        id="camera"
+        position="0 8 8"
+        raycaster="objects: .cantap"
+        cursor="
+          fuse: false;
+          rayOrigin: mouse;">
+      </a-camera>
+    <!-- <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
     fuse: false;
-    rayOrigin: mouse;" zappar-camera />
+    rayOrigin: mouse;"  /> -->
     <!-- Setup our instant tracker and start it in placement mode so the user can -->
-    <!-- choose a location for the object -->
-    <a-entity zappar-instant="placement-mode: true" id="instant-tracker">
+    <!-- choose a location for the object zappar-instant="placement-mode: true" -->
+    <a-entity  id="instant-tracker">
       <a-entity id="modelname" class="cantap" visible="true" scale="0.1 0.1 0.1" position="0 -1 0"
         gesture-handler="minScale: 0.25; maxScale: 10">
 
@@ -830,7 +846,7 @@
       </a-entity>
       <a-light type="ambient" intensity="2"></a-light>
     </a-entity>
-
+    <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow" shadow></a-plane>
   </a-scene>
   <%- include('./includes/footer') %>
   <script src="main-bundled.js"></script>
