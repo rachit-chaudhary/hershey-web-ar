@@ -1,3236 +1,218 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      #nextbutton {
-     width: 50vw;
-     height: auto;
-     position: absolute;
-     bottom: 6vh;
-     left: 25vw;
-     background-color: #AD50FF;
-     border: 0.2em solid white;
-     text-align: center;
-     color: #FFF;
-     border-radius: 100px;
-   }
-   
-   #nextbutton:active {
-     background-color: white;
-     color: #AD50FF;
-   }
-   
-   h2 {
-     font-size: 1.3em;
-     text-align: center;
-     font-family: monospace;
-   }
-   @import url("https://webglfundamentals.org/webgl/resources/webgl-tutorials.css");
-
-
-@font-face {
-  font-family: "Walsheim";
-  src: url("./fonts/GT-Walsheim-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Walsheim-Medium";
-  src: url("./fonts/GT-Walsheim-Medium.otf");
-}
-
-@font-face {
-  font-family:"snavely";
-  src: url('./fonts//snavely\ lc-regular.otf');
-}
-
-@font-face {
-  font-family: "brandon printed";
-  src: url("./fonts/brandon-printed.ttf");
-}
-
-html,
-body {
-    /* background-color: grey; */
-    font-family: "Walsheim";
-    overflow-y: scroll ;
-    
-}
-#nextbutton {
-  width: 50vw;
-  height: auto;
-  position: absolute;
-  bottom: 6vh;
-  left: 25vw;
-  background-color: #AD50FF;
-  border: 0.2em solid white;
-  text-align: center;
-  color: #FFF;
-  border-radius: 100px;
-}
-
-#nextbutton:active {
-  background-color: white;
-  color: #AD50FF;
-}
-
-h2 {
-  font-size: 1.3em;
-  text-align: center;
-  font-family: monospace;
-}
-
-#firstscreen {
-  display: none;
-  /* change to block qwerty */
-}
-#receiverfirstscreen {
-  display: none;
-  /* change to block qwerty */
-}
-h1 {
-    /* display: none;
-    position: absolute; */
-    z-index: 2;
-    font-size: 10rem;
-    color: yellow;
-}
-#tap-to-place {
-  display: none;
-    position: fixed;
-    bottom: 60px;
-    left: 50%;
-    right: 0px;
-    border-radius: 15px;
-    background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-    color: #3C131C;
-    width: 200px;
-    margin-left: -100px;
-    text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    font-family:'Walsheim';
-    text-transform: uppercase;
-    z-index: 1;
-}
-#arscreen{
-  display: none;
-}
-#headerdiv{
-  padding-top:1%;
-  padding-bottom:1%;
-  background-color:#D9D9D9;
-  top: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
-.headerlogo-bar-exotic{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 28%;
-}
-.headerlogokisses{
-  display: block;
-  /* margin-left: auto; */
-  margin-right: auto;
-  width: 30%;
-}
-
-#sharepopupdiv{
-  display: none;
-  position: fixed;
-  top: 0px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  color: #3C131C;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  font-family: 'Walsheim';
-  font-size: 14px;
-  width: 100%;
-  z-index: 99;
-  text-align: center;
-  box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, .5);
-}
-#hersheyid{
-  background: #3C131C;
-  color: #FADF9E;
-  border-radius: 5px;
-  /* position: absolute; */
-  width: 49%;
-
-}
-#closebtnsharepopup{
-  right: 8px;
-  position: absolute;
-  top: 8px;
-  width: 5%;
-}
-#reloaddiv{
-  display: block;
-  width: 75px;
-  z-index: 99;
-}
-#reloaddiv img {
-  width: 50px;
-}
-
-.home-icon {
-  cursor: pointer;
-  position: absolute;
-  top: 80px;
-  right: 20px;
-  width: 10vw;
-  z-index: 99;
-}
-
-.home-icon img {
-  width: 100%;
-}
-
-@-webkit-keyframes breathing {
-  0% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
-  25% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  60% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
-  100% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
-
-@keyframes breathing {
-  0% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
-  25% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-
-  60% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
-  100% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
-
-#tapOnEnvelope{
-  display: none;
-  position: fixed;
-  top: 15%;
-  left: 0px;
-  right: 0px;
-  border-radius: 12px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  color: #3C131C;
-  width: 171px;
-  margin: auto;
-  text-align: center;
-  padding: 2px;
-  box-sizing: border-box;
-  font-family: 'Walsheim-Medium';
-  text-transform: capitalize;
-  z-index: 99;
-  -webkit-animation: breathing 3s ease-out;
-  animation: breathing 3s ease-out infinite 
-}
-#recordparentdiv {
-  
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  /* top: 0px; */
-  z-index: 99;
-  margin: auto;
-  width: fit-content;
-  height: 35px;
-}
-#recordbannerdiv{
-  font-size: 11px;
-  border-radius: 12px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  color: #3C131C;
-  width: 100%;
-  text-align: center;
-  padding: 2px 10px;
-  box-sizing: border-box;
-  font-family: 'Walsheim-Medium';
-  text-transform: capitalize;
-  position: relative;
-  z-index: 2;
-}
-.arrow-down {
-  display: none;
-  left: 0px;
-  right: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 12px;
-  position: absolute;
-  text-align: center;
-  border-top: #bcd11c;
-  border-top: 18px solid #f0dc9c;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-}
-#shutter {
-  width: 75px;
-  display: block;
-  bottom: 85px;
-}
-#shutter img {
-  width: 75px;;
-}
-#share {
-  position: fixed;
-  bottom: 0px;
-  z-index: 99;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 40px;
-  align-items: center;
-}
-#share p {
-  width: 75px;
-  border-radius: 10px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  color: #3C131C;
-  text-align: center;
-  padding: 10px 15px;
-  font-family: 'Walsheim';
-  text-transform: capitalize;
-}
-
-
-body {
-  margin: 0;
-  
-}
-
-canvas {
-  width: 100vw;
-  height: 100vh;
-  display: block;
-}
-button { pointer-events:initial; }
-#capture1{
-  display: none;
-}
-#capture2{
-    position: absolute !important;
-    z-index: 1 !important;
-    background-color: #D9D9D9 !important;
-    width: 100% !important;
-}
-.landing-page-rakshabandhan{
-  font-family: "Snavely";
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  /* line-height: 106.5%;  */
-  line-height: 89.5%;
-  color: #EFBE7F;
-}
-.landing-page-ns-position{
-  margin-left: 18px;
-}
-.landing-page-sibling{
-  color: #EFBE7F;
-  font-family: "Walsheim";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  /* line-height: 150.5%;  */
-  line-height: 79.5%;
-}
-.shine{
-  margin: 12px;
-}
-.landing-page-make{
-  color: #EFBE7F;
-  font-family: "Walsheim";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150.5%; 
-}
-.landing-page-leftimage{
-  margin-top: -25px;
-}
-.landing-page-rakhi{
-  height: 150px;
-  margin-top: 16px;
-}
-.landing-page-ns{
-  height: 100vh;
-  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  /* background-color:  #734222, #37140B; */
-}
-.camera-tag{
-  text-align: center;
-  font-family: "Walsheim";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  padding-top: 13px;
-  color: #EDC967;
-  
-}
-.wrapper{
-  overflow: auto;
-}
-.flower{
-  margin-top: -29px;
-  height: 60px;
-}
-.layer-ns{
-  margin-left: -160px;
-}
-.flower2{
-  margin-top: -1px;
-    margin-right: -14px;
-  height: 60px;
-}
-.send-thankyounote{
-  position: relative;
-  padding: 20px 29px 14px 19px;
-    width: 346px;
-    margin-top: -10px;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  margin: 10px;
-}
-#sendthanks{
-  margin-top: -53px;
-}
-.heading-div{
-  background: linear-gradient(235deg, #734222 0%, #37140B 100%);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-align: center;
-font-family: "Snavely";
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-.text-landing-page{
-  color: #3D251C;
-    text-align: center;
-    font-family:"Walsheim";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.send-surprise-message{
-  position: relative;
-  margin: 10px;
-  padding: 20px 29px 14px 19px;
-  width: 346px;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-
-}
-.hersheylogo{
-  width: 120px;
-}
-
-.defaultImage{
-  height: 30vh;
-  background-color: black;
-}
-.bottom{
- background-color: #3F000B;
- height: 70vh;
-}
-.festive-text{
-  font-family: "Walsheim";
-  font-size: 36px;
-  padding: 22px;
-  margin-top: 30px;
-
-  
-}
-.sendgift{
-  font-family: "Walsheim";
-  padding: 17px, 92px, 17px, 92px;
-  background-color: #007BBD;
-  gap: 10px;
-  color: white;
-}
-.sendingButton{
-  /* position: absolute; */
-  bottom: 30px;
-  /* transform: translateX(-50%); */
-  left: 50%;
-}
-.sendgift{
-  border-radius: 57px;
-  width: 316px;
-  margin-bottom: 30px;
-  height: 54px;
- 
-}
-.thankyounote{
-  font-family: "Walsheim";
-  border-radius: 57px;
-  width: 316px;
-  height: 54px;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-.header{
-  background-color: #D9D9D9;
-}
-/* first screen */
-/* #firstscreen{
-  display: none;
-} */
-/* second screen */
-#secondscreen{
-  display: none;
-}
-.wrapper{
-  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
-  height: 100dvh;
-}
-/* .orange-wrapper{
-  background-color: #EE7700;
-  height: 87%;
-  margin: 13px;
-  
-} */
-.surprise-heading{
-  font-family: "Walsheim";
-  color: #EFBE7F;
-  padding-top: 16px;
-  line-height: 10px;
-}
-::-webkit-input-placeholder { /* Edge */
-  color: #EFBE7F;
-  
-}
-.surprise-heading-ns{
-  font-family: "Walsheim";
-  color: #EFBE7F;
-  font-style: italic;
-  font-size: 11px;
-}
-.flower-carousel-bottom{
-  height: 108px;
-  top: -190px;
-}
-
-.username-section{
-  margin-top: 21px;
-  margin-left: 18px;
-  font-size: 23px;
-}
-.carousel-ns{
-  position: absolute;
-  margin-top: -47px;
-}
-.golden-wrapper{
-  position: relative;
-  border-radius: 10px;
-  background: #D1A354;
-  background-image: url(/images/background-image.png);
-  margin-top: 28px;
-  margin: 14px;
-  border: 10px solid hsl(44, 79%, 67%);
-  background-size: cover;
-    background-position: center;
-}
-.breakline{
-  color: inherit;
-  border-top: var(--bs-border-width) solid;
-  opacity: .25;
-  margin-left: 18px;
-  margin-right: 18px;
-  border: 1px solid;
-  margin-top: 6px;
- 
-}
-.owl-next{
-  display: none !important;
-}
-.owl-dot{
-  display: none !important;
-}
-.blue-child-wrapper{
-  color: white;
-}
-.owl-item{
-  margin: -36px !important;
-}
-.owl-prev{
-  display: none !important;
-}
-.carosel-images{
-  width: 72% !important;
-  margin: 58px;
-  margin-top: 52px;
-
-}
-.title-ns{
-  padding-top: 20px;
-  /* margin-top: 23px; */
-  margin-left: 22px;
-  color: #410E0F;
-  font-family: "Snavely";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.userName{
-  caret-color: #fff;
-  background: transparent;
-  border: none;
-  color: #EFBE7F;
-  /* font-family: "Walsheim"; */
-  font-style: normal;
-  /* font-weight: 700; */
-  line-height: normal;
-  /* margin-top: 5px; */
-  width: 100%;
-  margin-left: -9px;
-  font-family: Brandon Printed;
-  font-size: 36px;
-  font-weight: 250;
-
-}
-.userName::placeholder {
-  color: rgba(246, 218, 173, 0.1);
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #EFBE7F;
-    transition: background-color 5000s ease-in-out 0s;
-    box-shadow: inset 0 0 20px 20px #23232329;
-}
-.userName:focus {
-  outline: none;
-}
-.photo-frame{
-  height: 70px;
-  margin-left: 49px;
-  margin-top: -5px;
-}
-.filejpeg{
-  display: flex;
-  align-items: center;
-  font-family: "Walsheim-Medium";
-  font-size: 14px;
-  height: 100%;
-  margin: 0px;
-  justify-content: center;
-  width: 100%;
-}
-.upload-outerdiv{
-  border-radius: 10px;
-background: linear-gradient(130deg, rgba(223, 188, 102, 0.10) 0%, rgba(210, 172, 71, 0.10) 23.34%, rgba(247, 239, 138, 0.10) 41.28%, rgba(255, 244, 197, 0.10) 68.42%, rgba(237, 201, 103, 0.10) 99.51%), rgba(15, 15, 15, 0.20);
-margin: 22px;
-
-}
-#uploadbtn {
-  display: none;
-  width: 100%;
-  position: absolute;
-  height: 100%;
-}
-.uploadbutton{
-  border-radius: 66px !important;
-  padding: 16px 47px;
-  background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  width: 218px;
-  height: 53px;
-  color: #2D100C;
-  text-align: center;
-  font-family: "Walsheim";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase;
-}
-.base-title{
-  text-align: center;
-font-family: "Walsheim";
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-color: #EFBE7F;
-}
-.uploader{
-  height: 53px;
-  margin: 24px 18px;
-  border-radius: 32px;
-  margin-top: -7px;
-  background: rgba(255, 255, 255, 0.20);
-  border-radius: 51px;
-  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), rgba(255, 255, 255, 0.50);
-  border: 2px solid  #EFBE7F;
-  color: #EFBE7F;
-  text-align: center;
-  font-family: "Walsheim";
-  font-size: 16px;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: lowercase;
-  border-radius: 51px;
-}
-.caption-ns {
-  color: #EFBE7F;
-  font-family: 'Walsheim-Medium';
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-/* #imagediv{
-  width: 100px;
-  height: 100%;
-  
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
-.upload-file-text {
-  width: 100%;
-}
-
-.photo{
-  width: 56%;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  color: white;
-  font-family: "Walsheim";
-  position: relative;
-}
-.upload-section{
-  margin-top: 0px;
-}
-.next-button{
-  margin: 15px 0px 30px;
-    /* border-radius: 12px; */
-    width: 207px;
-    font-size: 24px;
-    height: 55px;
-    border-radius: 93px;
-    border-radius: 66px;
-    background: linear-gradient(134deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);    
-    color: #2D100C;
-    font-family:"snavely";
-    text-transform: lowercase;
-    border: none;
-}
-
-
-/* zapper permission request UI */
-.zappar-permission-request {
-  background-color: #3F000B!important;
-  font-family: "Walsheim" !important;
-}
-/* .zappar-permission-request .zappar-title .zappar-title {
-  font-size: 36px!important;
-  text-align: left!important;
-} */
-#thirdscreen{
-  display: none;
-}
-.window-kisses{
-  background: linear-gradient(235deg, #89502B 0%, #37140B 64.34%);
-  /* height: 115; */
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 100dvh;
-}
-.alert-check-questions {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 99;
-  height: 100dvh;
-  color: #fff;
-}
-.alert-check-upload {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 99;
-  height: 100dvh;
-  color: #fff;
-}
-.upload-alert-logo {
-  width: 60%!important;
-  margin: 20px auto;
-}
-.close-btn-alert img {
-  filter: invert(1);
-  width: 20px;
-}
-.question-alert-logo {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.image-missing {
-  margin: 0px 0px 25px;
-}
-#alertCloseexoticBtn{
-  color: #fff;
-  position: absolute;
-  top: -30px;
-  right: 0px;
-}
-#alertClosebarBtn{
-  color: #fff;
-  position: absolute;
-  top: -30px;
-  right: 0px;
-}
-#alertCloseBtn{
-  color: #fff;
-  position: absolute;
-  top: -35px;
-  right: 0px;
-}
-.alert-check-questions-bar {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 99;
-  height: 100dvh;
-  color: #fff;
-}
-.alert-check-questions-exotic {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 99;
-  height: 100dvh;
-  color: #fff;
-}
-.alert-content {
-  font-family: "Walsheim-Medium";
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction:row-reverse;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: fit-content;
-  /* background-color: #3F000B; */
-}
-/* .alert-warning{
-  margin: 15px;
-} */
-.window-kisses .rakhi-kiss-image {
-  width: 170px;
-  position: absolute;
-  top: -15px;
-  right: 0px;
-}
-.nextquecl{
-  bottom: 1px;
-  position: absolute;
-}
-  
-
-.nextQuestion{
-  border-radius: 93px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  width: 214px;
-  height: 62px;
-  /* margin-top: 43px; */
-  font-size: 24px;
-  color: #37140B;
-  text-align: center;
-  font-family: "snavely";
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 38px;
-  border: none;
-}
-.qns-3{
-    margin-top: -72px !important;
-    border: 7px solid hsl(44, 79%, 67%);
-    border-radius: 15px;
-    background: #E8B377;
-    background-image: url(/images/smallKisses.png);
-    box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 20px;
-    font-family: "Walsheim";
-    position: relative;
-    height: 171px;
-    z-index: 1;
-}
-
-/* .qns-1{
-  position: relative;
-  z-index: 2;
-  margin: 0px 0px 25px;
-  min-height: 210px;
-  padding: 25px 0px;
-  border: 7px solid  hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background: #E8B377;
-  background-image: url(/images/smallKisses.png);
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: "Walsheim";
-} */
-.image1{
-  padding-bottom: 7px;
-}
-
-.hersheyBackgroundImage{
-  margin-top: -35px;
-  left: -32px;
-}
-.sunrise{
-  margin-top: -15px;
-}
-.hersheyBackgroundImageSection-1{
-  position: absolute;
-  margin-top: -45px;
-  margin-right: 14px;
-}
-.hersheyBackgroundImageSection-2{
-  margin-top: -51px;
-  position: absolute;
-  margin-right: 6px;
-}
-.hersheyBackgroundImageSection-3{
-  margin-top: -40px;
-  right: 0px;
-}
-.hersheyBackgroundImageSection-4{
-  margin-top: -52px;
-  margin-left: -11px;
-}
-.hersheyBackgroundImageSection-4-duplicate {
-  right: -30px;
-  top: -60px;
-}
-.hersheyBackgroundImageSection-6{
-  margin-top: -62px;
-}
-/* .qns-2{
-  margin: 0px 0px 15px;
-  color: #410E0F;
-  font-family:"Walsheim";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-} */
-/* .options-row {
-  height: 60px;
-} */
-.appropriate{
-  font-size: 12px;
-  font-family: "Walsheim";
-    color: #F5F5F5;
-  /* font-family:  Walsheim; */
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.sibling{
-  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Snavely";
-  font-size: 42px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 110%;
-}
-.knowYour{
-  color: #F6CD73;
-  font-size: 17px;
-  font-family: "Walsheim";
-
-}
-
-	.plus1{
-		top: 25%;
-	  	bottom: 25%;
-	  	width: 10%;
-	  	left: 45%;
-	}
-	.plus2{
-		left: 25%;
-  		right: 25%;
-  		height: 10%;
-  		top: 45%;
-	}
-	.x1{
-		transform: rotate(45deg);
-	}
-	.x2{
-		transform:rotate(-45deg)
-	}
-	
-	.div {
-    height: 58px;
-    width: 30%;
-    display: inline-block;
-    margin-top: 96px;
-	}
-	.active {
-	  width: 75%;
-	}
-	.nonactive {
-	  width: 10%;
-	}
-	.content {
-	  display: none;
-	}
-.content.showinfo {
-  display: block;
-}
-
-	.toggle{
-		cursor:pointer;
-	}
-
-	.toggle2{
-		content:"-";
-		font-size:40px;
-		float: right;
-	    padding-top:0px;
-		padding-right:10px;
-	}
-	.div,
-	.active,
-	.nonactive {
-	  -webkit-transition: width 1s ease-in-out ;
-	  -moz-transition: width 1s ease-in-out;
-	  -o-transition: width 1s ease-in-out;
-	  transition: width 1s ease-in-out;
-	}	
-	.box1{
-		background-color: #F6CD73;
-	}
-	.box2{
-		background-color: #F6CD73;
-	}
-	.box3{
-		background-color: #F6CD73;
-	}
-	.information{
-		display:none;
-	}
-	.showinfo{
-		position:absolute;
-	}
-  .answer{
-    color: #774629;
-    text-align: center;
-    font-family: "Walsheim";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: lowercase;
-  }
-
-  /* ------------------------------------------- card1*/
- 
-
-  .normal-div{
-    justify-content: center;
-    overflow: hidden;
-    padding: 10px;
-    margin: 1px;
-    width:32.33%;
-    height: 100%;
-    font-size: 12px;
-    /* position:relative; */
-    float:left;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    color: white;
-    font-family:"snavely";
-    text-transform: lowercase;
-  }
-  .qns-2{
-    margin: 0px 0px 15px;
-    color: #410E0F;
-    font-family:"Walsheim";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .options-row {
-    height: 60px;
-  }
-  /* .expanded-div{
-      width:60%;
-      background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-      border: 2px solid  hsl(44, 79%, 67%);
-      color: #37140B;
-      font-family:"snavely";
-      text-transform: lowercase;
-      font-size: 17px;
-  } */
-  .compressed-div{
-    width:18.5%;
-    height: 100%;
-    overflow: hidden;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-  #div-1{
-    background-color: #774629;
-  }
-  #div-2{
-    background-color: #774629;
-  }
-  #div-3{
-    background-color: #774629;
-  }
-  a.expansion-btn{
-    position:absolute;
-    top:10px;
-    right:10px;
-    cursor:pointer;
-    font-size: 2vw;
-    margin-left: 13px;
-    margin-top: 27px;
-  }
-  .expansion-btn{
-    /* margin-top: 22px; */
-    margin-top: 11px;
-    margin-left: 12px;
-  }
-
-
-  /* ------------------------------------------- */
-  /* Custom styles for the container and question  card2*/
-
-.container {
-  width: 80%;
-  max-width: 800px;
-}
-
-/* Styles for the custom divs */
-.custom-div {
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  margin: 1px;
-  width:32.33%;
-  height: 100%;
-  font-size: 12px;
-  /* position:relative; */
-  float:left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: white;
-  font-family:"snavely";
-  text-transform: lowercase;
-}
-
-.custom-expanded-div {
-  width:60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid  hsl(44, 79%, 67%);
-  color: #37140B;
-  font-family:"snavely";
-  text-transform: lowercase;
-  font-size: 17px;
-}
-
-.custom-compressed-div {
-  width:18.5%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-/* Styles for the custom div backgrounds */
-#custom-div-1 {
-  background-color: #774629;
-}
-
-#custom-div-2 {
-  background-color: #774629;
-}
-
-#custom-div-3 {
-  background-color: #774629;
-}
-
-/* Styles for the expansion buttons */
-.custom-expansion-btn {
-  margin: 0px!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* .expansion-btn {
-    font-size: 14px;
-    margin-left: 13px;
-    margin-top: 9px !important;
-} */
-/* ---------------------------------------------- */
-.custom-card-container {
-  justify-content: center;
-}
-
-.custom-option-container {
-  width: 80%;
-  max-width: 800px;
-}
-
-.custom-question {
-  font-size: 24px;
-  /* font-weight: 700; */
-  font-family:"snavely";
-
- 
-}
-
-.custom-option {
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  margin: 1px;
-  width:32.33%;
-  height: 100%;
-  font-size: 12px;
-  /* position:relative; */
-  float:left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: white;
-  font-family:"snavely";
-  text-transform: lowercase;}
-
-.custom-option:nth-child(1) {
-  background-color: #774629;
-}
-
-.custom-option:nth-child(2) {
-  background-color: #774629;
-}
-
-.custom-option:nth-child(3) {
-  background-color: #774629;
-}
-
-.custom-expanded-option {
-  width:60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid  hsl(44, 79%, 67%);
-  color: #37140B;
-  font-family:"snavely";
-  text-transform: lowercase;
-  font-size: 17px;
-}
-
-.custom-compressed-option {
-  width:18.5%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.custom-option-btn {
-  margin: 0px!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* --------------landing page */
-.hershey-title{
-  padding-top: 68px;
-}
-
-/* get coupon page */
-body {
-  background: linear-gradient(90deg, #2d100c 0%, #61311a 100%);
-}
-.relative-div-content {
-  height: 100vh;
-}
-.bg-images {
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
-  position: absolute;
-  z-index: -1;
-}
-.bg-images img {
-  width: 100%;
-}
-.top-elements .hanging-circle {
-  width: 85%;
-  padding-left: 10px;
-}
-.top-elements .rakhi-kiss-ns {
-  padding-right: 10px;
-}
-.middle-elements {
-  top: 22%;
-  right: 0px;
-  bottom: 0px;
-  z-index: -1;
-}
-.low-elements {
-  bottom: 10%;
-  height: 27vh;
-}
-.get-coupon-section {
-  /* background: linear-gradient(90deg, #2d100c 0%, #61311a 100%); */
-  color: #fff;
-  overflow-x: hidden;
-  /* height: 100%; */
-}
-.confetti-video {
-  position: absolute;
-  top: 0px;
-  height: 100vh;
-}
-.confetti-video .confetti-video-file {
-  object-fit: contain;
-  width: 100vw;
-}
-/* .get-coupon-video {
-  position: absolute;
-  z-index: 2;
-} */
-.get-coupon-video,
-.confetti-video {
-  object-fit: contain;
-  width: 100vw;
-}
-.coupon-video {
-  padding: 25px 0px;
-}
-.hide-content {
-  display: none;
-}
-.voucher-parent {
-  display: flex;
-  justify-content: center;
-}
-.get-coupon-form {
-  position: relative;
-  bottom: 0px;
-  -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: .2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-@-webkit-keyframes slide {
-  100% { bottom: 30px; }
-}
-
-@keyframes slide {
-  100% { bottom: 30px; }
-}
-.get-coupon-form button {
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.get-coupon-form .tnc-div {
-  display: flex;
-  align-items: center;
-  margin: 10px 0px;
-  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: "Walsheim";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* -------------hershey-bar */
-#thirdscreen-bar{
-  display: none;
-}
-.windows-bar{
-  background-image: url('images/questions-window-bars.png');
-  overflow-x: hidden;
-  height: 100dvh;
-  background-repeat: repeat-y;
-  background-size: contain;
-  width: 100%;
-}
-.bar-heading{
-  margin-top: 12px;
-}
-.elements-bar{
-  top: -16px;
-  left: -15px;
-  height: 47px;
-}
-.heart-bar{
-  right: 0px;
-  bottom: -40px;
-}
-.qns-1-bar {
-  position: relative;
-  z-index: 2;
-  min-height: 210px;
-  padding: 25px 0px;
-  border: 7px solid  hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background: #E8B377;
-  background-image: url(/images/question\ 1.png);
-  background-repeat: no-repeat;
-  background-size: 102% 104%;
-  background-position: center;
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: "Walsheim";
-  margin-bottom: 25px;
-}
-.nextQuestion-bar{
-    border-radius: 93px;
-    border: 3px solid #FFF;
-    background: linear-gradient(90deg, #A26844 0%, #4D2416 100%);
-    width: 190px;
-    font-size: 20px;
-    font-family: "Walsheim";
-    text-transform: uppercase;
-    height: 55px;
-    color: #fff;
-}
-.bottom-image-bar{
-  width: 100%;
-  margin: 30px 0px 0px; 
-}
-.top-image-bar{
-  width: 100%;
-}
-.sibling-bar{
-  font-family: "Snavely";
-  font-size: 42px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 110%;
-}
-.appropriate-bar{
-  font-family: "Walsheim";
-  color: white;
-  font-size: 15px;
-}
-.knowYour-bar{
-  font-size: 18px;
-  font-family: "Walsheim";
-  font-size: 18px;
-
-}
-.hersheyBackgroundImageSection-bar-4{
-  left: -10px;
-  bottom: -14px;    
-}
-.hersheyBackgroundImageSection-bar-3{
-  right: -18px;
-  top: -50px;
-}
-.elements-bar2{
-  position: relative;
-}
-.img1-bar{
-  position: absolute;
-}
-.elements-bar3{
-  position: relative;
-}
-.img3-bar{
-  position: absolute;
-}
-.qns-bar-2{
-  color: #fff;
-  font-family: "Walsheim";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.qns-bar-3{
-  margin-top: -30px !important;
-    border: 7px solid hsl(44, 79%, 67%);
-    border-radius: 15px;
-    background: #E8B377;
-    background-image: url(/images/question\ 1.png);
-    box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 20px;
-    font-family: "Walsheim";
-    position: relative;
-    height: 171px;
-    z-index: 1;
-}
-.hersheyBackgroundImage-bar{
-  margin-top: -36px;
-}
-.hershey-pip-bar{
-  top: -50px;
-  right: -20px;
-}
-.elements-heart{
-  margin-top: -31px;
-  margin-right: 15px;
-}
-/* -----------hershey card jquery */
-.normal-div-bar{
-    margin: 1px;
-    width:32.33%;
-    height: 40%;
-    font-size: 12px;
-    /* position:relative; */
-    float:left;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    color: white;
-    font-family:"snavely";
-    text-transform: lowercase;
-  }
-  .qns-1{
-    position: relative;
-    z-index: 2;
-    margin: 0px 0px 25px;
-    min-height: 210px;
-    padding: 25px 0px;
-    border: 7px solid  hsl(44, 79%, 67%);
-    border-radius: 15px;
-    background: #E8B377;
-    background-image: url(/images/smallKisses.png);
-    box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    font-family: "Walsheim";
-  }
-  /* .expanded-div-bar{
-      width:60%;
-      background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-      border: 2px solid  hsl(44, 79%, 67%);
-      color: #37140B;
-      font-family:"snavely";
-      text-transform: lowercase;
-  } */
-  .question-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 145px;
-    padding: 0px 15px;
-  }
-  .compressed-div-bar{
-    width:18.5%;
-    
-  }
-  #div-1{
-    background-color: #774629;
-  }
-  #div-2{
-    background-color: #774629;
-  }
-  #div-3{
-    background-color: #774629;
-  }
-  a.expansion-btn-bar{
-    position:absolute;
-    top:10px;
-    right:10px;
-    cursor:pointer;
-    font-size: 2vw;
-    margin-left: 13px;
-    margin-top: 27px;
-  }
-  .expansion-btn-bar{
-    /* margin-top: 22px; */
-    margin-top: 11px;
-    margin-left: 12px;
-  }
-
-  /* .........................................................................card1 */
-  .div-var{
-    font-size: 12px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    color: white;
-    font-family:"snavely";
-    text-transform: lowercase;
-    border: 2px solid #fff;
-  }
-  .qns-bar-1{
-    border: 7px solid  hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background: #E8B377;
-  background-image: url(/public/images/question\ 1.png);
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 20px;
-  font-family: "Walsheim";
-    position: relative;
-  height: 171px;
-  margin-top: -53px !important;
-    /* margin-top: 6px !important; */
-  z-index: 1;
-  }
-  
-  .expanded-div{
-    justify-content: center;
-    width:60%;
-    background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-    border: 2px solid hsl(44, 79%, 67%);
-    color: #37140B;
-    font-family:"snavely";
-    font-size: 17px;
-    text-transform: lowercase;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-  
-  .compressed-div{
-    width:18.5%;
-  }
-  
-  /* #hershey-bar-1{
-
-  }
-  
-  #hershey-bar-2{
-
-  }
-  
-  #hershey-bar-3{
-  
-  } */
-  
-  a.expansion-btn{
-    position:absolute;
-    top:10px;
-    right:10px;
-    cursor:pointer;
-    font-size: 2vw;
-    margin-left: 13px;
-    margin-top: 27px;
-  }
-  
-  .expansion-btn{
-    margin: 0px!important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  /* -------------------------------------------card2 */
-
-  
-.form-check-input-ns {
-  width: 18px;
-  height: 18px;
-}
-.form-check-label-ns {
-  font-family: "Walsheim-Medium";
-  font-size: 16px;
-  margin-left: 10px;
-}
-.form-check-label-ns a {
-  text-decoration: underline;
-  border-bottom: 2px solid #EFBE7F;
-  cursor: pointer;
-}
-.get-coupon-form button {
-  position: relative;
-  background-image: url("/images/get-coupon-btn.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 78px;
-  color: #5f3019;
-  font-family: 'Walsheim';
-}
-.get-coupon-form button .coupon-btn-text {
-  width: fit-content;
-  display: flex;
-  background: unset;
-  transition: unset;
-  border-radius: unset;
-  line-height: 21px;
-  align-items: center;
-}
-.span-div-coupon {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 10px;
-}
-.code-copy-img img {
-  width: 70%;
-}
-/* .get-coupon-form button .coupon-btn-text::after {
-  margin-left: 5px;
-  content: '';
-  background-image: url(/images/copy-btn.png);
-  width: 16px;
-  background-size: contain;
-  height: 19px;
-} */
-.get-coupon-form p {
-  margin-top: 0px;
-  font-family: "Walsheim-Medium";
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.post-script-text {
-  padding: 5px 10px;
-  display: none;
-}
-button:disabled,
-button[disabled]{
-  filter: opacity(0.25);
-}
-.post-script-text p{
-  text-align: center;
-  margin: 0px;
-  font-family: "Walsheim-Medium";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  background: linear-gradient(90deg, #F6DAAD 0%, #F7C789 50%, #EFBE7F 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* --------------------------------------- */
-.new-div-var {
-  font-size: 12px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.new-qns-bar-1 {
-  border: 7px solid hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background: #E8B377;
-  background-image: url(/public/images/question\ 1.png);
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 20px;
-  font-family: "Walsheim";
-  position: relative;
-  height: 171px;
-  margin-top: -53px !important;
-  /* margin-top: 6px !important; */
-  z-index: 1;
-}
-
-.new-expanded-div {
-  font-family: "Walsheim";
-  justify-content: center;
-  width: 60%;
-  border: 3px solid #FFF;
-  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
-  color: #37140B;
-  font-family: "Walsheim";
-  font-size: 17px;
-  text-transform: lowercase;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  flex: 2!important;
-  text-transform: capitalize;
-}
-
-.new-compressed-div {
-  width: 18.5%;
-}
-a.new-expansion-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 2vw;
-  margin-left: 13px;
-  margin-top: 27px;
-}
-
-.new-expansion-btn {
-  margin: 0px!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-/* ----------------------------- */
-
-
-.option-div {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  font-family: "Walsheim";
-  text-transform: capitalize;
-  font-size: 12px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.option-bar {
-  border: 7px solid hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background: #E8B377;
-  background-image: url(/public/images/question-1.png);
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 20px;
-  font-family: "Walsheim";
-  position: relative;
-  height: 171px;
-  margin-top: -53px !important;
-  z-index: 1;
-}
-
-.option-expanded {
-  font-family: "Walsheim";
-  justify-content: center;
-  width: 60%;
-  border: 3px solid #FFF;
-  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
-  color: #37140B;
-  font-family: "Walsheim";
-  font-size: 17px;
-  text-transform: lowercase;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  flex: 2!important;
-  text-transform: capitalize;
-}
-
-.option-compressed {
-  -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-a.option-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 2vw;
-  margin-left: 13px;
-  margin-top: 27px;
-}
-
-.option-btn {
-  margin: 0px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* rachit's CSS (keep it at the very end of the css file */
-.kisses-header {
-  height: 170px;
-  padding: 25px 25px 0px;
-  margin-top: 40px;
-}
-.kisses-bg {
-  width: 100%;
-  position: relative;
-  /* z-index: -1; */
-}
-.kisses-bg img {
-  position: absolute;
-  overflow: hidden;
-}
-.image-1-rc {
-  position: absolute;
-  right: 0px;
-  top: -33px;
-}
-.outerDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-.image-9 {
-  right: -27px;
-  top: -45px;
-}
-/* .question-elements {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 145px;
-  padding: 0px 15px;
-} */
-.hanging-circles {
-  width: 100%;
-  position: relative;
-}
-.hanging-circles img {
-  width: 50px;
-  position: absolute;
-  right: 15px;
-}
-.bar-heading {
-  width: 90%;
-  margin: 0px auto;
-  padding: 25px 0px 0px;
-}
-.bar-heading h3,
-.bar-heading h1 {
-  color: #472115;
-}
-.bar-heading .knowYour-bar {
-  margin: 0px;
-}
-.sketchy-lines {
-  width: 100%;
-  position: relative;
-}
-.sketchy-lines img {
-  position: absolute;
-  right: -10px;
-  bottom: 0px;
-}
-#loadingscreen{
-  display: none;
-}
-.loading-screen {
-  display: none;
-  width: 100%;
-  height: 110vh;
-  margin: 0px auto;
-  background: linear-gradient(90deg, #2D100C 0%, #61311A 100%), #3F000B;
-}
-.loading-media {
-  width: 100%;
-  height: 60vh;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.video-placeholder {
-  width: 100%;
-  height: 100%;
-}
-.loading-video {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.kisses-loading-video {
-  width: 100%;
-  display: none;
-}
-.loading-message {
-  width: 100%;
-  margin: 0px auto;
-  padding: 25px 0px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  height: 15%;
-  padding-bottom: 0px;
-}
-.loading-message h4 {
-  font-size: 16px;
-  color: #291213;
-  text-align: center;
-  font-family: "Walsheim";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%; /* 16px */
-  letter-spacing: -0.384px;
-}
-.loading-message h4 span {
-  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.loading-spinner {
-  height: 10%;
-  display: flex;
-  align-items: center;
-}
-.loading-spinner .spinner-ns {
-  border: unset;
-  background: linear-gradient(124deg, #FDEAB1 0%, #F6CD73 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-}
-.message-header {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-.close-icon {
-  position: relative;
-  width: 100%;
-}
-.close-icon img {
-  position: absolute;
-  right: 0px;
-  width: 24px;
-  cursor: pointer;
-}
-.message-header h3,
-.message-header .dynamic-name h2 {
-  margin: 0px;
-  color: #2D1415;
-  font-family: "Walsheim";
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: capitalize;
-}
-.message-header h3 {
-  font-family: "Walsheim-Medium";
-  font-size: 16px;
-}
-.message-header .dynamic-name h2 {
-  font-size: 25px;
-}
-@-webkit-keyframes bummer {
-  100% {
-      -webkit-transform: scale(1,1); 
-  }
-}
-
-@keyframes bummer {
-  100% {
-      transform: scale(1,1); 
-  }
-}
-.message-wrapper {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 999;
-  border-radius: 10px;
-  padding: 25px;
-  display: none;
-  width: 90%;
-  height: fit-content;
-  margin: auto;
-  -webkit-transform: scale(0, 0);
-  transform: scale(0, 0);
-  -webkit-animation: bummer 1s ease;
-  animation: bummer 1s ease-out;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-.kisses-message {
-  display: none;
-  background: #E8B377;
-  background-image: url("/images/kisses-shape-bg.png");
-  background-size: contain;
-  background-repeat: repeat;
-  background-position: top;
-  margin: auto;
-  height: max-content;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, .7);
-}
-.dynamic-name {
-  display: flex;
-  font-family: "Walsheim";
-}
-/* .message-body .dynamic-note p {
-  margin: 20px 0px 0px 0px;
-  font-family: "Walsheim-Medium";
-  font-size: 18px;
-  text-align: justify;
-  color: #2D1415;
-} */
-.message-body .dynamic-note p span {
-  font-family: "Walsheim";
-  background-clip: unset;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: black;
-}
-.dynamic-img {
-  display: flex;
-  justify-content: center;
-}
-.dynamic-img img {
-  width: 70%;
-}
-.preview-text {
-  z-index: 2;
-  top: 70px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 4px 1px rgba(0, 0, 0, 0.25);
-  width: 100%;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  margin: 0px auto;
-}
-.preview-text h3 {
-  font-family: "Walsheim";
-  font-size: 21px;
-  text-transform: capitalize;
-  letter-spacing: 1px;
-}
-.rakhi-img-coupon {
-  filter: opacity(0.2);
-}
-#ZapparSnapshotContainer {
-  background-color: #3F000B!important; 
-}
-#zapparSaveButton,
-#zapparShareButton {
-  border-radius: 6px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%)!important;
-}
-#zapparShareButton svg, 
-#zapparSaveButton svg {
-  height: 60px!important;
-}
-#zapparCloseAref g{
-  stroke: #EDC967;
-}
-#zapparSaveButton svg #Path-6,
-#zapparSaveButton svg #Combined-Shape,
-#zapparSaveButton svg text,
-#picture-copy {
-  fill: #3F000B!important;
-}
-.st0 {
-  fill: #3F000B!important;
-}
-.st1 {
-  font-family: 'Walsheim'!important;
-}
-#zapparSaveButton svg text {
-  font-family: 'Walsheim'!important;
-}
-/* #ZapparPreviewVideo {
-  height: 80vh!important;
-} */
-.zappar-mobile-only {
-  background-color: rgba(63, 0, 11, .9)!important;
-  font-family: "Walsheim-Medium"!important;
-}
-.zappar-svg-container svg {
-  border-radius: 10px;
-}
-.option-row-bars {
-  display: flex;
-  flex-direction: row;
-}
-.div-var {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  font-family: "Walsheim";
-  text-transform: capitalize;
-}
-.expanded-div-bars {
-  font-family: "Walsheim";
-  justify-content: center;
-  width: 60%;
-  border: 3px solid #FFF;
-  background: radial-gradient(50% 50.00% at 50% 50.00%, #FEBC20 0%, #F7950F 100%);
-  color: #37140B;
-  font-family: "Walsheim";
-  font-size: 17px;
-  text-transform: lowercase;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  flex: 2!important;
-  text-transform: capitalize;
-}
-.without-x-borders {
-border-left: none;
-border-right: none;
-}
-.outerDiv-bar {
-  padding-top: 15px;
-}
-.new-div-var {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  font-family: "Walsheim";
-  text-transform: capitalize;
-}
-.bars-casacade-loading {
-  width: 100%;
-}
-.window-exotic {
-  display: none;
-}
-.receiver-wrapper {
-  display: none;
-  overflow-y: scroll;
-  background-image: url(/images/kisses-shape-bg.png);
-  background-size: contain;
-  background-repeat: repeat-y;
-  background-color: #E8B377;
-  height: 100dvh;
-}
-.receiver-div {
-  position: relative;
-  z-index: 2;
-  overflow-x: hidden;
-  padding: 0px 0px 25px;;
-}
-.receiver-img-bg {
-  position: fixed;
-  z-index: 1;
-}
-.receiver-kiss-cascade-drop {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.receiver-kiss-cascade-drop img {
-  width: 50%;
-}
-.hanging-decoration-top {
-  z-index: -1;
-  position: fixed;
-  top: 0px;
-  left: 10px;
-}
-.flower-combo-4 {
-  z-index: -1;
-  position: fixed;
-  width: 40%;
-  bottom: -50px;
-  left: -60px;
-}
-.flower-combo-3 {
-  z-index: -1;
-  position: fixed;
-  width: 40%;
-  right: -40px;
-  top: 170px;
-}
-.receiver-div-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #3F000B;
-}
-.recevier-hershey-pack {
-  width: 100%;
-}
-.receiver-div-content h3 {
-  font-size: 20px;
-  font-family: "Walsheim-Medium";
-}
-.receiver-div-content h1 {
-  font-family:"snavely";
-  font-size: 30px;
-}
-.receiver-div-button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.receiver-div-button button {
-  margin: 15px 0px;
-  border-radius: 93px;
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #37140B;
-  padding: 15px 50px;
-  font-size: 21px;
-  font-family: "Walsheim-Medium";
-  text-transform: capitalize;
-  border: none;
-}
-.hed-close-btn {
-  background: linear-gradient(133deg, #DFBC66 0%, #F7EF8A 23.44%, #FFF4C5 47.92%, #D2AC47 76.04%, #EDC967 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  border-radius: 15px;
-  padding: 5px;
-}
-.hed-message {
-  background-color: #3F000B;
-  background-image: url('/images/hed-note-bg.png');
-  background-repeat: no-repeat;
-  background-size: 100% 80%;
-}
-.bar-message {
-  background: linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%), linear-gradient(170deg, #F6CD73 0%, #F2C869 100%);
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-}
-.bars-note-png {
-  background-image: url('/images/bars-note-bg.png');
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  background-size: contain;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-.bars-dynamic-img {
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding: 0px!important;
-}
-#completenote {
-  margin: 1rem 0px;
-  font-family: "Walsheim-Medium";
-}
-.message-header .hed-note-text,
-.message-header .hed-dynamic-name h2,
-.hed-note-text {
-  color: unset;
-  background: linear-gradient(124deg, rgb(253, 234, 177) 0%, rgb(246, 205, 115) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.message-header .bars-note-text,
-.message-header .bars-dynamic-name h2,
-.bars-note-text {
-  color: #2D1415;
-  font-family: "Walsheim";
-
-}
-
-
-/* rachit's CSS end's here */
-
-
-/* -------------------------------------- */
-/* Your CSS styles */
-.carosel-images.active {
-  border: 2px solid transparent; /* Add any style you want for the active image */
-}
-
-.carosel-images.disabled {
-  opacity: 0.5; /* You can change the style to make disabled images appear faded or grayed out */
-  pointer-events: none; /* Prevent clicks on disabled images */
-}
-/* -----------------------------------------------------------hershey exotic */
-.window-exotic{
-  background: rgba(65, 14, 15, 1);
-  /* height: 115; */
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 100dvh;
-}
-.window-exotic .rakhi-kiss-image {
-    width: 165px;
-    position: absolute;
-    top: 19px;
-    right: 0px;
-}
-.image-1-rc-exotic {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  z-index: 3;
-}
-.hersheyBackgroundImageSection-4-duplicate-exotic{
-  right: -14px;
-    top: -52px;
-}
-.hersheyBackgroundImage-exotic{
-  margin-top: -36px;
-  left: -9px;
-}
-.image-9-exotic{
-  right: -15px;
-  top: -45px;
-}
-.qns-exotic-1{
-  position: relative;
-  z-index: 2;
-  min-height: 210px;
-  padding: 25px 0px;
-  border: 7px solid  hsl(44, 79%, 67%);
-  border-radius: 15px;
-  background:  #F2C869;
-  background-image: url(/images/card-background.png);
-  background-repeat: no-repeat;
-  background-size: 102% 104%;
-  background-position: center;
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.30) inset, 0px -9px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: "Walsheim";
-  margin-bottom: 25px;
-}
-.bottom-berries-img {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-}
-.hed-next-btn {
-  position: relative;
-  z-index: 9;
-}
-.gliter-with-group{
-  height: 42px;
-}
-.gliter-with-groups{
-  position: relative;
-    z-index: 4;
-    top: -109px;
-    height: 116px;
-    margin-left: -23px;
-}
-.hershey-exotic-div{
-  margin-top: 33px;
-}
-.exotic-content{
-  margin-left: 16px;
-}
-/* ---------------------------hershey exotic cards */
-
-
-
-
-
-
-
-.exotic-dark {
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  margin: 1px;
-  width: 32.33%;
-  height: 100%;
-  font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: white;
-  font-family: "snavely";
-  text-transform: lowercase;
-}
-
-.exotic-hershey {
-  width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
-  color: #37140B;
-  font-family: "snavely";
-  text-transform: lowercase;
-  font-size: 17px;
-}
-
-.compressed-div {
-  width: 18.5%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#exotic-hershey-1 {
-  background-color: #774629;
-}
-
-#exotic-hershey-2 {
-  background-color: #774629;
-}
-
-#exotic-hershey-3 {
-  background-color: #774629;
-}
-
-a.expansion-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 2vw;
-  margin-left: 13px;
-  margin-top: 27px;
-}
-
-.expansion-btn {
-  margin-top: 11px;
-  margin-left: 12px;
-}
-/* -------------------------------- */
-.exotic-card2 {
-  justify-content: center;
-}
-
-.container {
-  width: 80%;
-  max-width: 800px;
-}
-
-/* Styles for the exotic divs */
-.exotic-div {
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  margin: 1px;
-  width: 32.33%;
-  height: 100%;
-  font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: white;
-  font-family: "snavely";
-  text-transform: lowercase;
-}
-
-.exotic-expanded-div {
-  width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
-  color: #37140B;
-  font-family: "snavely";
-  text-transform: lowercase;
-  font-size: 17px;
-}
-
-.exotic-compressed-div {
-  width: 18.5%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-/* Styles for the exotic div backgrounds */
-#exotic-dark-card2-1 {
-  background-color: #774629;
-}
-
-#exotic-dark-card2-2 {
-  background-color: #774629;
-}
-
-#exotic-dark-card2-3 {
-  background-color: #774629;
-}
-
-/* Styles for the expansion buttons */
-.exotic-expansion-btn {
-  margin: 0px!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* ---------------------------------------------- */
-.exotic-card-container {
-  justify-content: center;
-}
-
-.exotic-option-container {
-  width: 80%;
-  max-width: 800px;
-}
-
-.exotic-question {
-  font-size: 24px;
-  font-family: "snavely";
-}
-
-
-
-
-
-
-
-
-
-
-/* -------------------card3 */
-
-.sibling-bond-option {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  margin: 1px;
-  width: 32.33%;
-  height: 100%;
-  font-size: 12px;
-  /* position: relative; */
-  float: left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: white;
-  font-family: "snavely";
-  text-transform: lowercase;
-}
-
-.expanded-option {
-
-  width: 60%;
-  background: linear-gradient(170deg, rgba(246, 205, 115, 0.20) 0%, rgba(242, 200, 105, 0.20) 100%), linear-gradient(225deg, #FDEAB1 0%, #FAE1A1 30.71%, rgba(253, 234, 177, 0.00) 100%), linear-gradient(316deg, #F5CC72 0%, #F5CC72 100%);
-  border: 2px solid hsl(44, 79%, 67%);
-  color: #37140B;
-  font-family: "snavely";
-  text-transform: lowercase;
-  font-size: 17px;
-}
-
-.compressed-option {
-  width: 18.5%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#option-exotic-1 {
-  background-color: #774629;
-}
-
-#option-exotic-2 {
-  background-color: #774629;
-}
-
-#option-exotic-3 {
-  background-color: #774629;
-}
-
-.option-text {
-  margin: 0px!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Video Preview Container */
-#preview-Container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  z-index: 10000;
-  background-color: #3F000B;
-  font-family: sans-serif;
-  color: rgb(255, 255, 255);
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-}
-#closebtn{
-  position: absolute;
-  width: 25px;
-  top: 20px;
-  right: 20px;
-}
-#savebtn{
-  display: block;
-  bottom: 5vh;
-  height: 9.6vw;
-  width: 20vw;
-  left:40vw;
-  background-image: url(images/record-video-save.png);
-  background-position: center;
-  background-size: contain;
-}
-#sharebtn{
-  display: block;
-  bottom: 5vh;
-  height: 9.6vw;
-  width: 20vw;
-  right:10vw;
-  background-image: url(images/record-video-share.png);
-  background-position: center;
-  background-size: contain;
-}
-#rakhi{
-  display: none;
-  position: absolute;
-  z-index: 3554644;
-  top: 0;
-  height: 20%;
-}
-#videotag {
-  height: 75%;
-  position: absolute;
-  top: -40px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  margin: auto;
-  width: 90%;
-}
-
-.record-video-controls {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: 35px;
-}
-
-.packSelectedOne {
-  border: 5px solid greenyellow;
-}
-         </style>
-    <meta charset="utf-8">
-    <title>8th Wall Web: Animations</title>
-    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
-
-    <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
-    <script src="//cdn.8thwall.com/web/aframe/8frame-1.3.0.min.js"></script>
-    <script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"></script>
-
-    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
-         See github.com/8thwall/web/tree/master/xrextras -->
-    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
-
-    <!-- Landing Pages - see https://www.8thwall.com/docs/web/#landing-pages -->
-    <script src='//cdn.8thwall.com/web/landing-page/landing-page.js'></script>
-
-    <!-- 8thWall Web - Replace the app key here with your own app key -->
-    <script async src="//apps.8thwall.com/xrweb?appKey=gJaKOZbM2icbIpRFaNLUfMJHNG1lzgf46laZHuzKlVkNA5TxL9PVS7BzyNzvispFpJJGMi"></script>
-
-    <script>
-      AFRAME.registerComponent('next-button', {
-        init() {
-          const animationList = ['idle', 'pockets', 'hiphop', 'chicken']
-
-          const model = document.getElementById('model')
-          const nextButton = document.getElementById('nextbutton')
-
-          nextButton.style.display = 'block'
-
-          let idx = 1  // Start with the 2nd animation because the model starts with idle animation
-          const nextAnimation = () => {
-            model.setAttribute('animation-mixer', {
-              clip: animationList[idx],
-              loop: 'repeat',
-              crossFadeDuration: 0.4,
-            })
-            idx = (idx + 1) % animationList.length
-          }
-          nextButton.onclick = nextAnimation  // Switch to the next animation when the button is pressed.
-        },
-      })
-    </script>
-  </head>
-  <body>
-    <div id="nextbutton" style="display: none; z-index: 10">
-      <h2>Next Animation</h2>
+<%- include('./includes/header') %>
+<%- include('./includes/index-header') %>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP3S4JBW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- receiver first screen -->
+  <!-- <div id="receiverfirstscreen">
+    <div class=" header d-flex justify-content-center">
+      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
     </div>
-    <audio id="bgaudio" loop>
-      <source src="sfx/hersheys-music.mp3" type="audio/mp3">
-      </source>
-      Your browser does not support the audio element.
-  </audio>
-    <!-- senders first screen -->
-    <div id="firstscreen">
-      <div class=" header d-flex justify-content-center">
-        <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
-      </div>
-      <div class="landing-page-ns">
-        <div class="d-flex justify-content-between">
-          <div><img class="landing-page-leftimage" src="/images/Asset 24.png" /></div>
-          <div class="d-flex justify-content-start layer-ns">
-            <div><img src="/images/Layer 1 (2).png" /></div>
-            <div><img src="/images/Layer 1 (1).png" /></div>
-          </div>
-          <div><img class="landing-page-rakhi" src="/images/rakhi.png" /></div>
+    <div class="landing-page-ns">
+      <div class="d-flex justify-content-between">
+        <div><img class="landing-page-leftimage" src="/images/Asset 24.png" /></div>
+        <div class="d-flex justify-content-start layer-ns">
+          <div><img src="/images/Layer 1 (2).png" /></div>
+          <div><img src="/images/Layer 1 (1).png" /></div>
         </div>
-        <div class="landing-page-ns-position">
+        <div><img class="landing-page-rakhi" src="/images/rakhi.png" /></div>
+      </div>
+      <div class="landing-page-ns-position">
+        <div class="d-flex justify-content-start">
+          <h6 class="landing-page-make">Make</h6>
+        </div>
+        <div>
           <div class="d-flex justify-content-start">
-            <h6 class="landing-page-make">Make</h6>
+            <h1 class="landing-page-rakshabandhan">Rakshabandhan</h1>
           </div>
-          <div>
-            <div class="d-flex justify-content-start">
-              <h1 class="landing-page-rakshabandhan">Rakshabandhan</h1>
-            </div>
-          </div>
-          <div class="d-flex justify-content-start">
-            <h4 class="landing-page-sibling">special for your sibling!</h4>
-          </div>
-        </div>
-        <div class="d-flex justify-content-end shine">
-          <img src="/images/shine and glitter.png" />
-        </div>
-        <div class="d-flex justify-content-center">
-          <div class="send-surprise-message " id="sendgift">
-            <h3 class="heading-div" id="sendSurprise">Send surprise message</h3>
-            <span class="text-landing-page" id="surpriseText">I want to create a special surprise for my sibling to gift along with
-              delicious HERSHEY’S
-              chocolates</span>
-          </div>
-  
-        </div>
-        <div class="d-flex justify-content-end">
-          <img class="flower2" src="/images/flower-combo-2.png" />
-        </div>
-        <div class="d-flex justify-content-center " id="sendthanks">
-          <div class="send-thankyounote" id="sendthankyou">
-            <h3 class="heading-div" >Send thank you note</h3>
-            <span class="text-landing-page">I have received delicious HERSHEY’S Chocolates from my sibling and
-              wish to thank them</span>
-          </div>
-        </div>
-        <div class="d-flex justify-content-start"> <img class="flower" src="/images/flower-combo.png" /></div>
-  
-        <div class="d-flex justify-content-between">
-          <div><img src="/images/Shine@1920x 3.png" /></div>
-          <!-- <div> <img src="/images/flower-combo-2.png"/></div> -->
-          <div><img src="/images/Asset 25.png" /></div>
-        </div>
-      </div>
-  
-  
-    </div>
-  
-    <!-- //second screen -->
-  <form id="formId" action="/questions" method="POST" enctype="multipart/form-data">
-    <div class="wrapper" id="secondscreen">
-      <div class=" header d-flex justify-content-center">
-        <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
-      </div>
-  
-      <div class="alert-check-upload invisible">
-        <div class="alert-content" style="flex-direction: column;
-        align-items: flex-end;">
-          <div id="alertCloseBtnUpload" class="close-btn-alert">
-            <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
-          </div>
-          <div class=" alert alert-warning" role="alert">
-            <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
-            <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
-            <h2>Upload square picture for best resolution</h2>
-          </div>
-        </div>
-      </div>
-  
-      <div class="wrapperdiv">
-        <div class="username-section">
-          <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
-          <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal</p>
-          <input id="siblingname" type="text" placeholder="SIBLING'S NAME" class="userName" required />
         </div>
         <div class="d-flex justify-content-start">
-          <img class="carousel-ns" src="/images/Asset 24.png" />
-        </div>
-        <div class="golden-wrapper">
-          <h2 class="title-ns">Select your pack</h2>
-          <div class="owl-carousel owl-theme d-flex justify-content-center">
-            <div class="item" id="selectPack">
-              <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item data-carousel-id="carousel1"/></h4>
-            </div>
-            <div class="item">
-              <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item data-carousel-id="carousel2"/></h4>
-            </div>
-            <div class="item">
-              <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item data-carousel-id="carousel3"/></h4>
-            </div>
-          </div>
-         
-          
-        </div>
-        <div class="upload-section">
-          <div class="upload-outerdiv">
-            <div class=" d-flex justify-content-center">
-              <p class="camera-tag">Make it special with a 📷</p>
-            </div>
-            <div class=" uploader d-flex justify-content-between">
-              <div id="imagediv" class="upload-file-text">
-                <p class="filejpeg " id="changeFileName">Sibling's Photo</p>
-              </div>
-              <div class="photo">
-                <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
-                <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
-              </div>
-            </div>
-            <div class="d-flex justify-content-center flex-column text-center">
-              <p class="base-title">For best resolution upload a <br> square photo.</p>
-              <p class="caption-ns">Select a lovely photo together OR of your sibling alone!</p>
-            </div>
-          </div>
-        </div>
-        <div class="kisses-bg">
-          <img class="flower-carousel-bottom" src="/images/flower-combo-2.png" />
-        </div>
-        <!-- <hr class="breakline" /> -->
-        <div class="d-flex justify-content-center">
-          <button id="nextbtn" class="next-button" type="submit">Next</button>
+          <h4 class="landing-page-sibling">special for your sibling!</h4>
         </div>
       </div>
-    </div>
-  </form>
-    <!-- ------------------------------------------------ hershey-kisses-->
-    <div class="window-kisses" id="thirdscreen">
-      <div class="alert-check-questions invisible">
-        <div class="alert-content">
-          <div id="alertCloseBtn" class="close-btn-alert">
-            <img src="/images/close.png" alt="close">
-          </div>
-          <div class=" alert alert-warning" role="alert">
-            <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
-            <h1 class="display-1 image-missing">\(o_o)/</h1>
-            Please select an option for each question!
-          </div>
-        </div>
-      </div>
-      <div class="kisses-header">
-        <h3 class="knowYour">Help us to know Your</h3>
-        <h3 class="sibling">sibling better</h3>
-        <h6 class="text-white appropriate">Choose the most appropriate options</h6>
-      </div>
-      <div class="header-rakhi-image">
-        <img  class="rakhi-kiss-image" src="/images/rakhi.png" />
-      </div>
-      <div class="kisses-bg"><img class="image-1-rc" src="/images/image1.png" />
-      </div>
-  
-  
-      <div class="relative-question-div">
-        <div class="container">
-          <div class="question-list">
-            <div class="qns-1">
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-2">A word to describe our sibling bond</p>
-                </div>
-                <div class="row">
-                  <div class="options-row">
-                    <div class="normal-div d-flex" id="div-1">
-                      <p class="expansion-btn exp-1">Sweet <br>Troublemakers</p>
-                    </div>
-                    <div class="normal-div d-flex" id="div-2">
-                      <p class="expansion-btn exp-2">Partners in <br>crimes</p>
-                    </div>
-                    <div class="normal-div d-flex" id="div-3">
-                      <p class="expansion-btn exp-3">Top screet <br>Keepers</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="kisses-bg">
-              <img class="hersheyBackgroundImage" src="/images/image3.png" />
-              <img class="hersheyBackgroundImageSection-4-duplicate" src="/images/image5.png" />
-            </div> 
-            <div class="qns-1">
-        
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-2">My sibling's superpower is</p>
-                </div>
-                <div class="row">
-                  <div class="options-row">
-                    <div class="custom-div d-flex" id="custom-div-1">
-                      <p class="custom-expansion-btn exp-1">Super <br> caring</p>
-                    </div>
-                    <div class="custom-div d-flex" id="custom-div-2">
-                      <p class="custom-expansion-btn exp-2">Delightfully <br> annoying</p>
-                    </div>
-                    <div class="custom-div d-flex" id="custom-div-3">
-                      <p class="custom-expansion-btn exp-3">Giving mature <br> advices</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="kisses-bg">
-              <img class="hersheyBackgroundImageSection-4" src="/images/image5.png" />
-              <img class="hersheyBackgroundImageSection-5" src="/images/image6.png" />
-            </div>  
-            <div class="kisses-bg">
-              <img class="image-9" src="/images/image9.png" />
-            </div>    
-            <div class="qns-1">
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-2">My sibling tends to be</p>
-                </div>
-                <div class="row">
-                  <div class="options-row">
-                    <div class="custom-option custom-normal-option d-flex" id="custom-option-1">
-                      <p class="custom-option-btn custom-btn-1">Crazy</p>
-                    </div>
-                    <div class="custom-option custom-normal-option d-flex" id="custom-option-2">
-                      <p class="custom-option-btn custom-btn-2">Realistic</p>
-                    </div>
-                    <div class="custom-option custom-normal-option d-flex" id="custom-option-3">
-                      <p class="custom-option-btn custom-btn-3">Determined</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-          <div class="d-flex justify-content-between hersheyBackgroundImageSection-6">
-            <img class="img1" src="/images/image8.png" />
-            <img class="img2" src="/images/image7.png" />
-          </div>
+      <div class="d-flex justify-content-end shine">
+        <img src="/images/shine and glitter.png" />
       </div>
       <div class="d-flex justify-content-center">
-        <button class="nextQuestion" id="nextQuestionid">next</button>
+        <div class="send-surprise-message " id="sendgift1">
+          <h3 class="heading-div" id="sendSurprise">Send surprise message</h3>
+          <span class="text-landing-page" id="surpriseText">I want to create a special surprise for my sibling to gift along with
+            delicious HERSHEY’S
+            chocolates</span>
+        </div>
+
+      </div>
+      <div class="d-flex justify-content-end">
+        <img class="flower2" src="/images/flower-combo-2.png" />
+      </div>
+      <div class="d-flex justify-content-center " id="sendthanks">
+        <div class="send-thankyounote" id="receiverbtn">
+          <h3 class="heading-div" >receiver </h3>
+          <span class="text-landing-page">I have received delicious HERSHEY’S Chocolates from my sibling and
+            wish to thank them</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start"> <img class="flower" src="/images/flower-combo.png" /></div>
+
+      <div class="d-flex justify-content-between">
+        <div><img src="/images/Shine@1920x 3.png" /></div>
+      
+        <div><img src="/images/Asset 25.png" /></div>
       </div>
     </div>
-  
-    <!-----------------------------------------hershey bar -->
-    <div class="windows-bar" id="thirdscreen-bar">
-      <div class="alert-check-questions-bar invisible">
-        <div class="alert-content">
-          <div id="alertClosebarBtn" class="close-btn-alert">
-            <img src="/images/close.png" alt="close">
-          </div>
-          <div class=" alert alert-warning" role="alert">
-            <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
-            <h1 class="display-1 image-missing">\(o_o)/</h1>
-            Please select an option for each question!
+
+
+  </div> -->
+  <audio id="bgaudio" loop>
+    <source src="sfx/hersheys-music.mp3" type="audio/mp3">
+    </source>
+    Your browser does not support the audio element.
+</audio>
+  <!-- senders first screen -->
+  <div id="firstscreen">
+    <div class=" header d-flex justify-content-center">
+      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
+    </div>
+    <div class="landing-page-ns">
+      <div class="d-flex justify-content-between">
+        <div><img class="landing-page-leftimage" src="/images/Asset 24.png" /></div>
+        <div class="d-flex justify-content-start layer-ns">
+          <div><img src="/images/Layer 1 (2).png" /></div>
+          <div><img src="/images/Layer 1 (1).png" /></div>
+        </div>
+        <div><img class="landing-page-rakhi" src="/images/rakhi.png" /></div>
+      </div>
+      <div class="landing-page-ns-position">
+        <div class="d-flex justify-content-start">
+          <h6 class="landing-page-make">Make</h6>
+        </div>
+        <div>
+          <div class="d-flex justify-content-start">
+            <h1 class="landing-page-rakshabandhan">Rakshabandhan</h1>
           </div>
         </div>
-      </div>
-      <div class="top-banner-ns">
-        <img class="top-image-bar" src="/images/top-pattern.png" />
-      </div>
-  
-      <div class="hanging-circles">
-        <img src="/images/hanging-circle-shapes.png" alt="">
-      </div>
-  
-      <div class="bar-heading">
-        <h3 class="knowYour-bar">Help us to know Your</h3>
-        <h1 class="sibling-bar">sibling better</h1>
-        <div class="d-flex">
-          <h6 class="appropriate-bar">choose the most appropriate options</h6>
+        <div class="d-flex justify-content-start">
+          <h4 class="landing-page-sibling">special for your sibling!</h4>
         </div>
       </div>
-  
-      <div class="kisses-bg">
-        <img class="elements-bar" src="/images/elements --bars 1.png" />
-        <img class="heart-bar" src="/images/bars -heart 1.png" />
+      <div class="d-flex justify-content-end shine">
+        <img src="/images/shine and glitter.png" />
       </div>
-  
-      <div class="container">
-        <div class="outerDiv-bar">
-          <!-- card1 -->
-    
-          <div class="d-flex qns-1-bar">
-            <div class="container">
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-bar-2">A word to describe our sibling bond</p>
-                </div>
-                <div class="row">
-                  <div class="options-row option-row-bars">
-                    <div class="div-var" id="hershey-bar-1">
-                      <p class="expansion-btn exp-hershey-1">Sweet <br> Siblings</p>
-                    </div>
-                    <div class="div-var without-x-borders" id="hershey-bar-2">
-                      <p class="expansion-btn exp-hershey-2">Nutty <br> Friends</p>
-                    </div>
-                    <div class="div-var" id="hershey-bar-3">
-                      <p class="expansion-btn exp-hershey-3">Trusted <br> Partners</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="kisses-bg">
-            <img class="hersheyBackgroundImage-bar" src="/images/Layer 10 1.png" />
-          </div>
-          <div class="kisses-bg">
-            <img class="hershey-pip-bar" src="/images/Pip crumbs 2.png" />
-          </div>
-          <!-- card2 -->
-          <div class="d-flex qns-1-bar">
-            <div class="container">
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-bar-2">I describe my sibling as</p>
-                </div>
-                <div class="row">
-                  <div class="options-row option-row-bars">
-                    <div class="new-div-var" id="new-hershey-bar-1">
-                      <p class="new-expansion-btn new-exp-hershey-1">Closet <br> Rockstar</p>
-                    </div>
-                    <div class="new-div-var without-x-borders" id="new-hershey-bar-2">
-                      <p class="new-expansion-btn new-exp-hershey-2">Always in <br>FOMO</p>
-                    </div>
-                    <div class="new-div-var" id="new-hershey-bar-3">
-                      <p class="new-expansion-btn new-exp-hershey-3">Ultimate <br>Foodie</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="kisses-bg">
-            <img class="hersheyBackgroundImageSection-bar-4" src="images/almond -doodle -bars 1.png" />
-            <img class="hersheyBackgroundImageSection-bar-3" src="/images/Pip 1.png" />
-          </div>
-          <!-- card3 -->
-          <div class="d-flex qns-1-bar">
-            <div class="container">
-              <div class="question-elements">
-                <div class="row">
-                  <p class="qns-bar-2">We both vibe to</p>
-                </div>
-                <div class="row">
-                  <div class="options-row option-row-bars">
-                    <div class="option-div" id="option-1">
-                      <p class="option-btn option-btn-1">Music</p>
-                    </div>
-                    <div class="option-div without-x-borders" id="option-2">
-                      <p class="option-btn option-btn-2">Street <br>food</p>
-                    </div>
-                    <div class="option-div" id="option-3">
-                      <p class="option-btn option-btn-3">Gaming</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="sketchy-lines">
-            <img class="img1-bar" src="/images/elements --bars 2.png" />
-          </div>
+      <div class="d-flex justify-content-center">
+        <div class="send-surprise-message " id="sendgift">
+          <h3 class="heading-div" id="sendSurprise">Send surprise message</h3>
+          <span class="text-landing-page" id="surpriseText">I want to create a special surprise for my sibling to gift along with
+            delicious HERSHEY’S
+            chocolates</span>
+        </div>
+
+      </div>
+      <div class="d-flex justify-content-end">
+        <img class="flower2" src="/images/flower-combo-2.png" />
+      </div>
+      <div class="d-flex justify-content-center " id="sendthanks">
+        <div class="send-thankyounote" id="sendthankyou">
+          <h3 class="heading-div" >Send thank you note</h3>
+          <span class="text-landing-page">I have received delicious HERSHEY’S Chocolates from my sibling and
+            wish to thank them</span>
         </div>
       </div>
-      
-      <div class="d-flex justify-content-center ">
-        <button class="nextQuestion-bar" id="nextQuestionid1">Next</button>
+      <div class="d-flex justify-content-start"> <img class="flower" src="/images/flower-combo.png" /></div>
+
+      <div class="d-flex justify-content-between">
+        <div><img src="/images/Shine@1920x 3.png" /></div>
+        <!-- <div> <img src="/images/flower-combo-2.png"/></div> -->
+        <div><img src="/images/Asset 25.png" /></div>
       </div>
-      <div class="d-flex justify-content-start elements-bar3">
-        <img class="img3-bar" src="/images/elements --bars 3.png" />
+    </div>
+
+
+  </div>
+
+  <!-- //second screen -->
+<form id="formId" action="/questions" method="POST" enctype="multipart/form-data">
+  <div class="wrapper" id="secondscreen">
+    <div class=" header d-flex justify-content-center">
+      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
+    </div>
+
+    <div class="alert-check-upload invisible">
+      <div class="alert-content" style="flex-direction: column;
+      align-items: flex-end;">
+        <div id="alertCloseBtnUpload" class="close-btn-alert">
+          <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
+        </div>
+        <div class=" alert alert-warning" role="alert">
+          <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
+          <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
+          <h2>Upload square picture for best resolution</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapperdiv">
+      <div class="username-section">
+        <p class="surprise-heading" id="changeTextScreen">Sending surprise to</p>
+        <p class="surprise-heading-ns" id="changeContent">Bhaiya, Didi, Chotu 😉 Add nicknames to make it personal</p>
+        <input id="siblingname" type="text" placeholder="SIBLING'S NAME" class="userName" required />
       </div>
       <div class="d-flex justify-content-start">
-        <img class="bottom-image-bar" src="/images/bottom-pattern.png" />
+        <img class="carousel-ns" src="/images/Asset 24.png" />
+      </div>
+      <div class="golden-wrapper">
+        <h2 class="title-ns">Select your pack</h2>
+        <div class="owl-carousel owl-theme d-flex justify-content-center">
+          <div class="item" id="selectPack">
+            <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item data-carousel-id="carousel1"/></h4>
+          </div>
+          <div class="item">
+            <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item data-carousel-id="carousel2"/></h4>
+          </div>
+          <div class="item">
+            <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item data-carousel-id="carousel3"/></h4>
+          </div>
+        </div>
+       
+        
+      </div>
+      <div class="upload-section">
+        <div class="upload-outerdiv">
+          <div class=" d-flex justify-content-center">
+            <p class="camera-tag">Make it special with a 📷</p>
+          </div>
+          <div class=" uploader d-flex justify-content-between">
+            <div id="imagediv" class="upload-file-text">
+              <p class="filejpeg " id="changeFileName">Sibling's Photo</p>
+            </div>
+            <div class="photo">
+              <input type="file" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
+              <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center flex-column text-center">
+            <p class="base-title">For best resolution upload a <br> square photo.</p>
+            <p class="caption-ns">Select a lovely photo together OR of your sibling alone!</p>
+          </div>
+        </div>
+      </div>
+      <div class="kisses-bg">
+        <img class="flower-carousel-bottom" src="/images/flower-combo-2.png" />
+      </div>
+      <!-- <hr class="breakline" /> -->
+      <div class="d-flex justify-content-center">
+        <button id="nextbtn" class="next-button" type="submit">Next</button>
       </div>
     </div>
-  <!-- ------------------------------------------exotic dark -->
-  
-  <div class="window-exotic" id="thirdscreen-exotic">
-    <div class="alert-check-questions-exotic invisible">
+  </div>
+</form>
+  <!-- ------------------------------------------------ hershey-kisses-->
+  <div class="window-kisses" id="thirdscreen">
+    <div class="alert-check-questions invisible">
       <div class="alert-content">
-        <div id="alertCloseexoticBtn" class="close-btn-alert">
+        <div id="alertCloseBtn" class="close-btn-alert">
           <img src="/images/close.png" alt="close">
         </div>
         <div class=" alert alert-warning" role="alert">
@@ -3241,353 +223,645 @@ a.expansion-btn {
       </div>
     </div>
     <div class="kisses-header">
-      <div class="d-flex justify-content-center">
-        <img class="gliter-with-group" src="/images/MicrosoftTeams-image (2).png"/>
-      </div>
-     <div class="exotic-content">
       <h3 class="knowYour">Help us to know Your</h3>
       <h3 class="sibling">sibling better</h3>
       <h6 class="text-white appropriate">Choose the most appropriate options</h6>
-     </div>
-      <div class="d-flex justify-content-start gliter-with-groups"><img src="/images/MicrosoftTeams-image (1).png"/></div>
     </div>
     <div class="header-rakhi-image">
-      <img class="rakhi-kiss-image" src="/images/exotic-rakhi.png" />
-  
+      <img  class="rakhi-kiss-image" src="/images/rakhi.png" />
     </div>
-   
-    <div class="kisses-bg"><img class="image-1-rc-exotic" src="/images/cut hed 2.png" />
+    <div class="kisses-bg"><img class="image-1-rc" src="/images/image1.png" />
     </div>
-  
+
+
     <div class="relative-question-div">
-      <div class="container hershey-exotic-div">   
-    <div class="question-list">
-      <div class="qns-exotic-1">
-        <div class="question-elements">
-            <div class="row">
-                <p class="qns-2">My sibling and I are</p>
-            </div>
-            <div class="row">
+      <div class="container">
+        <div class="question-list">
+          <div class="qns-1">
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-2">A word to describe our sibling bond</p>
+              </div>
+              <div class="row">
                 <div class="options-row">
-                    <div class="exotic-dark d-flex" id="exotic-hershey-1">
-                        <p class="expansion-btn exp-1">Berry Good <br>Friends</p>
-                    </div>
-                    <div class="exotic-dark d-flex" id="exotic-hershey-2">
-                        <p class="expansion-btn exp-2">Nutty <br>Partners</p>
-                    </div>
-                    <div class="exotic-dark d-flex" id="exotic-hershey-3">
-                        <p class="expansion-btn exp-3">Trusted <br>Confidantes</p>
-                    </div>
+                  <div class="normal-div d-flex" id="div-1">
+                    <p class="expansion-btn exp-1">Sweet <br>Troublemakers</p>
+                  </div>
+                  <div class="normal-div d-flex" id="div-2">
+                    <p class="expansion-btn exp-2">Partners in <br>crimes</p>
+                  </div>
+                  <div class="normal-div d-flex" id="div-3">
+                    <p class="expansion-btn exp-3">Top screet <br>Keepers</p>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="kisses-bg">
+            <img class="hersheyBackgroundImage" src="/images/image3.png" />
+            <img class="hersheyBackgroundImageSection-4-duplicate" src="/images/image5.png" />
+          </div> 
+          <div class="qns-1">
+      
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-2">My sibling's superpower is</p>
+              </div>
+              <div class="row">
+                <div class="options-row">
+                  <div class="custom-div d-flex" id="custom-div-1">
+                    <p class="custom-expansion-btn exp-1">Super <br> caring</p>
+                  </div>
+                  <div class="custom-div d-flex" id="custom-div-2">
+                    <p class="custom-expansion-btn exp-2">Delightfully <br> annoying</p>
+                  </div>
+                  <div class="custom-div d-flex" id="custom-div-3">
+                    <p class="custom-expansion-btn exp-3">Giving mature <br> advices</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kisses-bg">
+            <img class="hersheyBackgroundImageSection-4" src="/images/image5.png" />
+            <img class="hersheyBackgroundImageSection-5" src="/images/image6.png" />
+          </div>  
+          <div class="kisses-bg">
+            <img class="image-9" src="/images/image9.png" />
+          </div>    
+          <div class="qns-1">
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-2">My sibling tends to be</p>
+              </div>
+              <div class="row">
+                <div class="options-row">
+                  <div class="custom-option custom-normal-option d-flex" id="custom-option-1">
+                    <p class="custom-option-btn custom-btn-1">Crazy</p>
+                  </div>
+                  <div class="custom-option custom-normal-option d-flex" id="custom-option-2">
+                    <p class="custom-option-btn custom-btn-2">Realistic</p>
+                  </div>
+                  <div class="custom-option custom-normal-option d-flex" id="custom-option-3">
+                    <p class="custom-option-btn custom-btn-3">Determined</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="d-flex justify-content-between hersheyBackgroundImageSection-6">
+          <img class="img1" src="/images/image8.png" />
+          <img class="img2" src="/images/image7.png" />
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+      <button class="nextQuestion" id="nextQuestionid">next</button>
+    </div>
+  </div>
+
+  <!-----------------------------------------hershey bar -->
+  <div class="windows-bar" id="thirdscreen-bar">
+    <div class="alert-check-questions-bar invisible">
+      <div class="alert-content">
+        <div id="alertClosebarBtn" class="close-btn-alert">
+          <img src="/images/close.png" alt="close">
+        </div>
+        <div class=" alert alert-warning" role="alert">
+          <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+          <h1 class="display-1 image-missing">\(o_o)/</h1>
+          Please select an option for each question!
+        </div>
+      </div>
+    </div>
+    <div class="top-banner-ns">
+      <img class="top-image-bar" src="/images/top-pattern.png" />
+    </div>
+
+    <div class="hanging-circles">
+      <img src="/images/hanging-circle-shapes.png" alt="">
+    </div>
+
+    <div class="bar-heading">
+      <h3 class="knowYour-bar">Help us to know Your</h3>
+      <h1 class="sibling-bar">sibling better</h1>
+      <div class="d-flex">
+        <h6 class="appropriate-bar">choose the most appropriate options</h6>
+      </div>
+    </div>
+
     <div class="kisses-bg">
-      <img class="hersheyBackgroundImage-exotic" src="/images/almond 1 4.png" />
-      <img class="hersheyBackgroundImageSection-4-duplicate-exotic" src="/images/MicrosoftTeams-image (15) 1.png" />
-    </div> 
+      <img class="elements-bar" src="/images/elements --bars 1.png" />
+      <img class="heart-bar" src="/images/bars -heart 1.png" />
+    </div>
+
+    <div class="container">
+      <div class="outerDiv-bar">
+        <!-- card1 -->
   
+        <div class="d-flex qns-1-bar">
+          <div class="container">
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-bar-2">A word to describe our sibling bond</p>
+              </div>
+              <div class="row">
+                <div class="options-row option-row-bars">
+                  <div class="div-var" id="hershey-bar-1">
+                    <p class="expansion-btn exp-hershey-1">Sweet <br> Siblings</p>
+                  </div>
+                  <div class="div-var without-x-borders" id="hershey-bar-2">
+                    <p class="expansion-btn exp-hershey-2">Nutty <br> Friends</p>
+                  </div>
+                  <div class="div-var" id="hershey-bar-3">
+                    <p class="expansion-btn exp-hershey-3">Trusted <br> Partners</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kisses-bg">
+          <img class="hersheyBackgroundImage-bar" src="/images/Layer 10 1.png" />
+        </div>
+        <div class="kisses-bg">
+          <img class="hershey-pip-bar" src="/images/Pip crumbs 2.png" />
+        </div>
+        <!-- card2 -->
+        <div class="d-flex qns-1-bar">
+          <div class="container">
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-bar-2">I describe my sibling as</p>
+              </div>
+              <div class="row">
+                <div class="options-row option-row-bars">
+                  <div class="new-div-var" id="new-hershey-bar-1">
+                    <p class="new-expansion-btn new-exp-hershey-1">Closet <br> Rockstar</p>
+                  </div>
+                  <div class="new-div-var without-x-borders" id="new-hershey-bar-2">
+                    <p class="new-expansion-btn new-exp-hershey-2">Always in <br>FOMO</p>
+                  </div>
+                  <div class="new-div-var" id="new-hershey-bar-3">
+                    <p class="new-expansion-btn new-exp-hershey-3">Ultimate <br>Foodie</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kisses-bg">
+          <img class="hersheyBackgroundImageSection-bar-4" src="images/almond -doodle -bars 1.png" />
+          <img class="hersheyBackgroundImageSection-bar-3" src="/images/Pip 1.png" />
+        </div>
+        <!-- card3 -->
+        <div class="d-flex qns-1-bar">
+          <div class="container">
+            <div class="question-elements">
+              <div class="row">
+                <p class="qns-bar-2">We both vibe to</p>
+              </div>
+              <div class="row">
+                <div class="options-row option-row-bars">
+                  <div class="option-div" id="option-1">
+                    <p class="option-btn option-btn-1">Music</p>
+                  </div>
+                  <div class="option-div without-x-borders" id="option-2">
+                    <p class="option-btn option-btn-2">Street <br>food</p>
+                  </div>
+                  <div class="option-div" id="option-3">
+                    <p class="option-btn option-btn-3">Gaming</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sketchy-lines">
+          <img class="img1-bar" src="/images/elements --bars 2.png" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="d-flex justify-content-center ">
+      <button class="nextQuestion-bar" id="nextQuestionid1">Next</button>
+    </div>
+    <div class="d-flex justify-content-start elements-bar3">
+      <img class="img3-bar" src="/images/elements --bars 3.png" />
+    </div>
+    <div class="d-flex justify-content-start">
+      <img class="bottom-image-bar" src="/images/bottom-pattern.png" />
+    </div>
+  </div>
+<!-- ------------------------------------------exotic dark -->
+
+<div class="window-exotic" id="thirdscreen-exotic">
+  <div class="alert-check-questions-exotic invisible">
+    <div class="alert-content">
+      <div id="alertCloseexoticBtn" class="close-btn-alert">
+        <img src="/images/close.png" alt="close">
+      </div>
+      <div class=" alert alert-warning" role="alert">
+        <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+        <h1 class="display-1 image-missing">\(o_o)/</h1>
+        Please select an option for each question!
+      </div>
+    </div>
+  </div>
+  <div class="kisses-header">
+    <div class="d-flex justify-content-center">
+      <img class="gliter-with-group" src="/images/MicrosoftTeams-image (2).png"/>
+    </div>
+   <div class="exotic-content">
+    <h3 class="knowYour">Help us to know Your</h3>
+    <h3 class="sibling">sibling better</h3>
+    <h6 class="text-white appropriate">Choose the most appropriate options</h6>
+   </div>
+    <div class="d-flex justify-content-start gliter-with-groups"><img src="/images/MicrosoftTeams-image (1).png"/></div>
+  </div>
+  <div class="header-rakhi-image">
+    <img class="rakhi-kiss-image" src="/images/exotic-rakhi.png" />
+
+  </div>
+ 
+  <div class="kisses-bg"><img class="image-1-rc-exotic" src="/images/cut hed 2.png" />
+  </div>
+
+  <div class="relative-question-div">
+    <div class="container hershey-exotic-div">   
+  <div class="question-list">
     <div class="qns-exotic-1">
       <div class="question-elements">
-        <div class="row">
-          <p class="qns-2">If we get to spend a weekend together, it would be about</p>
+          <div class="row">
+              <p class="qns-2">My sibling and I are</p>
+          </div>
+          <div class="row">
+              <div class="options-row">
+                  <div class="exotic-dark d-flex" id="exotic-hershey-1">
+                      <p class="expansion-btn exp-1">Berry Good <br>Friends</p>
+                  </div>
+                  <div class="exotic-dark d-flex" id="exotic-hershey-2">
+                      <p class="expansion-btn exp-2">Nutty <br>Partners</p>
+                  </div>
+                  <div class="exotic-dark d-flex" id="exotic-hershey-3">
+                      <p class="expansion-btn exp-3">Trusted <br>Confidantes</p>
+                  </div>
+              </div>
+          </div>
       </div>
+  </div>
+  <div class="kisses-bg">
+    <img class="hersheyBackgroundImage-exotic" src="/images/almond 1 4.png" />
+    <img class="hersheyBackgroundImageSection-4-duplicate-exotic" src="/images/MicrosoftTeams-image (15) 1.png" />
+  </div> 
+
+  <div class="qns-exotic-1">
+    <div class="question-elements">
+      <div class="row">
+        <p class="qns-2">If we get to spend a weekend together, it would be about</p>
+    </div>
+      <div class="row">
+        <div class="options-row">
+          <div class="exotic-div d-flex " id="exotic-dark-card2-1">
+            <p class="exotic-expansion-btn exp-1">Wine & Chocolates at Home</p>
+        </div>
+        <div class="exotic-div d-flex " id="exotic-dark-card2-2">
+            <p class="exotic-expansion-btn exp-2">Sundowners at <br>Beach Resort</p>
+        </div>
+        <div class="exotic-div d-flex " id="exotic-dark-card2-3">
+            <p class="exotic-expansion-btn exp-3">Bollywood Music <br> Festival</p>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="kisses-bg">
+  <img class="hersheyBackgroundImageSection-4" src="/images/MicrosoftTeams-image (19) 1.png" />
+  <img class="hersheyBackgroundImageSection-5" src="/images/almond 2 1.png" />
+</div>  
+<div class="kisses-bg">
+  <img class="image-9-exotic" src="/images/almond 2 1.png" />
+</div> 
+
+<div class="qns-exotic-1">
+    <div class="question-elements">
+        <div class="row">
+            <p class="qns-2">Things we usually do together</p>
+        </div>
         <div class="row">
           <div class="options-row">
-            <div class="exotic-div d-flex " id="exotic-dark-card2-1">
-              <p class="exotic-expansion-btn exp-1">Wine & Chocolates at Home</p>
+            <div class="sibling-bond-option" id="option-exotic-1">
+              <p class="option-text">Discussing<br> family</p>
           </div>
-          <div class="exotic-div d-flex " id="exotic-dark-card2-2">
-              <p class="exotic-expansion-btn exp-2">Sundowners at <br>Beach Resort</p>
+          <div class="sibling-bond-option" id="option-exotic-2">
+              <p class="option-text">Remembering<br> childhood days</p>
           </div>
-          <div class="exotic-div d-flex " id="exotic-dark-card2-3">
-              <p class="exotic-expansion-btn exp-3">Bollywood Music <br> Festival</p>
+          <div class="sibling-bond-option" id="option-exotic-3">
+              <p class="option-text">Laughing at <br>Silly Jokes</p>
           </div>
           </div>
         </div>
-      </div>
-  </div>
-  <div class="kisses-bg">
-    <img class="hersheyBackgroundImageSection-4" src="/images/MicrosoftTeams-image (19) 1.png" />
-    <img class="hersheyBackgroundImageSection-5" src="/images/almond 2 1.png" />
-  </div>  
-  <div class="kisses-bg">
-    <img class="image-9-exotic" src="/images/almond 2 1.png" />
-  </div> 
-  
-  <div class="qns-exotic-1">
-      <div class="question-elements">
-          <div class="row">
-              <p class="qns-2">Things we usually do together</p>
-          </div>
-          <div class="row">
-            <div class="options-row">
-              <div class="sibling-bond-option" id="option-exotic-1">
-                <p class="option-text">Discussing<br> family</p>
-            </div>
-            <div class="sibling-bond-option" id="option-exotic-2">
-                <p class="option-text">Remembering<br> childhood days</p>
-            </div>
-            <div class="sibling-bond-option" id="option-exotic-3">
-                <p class="option-text">Laughing at <br>Silly Jokes</p>
-            </div>
-            </div>
-          </div>
-      </div>
-  </div>
-  </div>
-  <div class="d-flex justify-content-end bottom-berries-img">
-          
-    <img class="img2-exotic" src="/images/MicrosoftTeams-image.png" />
-  </div>
-  <div class="hed-next-btn d-flex justify-content-center">
-    <button class="nextQuestion" id="nextQuestionid2">next</button>
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  
-  <!-- loading screen -->
-  <div id="loadingscreen" class="loading-screen load-kisses"> 
-    <div class=" header d-flex justify-content-start">
-      <div class=""><img id="loadingHeader" class="hersheylogo" src="/images/hersheys-kisses-logo 1.png" /></div>
     </div>
-    <div class="loading-media">
-      <div class="video-placeholder">
-  
-        <div class="loading-video">
-          <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
-          <img class="bars-casacade-loading" src="/images/bar-cascade.png" alt="bar-cascade">
-          <video id="kissesloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
-          <video id="exoticloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
-  
-        </div>
-  
-        </div>
+</div>
+</div>
+<div class="d-flex justify-content-end bottom-berries-img">
+        
+  <img class="img2-exotic" src="/images/MicrosoftTeams-image.png" />
+</div>
+<div class="hed-next-btn d-flex justify-content-center">
+  <button class="nextQuestion" id="nextQuestionid2">next</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- loading screen -->
+<div id="loadingscreen" class="loading-screen load-kisses"> 
+  <div class=" header d-flex justify-content-start">
+    <div class=""><img id="loadingHeader" class="hersheylogo" src="/images/hersheys-kisses-logo 1.png" /></div>
+  </div>
+  <div class="loading-media">
+    <div class="video-placeholder">
+
+      <div class="loading-video">
+        <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
+        <img class="bars-casacade-loading" src="/images/bar-cascade.png" alt="bar-cascade">
+        <video id="kissesloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
+        <video id="exoticloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
+
       </div>
-      <div class="loading-spinner">
-        <svg class="spinner-border spinner-ns" xmlns="http://www.w3.org/2000/svg" width="39" height="42"
-          viewBox="0 0 39 42" fill="none">
-          <path
-            d="M21.25 39.9032C11.0327 39.9032 2.75 31.6205 2.75 21.4032C2.75 11.1859 11.0327 2.9032 21.25 2.9032C28.0798 2.9032 34.0452 6.6042 37.25 12.1101"
-            stroke="#291213" stroke-width="4" />
-          <path
-            d="M21.25 39.9032C11.0327 39.9032 2.75 31.6205 2.75 21.4032C2.75 11.1859 11.0327 2.9032 21.25 2.9032C28.0798 2.9032 34.0452 6.6042 37.25 12.1101"
-            stroke="url(#paint0_linear_601_4750)" stroke-width="4" />
-          <defs>
-            <linearGradient id="paint0_linear_601_4750" x1="3.15469" y1="2.9032" x2="45.2571" y2="19.1382"
-              gradientUnits="userSpaceOnUse">
-              <stop stop-color="#DFBC66" />
-              <stop offset="0.276042" stop-color="#F7EF8A" />
-              <stop offset="0.484375" stop-color="#FFF4C5" />
-              <stop offset="0.697917" stop-color="#D2AC47" />
-              <stop offset="1" stop-color="#EDC967" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <!-- <div class="spinner-border spinner-ns" role="status">
-        <span class="sr-only">Loading...</span>
+
+      </div>
+    </div>
+    <div class="loading-spinner">
+      <svg class="spinner-border spinner-ns" xmlns="http://www.w3.org/2000/svg" width="39" height="42"
+        viewBox="0 0 39 42" fill="none">
+        <path
+          d="M21.25 39.9032C11.0327 39.9032 2.75 31.6205 2.75 21.4032C2.75 11.1859 11.0327 2.9032 21.25 2.9032C28.0798 2.9032 34.0452 6.6042 37.25 12.1101"
+          stroke="#291213" stroke-width="4" />
+        <path
+          d="M21.25 39.9032C11.0327 39.9032 2.75 31.6205 2.75 21.4032C2.75 11.1859 11.0327 2.9032 21.25 2.9032C28.0798 2.9032 34.0452 6.6042 37.25 12.1101"
+          stroke="url(#paint0_linear_601_4750)" stroke-width="4" />
+        <defs>
+          <linearGradient id="paint0_linear_601_4750" x1="3.15469" y1="2.9032" x2="45.2571" y2="19.1382"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#DFBC66" />
+            <stop offset="0.276042" stop-color="#F7EF8A" />
+            <stop offset="0.484375" stop-color="#FFF4C5" />
+            <stop offset="0.697917" stop-color="#D2AC47" />
+            <stop offset="1" stop-color="#EDC967" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <!-- <div class="spinner-border spinner-ns" role="status">
+      <span class="sr-only">Loading...</span>
+    </div> -->
+  </div>
+  <div class="loading-message">
+    <h4><span>Your custom special surprise is loading...</span>🤩</h4>
+  </div>
+</div>
+<div id="receiverfirstscreen" class="receiver-wrapper">
+  <div class="receiver-div"> 
+      <img class="hanging-decoration-top" src="/images/hanging-decoration.png" alt="hanging-decoration.png">
+    <div class="receiver-div-content">
+      <div class="receiver-kiss-cascade-drop">
+        <img src="/images/receiver-kiss-cascade-drop.png" alt="receiver-kiss-cascade-drop">
+      </div>
+      <img class="recevier-hershey-pack" src="/images/recevier-hershey-pack.png" alt="recevier-hershey-pack">
+      <h3>
+        You have received a
+      </h3>
+      <h1>custom surprise</h1>
+      <h3>
+        from your sibling to make <span>Rakshabandhan special</span>
+      </h3>
+    </div>
+
+      <img class="flower-combo-4" src="/images/flower-combo-3.png" alt="flower-combo-4.png">
+    <div class="receiver-div-button">
+      <button id="receiverbtn">view surprise</button>
+    </div>
+    <img class="flower-combo-3" src="/images/flower-combo-3.png" alt="flower-combo-3.png">
+  </div>
+</div>
+
+<div id="uploadingDiv"  class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+
+<!-- kisses message window -->
+
+<div id="messagenote" class="message-wrapper">
+  <div class="close-icon">
+    <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
+  </div>
+  <div class="row">
+    <div class="message-header">
+      <h3>Dear</h3>
+      <div class="dynamic-name">
+        <h2 id="#hereGoesID" class="receiver-name-on-message">Dynamic Name</h2><h2 class="receiver-name-on-message">,</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="message-body">
+      <div class="dynamic-note">
+        <p id="completenote">Our bond can be described as Sweet Troublemakers and that makes it special. Your Caring nature makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
+          This is my way of expressing what you mean to me. And for moments
+          <span>when words fall short,</span> </p>
+      </div>
+    </div>
+    <div id="dynamicImg" class="dynamic-img">
+      <img src="/images/say it with a kiss (brown).png" alt="say-it-with-a-kiss.png">
+    </div>
+  </div>
+</div>
+
+<!-- kisses message window end here -->
+
+
+
+<div id="preview-Container">
+  <img id="closebtn" src="images/close-record-video.png"/>
+  <video id="videotag"></video>
+  <div class="record-video-controls">
+    <div id="savebtn"></div>
+    <div id="sharebtn"></div>
+  </div>
+</div>
+  <div id="tap-to-place">Tap to Place</div>
+  <div id="arscreen">
+    <!-- <div id="headerdiv" class=" header">
+        <img class="hersheylogo" id="headerlogo" src="/images/hersheyslogo.png" />
       </div> -->
+    <!-- <div id="headerdiv"><img id="headerlogo" src="/images/hersheyslogo.png" /></div> -->
+    <!-- <div id="headerdiv">
+      <img id="headerlogo" src="/images/hersheyslogo.png" alt="Paris">
+    </div> -->
+    <div class="preview-text">
+      <h3>preview</h3>
     </div>
-    <div class="loading-message">
-      <h4><span>Your custom special surprise is loading...</span>🤩</h4>
-    </div>
-  </div>
-  <div id="receiverfirstscreen" class="receiver-wrapper">
-    <div class="receiver-div"> 
-        <img class="hanging-decoration-top" src="/images/hanging-decoration.png" alt="hanging-decoration.png">
-      <div class="receiver-div-content">
-        <div class="receiver-kiss-cascade-drop">
-          <img src="/images/receiver-kiss-cascade-drop.png" alt="receiver-kiss-cascade-drop">
-        </div>
-        <img class="recevier-hershey-pack" src="/images/recevier-hershey-pack.png" alt="recevier-hershey-pack">
-        <h3>
-          You have received a
-        </h3>
-        <h1>custom surprise</h1>
-        <h3>
-          from your sibling to make <span>Rakshabandhan special</span>
-        </h3>
+    <div>
+      <div id="sharepopupdiv">
+        <!-- <img id="closebtnsharepopup" src="/images/closebtnsharepopup.png"> -->
+        Win exciting prizes by sharing on Instagram. Tag your sibling & @hersheysindia
       </div>
   
-        <img class="flower-combo-4" src="/images/flower-combo-3.png" alt="flower-combo-4.png">
-      <div class="receiver-div-button">
-        <button id="receiverbtn">view surprise</button>
-      </div>
-      <img class="flower-combo-3" src="/images/flower-combo-3.png" alt="flower-combo-3.png">
     </div>
-  </div>
-  
-  <div id="uploadingDiv"  class="alert alert-success">
-    <strong>Success!</strong> Indicates a successful or positive action.
-  </div>
-  
-  <!-- kisses message window -->
-  
-  <div id="messagenote" class="message-wrapper">
-    <div class="close-icon">
-      <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
-    </div>
-    <div class="row">
-      <div class="message-header">
-        <h3>Dear</h3>
-        <div class="dynamic-name">
-          <h2 id="#hereGoesID" class="receiver-name-on-message">Dynamic Name</h2><h2 class="receiver-name-on-message">,</h2>
-        </div>
-      </div>
+
+    <div id="homeIcon" class="home-icon">
+      <img class="home-icon-img" src="/images/home-icon.png" alt="home-icon">
     </div>
     
-    <div class="row">
-      <div class="message-body">
-        <div class="dynamic-note">
-          <p id="completenote">Our bond can be described as Sweet Troublemakers and that makes it special. Your Caring nature makes you a Super Sibling. You are the best I could ask for and I am sure with your crazy and determined attitude, all your dreams will turn into reality.<br>
-            This is my way of expressing what you mean to me. And for moments
-            <span>when words fall short,</span> </p>
-        </div>
-      </div>
-      <div id="dynamicImg" class="dynamic-img">
-        <img src="/images/say it with a kiss (brown).png" alt="say-it-with-a-kiss.png">
-      </div>
+    <div id="tapOnEnvelope">
+      Tap on envelope
+    </div>
+    <div id="recordparentdiv">
+      <div id="recordbannerdiv">Tap Rec button to record</div>
+      <div class="arrow-down"></div>
+    </div>
+    
+    <div id="share">
+      <div id="reloaddiv"><img id="reload" src="/images/reload.png" /></div>
+      <div id="shutter"><img id="capture" src="/images/shutter-button-start.png" /></div>
+      <!-- <div id="shutter"><img id="capture" src="/images/shutter-button-stop.png" /></div> -->
+      <p id="send" >Send</p>
     </div>
   </div>
+
+  <!-- <div id="capture1 capture2 d-flex justify-content-start">
   
-  <!-- kisses message window end here -->
+    <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
+
+   
+ </div> -->
+  <!-- <div id="sharebtn">
   
+ </div>
+ <div id="reload">
   
-  
-  <div id="preview-Container">
-    <img id="closebtn" src="images/close-record-video.png"/>
-    <video id="videotag"></video>
-    <div class="record-video-controls">
-      <div id="savebtn"></div>
-      <div id="sharebtn"></div>
-    </div>
-  </div>
-    <div id="tap-to-place">Tap to Place</div>
-    <div id="arscreen">
-      <!-- <div id="headerdiv" class=" header">
-          <img class="hersheylogo" id="headerlogo" src="/images/hersheyslogo.png" />
-        </div> -->
-      <!-- <div id="headerdiv"><img id="headerlogo" src="/images/hersheyslogo.png" /></div> -->
-      <!-- <div id="headerdiv">
-        <img id="headerlogo" src="/images/hersheyslogo.png" alt="Paris">
-      </div> -->
-      <div class="preview-text">
-        <h3>preview</h3>
-      </div>
-      <div>
-        <div id="sharepopupdiv">
-          <!-- <img id="closebtnsharepopup" src="/images/closebtnsharepopup.png"> -->
-          Win exciting prizes by sharing on Instagram. Tag your sibling & @hersheysindia
-        </div>
+ </div> -->
+
+<!-- ----------------------------------------- -->
+
+
+
+
+<div id="alertMessageForUpload" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<!-- ---------------------------------/ -->
+  <!-- Some UI for the user to tap to indicate they're happy with the placement -->
+  <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
+  <!-- <img  src="<%= imageUrl %>" alt="Uploaded Image"> -->
+  <img id="rakhi" class="rakhi-kiss-image" src="/images/rakhi.png" />
+
+  <a-scene  loading-screen="enabled:false" id="scenediv" swap-texture renderer="antialias: true;
+  colorManagement: true;
+  sortObjects: true;
+  physicallyCorrectLights: true;
+  maxCanvasWidth: 1920;
+  maxCanvasHeight: 1920;" gesture-detector>
+    <!-- <canvas id="div">
+
+  </canvas> -->
+    <a-assets>
     
-      </div>
-  
-      <div id="homeIcon" class="home-icon">
-        <img class="home-icon-img" src="/images/home-icon.png" alt="home-icon">
-      </div>
-      
-      <div id="tapOnEnvelope">
-        Tap on envelope
-      </div>
-      <div id="recordparentdiv">
-        <div id="recordbannerdiv">Tap Rec button to record</div>
-        <div class="arrow-down"></div>
-      </div>
-      
-      <div id="share">
-        <div id="reloaddiv"><img id="reload" src="/images/reload.png" /></div>
-        <div id="shutter"><img id="capture" src="/images/shutter-button-start.png" /></div>
-        <!-- <div id="shutter"><img id="capture" src="/images/shutter-button-stop.png" /></div> -->
-        <p id="send" >Send</p>
-      </div>
-    </div>
-  
-    <!-- <div id="capture1 capture2 d-flex justify-content-start">
-    
-      <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
-  
+      <a-asset-item id="kissesmodel" src="/models/kisses .glb"></a-asset-item>
+      <a-asset-item id="barmodel" src="/models/bars final.glb"></a-asset-item>
+      <a-asset-item id="exoticmodel" src="/models/exotic darkv13.glb"></a-asset-item>
+    </a-assets>
+    <!-- Ask user for camera permissions, display some text if permission is denied -->
+    <a-entity id="permissions"></a-entity>
+    <!-- shows a full-page dialog that informs the user they're using an unsupported browser -->
+    <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
+    <!-- <canvas id="div"></canvas> -->
+    <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="
+    fuse: false;
+    rayOrigin: mouse;" zappar-camera />
+    <!-- Setup our instant tracker and start it in placement mode so the user can -->
+    <!-- choose a location for the object -->
+    <a-entity zappar-instant="placement-mode: true" id="instant-tracker">
+      <a-entity id="modelname" class="cantap" visible="true" scale="0.1 0.1 0.1" position="0 -1 0"
+        gesture-handler="minScale: 0.25; maxScale: 10">
+
+        <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" material="" geometry=""
+          visible="false"></a-box>
+      </a-entity>
+      <!-- Include a 3D model inside our instant tracker -->
+      <!-- <a-entity id="australiacont" gesture-handler gltf-model="url(assets/kisses .glb)" scale="0.1 0.1 0.1"  animation-mixer="clip: Animation; loop: repeat"></a-entity> -->
+      <a-entity scale="7 7 7" light="type: directional;
+          intensity: 0.8;
+     shadowMapHeight:2048;
+       shadowMapWidth:2048;
+       shadowCameraTop: 10;
+             target: #australiacont;" position="17.85 2.75 0.30" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+     intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+        target: #australiacont;" position="-4.6 2.75 1.24" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+    intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+       target: #australiacont;" position="3.43 2.68 -0.62" shadow>
+      </a-entity>
+      <a-entity scale="7 7 7" light="type: directional;
+    intensity: 0.8;
+    shadowMapHeight:2048;
+    shadowMapWidth:2048;
+    shadowCameraTop: 10;
+       target: #australiacont;" position="0.52 2.62 12.75" shadow>
+      </a-entity>
+      <a-light type="ambient" intensity="2"></a-light>
+    </a-entity>
+
+  </a-scene>
+  <%- include('./includes/footer') %>
+  <script src="main-bundled.js"></script>
+
+  <script>
+    let kissesLoading = document.querySelector(".kisses-loading-video")
+
+    if (isChrome) {
+      //kisses
+      kissesLoading.src = "/videos/kisses_VP9.webm"
+      kissesLoading.type = "video/webm; codecs=vp9"
+      kissesLoading.controls = false
+      kissesLoading.play()
+       //exotic hed
+      exoticloadingvid.src = "/videos/hed-loading_VP9.webm"
+      exoticloadingvid.type = "video/webm; codecs=vp9"
+      exoticloadingvid.controls = false
+      exoticloadingvid.play()
+    } else if (isIOS) {
+       //kisses
+      kissesLoading.src = "/videos/kisses-mov.mov"
+      kissesLoading.type = "video/mp4; codecs=hev1"
+      kissesLoading.controls = false
+      kissesLoading.play()
+      //exotic hed
+      exoticloadingvid.src = "/videos/hed-loading.mov"
+      exoticloadingvid.type = "video/mp4; codecs=hev1"
+      exoticloadingvid.controls = false
+      exoticloadingvid.play()
+    } else {
+      document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+    }
      
-   </div> -->
-    <!-- <div id="sharebtn">
-    
-   </div>
-   <div id="reload">
-    
-   </div> -->
-  
-  <!-- ----------------------------------------- -->
-  
-  
-  
-  
-  <div id="alertMessageForUpload" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  
-  
-  <!-- ---------------------------------/ -->
-    <!-- Some UI for the user to tap to indicate they're happy with the placement -->
-    <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
-    <!-- <img  src="<%= imageUrl %>" alt="Uploaded Image"> -->
-    <img id="rakhi" class="rakhi-kiss-image" src="/images/rakhi.png" />
-    <a-scene
-      next-button
-      xrextras-gesture-detector
-      landing-page
-      xrextras-loading
-      xrextras-runtime-error
-      renderer="colorManagement:true"
-      xrweb="allowedDevices: any">
-
-      <!-- We can define assets here to be loaded when A-Frame initializes -->
-      <a-assets>
-        <a-asset-item id="animatedModel" src="/models/kisses .glb"></a-asset-item>
-      </a-assets>
-
-      <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-      <a-camera
-        id="camera"
-        position="0 8 8"
-        raycaster="objects: .cantap"
-        cursor="
-          fuse: false;
-          rayOrigin: mouse;">
-      </a-camera>
-
-      <a-entity
-          light="type: directional;
-             intensity: 0.8;
-             castShadow: true;
-             shadowMapHeight:2048;
-             shadowMapWidth:2048;
-             shadowCameraTop: 10;
-             target: #model;"
-          position="1 4.3 2.5"
-          xrextras-attach="target: model; offset: 1 15 3;"
-          shadow>
-      </a-entity>
-
-      <a-light type="ambient" intensity="0.5"></a-light>
-
-      <a-entity
-        id="model"
-        gltf-model="#animatedModel"
-        class="cantap"
-        scale="3 3 3"
-        animation-mixer="clip: idle; loop: repeat"
-        xrextras-hold-drag
-        xrextras-two-finger-rotate
-        xrextras-pinch-scale
-        shadow>
-      </a-entity>
-
-      <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow" shadow></a-plane>
-    </a-scene>
-  </body>
-</html>
-
+  </script>
