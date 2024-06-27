@@ -1612,7 +1612,7 @@ setTimeout(() => {
     taptoplace.addEventListener('click', () => {
       initRecorder()
       texturechange()
-
+   scene.emit('recenter')
       sharepopupdiv.style.display = "block"
 
       arscreen.style.display = "block"
