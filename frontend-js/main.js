@@ -241,12 +241,12 @@ let shareOnWhatsapp = async function() {
   // gfg_Run();
   const message = "To the best sibling, ❤️\nThank you for always having my back!\nHere's a custom surprise for you, to celebrate our special bond, that is sweet as our favourite, HERSHEY'S Chocolates.\nClick on the link to view \n Happy Rakhi! ✨";
 
-  copyToClipboard(`${message} https://hershey-web-ar-1.onrender.com/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${encodeURIComponent(name)}`)
 
   try {
     const shareData = {
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
-      text: `${message} https://hershey-web-ar-1.onrender.com/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}`,  // Message + URL
+      text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${encodeURIComponent(name)}`,  // Message + URL
     };
 
     if (navigator.share) {
@@ -396,7 +396,7 @@ nextbtn.onclick = () => {
   // const primaryAlert = document.getElementById("uploadingDiv");
 
 
-  console.log(name)
+  console.log("Sibling Name"+name)
   console.log(x);
   if (name === "") {
     secondscreen.style.display = "block"
