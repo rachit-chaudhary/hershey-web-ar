@@ -1,13 +1,31 @@
 // import { Scene } from "three"
-
-export class UImodule  {
-    
+export class UImodule {
     constructor() {
-        // alert("executed from experience ui")
+        this.packtype = "hello";
+        this.initializeCarousel();
+    }
 
-        this.packtype = "hello"
+    shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    appendShuffledItems() {
+        const carousel = document.querySelector('.owl-carousel');
+        const items = Array.from(carousel.getElementsByClassName('item'));
+        const shuffledItems = this.shuffle(items);
+
+        carousel.innerHTML = '';
+        shuffledItems.forEach(item => carousel.appendChild(item));
+    }
+
+    initializeCarousel() {
+        this.appendShuffledItems();
         $('.owl-carousel').owlCarousel({
-            center:true,
+            center: true,
             loop: false,
             margin: -70,
             nav: true,
@@ -25,49 +43,48 @@ export class UImodule  {
                     items: 5
                 }
             }
-        })
+        });
     }
 
-    untapKisses(){
+
+    untapKisses() {
         var Image_Id = document.getElementById('hoverhershey');
-        Image_Id.src='/images/kisses.png'
+        Image_Id.src = '/images/kisses.png'
 
         // Image_Id.src = "/images/kisses.png"
 
         // if (Image_Id.src.match("/images/hershey.png")) {
         //     Image_Id.src = "/images/kisses.png"
-            
 
         // }
 
     }
-  
+
     changeKissesPack() {
         var Image_Id = document.getElementById('hoverChange');
-    //    this.untapKisses();
+        //    this.untapKisses();
         if (Image_Id.src.match("/images/kisses.png")) {
             Image_Id.src = "/images/tapkisses.png"
             this.packtype = "kisses"
-            console.log("module" +  this.packtype)
-            
+            console.log("module" + this.packtype)
+
         }
         else {
             Image_Id.src = "/images/kisses.png";
             this.packtype = ""
         }
-       
-    }
-    // ------------------
 
-    // --------------------------
-  changeHersheyPack() {
+    }
+
+
+    changeHersheyPack() {
         var Image_Id = document.getElementById('hoverhershey');
         // this.untapKisses();
         if (Image_Id.src.match("/images/hershey.png")) {
             Image_Id.src = "/images/taphershey.png"
             console.log("chocolatebar")
             this.packtype = "chocolatebar"
-            console.log("module" +  this.packtype)
+            console.log("module" + this.packtype)
 
         }
         else {
@@ -81,7 +98,7 @@ export class UImodule  {
             Image_Id.src = "/images/tapexotic.png"
             console.log("exotic")
             this.packtype = "exotic"
-            console.log("module" +  this.packtype)
+            console.log("module" + this.packtype)
         }
         else {
             Image_Id.src = "/images/exotic.png";
@@ -89,6 +106,4 @@ export class UImodule  {
         }
     }
 
-    
 }
-
