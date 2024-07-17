@@ -588,7 +588,7 @@ const option1div2exotic = document.getElementById('exotic-hershey-2')
 const option1div3exotic = document.getElementById('exotic-hershey-3')
 option1div1exotic.onclick = () => {
   console.log("option1 div 1")
-  option1 = "Berry Good Friends"
+  option1 = "Very Good Friends"
   op1 = 1
 }
 option1div2exotic.onclick = () => {
@@ -1532,7 +1532,7 @@ setTimeout(() => {
         hereGoesID.innerHTML = `${name}`
         //option1
         if (op1 === 1) {
-          option1 = "Berry Good Friends"
+          option1 = "Very Good Friends"
         }
         else if (op1 === 2) {
           option1 = "Nutty Partners"
