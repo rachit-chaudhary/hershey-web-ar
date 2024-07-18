@@ -43,6 +43,7 @@ questionAlertClose.onclick = () => {
 // bar alert
 const questionAlertbar = document.querySelector(".alert-check-questions-bar")
 const questionAlertbarClose = document.getElementById("alertClosebarBtn")
+const titleNs = document.querySelector('.title-ns')
 
 questionAlertbarClose.onclick = () => {
   questionAlertbar.classList.remove("visible")
@@ -66,18 +67,20 @@ sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
+  titleNs.textContent = "Select the pack purchased"
   bgaudio.play()
 
 
 
   secondscreen.style.display = "block"
 }
+
 sendthankyou.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
   bgaudio.play()
-
+ titleNs.textContent = "Select the pack you've recieved"
 
 
   secondscreen.style.display = "block"
