@@ -67,7 +67,7 @@ sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
   // inputElement.focus();
-  titleNs.textContent = "Select the pack purchased"
+  titleNs.textContent = "Select the pack you've gifted"
   bgaudio.play()
 
 
@@ -80,7 +80,7 @@ sendthankyou.onclick = () => {
   scene.style.display = "block"
   // inputElement.focus();
   bgaudio.play()
- titleNs.textContent = "Select the pack you've recieved"
+ titleNs.textContent = "Select the gift you've received"
 
 
   secondscreen.style.display = "block"
@@ -398,16 +398,22 @@ nextbtn.onclick = () => {
   var x = document.getElementById("uploadbtn").value;
   // const primaryAlert = document.getElementById("uploadingDiv");
 
-
+  
   console.log("Sibling Name"+name)
   console.log(x);
+
+  
   if (name === "") {
     secondscreen.style.display = "block"
   } else if (x === "") {
     alert("Please upload your photo!")
+  }else if(!typeofpack) {
+    alert("Please select the pack")
   }
   else {
     secondscreen.style.display = "none"
+   
+
     if (typeofpack === 'kisses') {
       //
       modelname.setAttribute('gltf-model', '#kissesmodel')
