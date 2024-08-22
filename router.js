@@ -2,12 +2,35 @@ const express = require('express')
 const router = express.Router()
 const couponController = require('./controllers/couponController')
 
-//public routes
-router.get('/', (req, res) => {
-    res.render('get-coupon')
-})
+const multer = require('multer');
+const path = require('path');
 
-router.get('/questions', (req, res) => {
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+    // destination: '/uploads/',
+    destination: './uploads/',
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
+var imageUrl = "";
+router.post('/questions', upload.single('image'), (req, res) => {
+    if (!req.file) {
+        res.status(400).send('No file uploaded.');
+    } else {
+        imageUrl = '/' + req.file.filename;
+        console.log(imageUrl)
+
+        //  res.render('index', { imageUrl });
+        res.json({ imageUrl });
+    }
+});
+
+//public routes
+
+router.get('/', (req, res) => {
     res.render('index')
 })
 

@@ -60,13 +60,13 @@ const storage = multer.diskStorage({
 //   res.json({ couponMessage });
 // });
 
-router.get('/', (req, res) => {
-    res.render('get-coupon');
-  });
+// router.get('/', (req, res) => {
+//     res.render('get-coupon');
+//   });
   
-  // router.get('/questions', (req, res) => {
-  //   res.render('index');
-  // });
+  router.get('/questions', (req, res) => {
+    res.render('index');
+  });
   
   router.get('/get-coupon', (req, res) => {
 
