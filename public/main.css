@@ -620,10 +620,10 @@ margin: 22px;
 
 }
 #uploadbtn {
-  display: none;
+  /* display: none; */
   width: 100%;
   position: absolute;
-  height: 100%;
+  height: 100px;
 }
 .uploadbutton{
   border-radius: 66px !important;

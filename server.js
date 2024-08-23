@@ -27,11 +27,10 @@ app.use(express.static('uploads'))
 app.set('view engine', 'ejs')
 
 
-
 app.use('/', couponController)
 
 var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(8443, '192.168.1.16', () => {
+httpsServer.listen(8443, '192.168.1.9', () => {
   console.log(`Hershey's is listening on 8443`)
 });
 // app.listen(port, '192.168.1.16', () => {

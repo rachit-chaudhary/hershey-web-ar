@@ -4,10 +4,6 @@
 // In this example we track a 3D model using instant world tracking
 
 import * as THREE from 'three';
-// import * as ZapparThree from '@zappar/zappar-threejs';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import {rgbe} from 'C:\Users\march\Downloads\hersheys_final\node_modules\three\examples\js\loaders\RGBELoader.js'
-// import ZAPPPermissionUI from './modules/permission-ui'
 import { UImodule } from './modules/webexperience-ui'
 
 var msg 
@@ -16,13 +12,13 @@ var nameone
 var encodedMsg
 var encodedname
 const nextbtn = document.getElementById("nextbtn")
-// nextbtn.onclick = () => {
-//   msg = document.getElementById("diwaliMessage").value
-//   nameone = document.getElementById("siblingname").value
-//   encodedMsg = encodeURIComponent(msg)
-//   encodedname = encodeURIComponent(nameone)
-//   console.log("encoded "+encodedname);
-// }
+nextbtn.onclick = () => {
+  msg = document.getElementById("diwaliMessage").value
+  nameone = document.getElementById("siblingname").value
+  encodedMsg = encodeURIComponent(msg)
+  encodedname = encodeURIComponent(nameone)
+  console.log("encoded "+encodedname);
+}
 let imagevalue
 
 
@@ -309,10 +305,10 @@ hoverexotic.onclick = () => {
 }
 
 // ------------upload validation-----------------
-function myFunction() {
-  var x = document.getElementById("uploadbtn").required;
-  console.log(x, "k");
-}
+// function myFunction() {
+//   var x = document.getElementById("uploadbtn").required;
+//   console.log(x, "k");
+// }
 
 // --------------------------------
 

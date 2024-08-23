@@ -163,8 +163,8 @@
                 </div>
                 <div class="photo">
                   
-                  <input type="file" name="fileUploadBtn" style="display: none;" id="uploadbtn" type="submit" accept="image/*" required/>
-                  <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
+                  <input type="file" name="fileUploadBtn" id="uploadbtn" type="submit" accept="image/*" required/>
+                  <!-- <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton"> -->
                 </div>
               </div>
   
@@ -215,6 +215,7 @@
       </div>
     </div>
   </form>
+
     <!-- ------------------------------------------------ hershey-kisses-->
     <div class="window-kisses" id="thirdscreen">
       <div class="alert-check-questions invisible">
@@ -887,6 +888,69 @@
 
       <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow" shadow></a-plane>
     </a-scene>
+
+    <script>
+
+      function renderResult(imageUrl) {
+        // Replace this with your rendering logic
+        console.log("Rendering the result with imageUrl:", imageUrl);
+      }
+
+      const fileInput = document.getElementById("uploadbtn");
+      //upload image function
+      function uploadImage(imageFile) {
+        console.log("uploadImage ran")
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        return new Promise((resolve, reject) => {
+          fetch("/questions", {
+            method: "POST",
+            body: formData,
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              console.log(response)
+              return response.json();
+            })
+            .then(data => {
+              // Handle the response data from the server
+              console.log(data)
+              const imageUrl = data.imageUrl;
+              resolve(imageUrl);
+            })
+            .catch(error => {
+              reject(error);
+            });
+        });
+      }
+      function getimageuploaded() {
+
+        // Get uploaded image from server
+        console.log("clicked different btn")
+
+        const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+        console.log("clicked different btn1")
+        uploadImage(imageFile).then(imageUrl => {
+          console.log("clicked different btn2")
+          console.log("Uploaded Image URL:", imageUrl);
+          dataURL = imageUrl
+
+          console.log("dataurl " + dataURL)
+          // texturechange()
+          // Delay rendering the result after 2 seconds (2000 milliseconds)
+          setTimeout(() => {
+            renderResult(imageUrl);
+            console.log("clicked different btn3")
+          }, 2000);
+        }).catch(error => {
+          console.error("Error:", error);
+        });
+      }
+
+    </script>
 
   <script>
      function checkCharacterLimit() {
