@@ -35,10 +35,9 @@ const storage = multer.diskStorage({
       res.status(400).send('No file uploaded.');
     } else {
       imageUrl = '/' + req.file.filename;
-  console.log(imageUrl)
   
     //  res.render('index', { imageUrl });
-    //  res.json({ imageUrl });
+     res.json({ imageUrl });
     }
   });
 
