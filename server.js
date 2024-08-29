@@ -16,7 +16,7 @@ const cookieParser = require('cookie-parser');
 const app = express()
 //const ejs = require('ejs');
 const couponController = require('./controllers/couponController');
-const port = process.env.PORT || 8080
+// const port = process.env.PORT || 8080
 app.use(cookieParser());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -34,6 +34,6 @@ var httpsServer = https.createServer(credentials, app);
 // httpsServer.listen(8443, '192.168.1.22', () => {
 //   console.log(`Hershey's is listening on 8443`)
 // });
-app.listen(port, () => {
-  console.log(`Hershey's is listening on ${port}`)
+app.listen(process.env.PORT, () => {
+  console.log(`Hershey's is listening on ${process.env.PORT}`)
 })
