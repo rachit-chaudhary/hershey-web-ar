@@ -8,6 +8,9 @@ import { UImodule } from './modules/webexperience-ui'
 
 var msg
 var nameone
+let tap1 = document.querySelectorAll('#tap-to-place');
+let taptoplace = document.querySelector('#tap-to-place')
+
 
 var encodedMsg
 var encodedname
@@ -20,7 +23,6 @@ nextbtn.onclick = () => {
   console.log("encoded " + encodedname);
 }
 let imagevalue
-
 
 // modules code
 const uimoduleobj = new UImodule();
@@ -72,6 +74,9 @@ questionAlertexoticClose.onclick = () => {
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 
+
+
+
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
@@ -120,13 +125,25 @@ let pausevalue = 0
 let previouspausevalue = 0
 let innerpausevalue = 1
 let animtime = 0
-let taptoplace = document.getElementById('tap-to-place')
+
 let modelloaded = 0
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
 let modelobj;
+if (tap1.length > 0) {
+  tap1.forEach(element => {
+    element.addEventListener('click', () => {
+      console.log("in");
+      console.log(modelname)
+      scene.emit('recenter')
+      modelname.setAttribute('visible', true)
 
+    });
+  });
+} else {
+  console.log("No elements found with id 'tap-to-place'");
+}
 //copy to clipboard function
 const copyToClipboard = (e) => {
   const el = document.createElement('textarea')
@@ -1048,42 +1065,45 @@ AFRAME.registerComponent("swap-texture", {
       });
     };
 
-    taptoplace.onclick = function () {
-      try {
-        document.getElementById("cropimgdisplay").src = dataURL;
-        var targetMeshName = 'postcard';
-        var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+    // taptoplace.onclick = function () {
+    //   console.log("tap clicked")
+    //   scene.emit('recenter')
+    //   modelname.setAttribute('visible', true)
+    //   try {
+    //     document.getElementById("cropimgdisplay").src = dataURL;
+    //     var targetMeshName = 'postcard';
+    //     var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
 
 
-        if (targetMesh) {
-          console.log("mesh name" + targetMesh)
-          targetMesh.material.opacity = 0;
-          targetMesh.material.transparent = true;
-          targetMesh.material.needsUpdate = true;
-        }
-        else {
-          console.log("mesh not found")
-        }
+    //     if (targetMesh) {
+    //       console.log("mesh name" + targetMesh)
+    //       targetMesh.material.opacity = 0;
+    //       targetMesh.material.transparent = true;
+    //       targetMesh.material.needsUpdate = true;
+    //     }
+    //     else {
+    //       console.log("mesh not found")
+    //     }
 
-        function findMeshByName(object3D, targetName) {
-          var resultMesh = null;
+    //     function findMeshByName(object3D, targetName) {
+    //       var resultMesh = null;
 
-          object3D.traverse(function (node) {
-            if (node.isMesh && node.name === targetName) {
-              resultMesh = node;
-            }
-          });
+    //       object3D.traverse(function (node) {
+    //         if (node.isMesh && node.name === targetName) {
+    //           resultMesh = node;
+    //         }
+    //       });
 
-          return resultMesh;
-        }
+    //       return resultMesh;
+    //     }
 
 
 
-        console.log("cropped img uploaded");
-      } catch (error) {
-        console.error("Error during image cropping:", error);
-      }
-    };
+    //     console.log("cropped img uploaded");
+    //   } catch (error) {
+    //     console.error("Error during image cropping:", error);
+    //   }
+    // };
 
 
     // Function to render the result after a delay
@@ -1670,42 +1690,48 @@ AFRAME.registerComponent("swap-texture", {
       // modelname.setAttribute('animation-mixer', {timeScale: 1});
       notebox.setAttribute('class', '')
     });
-    taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
-    taptoplace.addEventListener('click', () => {
-      initRecorder()
-      texturechange()
-
-      sharepopupdiv.style.display = "block"
-
-      arscreen.style.display = "block"
-      // setTimeout(() => {
-      //   recordparentdiv.style.display = "none"
-      // }, 3000);
 
 
-      //--------------------------- 
-      const instantTracker = document.getElementById("instant-tracker");
-      instantTracker.setAttribute("zappar-instant", "placement-mode: false");
-      taptoplace.remove();
-      setTimeout(() => {
-        modelname.setAttribute('animation-mixer', {
-          clip: 'Animation',
-          loop: 'once',
-          crossFadeDuration: 0.4,
-          clampWhenFinished: true,
-        })
-        setTimeout(() => {
-          if (pausevalue === 0) {
-            modelname.setAttribute('animation-mixer', { timeScale: 0 });
-            tapOnEnvelope.style.display = "block"
-            console.log("tap 1300")
-            notebox.setAttribute('class', 'cantap')
-          }
 
-        }, animtime);
-      }, 1000);
 
-    });
+    // taptoplace.addEventListener('click', () => {
+    //   console.log("tap clicked 2")
+    //   initRecorder()
+    //   texturechange()
+
+    //   sharepopupdiv.style.display = "block"
+
+    //   arscreen.style.display = "block"
+    //   // setTimeout(() => {
+
+
+    //   //   recordparentdiv.style.display = "none"
+    //   // }, 3000);
+
+
+    //   //--------------------------- 
+    //   // const instantTracker = document.getElementById("instant-tracker");
+    //   // instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+    //   taptoplace.remove();
+    //   setTimeout(() => {
+    //     modelname.setAttribute('animation-mixer', {
+    //       clip: 'Animation',
+    //       loop: 'once',
+    //       crossFadeDuration: 0.4,
+    //       clampWhenFinished: true,
+    //     })
+    //     setTimeout(() => {
+    //       if (pausevalue === 0) {
+    //         modelname.setAttribute('animation-mixer', { timeScale: 0 });
+    //         tapOnEnvelope.style.display = "block"
+    //         console.log("tap 1300")
+    //         notebox.setAttribute('class', 'cantap')
+    //       }
+
+    //     }, animtime);
+    //   }, 1000);
+
+    // });
   },
 })
 // ------------------autofocus for input field----------------------
@@ -2058,7 +2084,7 @@ function runExperience(e) {
       setTimeout(() => {
         loadingscreen.style.display = "none"
         scene.style.zIndex = 0
-        permissions.setAttribute("zappar-permissions-ui", "")
+        // permissions.setAttribute("zappar-permissions-ui", "")
         taptoplace.style.display = "block"
       }, 6000);
       // }
