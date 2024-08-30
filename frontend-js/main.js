@@ -144,7 +144,40 @@ if (tap1.length > 0) {
         crossFadeDuration: 0.4,
         clampWhenFinished: true,
       })
+      initRecorder()
+      texturechange()
 
+      sharepopupdiv.style.display = "block"
+
+      arscreen.style.display = "block"
+      setTimeout(() => {
+
+
+        recordparentdiv.style.display = "none"
+      }, 3000);
+
+
+      //   //--------------------------- 
+      //   // const instantTracker = document.getElementById("instant-tracker");
+      //   // instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+      taptoplace.remove();
+      //   setTimeout(() => {
+      //     modelname.setAttribute('animation-mixer', {
+      //       clip: 'Animation',
+      //       loop: 'once',
+      //       crossFadeDuration: 0.4,
+      //       clampWhenFinished: true,
+      //     })
+      setTimeout(() => {
+        if (pausevalue === 0) {
+          modelname.setAttribute('animation-mixer', { timeScale: 0 });
+          tapOnEnvelope.style.display = "block"
+          console.log("tap 1300")
+          notebox.setAttribute('class', 'cantap')
+        }
+
+      }, animtime);
+      // }, 1000);
     });
   });
 } else {
