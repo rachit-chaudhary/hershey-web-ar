@@ -1,6 +1,7 @@
 .env
 node_modules/
 sslcert/
+public/main-bundled.js
 ./public/main-bundled.js
 ./public/main-bundled.js.LICENSE.txt
 ./public/ef977587917d91131175.glb

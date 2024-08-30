@@ -1,11 +1,11 @@
 <%- include('./includes/header') %>
-<%- include('./includes/index-header') %>
-<!-- <!DOCTYPE html>
+  <%- include('./includes/index-header') %>
+    <!-- <!DOCTYPE html>
 <html>
   <head> -->
     <!-- <meta charset="utf-8"> -->
     <!-- <title>8th Wall Web: Animations</title> -->
-   
+
     <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="diwali.css"> -->
 
@@ -25,9 +25,9 @@
     src="//apps.8thwall.com/xrweb?appKey=amZHOXjQF4mKpKI0R8H6fhbiC63NCkQYu8FSunQW34nCL3iR1wEO42IPiY1fsU90bbgAfO"></script> -->
     <!-- <script src="main-bundled.js"></script> -->
     <!-- <script> -->
-    
+
     <!-- </script> -->
-  <!-- </head>
+    <!-- </head>
   <body> -->
     <!-- ---------------------------------------------------------------------------------------------- -->
     <audio id="bgaudio" loop>
@@ -35,7 +35,7 @@
       </source>
       Your browser does not support the audio element.
     </audio>
-  
+
     <!-- senders first screen -->
     <div id="firstscreen">
       <div class=" header d-flex justify-content-center">
@@ -49,173 +49,191 @@
         <div class="page-wrapper">
           <div class="top-div">
             <h3><span class="brown-color">Make</span><br>
-            <span class="home-diwali-text brown-color">
-              <span class="home-diwali-d">D</span>iwali
-            </span><br>
-            <span class="brown-color">special for your loved ones</span> ❤️ 🧨</h3>
+              <span class="home-diwali-text brown-color">
+                <span class="home-diwali-d">D</span>iwali
+              </span><br>
+              <span class="brown-color">special for your loved ones</span> ❤️ 🧨
+            </h3>
           </div>
-    
+
           <div class="center-btn">
             <div class="d-flex justify-content-center">
               <div class="send-surprise-message " id="sendgift">
                 <h3 class="heading-div" id="sendSurprise">Send surprise message</h3>
-                <span class="text-landing-page" id="surpriseText">I want to create a special surprise for my loved one to gift along with delicious HERSHEY’S chocolates</span>
+                <span class="text-landing-page" id="surpriseText">I want to create a special surprise for my loved one
+                  to gift along with delicious HERSHEY’S chocolates</span>
               </div>
-      
+
             </div>
-      
+
             <div class="d-flex justify-content-center" id="sendthanks">
               <div class="send-thankyounote" id="sendthankyou">
-                <h3 class="heading-div" >Send thank you note</h3>
-                <span class="text-landing-page">I have received delicious HERSHEY’S Chocolates from my loved one and wish to thank them</span>
+                <h3 class="heading-div">Send thank you note</h3>
+                <span class="text-landing-page">I have received delicious HERSHEY’S Chocolates from my loved one and
+                  wish to thank them</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-  
-  
+
+
     </div>
-  
+
     <!-- //second screen -->
-  <form id="formId" action="/questions" method="POST" enctype="multipart/form-data">
-    <div class="wrapper" id="secondscreen">
-      <div class=" header d-flex justify-content-center">
-        <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
-      </div>
-  
-      <div class="alert-check-upload invisible">
-        <div class="alert-content" style="flex-direction: column;
+    <form id="formId" enctype="multipart/form-data">
+      <div class="wrapper" id="secondscreen">
+        <div class=" header d-flex justify-content-center">
+          <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
+        </div>
+
+        <div class="alert-check-upload invisible">
+          <div class="alert-content" style="flex-direction: column;
         align-items: flex-end;">
-          <div id="alertCloseBtnUpload" class="close-btn-alert">
-            <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
-          </div>
-          <div class=" alert alert-warning" role="alert">
-            <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
-            <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
-            <h2>Upload square picture for best resolution</h2>
+            <div id="alertCloseBtnUpload" class="close-btn-alert">
+              <img style="margin-bottom: 8px;" src="/images/close.png" alt="close">
+            </div>
+            <div class=" alert alert-warning" role="alert">
+              <img class="upload-alert-logo" src="/images/square-image.png" alt="hersheyslogo">
+              <!-- <h1 class="display-1 image-missing">\(o_o)/</h1> -->
+              <h2>Upload square picture for best resolution</h2>
+            </div>
           </div>
         </div>
-      </div>
-  
-      <div class="wrapperdiv">
-        <img class="diwali-diya" src="images/diya.png" alt="diya">
-        <img class="diwali-rocket" src="images/rocket.png" alt="rocket">
-        
-        <div class="form-part-1">
-          <div class="container">
-            <div class="alert-box"></div>
-          </div>
-  
-          <div class="username-section">
-            <p class="surprise-heading" id="changeTextScreen">Sending Diwali Greetings to</p>
-            <p class="surprise-heading-ns" id="changeContent">Bhaiya, Bestie, Mom, Dad <span>🙂</span> Add nicknames to make it personal</p>
-            <input id="siblingname" type="text" placeholder="ENTER NAME" class="userName" required />
-          </div>
-          <div class="d-flex justify-content-start">
-            <img class="carousel-ns" src="/images/Asset 24.png" />
-          </div>
-          <div class="golden-wrapper">
-            <h2 class="title-ns">Select your pack</h2>
-            <div class="owl-carousel owl-theme d-flex justify-content-left">
-              <div class="item" id="selectPack">
-                <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item data-carousel-id="carousel1"/></h4>
-              </div>
-              <div class="item">
-                <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item data-carousel-id="carousel2"/></h4>
-              </div>
-              <div class="item">
-                <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item data-carousel-id="carousel3"/></h4>
-              </div>
-            </div>
-          </div>
-          <button id="postCardBtn" class="diwali-btn create-postcard"><h3><span>C</span>reate personal post card <span class="card-emoji">🖼️</span></h3></button>
-        </div>
-  
-        <div class="form-part-2">
-  
-          <div class="container">
-            <div class="alert-box"></div>
-          </div>
-  
-          <div class="golden-wrapper">
-            <h2 class="title-ns">Select the post card</h2>
-            <div class="owl-carousel owl-theme d-flex justify-content-center">
-              <div class="item">
-                <img class="carosel-images" id="familywali" src="/images/familywali.png" carousel-item data-carousel-id="carouselItem3"/>
-              </div>
-              <div class="item">
-                <img class="carosel-images" id="friendwali" src="/images/friendwali.png" carousel-item data-carousel-id="carouselItem2"/>
-              </div>
-              <div class="item" id="selectTemplate">
-                <img class="carosel-images" id="distancewali" src="/images/distancewali.png" carousel-item data-carousel-id="carouselItem1"/>
-              </div>
-            </div>
-          </div>
-  
-          <div class="upload-section">
-            <div class="upload-outerdiv">
-              <div class=" d-flex justify-content-center">
-                <p class="camera-tag">Make it special with a <span>📷</span></p>
-              </div>
-              <div class=" uploader d-flex justify-content-between">
-                <div id="imagediv" class="upload-file-text">
-                  <p class="filejpeg " id="changeFileName">Upload Photo</p>
-                </div>
-                <div class="photo">
-                  
-                  <input type="file" name="fileUploadBtn" id="uploadbtn" type="submit" accept="image/*" required/>
-                  <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
-                </div>
-              </div>
-  
-              <div class="d-flex justify-content-center flex-column text-center">
-                <!-- <p class="base-title">For best resolution upload a <br> square photo.</p> -->
-                <p class="caption-ns">Select a photo of your loved one and you together OR your loved one alone!</p>
-              </div>
-            </div>
-          </div>
-  
-          <div id = "cropdiv" class="image-crop-box hide-content">
+
+        <div class="wrapperdiv">
+          <img class="diwali-diya" src="images/diya.png" alt="diya">
+          <img class="diwali-rocket" src="images/rocket.png" alt="rocket">
+
+          <div class="form-part-1">
             <div class="container">
-              <div class="row">
-                <div class="window-title">
-                  <!-- <label for="width">Width:</label>
+              <div class="alert-box"></div>
+            </div>
+
+            <div class="username-section">
+              <p class="surprise-heading" id="changeTextScreen">Sending Diwali Greetings to</p>
+              <p class="surprise-heading-ns" id="changeContent">Bhaiya, Bestie, Mom, Dad <span>🙂</span> Add nicknames
+                to make it personal</p>
+              <input id="siblingname" type="text" placeholder="ENTER NAME" class="userName" required />
+            </div>
+            <div class="d-flex justify-content-start">
+              <img class="carousel-ns" src="/images/Asset 24.png" />
+            </div>
+            <div class="golden-wrapper">
+              <h2 class="title-ns">Select your pack</h2>
+              <div class="owl-carousel owl-theme d-flex justify-content-left">
+                <div class="item" id="selectPack">
+                  <h4><img class="carosel-images" id="hoverChange" src="/images/kisses.png" carousel-item
+                      data-carousel-id="carousel1" /></h4>
+                </div>
+                <div class="item">
+                  <h4><img class="carosel-images" id="hoverhershey" src="/images/hershey.png" carousel-item
+                      data-carousel-id="carousel2" /></h4>
+                </div>
+                <div class="item">
+                  <h4><img class="carosel-images" id="hoverexotic" src="/images/exotic.png" carousel-item
+                      data-carousel-id="carousel3" /></h4>
+                </div>
+              </div>
+            </div>
+            <button id="postCardBtn" class="diwali-btn create-postcard">
+              <h3><span>C</span>reate personal post card <span class="card-emoji">🖼️</span></h3>
+            </button>
+          </div>
+
+          <div class="form-part-2">
+
+            <div class="container">
+              <div class="alert-box"></div>
+            </div>
+
+            <div class="golden-wrapper">
+              <h2 class="title-ns">Select the post card</h2>
+              <div class="owl-carousel owl-theme d-flex justify-content-center">
+                <div class="item">
+                  <img class="carosel-images" id="familywali" src="/images/familywali.png" carousel-item
+                    data-carousel-id="carouselItem3" />
+                </div>
+                <div class="item">
+                  <img class="carosel-images" id="friendwali" src="/images/friendwali.png" carousel-item
+                    data-carousel-id="carouselItem2" />
+                </div>
+                <div class="item" id="selectTemplate">
+                  <img class="carosel-images" id="distancewali" src="/images/distancewali.png" carousel-item
+                    data-carousel-id="carouselItem1" />
+                </div>
+              </div>
+            </div>
+
+            <div class="upload-section">
+              <div class="upload-outerdiv">
+                <div class=" d-flex justify-content-center">
+                  <p class="camera-tag">Make it special with a <span>📷</span></p>
+                </div>
+                <div class=" uploader d-flex justify-content-between">
+                  <div id="imagediv" class="upload-file-text">
+                    <p class="filejpeg " id="changeFileName">Upload Photo</p>
+                  </div>
+                  <div class="photo">
+
+                    <input type="file" name="fileUploadBtn" id="uploadbtn" type="submit" accept="image/*" required />
+                    <input style="border: none;" type="button" id="fileUploadLabel" value="upload" class="uploadbutton">
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center flex-column text-center">
+                  <!-- <p class="base-title">For best resolution upload a <br> square photo.</p> -->
+                  <p class="caption-ns">Select a photo of your loved one and you together OR your loved one alone!</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="cropdiv" class="image-crop-box hide-content">
+              <div class="container">
+                <div class="row">
+                  <div class="window-title">
+                    <!-- <label for="width">Width:</label>
                   <input type="range" name="width" id="widthRange" min="1" max="1200" step="10" value="100" oninput="resizeImage()">
                  
                   <label for="height">Height:</label>
                   <input type="range" name="height" id="heightRange" min="1" max="1200" step="10" value="100" oninput="resizeImage()"> -->
-                
-                  
-                  <h4><span>C</span>rop <span>I</span>mage</h4>
+
+
+                    <h4><span>C</span>rop <span>I</span>mage</h4>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div id="cropdiv" class="cropped-image">
-                  <img id="preview" src="" alt="">
+                <div class="row">
+                  <div id="cropdiv" class="cropped-image">
+                    <img id="preview" src="" alt="">
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <button id="cropBtn" class="diwali-btn"><h4><span>C</span>rop</h4></button>
+                <div class="row">
+                  <button id="cropBtn" class="diwali-btn">
+                    <h4><span>C</span>rop</h4>
+                  </button>
+                </div>
               </div>
             </div>
+
+            <div class="textarea-messages">
+              <textarea name="diwali-text" id="diwaliMessage" cols="30" rows="10"
+                placeholder="Add your Diwali message here to make it special."
+                oninput="checkCharacterLimit()"></textarea>
+              <div id="character-counter">
+                <span id="typed-characters">0</span>
+                <span>/</span>
+                <span id="maximum-characters">100</span>
+              </div>
+            </div>
+
+            <button id="nextbtn" class="diwali-btn">
+              <h3><span>G</span>enerate your surprise!</h3>
+            </button>
+
           </div>
-    
-          <div class="textarea-messages">
-            <textarea name="diwali-text" id="diwaliMessage" cols="30" rows="10" placeholder="Add your Diwali message here to make it special." oninput="checkCharacterLimit()" ></textarea>
-            <div id="character-counter">
-              <span id="typed-characters">0</span>
-              <span>/</span>
-              <span id="maximum-characters">100</span>
-            </div> 
-          </div>
-           
-          <button id="nextbtn" class="diwali-btn"><h3><span>G</span>enerate your surprise!</h3></button>
-  
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 
     <!-- ------------------------------------------------ hershey-kisses-->
     <div class="window-kisses" id="thirdscreen">
@@ -225,7 +243,7 @@
             <img src="/images/close.png" alt="close">
           </div>
           <div class=" alert alert-warning" role="alert">
-          
+
             <h1 class="display-1 image-missing">\(o_o)/</h1>
             Please select an option for each question!
           </div>
@@ -237,12 +255,12 @@
         <h6 class="text-white appropriate">Choose the most appropriate options</h6>
       </div>
       <div class="header-rakhi-image">
-        <img  class="rakhi-kiss-image" src="/images/rakhi.png" />
+        <img class="rakhi-kiss-image" src="/images/rakhi.png" />
       </div>
       <div class="kisses-bg"><img class="image-1-rc" src="/images/image1.png" />
       </div>
-  
-  
+
+
       <div class="relative-question-div">
         <div class="container">
           <div class="question-list">
@@ -269,9 +287,9 @@
             <div class="kisses-bg">
               <img class="hersheyBackgroundImage" src="/images/image3.png" />
               <img class="hersheyBackgroundImageSection-4-duplicate" src="/images/image5.png" />
-            </div> 
+            </div>
             <div class="qns-1">
-        
+
               <div class="question-elements">
                 <div class="row">
                   <p class="qns-2">My sibling's superpower is</p>
@@ -294,10 +312,10 @@
             <div class="kisses-bg">
               <img class="hersheyBackgroundImageSection-4" src="/images/image5.png" />
               <img class="hersheyBackgroundImageSection-5" src="/images/image6.png" />
-            </div>  
+            </div>
             <div class="kisses-bg">
               <img class="image-9" src="/images/image9.png" />
-            </div>    
+            </div>
             <div class="qns-1">
               <div class="question-elements">
                 <div class="row">
@@ -320,17 +338,17 @@
             </div>
           </div>
         </div>
-  
-          <div class="d-flex justify-content-between hersheyBackgroundImageSection-6">
-            <img class="img1" src="/images/image8.png" />
-            <img class="img2" src="/images/image7.png" />
-          </div>
+
+        <div class="d-flex justify-content-between hersheyBackgroundImageSection-6">
+          <img class="img1" src="/images/image8.png" />
+          <img class="img2" src="/images/image7.png" />
+        </div>
       </div>
       <div class="d-flex justify-content-center">
         <button class="nextQuestion" id="nextQuestionid">next</button>
       </div>
     </div>
-  
+
     <!-----------------------------------------hershey bar -->
     <div class="windows-bar" id="thirdscreen-bar">
       <div class="alert-check-questions-bar invisible">
@@ -348,11 +366,11 @@
       <div class="top-banner-ns">
         <img class="top-image-bar" src="/images/top-pattern.png" />
       </div>
-  
+
       <div class="hanging-circles">
         <img src="/images/hanging-circle-shapes.png" alt="">
       </div>
-  
+
       <div class="bar-heading">
         <h3 class="knowYour-bar">Help us to know Your</h3>
         <h1 class="sibling-bar">sibling better</h1>
@@ -360,16 +378,16 @@
           <h6 class="appropriate-bar">choose the most appropriate options</h6>
         </div>
       </div>
-  
+
       <div class="kisses-bg">
         <img class="elements-bar" src="/images/elements --bars 1.png" />
         <img class="heart-bar" src="/images/bars -heart 1.png" />
       </div>
-  
+
       <div class="container">
         <div class="outerDiv-bar">
           <!-- card1 -->
-    
+
           <div class="d-flex qns-1-bar">
             <div class="container">
               <div class="question-elements">
@@ -453,7 +471,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="d-flex justify-content-center ">
         <button class="nextQuestion-bar" id="nextQuestionid1">Next</button>
       </div>
@@ -464,145 +482,147 @@
         <img class="bottom-image-bar" src="/images/bottom-pattern.png" />
       </div>
     </div>
-  <!-- ------------------------------------------exotic dark -->
-  
-  <div class="window-exotic" id="thirdscreen-exotic">
-    <div class="alert-check-questions-exotic invisible">
-      <div class="alert-content">
-        <div id="alertCloseexoticBtn" class="close-btn-alert">
-          <img src="/images/close.png" alt="close">
-        </div>
-        <div class=" alert alert-warning" role="alert">
-          <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
-          <h1 class="display-1 image-missing">\(o_o)/</h1>
-          Please select an option for each question!
+    <!-- ------------------------------------------exotic dark -->
+
+    <div class="window-exotic" id="thirdscreen-exotic">
+      <div class="alert-check-questions-exotic invisible">
+        <div class="alert-content">
+          <div id="alertCloseexoticBtn" class="close-btn-alert">
+            <img src="/images/close.png" alt="close">
+          </div>
+          <div class=" alert alert-warning" role="alert">
+            <!-- <img class="question-alert-logo" src="/images/hersheyslogo.png" alt="hersheyslogo"> -->
+            <h1 class="display-1 image-missing">\(o_o)/</h1>
+            Please select an option for each question!
+          </div>
         </div>
       </div>
-    </div>
-    <div class="kisses-header">
-      <div class="d-flex justify-content-center">
-        <img class="gliter-with-group" src="/images/MicrosoftTeams-image (2).png"/>
+      <div class="kisses-header">
+        <div class="d-flex justify-content-center">
+          <img class="gliter-with-group" src="/images/MicrosoftTeams-image (2).png" />
+        </div>
+        <div class="exotic-content">
+          <h3 class="knowYour">Help us to know Your</h3>
+          <h3 class="sibling">sibling better</h3>
+          <h6 class="text-white appropriate">Choose the most appropriate options</h6>
+        </div>
+        <div class="d-flex justify-content-start gliter-with-groups"><img src="/images/MicrosoftTeams-image (1).png" />
+        </div>
       </div>
-     <div class="exotic-content">
-      <h3 class="knowYour">Help us to know Your</h3>
-      <h3 class="sibling">sibling better</h3>
-      <h6 class="text-white appropriate">Choose the most appropriate options</h6>
-     </div>
-      <div class="d-flex justify-content-start gliter-with-groups"><img src="/images/MicrosoftTeams-image (1).png"/></div>
-    </div>
-    <div class="header-rakhi-image">
-      <img class="rakhi-kiss-image" src="/images/exotic-rakhi.png" />
-  
-    </div>
-   
-    <div class="kisses-bg"><img class="image-1-rc-exotic" src="/images/cut hed 2.png" />
-    </div>
-  
-    <div class="relative-question-div">
-      <div class="container hershey-exotic-div">   
-    <div class="question-list">
-      <div class="qns-exotic-1">
-        <div class="question-elements">
-            <div class="row">
-                <p class="qns-2">My sibling and I are</p>
-            </div>
-            <div class="row">
-                <div class="options-row">
+      <div class="header-rakhi-image">
+        <img class="rakhi-kiss-image" src="/images/exotic-rakhi.png" />
+
+      </div>
+
+      <div class="kisses-bg"><img class="image-1-rc-exotic" src="/images/cut hed 2.png" />
+      </div>
+
+      <div class="relative-question-div">
+        <div class="container hershey-exotic-div">
+          <div class="question-list">
+            <div class="qns-exotic-1">
+              <div class="question-elements">
+                <div class="row">
+                  <p class="qns-2">My sibling and I are</p>
+                </div>
+                <div class="row">
+                  <div class="options-row">
                     <div class="exotic-dark d-flex" id="exotic-hershey-1">
-                        <p class="expansion-btn exp-1">Berry Good <br>Friends</p>
+                      <p class="expansion-btn exp-1">Berry Good <br>Friends</p>
                     </div>
                     <div class="exotic-dark d-flex" id="exotic-hershey-2">
-                        <p class="expansion-btn exp-2">Nutty <br>Partners</p>
+                      <p class="expansion-btn exp-2">Nutty <br>Partners</p>
                     </div>
                     <div class="exotic-dark d-flex" id="exotic-hershey-3">
-                        <p class="expansion-btn exp-3">Trusted <br>Confidantes</p>
+                      <p class="expansion-btn exp-3">Trusted <br>Confidantes</p>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div class="kisses-bg">
+              <img class="hersheyBackgroundImage-exotic" src="/images/almond 1 4.png" />
+              <img class="hersheyBackgroundImageSection-4-duplicate-exotic"
+                src="/images/MicrosoftTeams-image (15) 1.png" />
+            </div>
+
+            <div class="qns-exotic-1">
+              <div class="question-elements">
+                <div class="row">
+                  <p class="qns-2">If we get to spend a weekend together, it would be about</p>
+                </div>
+                <div class="row">
+                  <div class="options-row">
+                    <div class="exotic-div d-flex " id="exotic-dark-card2-1">
+                      <p class="exotic-expansion-btn exp-1">Wine & Chocolates at Home</p>
+                    </div>
+                    <div class="exotic-div d-flex " id="exotic-dark-card2-2">
+                      <p class="exotic-expansion-btn exp-2">Sundowners at <br>Beach Resort</p>
+                    </div>
+                    <div class="exotic-div d-flex " id="exotic-dark-card2-3">
+                      <p class="exotic-expansion-btn exp-3">Bollywood Music <br> Festival</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="kisses-bg">
+              <img class="hersheyBackgroundImageSection-4" src="/images/MicrosoftTeams-image (19) 1.png" />
+              <img class="hersheyBackgroundImageSection-5" src="/images/almond 2 1.png" />
+            </div>
+            <div class="kisses-bg">
+              <img class="image-9-exotic" src="/images/almond 2 1.png" />
+            </div>
+
+            <div class="qns-exotic-1">
+              <div class="question-elements">
+                <div class="row">
+                  <p class="qns-2">Things we usually do together</p>
+                </div>
+                <div class="row">
+                  <div class="options-row">
+                    <div class="sibling-bond-option" id="option-exotic-1">
+                      <p class="option-text">Discussing<br> family</p>
+                    </div>
+                    <div class="sibling-bond-option" id="option-exotic-2">
+                      <p class="option-text">Remembering<br> childhood days</p>
+                    </div>
+                    <div class="sibling-bond-option" id="option-exotic-3">
+                      <p class="option-text">Laughing at <br>Silly Jokes</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end bottom-berries-img">
+
+            <img class="img2-exotic" src="/images/MicrosoftTeams-image.png" />
+          </div>
+          <div class="hed-next-btn d-flex justify-content-center">
+            <button class="nextQuestion" id="nextQuestionid2">next</button>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="kisses-bg">
-      <img class="hersheyBackgroundImage-exotic" src="/images/almond 1 4.png" />
-      <img class="hersheyBackgroundImageSection-4-duplicate-exotic" src="/images/MicrosoftTeams-image (15) 1.png" />
-    </div> 
-  
-    <div class="qns-exotic-1">
-      <div class="question-elements">
-        <div class="row">
-          <p class="qns-2">If we get to spend a weekend together, it would be about</p>
+
+
+    <!-- loading screen -->
+    <div id="loadingscreen" class="loading-screen load-kisses">
+      <div class=" header d-flex justify-content-start">
+        <div class=""><img id="loadingHeader" class="hersheylogo" src="/images/hersheys-kisses-logo 1.png" /></div>
       </div>
-        <div class="row">
-          <div class="options-row">
-            <div class="exotic-div d-flex " id="exotic-dark-card2-1">
-              <p class="exotic-expansion-btn exp-1">Wine & Chocolates at Home</p>
+      <div class="loading-media">
+        <div class="video-placeholder">
+
+          <div class="loading-video">
+            <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
+            <img class="bars-casacade-loading" src="/images/bar-cascade.png" alt="bar-cascade">
+            <video id="kissesloadingvid" class="kisses-loading-video" muted playsinline webkit-playsinline></video>
+            <video id="exoticloadingvid" class="kisses-loading-video" muted playsinline webkit-playsinline></video>
+
           </div>
-          <div class="exotic-div d-flex " id="exotic-dark-card2-2">
-              <p class="exotic-expansion-btn exp-2">Sundowners at <br>Beach Resort</p>
-          </div>
-          <div class="exotic-div d-flex " id="exotic-dark-card2-3">
-              <p class="exotic-expansion-btn exp-3">Bollywood Music <br> Festival</p>
-          </div>
-          </div>
-        </div>
-      </div>
-  </div>
-  <div class="kisses-bg">
-    <img class="hersheyBackgroundImageSection-4" src="/images/MicrosoftTeams-image (19) 1.png" />
-    <img class="hersheyBackgroundImageSection-5" src="/images/almond 2 1.png" />
-  </div>  
-  <div class="kisses-bg">
-    <img class="image-9-exotic" src="/images/almond 2 1.png" />
-  </div> 
-  
-  <div class="qns-exotic-1">
-      <div class="question-elements">
-          <div class="row">
-              <p class="qns-2">Things we usually do together</p>
-          </div>
-          <div class="row">
-            <div class="options-row">
-              <div class="sibling-bond-option" id="option-exotic-1">
-                <p class="option-text">Discussing<br> family</p>
-            </div>
-            <div class="sibling-bond-option" id="option-exotic-2">
-                <p class="option-text">Remembering<br> childhood days</p>
-            </div>
-            <div class="sibling-bond-option" id="option-exotic-3">
-                <p class="option-text">Laughing at <br>Silly Jokes</p>
-            </div>
-            </div>
-          </div>
-      </div>
-  </div>
-  </div>
-  <div class="d-flex justify-content-end bottom-berries-img">
-          
-    <img class="img2-exotic" src="/images/MicrosoftTeams-image.png" />
-  </div>
-  <div class="hed-next-btn d-flex justify-content-center">
-    <button class="nextQuestion" id="nextQuestionid2">next</button>
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  
-  <!-- loading screen -->
-  <div id="loadingscreen" class="loading-screen load-kisses"> 
-    <div class=" header d-flex justify-content-start">
-      <div class=""><img id="loadingHeader" class="hersheylogo" src="/images/hersheys-kisses-logo 1.png" /></div>
-    </div>
-    <div class="loading-media">
-      <div class="video-placeholder">
-  
-        <div class="loading-video">
-          <h2 style="position: absolute; top: 0px;" class="browser-is" id="browserIs"></h2>
-          <img class="bars-casacade-loading" src="/images/bar-cascade.png" alt="bar-cascade">
-          <video id="kissesloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
-          <video id="exoticloadingvid" class="kisses-loading-video"  muted playsinline webkit-playsinline></video>
-  
-        </div>
-  
+
         </div>
       </div>
       <div class="loading-spinner">
@@ -628,118 +648,120 @@
         <!-- <div class="spinner-border spinner-ns" role="status">
         <span class="sr-only">Loading...</span>
       </div> -->
+      </div>
+      <div class="loading-message">
+        <h4><span>Your custom special surprise is loading...</span>🤩</h4>
+      </div>
     </div>
-    <div class="loading-message">
-      <h4><span>Your custom special surprise is loading...</span>🤩</h4>
-    </div>
-  </div>
-  <div id="receiverfirstscreen" class="receiver-wrapper">
-    <div class="receiver-div"> 
-      <img class="led-lights" src="images/led-lights-for-receiver.png" alt="led-lights">
-      <div class="receiver-div-content">
-        <div class="receiver-kiss-cascade-drop">
-          <img src="/images/diwali-lamps-with-logo.png" alt="diwali-lamps-with-logo">
+    <div id="receiverfirstscreen" class="receiver-wrapper">
+      <div class="receiver-div">
+        <img class="led-lights" src="images/led-lights-for-receiver.png" alt="led-lights">
+        <div class="receiver-div-content">
+          <div class="receiver-kiss-cascade-drop">
+            <img src="/images/diwali-lamps-with-logo.png" alt="diwali-lamps-with-logo">
+          </div>
+          <img class="recevier-hershey-pack" src="/images/recevier-hershey-pack.png" alt="recevier-hershey-pack">
+          <h3>
+            You have received a
+          </h3>
+          <h1>custom surprise</h1>
+          <h3>
+            from your loved one to make <span>Diwali special</span>
+          </h3>
         </div>
-        <img class="recevier-hershey-pack" src="/images/recevier-hershey-pack.png" alt="recevier-hershey-pack">
-        <h3>
-          You have received a
-        </h3>
-        <h1>custom surprise</h1>
-        <h3>
-          from your loved one to make <span>Diwali special</span>
-        </h3>
-      </div>
-  
-      <div class="receiver-div-button">
-        <button id="receiverbtn"><span>view surprise</span></button>
-      </div>
-    </div>
-  </div>
-  
-  <div id="uploadingDiv"  class="alert alert-success">
-    <strong>Success!</strong> Indicates a successful or positive action.
-  </div>
-  
-  <!-- kisses message window -->
-  
-  <div id="messagenote" class="message-wrapper">
-    <div class="close-icon">
-      <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
-    </div>
-  
-    <div class="col-12">
-      <div class="row">
-        <div class="diwali-msg-heading">
-          <h4 class="diwali-msg-h4"><span>F</span>estive <span>M</span>oments from afar!</h4>
+
+        <div class="receiver-div-button">
+          <button id="receiverbtn"><span>view surprise</span></button>
         </div>
       </div>
     </div>
-  
-    <div class="msg-led-lights">
-      <img src="/images/led-lights.png" alt="led-lights.png">
+
+    <div id="uploadingDiv" class="alert alert-success">
+      <strong>Success!</strong> Indicates a successful or positive action.
     </div>
-    <div class="msg-hanging-lamp">
-      <img src="/images/diwali-lamp.png" alt="diwali-lamp.png">
-    </div>
-  
-    <div class="diwali-msg-wrapper">
-      <div class="col-4">
-        <div   class="row d-flex justify-content-center">
-          <div class="polaroid-frame">
-            <!-- src="images/user-image.png" -->
-            <div class="user-img">
-              <img id="cropimgdisplay" src="" alt="user-image">
-            </div>
-  
-            <div id="imagewithhand"  class="brand-wish">
-              <img src="images/long-distance-brand-wishes.png" alt="long-distance-brand-wishes">
-            </div>
-  
+
+    <!-- kisses message window -->
+
+    <div id="messagenote" class="message-wrapper">
+      <div class="close-icon">
+        <img id="msgclosebtn" class="close-message" src="/images/close.png" alt="close.png">
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+          <div class="diwali-msg-heading">
+            <h4 class="diwali-msg-h4"><span>F</span>estive <span>M</span>oments from afar!</h4>
           </div>
         </div>
       </div>
-  
-      <div class="col-2 vertical-gold-bar">
-        <div class="vertical-bar">
-          <span></span>
-        </div>
+
+      <div class="msg-led-lights">
+        <img src="/images/led-lights.png" alt="led-lights.png">
       </div>
-    
-      <div class="col-5">
-        <div class="row">
-          <div class="message-body">
-            <div class="row">
-              <div class="message-header">
-                <h3 id = "dear">Dear</h3>
-                <div class="dynamic-name">
-                  <h2 id="#hereGoesID" class="receiver-name-on-message">Dynamic Name</h2><h2 class="receiver-name-on-message">,</h2>
+      <div class="msg-hanging-lamp">
+        <img src="/images/diwali-lamp.png" alt="diwali-lamp.png">
+      </div>
+
+      <div class="diwali-msg-wrapper">
+        <div class="col-4">
+          <div class="row d-flex justify-content-center">
+            <div class="polaroid-frame">
+              <!-- src="images/user-image.png" -->
+              <div class="user-img">
+                <img id="cropimgdisplay" src="" alt="user-image">
+              </div>
+
+              <div id="imagewithhand" class="brand-wish">
+                <img src="images/long-distance-brand-wishes.png" alt="long-distance-brand-wishes">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2 vertical-gold-bar">
+          <div class="vertical-bar">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="row">
+            <div class="message-body">
+              <div class="row">
+                <div class="message-header">
+                  <h3 id="dear">Dear</h3>
+                  <div class="dynamic-name">
+                    <h2 id="#hereGoesID" class="receiver-name-on-message">Dynamic Name</h2>
+                    <h2 class="receiver-name-on-message">,</h2>
+                  </div>
                 </div>
               </div>
+              <div class="dynamic-note">
+                <p id="completenote">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+                  eget dolor. Aenean m</p>
+              </div>
             </div>
-            <div class="dynamic-note">
-              <p id="completenote">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m</p>
+            <div id="dynamicImg" class="dynamic-img">
+              <img src="/images/both-kisses.png" alt="say-it-with-a-kiss.png">
             </div>
-          </div>
-          <div id="dynamicImg" class="dynamic-img">
-            <img src="/images/both-kisses.png" alt="say-it-with-a-kiss.png">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- kisses message window end here -->
-  
-  
-  
-  <div id="preview-Container">
-    <img id="closebtn" src="images/close-record-video.png"/>
-    <video id="videotag"></video>
-    <div class="record-video-controls">
-      <div id="savebtn"></div>
-      <div id="sharebtn"></div>
+
+    <!-- kisses message window end here -->
+
+
+
+    <div id="preview-Container">
+      <img id="closebtn" src="images/close-record-video.png" />
+      <video id="videotag"></video>
+      <div class="record-video-controls">
+        <div id="savebtn"></div>
+        <div id="sharebtn"></div>
+      </div>
     </div>
-  </div>
     <div id="tap-to-place">Tap to Place</div>
     <div id="arscreen">
       <!-- <div id="headerdiv" class=" header">
@@ -757,13 +779,13 @@
           <!-- <img id="closebtnsharepopup" src="/images/closebtnsharepopup.png"> -->
           Win exciting prizes by sharing on Instagram. Tag your loved one & @hersheysindia
         </div>
-    
+
       </div>
-  
+
       <div id="homeIcon" class="home-icon">
         <img class="home-icon-img" src="/images/home-icon.png" alt="home-icon">
       </div>
-      
+
       <div id="tapOnEnvelope">
         Tap on envelope
       </div>
@@ -771,15 +793,15 @@
         <div id="recordbannerdiv">Tap Rec button to record</div>
         <div class="arrow-down"></div>
       </div>
-      
+
       <div id="share">
         <div id="reloaddiv"><img id="reload" src="/images/reload.png" /></div>
         <div id="shutter"><img id="capture" src="/images/shutter-button-start.png" /></div>
         <!-- <div id="shutter"><img id="capture" src="/images/shutter-button-stop.png" /></div> -->
-        <p id="send" >Send</p>
+        <p id="send">Send</p>
       </div>
     </div>
-  
+
     <!-- <div id="capture1 capture2 d-flex justify-content-start">
     
       <div class=""><img class="hersheylogo" src="/images/hersheyslogo.png" /></div>
@@ -792,64 +814,50 @@
    <div id="reload">
     
    </div> -->
-  
-  <!-- ----------------------------------------- -->
-  
-  
-  
-  
-  <div id="alertMessageForUpload" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+
+    <!-- ----------------------------------------- -->
+
+
+
+
+    <div id="alertMessageForUpload" style="display: none;" class="alert alert-warning alert-dismissible fade show"
+      role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <!-- ==================================================================================================== -->
 
-    <a-scene
-    id="scenediv"
-      next-button
-      xrextras-gesture-detector
-      landing-page
-      xrextras-loading
-      xrextras-runtime-error
-      renderer="colorManagement:true"
-      xrweb="allowedDevices: any">
+    <a-scene id="scenediv" next-button xrextras-gesture-detector landing-page xrextras-loading xrextras-runtime-error
+      renderer="colorManagement:true" xrweb="allowedDevices: any">
 
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
         <a-asset-item id="kissesmodel" src="/models/kissesfile3.glb"></a-asset-item>
-      <a-asset-item id="barmodel" src="/models/barsfinalfile5.glb"></a-asset-item>
-      <a-asset-item id="exoticmodel" src="/models/edfinal3.glb"></a-asset-item>
-        
+        <a-asset-item id="barmodel" src="/models/barsfinalfile5.glb"></a-asset-item>
+        <a-asset-item id="exoticmodel" src="/models/edfinal3.glb"></a-asset-item>
+
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-      <a-camera
-        id="camera"
-        position="0 8 8"
-        raycaster="objects: .cantap"
-        cursor=" 
+      <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor=" 
           fuse: false;
           rayOrigin: mouse;">
       </a-camera>
 
-      <a-plane id="tempplane" height=".1" width=".15" position="0 0 -.3" visible="false" material="" geometry=""></a-plane>
+      <a-plane id="tempplane" height=".1" width=".15" position="0 0 -.3" visible="false" material=""
+        geometry=""></a-plane>
       <!-- Setup our instant tracker and start it in placement mode so the user can -->
       <!-- choose a location for the object  .... zappar-instant="placement-mode: true"-->
-      <a-entity  xrextras-hold-drag
-      xrextras-two-finger-rotate
-      xrextras-pinch-scale id="instant-tracker">
-        <a-entity id="modelname"  gltf-model="#kissesmodel" class="cantap" visible="true" scale="1 1 1" position="0 0 0"
-        xrextras-hold-drag
-        xrextras-two-finger-rotate
-        xrextras-pinch-scale>
-  
-          <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" mater
-          ial="" geometry=""
-            visible="false"></a-box>
+      <a-entity xrextras-hold-drag xrextras-two-finger-rotate xrextras-pinch-scale id="instant-tracker">
+        <a-entity id="modelname" gltf-model="#kissesmodel" class="cantap" visible="false" scale="5 5 5" position="0 0 0"
+          xrextras-hold-drag xrextras-two-finger-rotate xrextras-pinch-scale>
+
+          <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" mater ial=""
+            geometry="" visible="false"></a-box>
         </a-entity>
-        
+
         <!-- Include a 3D model inside our instant tracker -->
         <!-- <a-entity id="australiacont" gesture-handler gltf-model="url(assets/kisses .glb)" scale="0.1 0.1 0.1"  animation-mixer="clip: Animation; loop: repeat"></a-entity> -->
         <a-entity scale="7 7 7" light="type: directional;
@@ -857,37 +865,35 @@
        shadowMapHeight:2048;
          shadowMapWidth:2048;
          shadowCameraTop: 10;
-               target: #australiacont;" position="17.85 2.75 0.30"   xrextras-attach="target: model; offset: 1 15 3;"
-               shadow>
+               target: #australiacont;" position="17.85 2.75 0.30" xrextras-attach="target: model; offset: 1 15 3;"
+          shadow>
         </a-entity>
         <a-entity scale="7 7 7" light="type: directional;
        intensity: 0.8;
       shadowMapHeight:2048;
       shadowMapWidth:2048;
       shadowCameraTop: 10;
-          target: #australiacont;" position="-4.6 2.75 1.24"   xrextras-attach="target: model; offset: 1 15 3;"
-          shadow>
+          target: #australiacont;" position="-4.6 2.75 1.24" xrextras-attach="target: model; offset: 1 15 3;" shadow>
         </a-entity>
         <a-entity scale="7 7 7" light="type: directional;
       intensity: 0.8;
       shadowMapHeight:2048;
       shadowMapWidth:2048;
       shadowCameraTop: 10;
-         target: #australiacont;" position="3.43 2.68 -0.62"   xrextras-attach="target: model; offset: 1 15 3;"
-         shadow>
+         target: #australiacont;" position="3.43 2.68 -0.62" xrextras-attach="target: model; offset: 1 15 3;" shadow>
         </a-entity>
         <a-entity scale="7 7 7" light="type: directional;
       intensity: 0.8;
       shadowMapHeight:2048;
       shadowMapWidth:2048;
       shadowCameraTop: 10;
-         target: #australiacont;" position="0.52 2.62 12.75"   xrextras-attach="target: model; offset: 1 15 3;"
-         shadow>
+         target: #australiacont;" position="0.52 2.62 12.75" xrextras-attach="target: model; offset: 1 15 3;" shadow>
         </a-entity>
         <a-light type="ambient" intensity="2"></a-light>
       </a-entity>
 
-      <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow" shadow></a-plane>
+      <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow"
+        shadow></a-plane>
     </a-scene>
 
     <script>
@@ -899,6 +905,8 @@
 
       const fileInput = document.getElementById("uploadbtn");
       //upload image function
+
+
       function uploadImage(imageFile) {
         console.log("uploadImage ran")
         const formData = new FormData();
@@ -922,15 +930,20 @@
               const imageUrl = data.imageUrl;
               resolve(imageUrl);
             })
-            .catch(error => {
+            .catch((error) => {
               reject(error);
             });
         });
+
       }
+
+
       function getimageuploaded() {
 
         // Get uploaded image from server
         console.log("clicked different btn")
+
+        console.log("fileInput", fileInput);
 
         const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
         console.log("clicked different btn1")
@@ -953,48 +966,48 @@
 
     </script>
 
-  <script>
-     function checkCharacterLimit() {
-            var textarea = document.getElementById("diwaliMessage");
-            var charCount = textarea.value.length;
-            var charLimit = 100;
+    <script>
+      function checkCharacterLimit() {
+        var textarea = document.getElementById("diwaliMessage");
+        var charCount = textarea.value.length;
+        var charLimit = 100;
 
-            if (charCount > charLimit) {
-                // Limit the text to 100 characters
-                textarea.value = textarea.value.substring(0, charLimit);
-                console.log("exceeded")
-                // Display a message indicating the character limit has been exceeded
-                // var charCountElement = document.getElementById("charCount");
-                // charCountElement.innerHTML = "Character limit exceeded! You can only enter up to " + charLimit + " characters.";
-            } 
+        if (charCount > charLimit) {
+          // Limit the text to 100 characters
+          textarea.value = textarea.value.substring(0, charLimit);
+          console.log("exceeded")
+          // Display a message indicating the character limit has been exceeded
+          // var charCountElement = document.getElementById("charCount");
+          // charCountElement.innerHTML = "Character limit exceeded! You can only enter up to " + charLimit + " characters.";
         }
-    let kissesLoading = document.querySelector(".kisses-loading-video")
+      }
+      let kissesLoading = document.querySelector(".kisses-loading-video")
 
-    if (isChrome) {
-      //kisses
-      kissesLoading.src = "/videos/kisses_VP9.webm"
-      kissesLoading.type = "video/webm; codecs=vp9"
-      kissesLoading.controls = false
-      kissesLoading.play()
-       //exotic hed  
-      exoticloadingvid.src = "/videos/hed-loading_VP9.webm"
-      exoticloadingvid.type = "video/webm; codecs=vp9" 
-      exoticloadingvid.controls = false
-      exoticloadingvid.play()
-    } else if (isIOS) {
-       //kisses
-      kissesLoading.src = "/videos/kisses-mov.mov"
-      kissesLoading.type = "video/mp4; codecs=hev1"
-      kissesLoading.controls = false
-      kissesLoading.play()
-      //exotic hed
-      exoticloadingvid.src = "/videos/hed-loading.mov"
-      exoticloadingvid.type = "video/mp4; codecs=hev1"
-      exoticloadingvid.controls = false
-      exoticloadingvid.play()
-    } else {
-      document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
-    }
-     
-  </script>
-  <%- include('./includes/footer') %>
+      if (isChrome) {
+        //kisses
+        kissesLoading.src = "/videos/kisses_VP9.webm"
+        kissesLoading.type = "video/webm; codecs=vp9"
+        kissesLoading.controls = false
+        kissesLoading.play()
+        //exotic hed  
+        exoticloadingvid.src = "/videos/hed-loading_VP9.webm"
+        exoticloadingvid.type = "video/webm; codecs=vp9"
+        exoticloadingvid.controls = false
+        exoticloadingvid.play()
+      } else if (isIOS) {
+        //kisses
+        kissesLoading.src = "/videos/kisses-mov.mov"
+        kissesLoading.type = "video/mp4; codecs=hev1"
+        kissesLoading.controls = false
+        kissesLoading.play()
+        //exotic hed
+        exoticloadingvid.src = "/videos/hed-loading.mov"
+        exoticloadingvid.type = "video/mp4; codecs=hev1"
+        exoticloadingvid.controls = false
+        exoticloadingvid.play()
+      } else {
+        document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+      }
+
+    </script>
+    <%- include('./includes/footer') %>

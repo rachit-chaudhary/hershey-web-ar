@@ -6,8 +6,11 @@
 import * as THREE from 'three';
 import { UImodule } from './modules/webexperience-ui'
 
-var msg 
+var msg
 var nameone
+let tap1 = document.querySelectorAll('#tap-to-place');
+let taptoplace = document.querySelector('#tap-to-place')
+
 
 var encodedMsg
 var encodedname
@@ -17,10 +20,9 @@ nextbtn.onclick = () => {
   nameone = document.getElementById("siblingname").value
   encodedMsg = encodeURIComponent(msg)
   encodedname = encodeURIComponent(nameone)
-  console.log("encoded "+encodedname);
+  console.log("encoded " + encodedname);
 }
 let imagevalue
-
 
 // modules code
 const uimoduleobj = new UImodule();
@@ -72,6 +74,9 @@ questionAlertexoticClose.onclick = () => {
 let loadingHeader = document.getElementById("loadingHeader")
 let barsLoadingMedia = document.querySelector(".bars-casacade-loading")
 
+
+
+
 sendgift.onclick = () => {
   firstscreen.style.display = "none"
   scene.style.display = "block"
@@ -79,12 +84,12 @@ sendgift.onclick = () => {
   bgaudio.play()
 
   var diwaliDiya = document.querySelectorAll(".diwali-diya")
-    for(let i=0; i < diwaliDiya.length; i++) {
-      diwaliDiya[i].style.display = "none"
-    }
+  for (let i = 0; i < diwaliDiya.length; i++) {
+    diwaliDiya[i].style.display = "none"
+  }
 
   var diwaliRocket = document.querySelectorAll(".diwali-rocket")
-  for(let i =0; i < diwaliRocket.length; i++) {
+  for (let i = 0; i < diwaliRocket.length; i++) {
     diwaliRocket[i].style.display = "none"
   }
 
@@ -120,13 +125,25 @@ let pausevalue = 0
 let previouspausevalue = 0
 let innerpausevalue = 1
 let animtime = 0
-let taptoplace = document.getElementById('tap-to-place')
+
 let modelloaded = 0
 // const clock = new THREE.Clock();
 // let mixer= new THREE.AnimationMixer;
 let option1, option2, option3
 let modelobj;
+if (tap1.length > 0) {
+  tap1.forEach(element => {
+    element.addEventListener('click', () => {
+      console.log("in");
+      console.log(modelname)
+      scene.emit('recenter')
+      modelname.setAttribute('visible', true)
 
+    });
+  });
+} else {
+  console.log("No elements found with id 'tap-to-place'");
+}
 //copy to clipboard function
 const copyToClipboard = (e) => {
   const el = document.createElement('textarea')
@@ -155,20 +172,20 @@ const copyToClipboard = (e) => {
   document.execCommand('copy')
   document.body.removeChild(el)
 }
-let shareOnWhatsapp = async function() {
+let shareOnWhatsapp = async function () {
   console.log("copy clicked")
   // gfg_Run();
   const message = "To my special person! ❤️Wishing you a very Happy Diwali 🪔🎇Here’s a custom surprise for you, to celebrate this festive season season with lots of happiness, joy and delicious HERSHEY’S Chocolates."
-   // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
   copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
       text: `${message}`,
-     
-     // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+
+      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  
+      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
     };
 
     if (navigator.share) {
@@ -257,9 +274,9 @@ var hoverChange = document.getElementById('hoverChange')
 var hoverHershey = document.getElementById('hoverhershey')
 var hoverExotic = document.getElementById('hoverexotic')
 
-  hoverChange.src = '/images/kisses.png'
-  hoverHershey.src = '/images/hershey.png'
-  hoverExotic.src = '/images/exotic.png'
+hoverChange.src = '/images/kisses.png'
+hoverHershey.src = '/images/hershey.png'
+hoverExotic.src = '/images/exotic.png'
 
 // ---------------------------pack1----------
 hoverChange.onclick = () => {
@@ -294,7 +311,7 @@ hoverexotic.onclick = () => {
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
-  
+
   hoverChange.src = '/images/kisses.png'
   hoverHershey.src = '/images/hershey.png'
 
@@ -319,11 +336,35 @@ function renderResult(imageUrl) {
 }
 
 const fileInput = document.getElementById("uploadbtn");
- //upload image function
- function uploadImage(imageFile) {
+//upload image function
+
+function uploadImage(imageFile) {
   console.log("uploadImage ran")
   const formData = new FormData();
-  formData.append("image", imageFile);
+  formData.append("fileUploadBtn", imageFile);
+
+  console.log("formData", formData)
+
+  // return new Promise((resolve, reject) => {
+  //   fetch("/questions", {
+  //     method: "POST",
+  //     body: formData,
+  //   })
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error(`Network response was not ok ${response.json()}`);
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       // Handle the response data from the server
+  //       const imageUrl = data.imageUrl;
+  //       resolve(imageUrl);
+  //     })
+  //     .catch(error => {
+  //       reject(error);
+  //     });
+  // });
 
   return new Promise((resolve, reject) => {
     fetch("/questions", {
@@ -332,7 +373,9 @@ const fileInput = document.getElementById("uploadbtn");
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          return response.json().then(errorData => {
+            throw new Error(`Network response was not ok: ${errorData.message}`);
+          });
         }
         return response.json();
       })
@@ -346,28 +389,32 @@ const fileInput = document.getElementById("uploadbtn");
         reject(error);
       });
   });
+
 }
 function getimageuploaded() {
 
   // Get uploaded image from server
   console.log("clicked different btn")
-  
+
   const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
+  console.log("imageFile", imageFile);
   console.log("clicked different btn1")
-  uploadImage(imageFile).then(imageUrl => {
+
+  uploadImage(imageFile)
+    .then(imageUrl => {
       console.log("clicked different btn2")
       console.log("Uploaded Image URL:", imageUrl);
       dataURL = imageUrl
-      
-      console.log("dataurl " + dataURL)
+
       // texturechange()
       // Delay rendering the result after 2 seconds (2000 milliseconds)
       setTimeout(() => {
         renderResult(imageUrl);
         console.log("clicked different btn3")
       }, 2000);
-    }).catch(error => {
-      console.error("Error:", error);
+    })
+    .catch(error => {
+      console.log("Error:", error);
     });
 }
 
@@ -621,29 +668,29 @@ async function initRecorder() {
   capture.addEventListener('click', () => {
     if (recording) {
 
-    stopRecordFunc();
+      stopRecordFunc();
 
-    console.log("stop")
+      console.log("stop")
 
-// capture.style.display = 'none'
+      // capture.style.display = 'none'
 
-    capture.src = "/images/shutter-button-start.png"
-    recMsg.innerHTML = "Tap Rec Button to Record"
+      capture.src = "/images/shutter-button-start.png"
+      recMsg.innerHTML = "Tap Rec Button to Record"
 
-} else {
-  recMsg.innerHTML = "Tap Stop Button to Save"
-  capture.src = "/images/shutter-button-stop.png"
-    getMp3Stream(function (audioStream) {
+    } else {
+      recMsg.innerHTML = "Tap Stop Button to Save"
+      capture.src = "/images/shutter-button-stop.png"
+      getMp3Stream(function (audioStream) {
         const canvas = document.querySelector('canvas');
         var canvasStream = canvas.captureStream();
         canvasFinalStream = canvasStream;
         var finalStream = new MediaStream();
         getTracks(audioStream, 'audio').forEach(function (track) {
-            finalStream.addTrack(track);
+          finalStream.addTrack(track);
         });
         audioFinalStream = audioStream;
         getTracks(canvasStream, 'video').forEach(function (track) {
-            finalStream.addTrack(track);
+          finalStream.addTrack(track);
         });
         mimeTypes.forEach(mimeType => {
           if (MediaRecorder.isTypeSupported(mimeType)) {
@@ -654,104 +701,104 @@ async function initRecorder() {
           } else {
             console.log(`${mimeType} is not supported`);
           }
-      });
+        });
 
-      if (mimeTypeSelected == 'video/webm') {
+        if (mimeTypeSelected == 'video/webm') {
           mimeTypeSelected = 'video/webm; codecs=vp9'
           const options = {
-              audioBitsPerSecond: 128000,
-              videoBitsPerSecond: 2500000,
-              mimeType: mimeTypeSelected,
+            audioBitsPerSecond: 128000,
+            videoBitsPerSecond: 2500000,
+            mimeType: mimeTypeSelected,
           };
-          recorder = new MediaRecorder(finalStream, options); 
-      } else {
-      // Do something if the device is not running on Android
-          recorder = new MediaRecorder(finalStream); 
-      }
+          recorder = new MediaRecorder(finalStream, options);
+        } else {
+          // Do something if the device is not running on Android
+          recorder = new MediaRecorder(finalStream);
+        }
 
-      
 
-      recorder.ondataavailable = (e) => {
+
+        recorder.ondataavailable = (e) => {
           chunks.push(e.data);
-      };
+        };
 
-      recorder.onstop = (e) => {
-        duration = Date.now(); - startTime;
-      };
+        recorder.onstop = (e) => {
+          duration = Date.now(); - startTime;
+        };
 
-      recorder.start(1000);
-      const startTime = Date.now();
+        recorder.start(1000);
+        const startTime = Date.now();
 
-      
+
         // recorder = RecordRTC(finalStream, {
         //     type: 'video'
         // });
 
         // recorder.startRecording();
         recording = true;
-    });
-  }
-});
+      });
+    }
+  });
 
-function stopRecordFunc(){
-              let blob = new Blob(chunks, { type: `${mimeTypeSelected}` });
-              console.log('blob', blob);
-              console.log('chunks', chunks);
-              dataURL = URL.createObjectURL(blob);
-              var video = document.getElementById('videotag');
-              video.src = dataURL;
-              // video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
-              autoPlayCheck(video);
-              // var body = document.getElementById("preview-Container")
-              // body.innerHTML = '';
-              // body.appendChild(video);
-              video.controls = true;
-              document.getElementById("preview-Container").style.display='flex'
-              fileToInclude = new File([blob], `hersheys_${Date.now()}.mp4`, {
-                    type: `${mimeTypeSelected}`,
-                    lastModified: Date.now(),
-                })
-                const shareObject = {
-                  title: '',
-                  text: '',
-                  files: [fileToInclude],                       
-              }
-              recording = false;
-              audioFinalStream.stop();
-              canvasFinalStream.stop();
-              capture.src = "/images/shutter-button-start.png"
-              recMsg.innerHTML = "Tap Rec Button to Record"
-              
-}
-function dataURLtoBlob(dataurl) {
+  function stopRecordFunc() {
+    let blob = new Blob(chunks, { type: `${mimeTypeSelected}` });
+    console.log('blob', blob);
+    console.log('chunks', chunks);
+    dataURL = URL.createObjectURL(blob);
+    var video = document.getElementById('videotag');
+    video.src = dataURL;
+    // video.setAttribute('style', 'height: 75%; position: absolute; top:10%; left:12.5%;');
+    autoPlayCheck(video);
+    // var body = document.getElementById("preview-Container")
+    // body.innerHTML = '';
+    // body.appendChild(video);
+    video.controls = true;
+    document.getElementById("preview-Container").style.display = 'flex'
+    fileToInclude = new File([blob], `hersheys_${Date.now()}.mp4`, {
+      type: `${mimeTypeSelected}`,
+      lastModified: Date.now(),
+    })
+    const shareObject = {
+      title: '',
+      text: '',
+      files: [fileToInclude],
+    }
+    recording = false;
+    audioFinalStream.stop();
+    canvasFinalStream.stop();
+    capture.src = "/images/shutter-button-start.png"
+    recMsg.innerHTML = "Tap Rec Button to Record"
+
+  }
+  function dataURLtoBlob(dataurl) {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
     while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
+      u8arr[n] = bstr.charCodeAt(n);
     }
     return new Blob([u8arr], { type: mime });
-}
-function getMp3Stream(callback) {
+  }
+  function getMp3Stream(callback) {
     var file = dataURLtoBlob(blobdataURL);
     var reader = new FileReader();
     reader.file = file;
     reader.onload = (function (e) {
-        // Import callback function
-        // provides PCM audio data decoded as an audio buffer
-        context.decodeAudioData(e.target.result, function (buffer) {
-            createSoundSource(buffer, callback);
-        });
+      // Import callback function
+      // provides PCM audio data decoded as an audio buffer
+      context.decodeAudioData(e.target.result, function (buffer) {
+        createSoundSource(buffer, callback);
+      });
     });
     reader.readAsArrayBuffer(reader.file);
-}
+  }
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var context = new AudioContext();
-var gainNode = context.createGain();
-gainNode.connect(context.destination);
-gainNode.gain.value = 0; // don't play for self
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  var context = new AudioContext();
+  var gainNode = context.createGain();
+  gainNode.connect(context.destination);
+  gainNode.gain.value = 0; // don't play for self
 
-function createSoundSource(buffer, callback) {
+  function createSoundSource(buffer, callback) {
     var soundSource = context.createBufferSource();
     soundSource.loop = true;
     soundSource.buffer = buffer;
@@ -762,27 +809,27 @@ function createSoundSource(buffer, callback) {
 
     // durtion=second*1000 (milliseconds)
     callback(destination.stream);
-}
-document.getElementById('closebtn').addEventListener('click', (e) =>{
-  document.getElementById("preview-Container").style.display='none';
-});
-// document.getElementById('sharebtn').addEventListener('click', (e) => {
-//   try {
-//       if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
-//           navigator.share(shareObject)
-//               .then(() => console.log('Successful share'))
-//               .catch((error) => console.log('Error sharing', error));
-//       } else {
-//           alert("Web Share API is not supported in your browser.")
-//       }
-//   } catch {
-//       alert("Sharing is not supported in your browser")
-//   }
-// });
+  }
+  document.getElementById('closebtn').addEventListener('click', (e) => {
+    document.getElementById("preview-Container").style.display = 'none';
+  });
+  // document.getElementById('sharebtn').addEventListener('click', (e) => {
+  //   try {
+  //       if (navigator.share && navigator.canShare({files: [fileToInclude]})) {
+  //           navigator.share(shareObject)
+  //               .then(() => console.log('Successful share'))
+  //               .catch((error) => console.log('Error sharing', error));
+  //       } else {
+  //           alert("Web Share API is not supported in your browser.")
+  //       }
+  //   } catch {
+  //       alert("Sharing is not supported in your browser")
+  //   }
+  // });
 
-document.getElementById('savebtn').addEventListener('click', (e) => {
+  document.getElementById('savebtn').addEventListener('click', (e) => {
     downloadFile(dataURL);
-});
+  });
 }
 
 const clickAnchor = (properties) => {
@@ -794,8 +841,8 @@ const clickAnchor = (properties) => {
 }
 const downloadFile = (currentDownloadUrl) => {
   clickAnchor({
-      href: currentDownloadUrl,
-      download: 'hersheys.mp4',
+    href: currentDownloadUrl,
+    download: 'hersheys.mp4',
   })
 
 }
@@ -803,31 +850,31 @@ function autoPlayCheck(v) {
   v.muted = true
   const playPromise = v.play()
   setTimeout(() => {
-      if (playPromise !== undefined) {
-          playPromise.then((_) => {
-              // Automatic playback started!
-              // Show playing UI.
-              // We can now safely pause video...
-              console.log('inside play promise')
-              v.pause()
-              v.muted = false
-          })
-              .catch((error) => {
-                  // Auto-play was prevented
-                  // Show paused UI.
-              })
-      }
+    if (playPromise !== undefined) {
+      playPromise.then((_) => {
+        // Automatic playback started!
+        // Show playing UI.
+        // We can now safely pause video...
+        console.log('inside play promise')
+        v.pause()
+        v.muted = false
+      })
+        .catch((error) => {
+          // Auto-play was prevented
+          // Show paused UI.
+        })
+    }
   }, 1100)
 
 
   v.addEventListener('click', () => {
-      if (!playing) {
-          v.play()
-          playing = true
-      } else {
-          v.pause()
-          playing = false
-      }
+    if (!playing) {
+      v.play()
+      playing = true
+    } else {
+      v.pause()
+      playing = false
+    }
   })
 }
 //Video Recorder Code New (Urjit)
@@ -881,25 +928,25 @@ function autoPlayCheck(v) {
 AFRAME.registerComponent("postcardinvisible", {
   tock() {
     var targetMeshName = 'postcard';
-      
-// Find the mesh by name
 
-var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-console.log("mesh name"+targetMesh)
+    // Find the mesh by name
+
+    var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+    console.log("mesh name" + targetMesh)
 
 
 
-function findMeshByName(object3D, targetName) {
-    var resultMesh = null;
+    function findMeshByName(object3D, targetName) {
+      var resultMesh = null;
 
-    object3D.traverse(function(node) {
+      object3D.traverse(function (node) {
         if (node.isMesh && node.name === targetName) {
-            resultMesh = node;
+          resultMesh = node;
         }
-    });
+      });
 
-    return resultMesh;
-}
+      return resultMesh;
+    }
 
   },
 });
@@ -937,10 +984,10 @@ AFRAME.registerComponent("swap-texture", {
         console.log("image upload clicked")
 
         output = document.getElementById('uploadbtn');
-               
+
         output.src = reader.result;
         console.log(output.src)
-        
+
         console.log("sss" + pName)
 
         //crop image
@@ -968,99 +1015,102 @@ AFRAME.registerComponent("swap-texture", {
 
     const modelname = document.getElementById('modelname')
     const notebox = document.getElementById('notebox')
-  
+
     //upload btn pop up
-    
+
     const uploadLabel = document.getElementById("fileUploadLabel")
     var cropper;
-   
+
 
     uploadLabel.onclick = function () {
       let uploadAlert = document.querySelector(".alert-check-upload");
       let crop = document.getElementById("preview");
       fileInput.click();
-    
+
       fileInput.addEventListener("change", function () {
         const file = fileInput.files[0];
-    
+
         if (file) {
           const reader = new FileReader();
           reader.onload = function (e) {
             const image = new Image();
             image.src = e.target.result;
-    
+
             image.onload = function () {
               crop.src = e.target.result;
-    //           // Destroy the previous cropper instance if it exists
-             
-    //  if (cropper) {
-    //             cropper.destroy();
-    //           }
-    // window.addEventListener('beforeunload', function() {
-    //             if (cropper) {
-    //               cropper.destroy();
-    //             }
-    //           });
+              //           // Destroy the previous cropper instance if it exists
+
+              //  if (cropper) {
+              //             cropper.destroy();
+              //           }
+              // window.addEventListener('beforeunload', function() {
+              //             if (cropper) {
+              //               cropper.destroy();
+              //             }
+              //           });
               // Set the source of the preview element to the selected image
-            
-    
+
+
               // Initialize Cropper with the preview element
-//               cropper = new Cropper(crop, {
-//                 aspectRatio: 1,
-//                 viewMode: 0,
-// responsive: true,
-//                 autoCropArea: 0.8,
-//                 enableWorker: true,
-//               });
+              //               cropper = new Cropper(crop, {
+              //                 aspectRatio: 1,
+              //                 viewMode: 0,
+              // responsive: true,
+              //                 autoCropArea: 0.8,
+              //                 enableWorker: true,
+              //               });
             };
           };
-    
+
           reader.readAsDataURL(file);
         }
       });
     };
-    
-    taptoplace.onclick = function () {
-      try {
-        document.getElementById("cropimgdisplay").src = dataURL;
-        var targetMeshName = 'postcard';
-        var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-        
-     
-        if (targetMesh) {
-          console.log("mesh name"+targetMesh)
-               targetMesh.material.opacity = 0;
-              targetMesh.material.transparent = true;
-              targetMesh.material.needsUpdate = true;
-             }
-         else{
-          console.log("mesh not found")
-         }
-    
-             function findMeshByName(object3D, targetName) {
-              var resultMesh = null;
-      
-              object3D.traverse(function(node) {
-                  if (node.isMesh && node.name === targetName) {
-                      resultMesh = node;
-                  }
-              });
-      
-              return resultMesh;
-          }
-       
 
-       
-        console.log("cropped img uploaded");
-      } catch (error) {
-        console.error("Error during image cropping:", error);
-      }
-    };
-    
-   
+    // taptoplace.onclick = function () {
+    //   console.log("tap clicked")
+    //   scene.emit('recenter')
+    //   modelname.setAttribute('visible', true)
+    //   try {
+    //     document.getElementById("cropimgdisplay").src = dataURL;
+    //     var targetMeshName = 'postcard';
+    //     var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+
+
+    //     if (targetMesh) {
+    //       console.log("mesh name" + targetMesh)
+    //       targetMesh.material.opacity = 0;
+    //       targetMesh.material.transparent = true;
+    //       targetMesh.material.needsUpdate = true;
+    //     }
+    //     else {
+    //       console.log("mesh not found")
+    //     }
+
+    //     function findMeshByName(object3D, targetName) {
+    //       var resultMesh = null;
+
+    //       object3D.traverse(function (node) {
+    //         if (node.isMesh && node.name === targetName) {
+    //           resultMesh = node;
+    //         }
+    //       });
+
+    //       return resultMesh;
+    //     }
+
+
+
+    //     console.log("cropped img uploaded");
+    //   } catch (error) {
+    //     console.error("Error during image cropping:", error);
+    //   }
+    // };
+
+
     // Function to render the result after a delay
-   
-   
+
+
 
     // ------------------------------
     // Click event for nextquestionid
@@ -1084,7 +1134,7 @@ AFRAME.registerComponent("swap-texture", {
     //         taptoplace.style.display = "block"
     //       }, 6000);
     //     }
-        
+
     //     hereGoesID.innerHTML = `${name}`
 
     //     msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
@@ -1118,172 +1168,174 @@ AFRAME.registerComponent("swap-texture", {
     // }
 
     //nextquestionid1 for bar
-//     nextQuestionid1.onclick = () => {
-//       if (document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
-//         thirdscreenbar.style.display = "none"
-//         //show bars loading screen @kartik 
+    //     nextQuestionid1.onclick = () => {
+    //       if (document.querySelectorAll(".option-row-bars .expanded-div-bars").length == 1 && document.querySelectorAll(".option-row-bars .new-expanded-div").length == 1 && document.querySelectorAll(".option-row-bars .option-expanded").length == 1) {
+    //         thirdscreenbar.style.display = "none"
+    //         //show bars loading screen @kartik 
 
-//         loadingHeader.src = "/images/hersheyslogo.png"
-//         loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-//         loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-//         kissesloadingvid.style.display = "none"
-//         barsLoadingMedia.style.display = "block"
-//         loadingscreen.style.display = "block"
+    //         loadingHeader.src = "/images/hersheyslogo.png"
+    //         loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    //         loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    //         kissesloadingvid.style.display = "none"
+    //         barsLoadingMedia.style.display = "block"
+    //         loadingscreen.style.display = "block"
 
 
 
-//         // also add if model loaded then show tap to place @kartik
-//         if (modelloaded === 1) {
-//           setTimeout(() => {
-//             // Ar scene 
-//             loadingscreen.style.display = "none"
-//             permissions.setAttribute("zappar-permissions-ui", "")
-//             scene.style.zIndex = 0
-//             console.log(uimoduleobj.packtype)
-//             console.log("next")
-//             taptoplace.style.display = "block"
-//           }, 6000)
-//         }
+    //         // also add if model loaded then show tap to place @kartik
+    //         if (modelloaded === 1) {
+    //           setTimeout(() => {
+    //             // Ar scene 
+    //             loadingscreen.style.display = "none"
+    //             permissions.setAttribute("zappar-permissions-ui", "")
+    //             scene.style.zIndex = 0
+    //             console.log(uimoduleobj.packtype)
+    //             console.log("next")
+    //             taptoplace.style.display = "block"
+    //           }, 6000)
+    //         }
 
-//         hereGoesID.innerHTML = `${name}`
-//         //messagenote for bar comes here
-//         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
+    //         hereGoesID.innerHTML = `${name}`
+    //         //messagenote for bar comes here
+    //         msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
 
-//         console.log(msg)
-//         completenote.innerHTML = msg
+    //         console.log(msg)
+    //         completenote.innerHTML = msg
 
-//         document.querySelector(".message-wrapper").classList.add("bar-message")
-//         document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
-//           `<div class="bars-note-png"></div>`)
-//         document.querySelector(".message-header h3").classList.add("bars-note-text")
-//         document.getElementById("msgclosebtn").classList.add("bars-close-btn")
-//         document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
-//         document.getElementById("completenote").classList.add("bars-note-text")
-//         document.querySelector(".dynamic-note").style.height = "320px"
-//         document.querySelector(".close-icon").style.zIndex = "99"
-//         let dynamicImg = document.getElementById("dynamicImg")
-//         dynamicImg.classList.remove("dynamic-img")
-//         dynamicImg.classList.remove("justify-content-center")
-//         dynamicImg.classList.add("container-fluid")
-//         dynamicImg.classList.add("bars-dynamic-img")
-//         dynamicImg.children[0].style.width = "100%"
-//         dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
-//         dynamicImg.children[0].style.borderBottomRightRadius = "10px"
-//         dynamicImg.children[0].src = "/images/bars-bottom-img.png"
+    //         document.querySelector(".message-wrapper").classList.add("bar-message")
+    //         document.querySelector(".message-wrapper").insertAdjacentHTML('beforeend',
+    //           `<div class="bars-note-png"></div>`)
+    //         document.querySelector(".message-header h3").classList.add("bars-note-text")
+    //         document.getElementById("msgclosebtn").classList.add("bars-close-btn")
+    //         document.querySelector(".dynamic-name").classList.add("bars-dynamic-name")
+    //         document.getElementById("completenote").classList.add("bars-note-text")
+    //         document.querySelector(".dynamic-note").style.height = "320px"
+    //         document.querySelector(".close-icon").style.zIndex = "99"
+    //         let dynamicImg = document.getElementById("dynamicImg")
+    //         dynamicImg.classList.remove("dynamic-img")
+    //         dynamicImg.classList.remove("justify-content-center")
+    //         dynamicImg.classList.add("container-fluid")
+    //         dynamicImg.classList.add("bars-dynamic-img")
+    //         dynamicImg.children[0].style.width = "100%"
+    //         dynamicImg.children[0].style.borderBottomLeftRadius = "10px"
+    //         dynamicImg.children[0].style.borderBottomRightRadius = "10px"
+    //         dynamicImg.children[0].src = "/images/bars-bottom-img.png"
 
-//         getimageuploaded()
-//       } else {
-//         questionAlertbar.classList.remove("invisible")
-//         questionAlertbar.classList.add("visible")
-//       }
-// }
+    //         getimageuploaded()
+    //       } else {
+    //         questionAlertbar.classList.remove("invisible")
+    //         questionAlertbar.classList.add("visible")
+    //       }
+    // }
 
     // Click event for nextquestionid2 for exotic
-  //   nextQuestionid2.onclick = () => {
-  //     if (document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
+    //   nextQuestionid2.onclick = () => {
+    //     if (document.querySelectorAll(".options-row .exotic-hershey").length == 1 && document.querySelectorAll(".options-row .exotic-expanded-div").length == 1 && document.querySelectorAll(".options-row .expanded-option").length == 1) {
 
-  //       thirdscreenexotic.style.display = "none"
-  //       loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
-  //       loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
-  //       loadingHeader.src = "/images/hed-logo.png"
-  //       barsLoadingMedia.style.display = "none"
-  //       loadingscreen.style.display = "block"
-  //       exoticloadingvid.style.display = "block"
-  //       exoticloadingvid.play();
-
-
-  //       if (modelloaded === 1) {
-  //         setTimeout(() => {
-  //           loadingscreen.style.display = "none"
-  //           scene.style.zIndex = 0
-  //           permissions.setAttribute("zappar-permissions-ui", "")
-  //           taptoplace.style.display = "block"
-  //         }, 6000);
-  //       }
+    //       thirdscreenexotic.style.display = "none"
+    //       loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
+    //       loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
+    //       loadingHeader.src = "/images/hed-logo.png"
+    //       barsLoadingMedia.style.display = "none"
+    //       loadingscreen.style.display = "block"
+    //       exoticloadingvid.style.display = "block"
+    //       exoticloadingvid.play();
 
 
-  //       hereGoesID.innerHTML = `${name}`
-
-  //       msg = `We will forever be ${option1} for years to come. 
-
-  // Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
-  
-  // Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
-  //       console.log(msg)
-  //       completenote.innerHTML = msg
-
-  //       document.querySelector(".message-wrapper").classList.add("hed-message")
-  //       document.querySelector(".message-header h3").classList.add("hed-note-text")
-  //       document.getElementById("msgclosebtn").classList.add("hed-close-btn")
-  //       document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
-  //       document.getElementById("completenote").classList.add("hed-note-text")
-  //       let dynamicImg = document.getElementById("dynamicImg")
-  //       dynamicImg.classList.add("justify-content-start")
-  //       dynamicImg.children[0].src = "/images/hed-bottom-img.png"
-
-  //       // Ar scene 
-
-  //       // scene.style.zIndex = 0
-  //       console.log(uimoduleobj.packtype)
-  //       console.log("next")
-
-  //       getimageuploaded()
+    //       if (modelloaded === 1) {
+    //         setTimeout(() => {
+    //           loadingscreen.style.display = "none"
+    //           scene.style.zIndex = 0
+    //           permissions.setAttribute("zappar-permissions-ui", "")
+    //           taptoplace.style.display = "block"
+    //         }, 6000);
+    //       }
 
 
-  //     } else {
-  //       questionAlertexotic.classList.remove("invisible")
-  //       questionAlertexotic.classList.add("visible")
-  //     }
+    //       hereGoesID.innerHTML = `${name}`
+
+    //       msg = `We will forever be ${option1} for years to come. 
+
+    // Let's make this occasion special and bond over our idea of a perfect day - ${option2}, or spend time ${option3} just like old times<br>
+
+    // Thank you for being the best Sibling! You know I am in awe of you <span>😊</span> `
+    //       console.log(msg)
+    //       completenote.innerHTML = msg
+
+    //       document.querySelector(".message-wrapper").classList.add("hed-message")
+    //       document.querySelector(".message-header h3").classList.add("hed-note-text")
+    //       document.getElementById("msgclosebtn").classList.add("hed-close-btn")
+    //       document.querySelector(".dynamic-name").classList.add("hed-dynamic-name")
+    //       document.getElementById("completenote").classList.add("hed-note-text")
+    //       let dynamicImg = document.getElementById("dynamicImg")
+    //       dynamicImg.classList.add("justify-content-start")
+    //       dynamicImg.children[0].src = "/images/hed-bottom-img.png"
+
+    //       // Ar scene 
+
+    //       // scene.style.zIndex = 0
+    //       console.log(uimoduleobj.packtype)
+    //       console.log("next")
+
+    //       getimageuploaded()
 
 
-  //   }
+    //     } else {
+    //       questionAlertexotic.classList.remove("invisible")
+    //       questionAlertexotic.classList.add("visible")
+    //     }
+
+
+    //   }
     // Optionally, you can also keep the form submission logic for the original submit button
+
+
     document.getElementById("formId").addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the default form submission behavior
       // Perform any form-specific handling here
     });
-  
 
-//resize the image and draw it to the canvas
-function resizeImage(imagePath, newWidth, newHeight) {
-    //create an image object from the path
-    const originalImage = new Image();
-    originalImage.src = imagePath;
- 
-    //get a reference to the canvas
-    // const canvas = document.getElementById('canvas');
-    const croppedCanvas = document.createElement('canvas');
-    const ctx = croppedCanvas.getContext('2d');
- 
-    //wait for the image to load
-    originalImage.addEventListener('load', function() {
-        
+
+    //resize the image and draw it to the canvas
+    function resizeImage(imagePath, newWidth, newHeight) {
+      //create an image object from the path
+      const originalImage = new Image();
+      originalImage.src = imagePath;
+
+      //get a reference to the canvas
+      // const canvas = document.getElementById('canvas');
+      const croppedCanvas = document.createElement('canvas');
+      const ctx = croppedCanvas.getContext('2d');
+
+      //wait for the image to load
+      originalImage.addEventListener('load', function () {
+
         //get the original image size and aspect ratio
         const originalWidth = originalImage.naturalWidth;
         const originalHeight = originalImage.naturalHeight;
-        const aspectRatio = originalWidth/originalHeight;
- 
+        const aspectRatio = originalWidth / originalHeight;
+
         //if the new height wasn't specified, use the width and the original aspect ratio
         if (newHeight === undefined) {
-            //calculate the new height
-            newHeight = newWidth/aspectRatio;
-            newHeight = Math.floor(newHeight);
-            
-            //update the input element with the new height
-            hInput.placeholder = `Height (${newHeight})`;
-            hInput.value = newHeight;
+          //calculate the new height
+          newHeight = newWidth / aspectRatio;
+          newHeight = Math.floor(newHeight);
+
+          //update the input element with the new height
+          hInput.placeholder = `Height (${newHeight})`;
+          hInput.value = newHeight;
         }
-      
+
         //set the canvas size
         croppedCanvas.width = newWidth;
         croppedCanvas.height = newHeight;
-         
+
         //render the image
         ctx.drawImage(originalImage, 0, 0, newWidth, newHeight);
-        imagevalue=croppedCanvas.toDataURL("image/jpeg", 0.9);
+        imagevalue = croppedCanvas.toDataURL("image/jpeg", 0.9);
         console.log(imagevalue)
-    });
-}
+      });
+    }
     // modelname.addEventListener('model-loaded', (e) => {
     function texturechange() {
       let modelmesh
@@ -1296,7 +1348,7 @@ function resizeImage(imagePath, newWidth, newHeight) {
         console.log("bar")
         modelmesh = modelname.getObject3D('mesh').children[2].children[2]
         console.log(modelname.getObject3D('mesh'))
-        console.log(modelname.getObject3D('mesh').children[2].children[2])   
+        console.log(modelname.getObject3D('mesh').children[2].children[2])
       } else if ((typeofpack === 'exotic') || (pNametype === '3')) {
         console.log("exotic")
         modelmesh = modelname.getObject3D('mesh').children[1].children[5]
@@ -1316,21 +1368,21 @@ function resizeImage(imagePath, newWidth, newHeight) {
       // image.src = originalDataURL;
 
       // const croppedCanvas = document.createElement('canvas');
- 
-  resizeImage(dataURL, 1024, 1524);
+
+      resizeImage(dataURL, 1024, 1524);
 
 
 
 
 
-setTimeout(() => {
-  console.log("www" + dataURL)
-  modelmesh.material.map = loader.load(imagevalue)
-  console.log(dataURL)
-  // set flipY to false to correclty rotate texture
-  modelmesh.material.map.flipY = false
-}, 3000);
-  
+      setTimeout(() => {
+        console.log("www" + dataURL)
+        modelmesh.material.map = loader.load(imagevalue)
+        console.log(dataURL)
+        // set flipY to false to correclty rotate texture
+        modelmesh.material.map.flipY = false
+      }, 3000);
+
 
 
     }
@@ -1355,7 +1407,7 @@ setTimeout(() => {
     params7 = new URLSearchParams(document.location.search.substring(8))
 
     pName = params.get('name') ? params.get('name') : 'friend'
-   
+
 
     //console.log(pName)
     //Sender screen
@@ -1365,7 +1417,7 @@ setTimeout(() => {
       // pName = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEV4r8729vb39/f1+Pt4q8u71OV4rMm71eT39/n1+Pz19fX2+Pn39/XZ5u670+J2qMdJ1ZSjAAABz0lEQVR4nO3U23KDIBgAYfGIiub937ZoYpL2up3M/t0douSObwCbnNpS2qOU2khV1Zrru0nBa5s2lfs0X5NYHcLYBRcu78L80aX8TRX4EuYuWPN6sMqaH8J126dhiDT2rZ7KpTz3cN5v49hHGre9O2WXsJuaYI3T/BDer2E39J9e0i83Dvc9TFVYQgr7u3BJ1ykNJxynH/dQIS6F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIT+F/BTyU8hPIb9/KNxv/dk4PgZ9Pk5zKuUlXLd9OJuuQZ9PW07pTZhyF6y5Ape3U7qkqMUVlofpFNb9TEs04/GVue7h01Y+uKA/avkujFjbNjnXZ5vr7/gbqnw+vgB2C0ejZ/UGZAAAAABJRU5ErkJggg=="
     }
     else {
-     // var decodecropimg = decodeURIComponent(pName);
+      // var decodecropimg = decodeURIComponent(pName);
       //Receiver screen
       document.getElementById("cropimgdisplay").src = pName;
       document.querySelector(".preview-text").style.display = "none"
@@ -1383,18 +1435,20 @@ setTimeout(() => {
       console.log("receiver side")
       msg = params6.get('name6')
       selectedTemplate = params7.get('name7')
-      
+
       function runReceiverMsgNote() {
-        if(selectedTemplate === "distance-wali") {
-          
+        if (selectedTemplate === "distance-wali") {
+
           adjustMessageNoteDistanceWali()
           getimageuploaded()
         }
-        if(selectedTemplate === "friend-wali") {
+        if (selectedTemplate === "friend-wali") {
           adjustMessageNoteFriendWali()
           getimageuploaded()
+
+          console.log('Testing friends wali');
         }
-        if(selectedTemplate === "family-wali") {
+        if (selectedTemplate === "family-wali") {
           adjustMessageNoteFamilyWali()
           getimageuploaded()
         }
@@ -1425,7 +1479,7 @@ setTimeout(() => {
         // } else {
         //   option2 = "Giving mature advices"
         // }
-        
+
         console.log(msg)
         completenote.innerHTML = msg
 
@@ -1541,32 +1595,32 @@ setTimeout(() => {
     });
 
     msgclosebtn.onclick = () => {
-     
+
       var captureDiv = document.getElementById('messagenote');
-      var plane =document.getElementById("tempplane")
+      var plane = document.getElementById("tempplane")
       plane.setAttribute("visible", false);
-  
+
       // Specify the name of the mesh you want to modify messagenote
       var targetMeshName = 'postcard';
-      
+
       // Find the mesh by name
       var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-      console.log("mesh name"+targetMesh)
-   
+      console.log("mesh name" + targetMesh)
+
       if (targetMesh) {
-        
+
         html2canvas(captureDiv, {
           scale: 3, // Adjust as needed
           dpi: 500, // Set the DPI (dots per inch) for higher quality
         }).then(function (canvas) {
           console.log('Canvas created:', canvas);
-          
+
           // Convert the canvas to a data URL
           var dataURL = canvas.toDataURL();
 
           // Create a new texture using the data URL
-           var texture = new THREE.TextureLoader().load(dataURL);
-         // var texture = new THREE.TextureLoader().load(cropedImage);
+          var texture = new THREE.TextureLoader().load(dataURL);
+          // var texture = new THREE.TextureLoader().load(cropedImage);
           texture.wrapS = THREE.RepeatWrapping;
           texture.wrapT = THREE.RepeatWrapping;
           texture.repeat.set(1, 1);
@@ -1579,51 +1633,51 @@ setTimeout(() => {
             map: texture,
             minFilter: THREE.LinearFilter,
             magFilter: THREE.LinearFilter
-        });
+          });
 
           // Set the material to the target mesh
           targetMesh.material = material;
-          
-                   setTimeout(() => {
+
+          setTimeout(() => {
             console.log("model visible after 2 secs")
             targetMesh.material.opacity = 1;
             targetMesh.material.transparent = false;
             targetMesh.material.needsUpdate = true;
           }, 2000);
-     
-      });
-      
-     
+
+        });
+
+
       }
-       
-  
+
+
       function findMeshByName(object3D, targetName) {
-          var resultMesh = null;
-  
-          object3D.traverse(function(node) {
-              if (node.isMesh && node.name === targetName) {
-                  resultMesh = node;
-              }
-          });
-  
-          return resultMesh;
+        var resultMesh = null;
+
+        object3D.traverse(function (node) {
+          if (node.isMesh && node.name === targetName) {
+            resultMesh = node;
+          }
+        });
+
+        return resultMesh;
       }
       messagenote.style.display = "none";
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
-  }
-  
+    }
+
     notebox.addEventListener('click', function (evt) {
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
-        var plane =document.getElementById("tempplane")
-      
+        var plane = document.getElementById("tempplane")
+
 
         html2canvas(captureDiv, {
           scale: 3, // Adjust as needed
           dpi: 500, // Set the DPI (dots per inch) for higher quality
         }).then(function (canvas) {
           console.log('Canvas created:', canvas);
-          
+
           // Convert the canvas to a data URL
           var dataURLt = canvas.toDataURL();
           plane.setAttribute("material", "src", dataURLt);
@@ -1638,42 +1692,48 @@ setTimeout(() => {
       // modelname.setAttribute('animation-mixer', {timeScale: 1});
       notebox.setAttribute('class', '')
     });
-    taptoplace = document.getElementById('tap-to-place') || document.createElement('div');
-    taptoplace.addEventListener('click', () => {
-      initRecorder()
-      texturechange()
-
-      sharepopupdiv.style.display = "block"
-
-      arscreen.style.display = "block"
-      // setTimeout(() => {
-      //   recordparentdiv.style.display = "none"
-      // }, 3000);
 
 
-      //--------------------------- 
-      const instantTracker = document.getElementById("instant-tracker");
-      instantTracker.setAttribute("zappar-instant", "placement-mode: false");
-      taptoplace.remove();
-      setTimeout(() => {
-        modelname.setAttribute('animation-mixer', {
-          clip: 'Animation',
-          loop: 'once',
-          crossFadeDuration: 0.4,
-          clampWhenFinished: true,
-        })
-        setTimeout(() => {
-          if (pausevalue === 0) {
-            modelname.setAttribute('animation-mixer', { timeScale: 0 });
-            tapOnEnvelope.style.display = "block"
-            console.log("tap 1300")
-            notebox.setAttribute('class', 'cantap')
-          }
 
-        }, animtime);
-      }, 1000);
 
-    });
+    // taptoplace.addEventListener('click', () => {
+    //   console.log("tap clicked 2")
+    //   initRecorder()
+    //   texturechange()
+
+    //   sharepopupdiv.style.display = "block"
+
+    //   arscreen.style.display = "block"
+    //   // setTimeout(() => {
+
+
+    //   //   recordparentdiv.style.display = "none"
+    //   // }, 3000);
+
+
+    //   //--------------------------- 
+    //   // const instantTracker = document.getElementById("instant-tracker");
+    //   // instantTracker.setAttribute("zappar-instant", "placement-mode: false");
+    //   taptoplace.remove();
+    //   setTimeout(() => {
+    //     modelname.setAttribute('animation-mixer', {
+    //       clip: 'Animation',
+    //       loop: 'once',
+    //       crossFadeDuration: 0.4,
+    //       clampWhenFinished: true,
+    //     })
+    //     setTimeout(() => {
+    //       if (pausevalue === 0) {
+    //         modelname.setAttribute('animation-mixer', { timeScale: 0 });
+    //         tapOnEnvelope.style.display = "block"
+    //         console.log("tap 1300")
+    //         notebox.setAttribute('class', 'cantap')
+    //       }
+
+    //     }, animtime);
+    //   }, 1000);
+
+    // });
   },
 })
 // ------------------autofocus for input field----------------------
@@ -1729,12 +1789,12 @@ function runFormPart2() {
   let inputValue = document.getElementById("siblingname")
   let username = inputValue.value
 
-  if(username == "" || typeofpack == "") {
+  if (username == "" || typeofpack == "") {
     err.push("Please fill all the details.")
   }
 
-  if(err.length > 0) {
-   
+  if (err.length > 0) {
+
     let alertBox = document.querySelector(".alert-box")
     let alertDiv = document.createElement('div')
     alertDiv.classList.add("alert", "alert-danger")
@@ -1748,7 +1808,7 @@ function runFormPart2() {
   } else {
     alert("Something went wrong please reload page.")
   }
-  
+
 }
 
 //text string counter for user form
@@ -1758,12 +1818,12 @@ function textAreaCounter(event) {
   const typedCharacters = textAreaElement.value.length
 
   if (typedCharacters > maximumCharacters) {
-      return false
+    return false
   }
 
   typedCharactersElement.textContent = typedCharacters
-  
-  
+
+
 }
 
 let errLengthMsg
@@ -1772,12 +1832,12 @@ let errLengthTemp
 function validateDiwaliMessage() {
 
   let err = []
-  if(textAreaElement.value.length === 0) {
+  if (textAreaElement.value.length === 0) {
     err.push("Please write a message.")
   }
 
-  if(err.length > 0) {
-   
+  if (err.length > 0) {
+
     let alertBox = document.querySelectorAll(".alert-box")
     let alertDiv = document.createElement('div')
     alertDiv.classList.add("alert", "alert-danger")
@@ -1793,12 +1853,12 @@ function validateDiwaliMessage() {
 function validateTemplate() {
 
   let err = []
-  if(selectedTemplate === "") {
+  if (selectedTemplate === "") {
     err.push("Please select a template.")
   }
 
-  if(err.length > 0) {
-   
+  if (err.length > 0) {
+
     let alertBox = document.querySelectorAll(".alert-box")
     let alertDiv = document.createElement('div')
     alertDiv.classList.add("alert", "alert-danger")
@@ -1907,7 +1967,7 @@ function adjustMessageNoteDistanceWali() {
   document.getElementById("imagewithhand").appendChild(pipNode)
 }
 
-function adjustMessageNoteFriendWali() { 
+function adjustMessageNoteFriendWali() {
 
   document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
   document.querySelector(".message-wrapper").classList.remove("family-bg")
@@ -1939,37 +1999,39 @@ function adjustMessageNoteFriendWali() {
 }
 
 function adjustMessageNoteFamilyWali() {
-  document.getElementById("#hereGoesID").style.color ="#DFBC66";
-  document.getElementById("dear").style.color ="#DFBC66";
-    document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
-    document.querySelector(".message-wrapper").classList.remove("friend-bg")
-    document.querySelector(".message-wrapper").classList.add("family-bg")
+  document.getElementById("#hereGoesID").style.color = "#DFBC66";
+  document.getElementById("dear").style.color = "#DFBC66";
+  document.querySelector(".message-wrapper").classList.remove("long-distance-bg")
+  document.querySelector(".message-wrapper").classList.remove("friend-bg")
+  document.querySelector(".message-wrapper").classList.add("family-bg")
 
-    var polaroidFrame = document.querySelector(".polaroid-frame")
-    polaroidFrame.classList.add("friend-bg-polaroid")
-    document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
+  var polaroidFrame = document.querySelector(".polaroid-frame")
+  polaroidFrame.classList.add("friend-bg-polaroid")
+  document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
 
-    document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
+  document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
 
-    document.querySelector(".diwali-msg-h4").classList.add("family-gold-text")
-    document.querySelector(".diwali-msg-h4").innerHTML = `<span>F</span>estive <span>M</span>oments with <span>F</span>amily!`
-    document.querySelector(".message-header").classList.add("family-gold-text")
-    document.querySelector("#completenote").classList.add("family-gold-text")
+  document.querySelector(".diwali-msg-h4").classList.add("family-gold-text")
+  document.querySelector(".diwali-msg-h4").innerHTML = `<span>F</span>estive <span>M</span>oments with <span>F</span>amily!`
+  document.querySelector(".message-header").classList.add("family-gold-text")
+  document.querySelector("#completenote").classList.add("family-gold-text")
 
-    let dynamicImg = document.getElementById("dynamicImg")
-    dynamicImg.classList.add("long-distance-dynamic")
-    dynamicImg.children[0].style.display = "none"
+  let dynamicImg = document.getElementById("dynamicImg")
+  dynamicImg.classList.add("long-distance-dynamic")
+  dynamicImg.children[0].style.display = "none"
 
 }
 
 nextbtn.addEventListener("click", runExperience)
 
-function runExperience() {
-  
+function runExperience(e) {
+
+  e.preventDefault()
+
   validateDiwaliMessage()
   validateTemplate()
 
-  if(errLengthMsg === "nil" && errLengthTemp === "nil") {
+  if (errLengthMsg === "nil" && errLengthTemp === "nil") {
     name = document.getElementById("siblingname").value
     var x = document.getElementById("uploadbtn").value;
     var diwaliMessage = textAreaElement.value
@@ -1978,7 +2040,7 @@ function runExperience() {
       secondscreen.style.display = "block"
     } else if (x === "") {
       alert("Please upload your photo!")
-    } else if(diwaliMessage.length > 150) {
+    } else if (diwaliMessage.length > 150) {
       alert("Message character limit is over!")
     } else {
 
@@ -1987,18 +2049,18 @@ function runExperience() {
       hideQuestionsScreen()
 
       checkSelectedPackAndLoading()
-      
+
       msg = diwaliMessage
       completenote.innerHTML = msg
 
-      if( selectedTemplate === "distance-wali") {
-    
+      if (selectedTemplate === "distance-wali") {
+
         adjustMessageNoteDistanceWali()
-    
+
         getimageuploaded()
       }
 
-      if( selectedTemplate === "friend-wali") {
+      if (selectedTemplate === "friend-wali") {
 
         adjustMessageNoteFriendWali()
 
@@ -2006,30 +2068,30 @@ function runExperience() {
 
       }
 
-      if( selectedTemplate === "family-wali" ) {
+      if (selectedTemplate === "family-wali") {
 
         adjustMessageNoteFamilyWali()
 
         getimageuploaded()
 
       }
-      
+
       modelname.addEventListener("model-loaded", () => {
         modelloaded = 1
       });
-      
+
 
 
       // if (modelloaded === 1) {
-        setTimeout(() => {
-          loadingscreen.style.display = "none"
-          scene.style.zIndex = 0
-          permissions.setAttribute("zappar-permissions-ui", "")
-          taptoplace.style.display = "block"
-        }, 6000);
+      setTimeout(() => {
+        loadingscreen.style.display = "none"
+        scene.style.zIndex = 0
+        // permissions.setAttribute("zappar-permissions-ui", "")
+        taptoplace.style.display = "block"
+      }, 6000);
       // }
 
-        hereGoesID.innerHTML = `${name}`
+      hereGoesID.innerHTML = `${name}`
     }
   }
 }
