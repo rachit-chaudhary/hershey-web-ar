@@ -317,6 +317,7 @@ function renderResult(imageUrl) {
   // Replace this with your rendering logic
   console.log("Rendering the result with imageUrl:", imageUrl);
 }
+
 const fileInput = document.getElementById("uploadbtn");
  //upload image function
  function uploadImage(imageFile) {
@@ -338,6 +339,7 @@ const fileInput = document.getElementById("uploadbtn");
       .then(data => {
         // Handle the response data from the server
         const imageUrl = data.imageUrl;
+        console.log(new Date() + " " + data)
         resolve(imageUrl);
       })
       .catch(error => {

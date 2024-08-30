@@ -30,15 +30,15 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage: storage });
   var imageUrl = "";
-  router.post('/questions', upload.single('fileUploadBtn'), (req, res) => {
+  router.post('/questions', upload.single('image'), (req, res) => {
     if (!req.file) {
       res.status(400).send('No file uploaded.');
     } else {
       imageUrl = '/' + req.file.filename;
-  console.log(imageUrl)
+      console.log("today's date" + imageUrl)
   
     //  res.render('index', { imageUrl });
-    //  res.json({ imageUrl });
+     res.json({ imageUrl });
     }
   });
 
