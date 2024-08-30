@@ -140,7 +140,7 @@ if (tap1.length > 0) {
       modelname.setAttribute('visible', true)
       modelname.setAttribute('animation-mixer', {
         clip: 'Animation',
-        loop: 'once',
+        loop: 'true',
         crossFadeDuration: 0.4,
         clampWhenFinished: true,
       })
