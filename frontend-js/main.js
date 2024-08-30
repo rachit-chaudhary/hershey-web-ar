@@ -138,6 +138,12 @@ if (tap1.length > 0) {
       console.log(modelname)
       scene.emit('recenter')
       modelname.setAttribute('visible', true)
+      modelname.setAttribute('animation-mixer', {
+        clip: 'Animation',
+        loop: 'once',
+        crossFadeDuration: 0.4,
+        clampWhenFinished: true,
+      })
 
     });
   });
