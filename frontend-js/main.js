@@ -145,8 +145,43 @@ if (tap1.length > 0) {
         clampWhenFinished: true,
       })
       initRecorder()
-      texturechange()
+      // texturechange()
+      try {
 
+        document.getElementById("cropimgdisplay").src = dataURL;
+        var targetMeshName = 'postcard';
+        var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
+
+
+        if (targetMesh) {
+          console.log("mesh name" + targetMesh)
+          targetMesh.material.opacity = 0;
+          targetMesh.material.transparent = true;
+          targetMesh.material.needsUpdate = true;
+        }
+        else {
+          console.log("mesh not found")
+          console.log("dd" + dataURL)
+        }
+
+        function findMeshByName(object3D, targetName) {
+          var resultMesh = null;
+
+          object3D.traverse(function (node) {
+            if (node.isMesh && node.name === targetName) {
+              resultMesh = node;
+            }
+          });
+
+          return resultMesh;
+        }
+
+
+
+        console.log("cropped img uploaded");
+      } catch (error) {
+        console.error("Error during image cropping:", error);
+      }
       sharepopupdiv.style.display = "block"
 
       arscreen.style.display = "block"
@@ -384,27 +419,6 @@ function uploadImage(imageFile) {
 
   console.log("formData", formData)
 
-  // return new Promise((resolve, reject) => {
-  //   fetch("/questions", {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error(`Network response was not ok ${response.json()}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       // Handle the response data from the server
-  //       const imageUrl = data.imageUrl;
-  //       resolve(imageUrl);
-  //     })
-  //     .catch(error => {
-  //       reject(error);
-  //     });
-  // });
-
   return new Promise((resolve, reject) => {
     fetch("/questions", {
       method: "POST",
@@ -412,16 +426,13 @@ function uploadImage(imageFile) {
     })
       .then(response => {
         if (!response.ok) {
-          return response.json().then(errorData => {
-            throw new Error(`Network response was not ok: ${errorData.message}`);
-          });
+          throw new Error(`Network response was not ok ${response.json()}`);
         }
         return response.json();
       })
       .then(data => {
         // Handle the response data from the server
         const imageUrl = data.imageUrl;
-        console.log(new Date() + " " + data)
         resolve(imageUrl);
       })
       .catch(error => {
@@ -444,6 +455,7 @@ function getimageuploaded() {
       console.log("clicked different btn2")
       console.log("Uploaded Image URL:", imageUrl);
       dataURL = imageUrl
+
 
       // texturechange()
       // Delay rendering the result after 2 seconds (2000 milliseconds)
