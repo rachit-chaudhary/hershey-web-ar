@@ -155,9 +155,9 @@ if (tap1.length > 0) {
 
         if (targetMesh) {
           console.log("mesh name" + targetMesh)
-          targetMesh.material.opacity = 0;
-          targetMesh.material.transparent = true;
-          targetMesh.material.needsUpdate = true;
+          // targetMesh.material.opacity = 0;
+          // targetMesh.material.transparent = true;
+          // targetMesh.material.needsUpdate = true;
         }
         else {
           console.log("mesh not found")
@@ -1661,7 +1661,7 @@ AFRAME.registerComponent("swap-texture", {
       console.log("mesh name" + targetMesh)
 
       if (targetMesh) {
-
+        console.log("if targetmesh")
         html2canvas(captureDiv, {
           scale: 3, // Adjust as needed
           dpi: 500, // Set the DPI (dots per inch) for higher quality
@@ -1699,6 +1699,7 @@ AFRAME.registerComponent("swap-texture", {
           }, 2000);
 
         });
+
 
 
       }
