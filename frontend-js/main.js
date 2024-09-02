@@ -140,7 +140,7 @@ if (tap1.length > 0) {
       modelname.setAttribute('visible', true)
       modelname.setAttribute('animation-mixer', {
         clip: 'Animation',
-        loop: 'true',
+        loop: 'once',
         crossFadeDuration: 0.4,
         clampWhenFinished: true,
       })
@@ -1647,11 +1647,12 @@ AFRAME.registerComponent("swap-texture", {
     });
 
     msgclosebtn.onclick = () => {
-
+      console.log("msg close button clicked")
       var captureDiv = document.getElementById('messagenote');
       var plane = document.getElementById("tempplane")
       plane.setAttribute("visible", false);
-
+      messagenote.style.display = "none";
+      modelname.setAttribute('animation-mixer', { timeScale: 1 });
       // Specify the name of the mesh you want to modify messagenote
       var targetMeshName = 'postcard';
 
@@ -1714,8 +1715,7 @@ AFRAME.registerComponent("swap-texture", {
 
         return resultMesh;
       }
-      messagenote.style.display = "none";
-      modelname.setAttribute('animation-mixer', { timeScale: 1 });
+
     }
 
     notebox.addEventListener('click', function (evt) {
