@@ -208,6 +208,7 @@ if (tap1.length > 0) {
           modelname.setAttribute('animation-mixer', { timeScale: 0 });
           tapOnEnvelope.style.display = "block"
           console.log("tap 1300")
+          alert("1300")
           notebox.setAttribute('class', 'cantap')
         }
 
@@ -1718,6 +1719,7 @@ AFRAME.registerComponent("swap-texture", {
     }
 
     notebox.addEventListener('click', function (evt) {
+      alert("notebox clicked")
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
         var plane = document.getElementById("tempplane")
