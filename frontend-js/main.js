@@ -1703,6 +1703,18 @@ AFRAME.registerComponent("swap-texture", {
 
       }
 
+      // function findMeshByName(object3D, targetName) {
+      //   if (object.name === name) {
+      //     return object;
+      //   }
+      //   for (let i = 0; i < object.children.length; i++) {
+      //     let found = findMeshByName(object.children[i], name);
+      //     if (found) {
+      //       return found;
+      //     }
+      //   }
+      //   return null;
+      // }
 
       function findMeshByName(object3D, targetName) {
         var resultMesh = null;
