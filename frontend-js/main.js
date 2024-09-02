@@ -138,12 +138,12 @@ if (tap1.length > 0) {
       console.log(modelname)
       scene.emit('recenter')
       modelname.setAttribute('visible', true)
-      // modelname.setAttribute('animation-mixer', {
-      //   clip: 'Animation',
-      //   loop: 'true',
-      //   crossFadeDuration: 0.4,
-      //   clampWhenFinished: true,
-      // })
+      modelname.setAttribute('animation-mixer', {
+        clip: 'Animation',
+        loop: 'true',
+        crossFadeDuration: 0.4,
+        clampWhenFinished: true,
+      })
       initRecorder()
       // texturechange()
       try {
@@ -196,23 +196,23 @@ if (tap1.length > 0) {
       //   // const instantTracker = document.getElementById("instant-tracker");
       //   // instantTracker.setAttribute("zappar-instant", "placement-mode: false");
       taptoplace.remove();
+      //   setTimeout(() => {
+      //     modelname.setAttribute('animation-mixer', {
+      //       clip: 'Animation',
+      //       loop: 'once',
+      //       crossFadeDuration: 0.4,
+      //       clampWhenFinished: true,
+      //     })
       setTimeout(() => {
-        modelname.setAttribute('animation-mixer', {
-          clip: 'Animation',
-          loop: 'true',
-          crossFadeDuration: 0.4,
-          clampWhenFinished: true,
-        })
-        setTimeout(() => {
-          if (pausevalue === 0) {
-            modelname.setAttribute('animation-mixer', { timeScale: 0 });
-            tapOnEnvelope.style.display = "block"
-            console.log("tap 1300")
-            notebox.setAttribute('class', 'cantap')
-          }
+        if (pausevalue === 0) {
+          modelname.setAttribute('animation-mixer', { timeScale: 0 });
+          tapOnEnvelope.style.display = "block"
+          console.log("tap 1300")
+          notebox.setAttribute('class', 'cantap')
+        }
 
-        }, animtime);
-      }, 1000);
+      }, animtime);
+      // }, 1000);
     });
   });
 } else {
