@@ -145,18 +145,7 @@ if (tap1.length > 0) {
         clampWhenFinished: true,
       })
       initRecorder()
-      const modelElement = document.getElementById('modelname')
-      const textureLoader = new THREE.TextureLoader()
-      const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
 
-      console.log(imageTexture)
-      const obj = modelElement.getObject3D('mesh')
-
-      const mesh = obj.getObjectByName('postcard')
-      console.log(mesh.material)
-      console.log("postcard")
-      mesh.material.map = imageTexture
-      mesh.material.needsUpdate = true
 
       // texturechange()
       try {
@@ -1662,8 +1651,8 @@ AFRAME.registerComponent("swap-texture", {
     msgclosebtn.onclick = () => {
       console.log("msg close button clicked")
       var captureDiv = document.getElementById('messagenote');
-      var plane = document.getElementById("tempplane")
-      plane.setAttribute("visible", false);
+      // var plane = document.getElementById("tempplane")
+      // plane.setAttribute("visible", false);
       messagenote.style.display = "none";
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
       // Specify the name of the mesh you want to modify messagenote
@@ -1745,10 +1734,22 @@ AFRAME.registerComponent("swap-texture", {
     }
 
     notebox.addEventListener('click', function (evt) {
+      const modelElement = document.getElementById('modelname')
+      const textureLoader = new THREE.TextureLoader()
+      const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
+
+      console.log(imageTexture)
+      const obj = modelElement.getObject3D('mesh')
+
+      const mesh = obj.getObjectByName('postcard')
+      console.log(mesh.material)
+      console.log("postcard")
+      mesh.material.map = imageTexture
+      mesh.material.needsUpdate = true
       // alert("notebox clicked")
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
-        var plane = document.getElementById("tempplane")
+        // var plane = document.getElementById("tempplane")
 
 
         html2canvas(captureDiv, {
@@ -1759,7 +1760,7 @@ AFRAME.registerComponent("swap-texture", {
 
           // Convert the canvas to a data URL
           var dataURLt = canvas.toDataURL();
-          plane.setAttribute("material", "src", dataURLt);
+          // plane.setAttribute("material", "src", dataURLt);
           // plane.setAttribute("visible", true);
 
         });
