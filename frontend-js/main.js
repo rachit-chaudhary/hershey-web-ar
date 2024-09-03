@@ -1748,6 +1748,18 @@ AFRAME.registerComponent("swap-texture", {
           var dataURLt = canvas.toDataURL();
           plane.setAttribute("material", "src", dataURLt);
           plane.setAttribute("visible", true);
+          const modelElement = document.getElementById('modelname')
+          const textureLoader = new THREE.TextureLoader()
+          const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
+
+          modelElement.addEventListener('model-loaded', () => {
+            const obj = modelElement.getObject3D('mesh')
+
+            const mesh = obj.getObjectByName('postcard')
+            console.log(mesh.material)
+            mesh.material.map = imageTexture
+            mesh.material.needsUpdate = true
+          })
         });
       }, 1000);
 
