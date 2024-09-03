@@ -1672,7 +1672,18 @@ AFRAME.registerComponent("swap-texture", {
 
           // Convert the canvas to a data URL
           var dataURL = canvas.toDataURL();
+          const modelElement = document.getElementById('modelname')
+          const textureLoader = new THREE.TextureLoader()
+          const imageTexture = textureLoader.load(dataURL)
 
+          console.log(imageTexture)
+          const obj = modelElement.getObject3D('mesh')
+
+          const mesh = obj.getObjectByName('postcard')
+          console.log(mesh.material)
+          console.log("postcard")
+          mesh.material.map = imageTexture
+          mesh.material.needsUpdate = true
           // Create a new texture using the data URL
           // var texture = new THREE.TextureLoader().load(dataURL);
           // // var texture = new THREE.TextureLoader().load(cropedImage);
@@ -1734,18 +1745,7 @@ AFRAME.registerComponent("swap-texture", {
     }
 
     notebox.addEventListener('click', function (evt) {
-      const modelElement = document.getElementById('modelname')
-      const textureLoader = new THREE.TextureLoader()
-      const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
 
-      console.log(imageTexture)
-      const obj = modelElement.getObject3D('mesh')
-
-      const mesh = obj.getObjectByName('postcard')
-      console.log(mesh.material)
-      console.log("postcard")
-      mesh.material.map = imageTexture
-      mesh.material.needsUpdate = true
       // alert("notebox clicked")
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
