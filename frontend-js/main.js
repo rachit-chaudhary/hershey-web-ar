@@ -1674,31 +1674,31 @@ AFRAME.registerComponent("swap-texture", {
           var dataURL = canvas.toDataURL();
 
           // Create a new texture using the data URL
-          var texture = new THREE.TextureLoader().load(dataURL);
-          // var texture = new THREE.TextureLoader().load(cropedImage);
-          texture.wrapS = THREE.RepeatWrapping;
-          texture.wrapT = THREE.RepeatWrapping;
-          texture.repeat.set(1, 1);
-          texture.center.set(0.5, 0.5);
-          texture.rotation = Math.PI;
-          texture.minFilter = THREE.LinearFilter;
-          texture.magFilter = THREE.LinearFilter;
-          // Create a new material using the texture
-          var material = new THREE.MeshBasicMaterial({
-            map: texture,
-            minFilter: THREE.LinearFilter,
-            magFilter: THREE.LinearFilter
-          });
+          // var texture = new THREE.TextureLoader().load(dataURL);
+          // // var texture = new THREE.TextureLoader().load(cropedImage);
+          // texture.wrapS = THREE.RepeatWrapping;
+          // texture.wrapT = THREE.RepeatWrapping;
+          // texture.repeat.set(1, 1);
+          // texture.center.set(0.5, 0.5);
+          // texture.rotation = Math.PI;
+          // texture.minFilter = THREE.LinearFilter;
+          // texture.magFilter = THREE.LinearFilter;
+          // // Create a new material using the texture
+          // var material = new THREE.MeshBasicMaterial({
+          //   map: texture,
+          //   minFilter: THREE.LinearFilter,
+          //   magFilter: THREE.LinearFilter
+          // });
 
-          // Set the material to the target mesh
-          targetMesh.material = material;
+          // // Set the material to the target mesh
+          // targetMesh.material = material;
 
-          setTimeout(() => {
-            console.log("model visible after 2 secs")
-            targetMesh.material.opacity = 1;
-            targetMesh.material.transparent = false;
-            targetMesh.material.needsUpdate = true;
-          }, 2000);
+          // setTimeout(() => {
+          //   console.log("model visible after 2 secs")
+          //   targetMesh.material.opacity = 1;
+          //   targetMesh.material.transparent = false;
+          //   targetMesh.material.needsUpdate = true;
+          // }, 2000);
 
         });
 
