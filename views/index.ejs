@@ -835,7 +835,7 @@
 
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
-        <a-asset-item id="kissesmodel" src="/models/kissesfile3.glb"></a-asset-item>
+        <a-asset-item id="kissesmodel" src="/models/kissesfile3flip.glb"></a-asset-item>
         <a-asset-item id="barmodel" src="/models/barsfinalfile5.glb"></a-asset-item>
         <a-asset-item id="exoticmodel" src="/models/edfinal3.glb"></a-asset-item>
 
@@ -852,8 +852,8 @@
       <!-- Setup our instant tracker and start it in placement mode so the user can -->
       <!-- choose a location for the object  .... zappar-instant="placement-mode: true"-->
       <a-entity id="instant-tracker">
-        <a-entity id="modelname" gltf-model="#kissesmodel" class="cantap" visible="false" scale="0.5 0.5 0.5"
-          position="0 0 0" gesture-handler="minScale: 0.25; maxScale: 10">
+        <a-entity id="modelname" class="cantap" visible="false" scale="0.5 0.5 0.5" position="0 0 0"
+          gesture-handler="minScale: 0.25; maxScale: 10">
 
           <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" material=""
             geometry="" visible="false"></a-box>

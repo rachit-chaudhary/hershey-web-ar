@@ -1963,7 +1963,7 @@ function hideQuestionsScreen() {
 function checkSelectedPackAndLoading() {
 
   if (typeofpack === 'kisses') {
-
+    console.log("1kisses model")
     modelname.setAttribute('gltf-model', '#kissesmodel')
 
     barsLoadingMedia.style.display = "none"
@@ -1972,7 +1972,7 @@ function checkSelectedPackAndLoading() {
     kissesloadingvid.play();
 
   } else if (typeofpack === 'chocolatebar') {
-
+    console.log("bar model")
     modelname.setAttribute('gltf-model', '#barmodel')
 
     loadingHeader.src = "/images/hersheyslogo.png"
@@ -1984,7 +1984,7 @@ function checkSelectedPackAndLoading() {
 
   } else if (typeofpack === 'exotic') {
     modelname.setAttribute('gltf-model', '#exoticmodel')
-
+    console.log("exotic model")
     loadingHeader.parentElement.parentElement.classList.remove("justify-content-start")
     loadingHeader.parentElement.parentElement.classList.add("justify-content-center")
     loadingHeader.src = "/images/hed-logo.png"
@@ -2076,7 +2076,7 @@ function adjustMessageNoteFamilyWali() {
 nextbtn.addEventListener("click", runExperience)
 
 function runExperience(e) {
-
+  console.log("run experience")
   e.preventDefault()
 
   validateDiwaliMessage()
