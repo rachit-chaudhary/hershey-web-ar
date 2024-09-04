@@ -1649,21 +1649,25 @@ AFRAME.registerComponent("swap-texture", {
     });
 
     msgclosebtn.onclick = () => {
-      console.log("msg close button clicked")
+      console.log("msg close button clicked");
+
       var captureDiv = document.getElementById('messagenote');
-      // var plane = document.getElementById("tempplane")
-      // plane.setAttribute("visible", false);
       messagenote.style.display = "none";
+
+      // Reset animation-mixer's timeScale to 1
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
-      // Specify the name of the mesh you want to modify messagenote
+
+      // Specify the name of the mesh you want to modify
       var targetMeshName = 'postcard';
 
       // Find the mesh by name
       var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-      console.log("mesh name" + targetMesh)
+      console.log("mesh name: ", targetMesh);
 
       if (targetMesh) {
-        console.log("if targetmesh")
+        console.log("Target mesh found");
+
+        // Capture the 'messagenote' div as a canvas
         html2canvas(captureDiv, {
           scale: 3, // Adjust as needed
           dpi: 500, // Set the DPI (dots per inch) for higher quality
@@ -1672,64 +1676,36 @@ AFRAME.registerComponent("swap-texture", {
 
           // Convert the canvas to a data URL
           var dataURL = canvas.toDataURL();
-          const modelElement = document.getElementById('modelname')
-          const textureLoader = new THREE.TextureLoader()
-          const imageTexture = textureLoader.load(dataURL)
 
-          console.log(imageTexture)
-          const obj = modelElement.getObject3D('mesh')
+          // Load the texture from the data URL
+          const textureLoader = new THREE.TextureLoader();
+          const imageTexture = textureLoader.load(dataURL);
 
-          const mesh = obj.getObjectByName('postcard')
-          console.log(mesh.material)
-          console.log("postcard")
-          mesh.material.map = imageTexture
-          mesh.material.needsUpdate = true
-          // Create a new texture using the data URL
-          // var texture = new THREE.TextureLoader().load(dataURL);
-          // // var texture = new THREE.TextureLoader().load(cropedImage);
-          // texture.wrapS = THREE.RepeatWrapping;
-          // texture.wrapT = THREE.RepeatWrapping;
-          // texture.repeat.set(1, 1);
-          // texture.center.set(0.5, 0.5);
-          // texture.rotation = Math.PI;
-          // texture.minFilter = THREE.LinearFilter;
-          // texture.magFilter = THREE.LinearFilter;
-          // // Create a new material using the texture
-          // var material = new THREE.MeshBasicMaterial({
-          //   map: texture,
-          //   minFilter: THREE.LinearFilter,
-          //   magFilter: THREE.LinearFilter
-          // });
+          console.log("Loaded texture:", imageTexture);
 
-          // // Set the material to the target mesh
-          // targetMesh.material = material;
+          // Access the model's mesh and apply the texture to the target mesh
+          const obj = modelname.getObject3D('mesh');
+          const mesh = obj.getObjectByName(targetMeshName);
 
-          // setTimeout(() => {
-          //   console.log("model visible after 2 secs")
-          //   targetMesh.material.opacity = 1;
-          //   targetMesh.material.transparent = false;
-          //   targetMesh.material.needsUpdate = true;
-          // }, 2000);
+          if (mesh && mesh.material) {
+            console.log("Original mesh material:", mesh.material);
 
+            // Apply the new texture to the mesh's material
+            mesh.material.map = imageTexture;
+            mesh.material.needsUpdate = true;
+
+            console.log("Texture applied to postcard");
+          } else {
+            console.error("Mesh or material not found");
+          }
+        }).catch(function (error) {
+          console.error('Error creating canvas:', error);
         });
-
-
-
+      } else {
+        console.error("Target mesh not found");
       }
 
-      // function findMeshByName(object3D, targetName) {
-      //   if (object.name === name) {
-      //     return object;
-      //   }
-      //   for (let i = 0; i < object.children.length; i++) {
-      //     let found = findMeshByName(object.children[i], name);
-      //     if (found) {
-      //       return found;
-      //     }
-      //   }
-      //   return null;
-      // }
-
+      // Helper function to find the mesh by name
       function findMeshByName(object3D, targetName) {
         var resultMesh = null;
 
@@ -1741,8 +1717,8 @@ AFRAME.registerComponent("swap-texture", {
 
         return resultMesh;
       }
+    };
 
-    }
 
     notebox.addEventListener('click', function (evt) {
 
