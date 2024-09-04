@@ -1710,8 +1710,8 @@ AFRAME.registerComponent("swap-texture", {
             console.log("Texture loaded from canvas");
 
             // imageTexture.flipY = false; // This flips the texture vertically
-            imageTexture.repeat.set(-1, -1); // This flips the texture horizontally and vertically
-            imageTexture.offset.set(1, 1); // Adjust the offset to ensure correct positioning
+            // imageTexture.repeat.set(-1, -1); // This flips the texture horizontally and vertically
+            // imageTexture.offset.set(1, 1); // Adjust the offset to ensure correct positioning
 
             // Apply the texture to the model
             const modelElement = document.getElementById('modelname');
