@@ -1709,6 +1709,9 @@ AFRAME.registerComponent("swap-texture", {
           const imageTexture = textureLoader.load(dataURLnew, function (imageTexture) {
             console.log("Texture loaded from canvas");
 
+            // Flip the texture vertically
+            imageTexture.flipY = false;
+
             // Apply the texture to the model
             const modelElement = document.getElementById('modelname');
             const obj = modelElement.getObject3D('mesh');
@@ -1737,6 +1740,7 @@ AFRAME.registerComponent("swap-texture", {
       // modelname.setAttribute('animation-mixer', {timeScale: 1});
       notebox.setAttribute('class', '');
     });
+
 
 
 
