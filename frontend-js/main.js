@@ -148,6 +148,7 @@ if (tap1.length > 0) {
 
 
       // texturechange()
+      document.getElementById("cropimgdisplay").src = dataURL;
       try {
 
         document.getElementById("cropimgdisplay").src = dataURL;
@@ -1653,70 +1654,37 @@ AFRAME.registerComponent("swap-texture", {
 
       var captureDiv = document.getElementById('messagenote');
       messagenote.style.display = "none";
-
-      // Reset animation-mixer's timeScale to 1
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
 
-      // Specify the name of the mesh you want to modify
-      var targetMeshName = 'postcard';
+      html2canvas(captureDiv, {
+        scale: 3, // Adjust as needed
+        dpi: 500, // Set the DPI (dots per inch) for higher quality
+      }).then(function (canvas) {
+        console.log('Canvas created:', canvas);
 
-      // Find the mesh by name
-      var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-      console.log("mesh name: ", targetMesh);
+        // Convert the canvas to a data URL
+        var dataURL = canvas.toDataURL();
 
-      if (targetMesh) {
-        console.log("Target mesh found");
+        const modelElement = document.getElementById('modelname');
+        const textureLoader = new THREE.TextureLoader();
+        const imageTexture = textureLoader.load(dataURL);
 
-        // Capture the 'messagenote' div as a canvas
-        html2canvas(captureDiv, {
-          scale: 3, // Adjust as needed
-          dpi: 500, // Set the DPI (dots per inch) for higher quality
-        }).then(function (canvas) {
-          console.log('Canvas created:', canvas);
+        console.log(imageTexture);
 
-          // Convert the canvas to a data URL
-          var dataURL = canvas.toDataURL();
-
-          // Load the texture from the data URL
-          const textureLoader = new THREE.TextureLoader();
-          const imageTexture = textureLoader.load(dataURL);
-
-          console.log("Loaded texture:", imageTexture);
-
-          // Access the model's mesh and apply the texture to the target mesh
-          const obj = modelname.getObject3D('mesh');
-          const mesh = obj.getObjectByName(targetMeshName);
-
+        const obj = modelElement.getObject3D('mesh');
+        if (obj) {
+          const mesh = obj.getObjectByName('postcard');
           if (mesh && mesh.material) {
-            console.log("Original mesh material:", mesh.material);
-
-            // Apply the new texture to the mesh's material
+            console.log("Applying texture to postcard mesh");
             mesh.material.map = imageTexture;
             mesh.material.needsUpdate = true;
-
-            console.log("Texture applied to postcard");
           } else {
-            console.error("Mesh or material not found");
+            console.log("Postcard mesh or its material not found");
           }
-        }).catch(function (error) {
-          console.error('Error creating canvas:', error);
-        });
-      } else {
-        console.error("Target mesh not found");
-      }
-
-      // Helper function to find the mesh by name
-      function findMeshByName(object3D, targetName) {
-        var resultMesh = null;
-
-        object3D.traverse(function (node) {
-          if (node.isMesh && node.name === targetName) {
-            resultMesh = node;
-          }
-        });
-
-        return resultMesh;
-      }
+        } else {
+          console.log("Model element does not have an object3D");
+        }
+      });
     };
 
 
