@@ -1656,35 +1656,36 @@ AFRAME.registerComponent("swap-texture", {
       messagenote.style.display = "none";
       modelname.setAttribute('animation-mixer', { timeScale: 1 });
 
-      html2canvas(captureDiv, {
-        scale: 3, // Adjust as needed
-        dpi: 500, // Set the DPI (dots per inch) for higher quality
-      }).then(function (canvas) {
-        console.log('Canvas created:', canvas);
+      // html2canvas(captureDiv, {
+      //   scale: 3, // Adjust as needed
+      //   dpi: 500, // Set the DPI (dots per inch) for higher quality
+      // }).then(function (canvas) {
+      //   console.log('Canvas created:', canvas);
 
-        // Convert the canvas to a data URL
-        var dataURL = canvas.toDataURL();
+      //   // Convert the canvas to a data URL
+      //   var dataURL = canvas.toDataURL();
 
-        const modelElement = document.getElementById('modelname');
-        const textureLoader = new THREE.TextureLoader();
-        const imageTexture = textureLoader.load(dataURL);
+      //   const modelElement = document.getElementById('modelname');
+      //   const textureLoader = new THREE.TextureLoader();
+      //   const imageTexture = textureLoader.load(dataURL);
+      //   textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
 
-        console.log(imageTexture);
+      //   console.log(imageTexture);
 
-        const obj = modelElement.getObject3D('mesh');
-        if (obj) {
-          const mesh = obj.getObjectByName('postcard');
-          if (mesh && mesh.material) {
-            console.log("Applying texture to postcard mesh");
-            mesh.material.map = imageTexture;
-            mesh.material.needsUpdate = true;
-          } else {
-            console.log("Postcard mesh or its material not found");
-          }
-        } else {
-          console.log("Model element does not have an object3D");
-        }
-      });
+      //   const obj = modelElement.getObject3D('mesh');
+      //   if (obj) {
+      //     const mesh = obj.getObjectByName('postcard');
+      //     if (mesh && mesh.material) {
+      //       console.log("Applying texture to postcard mesh");
+      //       mesh.material.map = imageTexture;
+      //       mesh.material.needsUpdate = true;
+      //     } else {
+      //       console.log("Postcard mesh or its material not found");
+      //     }
+      //   } else {
+      //     console.log("Model element does not have an object3D");
+      //   }
+      // });
     };
 
 
@@ -1703,10 +1704,28 @@ AFRAME.registerComponent("swap-texture", {
           console.log('Canvas created:', canvas);
 
           // Convert the canvas to a data URL
-          var dataURLt = canvas.toDataURL();
-          // plane.setAttribute("material", "src", dataURLt);
-          // plane.setAttribute("visible", true);
+          var dataURLnew = canvas.toDataURL();
 
+          const modelElement = document.getElementById('modelname');
+          const textureLoader = new THREE.TextureLoader();
+          const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg');
+          // textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
+
+          console.log(imageTexture);
+
+          const obj = modelElement.getObject3D('mesh');
+          if (obj) {
+            const mesh = obj.getObjectByName('postcard');
+            if (mesh && mesh.material) {
+              console.log("Applying texture to postcard mesh");
+              mesh.material.map = imageTexture;
+              mesh.material.needsUpdate = true;
+            } else {
+              console.log("Postcard mesh or its material not found");
+            }
+          } else {
+            console.log("Model element does not have an object3D");
+          }
         });
       }, 1000);
 
