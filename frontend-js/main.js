@@ -149,42 +149,42 @@ if (tap1.length > 0) {
 
       // texturechange()
       document.getElementById("cropimgdisplay").src = dataURL;
-      try {
+      // try {
 
-        document.getElementById("cropimgdisplay").src = dataURL;
-        var targetMeshName = 'postcard';
-        var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
-
-
-        if (targetMesh) {
-          console.log("mesh name" + targetMesh)
-          // targetMesh.material.opacity = 0;
-          // targetMesh.material.transparent = true;
-          // targetMesh.material.needsUpdate = true;
-        }
-        else {
-          console.log("mesh not found")
-          console.log("dd" + dataURL)
-        }
-
-        function findMeshByName(object3D, targetName) {
-          var resultMesh = null;
-
-          object3D.traverse(function (node) {
-            if (node.isMesh && node.name === targetName) {
-              resultMesh = node;
-            }
-          });
-
-          return resultMesh;
-        }
+      //   document.getElementById("cropimgdisplay").src = dataURL;
+      //   var targetMeshName = 'postcard';
+      //   var targetMesh = findMeshByName(modelname.object3D, targetMeshName);
 
 
+      //   if (targetMesh) {
+      //     console.log("mesh name" + targetMesh)
+      //     // targetMesh.material.opacity = 0;
+      //     // targetMesh.material.transparent = true;
+      //     // targetMesh.material.needsUpdate = true;
+      //   }
+      //   else {
+      //     console.log("mesh not found")
+      //     console.log("dd" + dataURL)
+      //   }
 
-        console.log("cropped img uploaded");
-      } catch (error) {
-        console.error("Error during image cropping:", error);
-      }
+      //   function findMeshByName(object3D, targetName) {
+      //     var resultMesh = null;
+
+      //     object3D.traverse(function (node) {
+      //       if (node.isMesh && node.name === targetName) {
+      //         resultMesh = node;
+      //       }
+      //     });
+
+      //     return resultMesh;
+      //   }
+
+
+
+      //   console.log("cropped img uploaded");
+      // } catch (error) {
+      //   console.error("Error during image cropping:", error);
+      // }
       sharepopupdiv.style.display = "block"
 
       arscreen.style.display = "block"
