@@ -16,13 +16,13 @@ AFRAME.registerComponent("gesture-handler", {
     this.initialScale = this.el.object3D.scale.clone();
     this.scaleFactor = 1;
 
-//     this.el.sceneEl.addEventListener("markerFound", (e) => {
-//       this.isVisible = true;
-//     });
+    //     this.el.sceneEl.addEventListener("markerFound", (e) => {
+    //       this.isVisible = true;
+    //     });
 
-//     this.el.sceneEl.addEventListener("markerLost", (e) => {
-//       this.isVisible = false;
-//     });
+    //     this.el.sceneEl.addEventListener("markerLost", (e) => {
+    //       this.isVisible = false;
+    //     });
   },
 
   update: function () {

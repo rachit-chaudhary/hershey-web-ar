@@ -829,8 +829,9 @@
     </div>
     <!-- ==================================================================================================== -->
 
-    <a-scene id="scenediv" next-button swap-texture xrextras-gesture-detector landing-page xrextras-loading
-      xrextras-runtime-error renderer="colorManagement:true" xrweb="allowedDevices: any">
+    <a-scene loading-screen="enabled:false" id="scenediv" next-button swap-texture gesture-detector
+      xrextras-gesture-detector landing-page xrextras-loading xrextras-runtime-error renderer="colorManagement:true"
+      xrweb="allowedDevices: any">
 
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
@@ -850,9 +851,9 @@
         geometry=""></a-plane> -->
       <!-- Setup our instant tracker and start it in placement mode so the user can -->
       <!-- choose a location for the object  .... zappar-instant="placement-mode: true"-->
-      <a-entity xrextras-hold-drag xrextras-two-finger-rotate xrextras-pinch-scale id="instant-tracker">
+      <a-entity id="instant-tracker">
         <a-entity id="modelname" gltf-model="#kissesmodel" class="cantap" visible="false" scale="0.5 0.5 0.5"
-          position="0 0 0" xrextras-hold-drag xrextras-two-finger-rotate xrextras-pinch-scale>
+          position="0 0 0" gesture-handler="minScale: 0.25; maxScale: 10">
 
           <a-box id="notebox" depth="2" height="7" width="10" position="-0.86459 12.96375 3.66375" material=""
             geometry="" visible="false"></a-box>
