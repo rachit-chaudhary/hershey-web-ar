@@ -1694,9 +1694,7 @@ AFRAME.registerComponent("swap-texture", {
       // alert("notebox clicked")
       var captureDiv = document.getElementById('messagenote');
       setTimeout(() => {
-        // var plane = document.getElementById("tempplane")
-
-
+        // Generate a canvas from the captureDiv element
         html2canvas(captureDiv, {
           scale: 3, // Adjust as needed
           dpi: 500, // Set the DPI (dots per inch) for higher quality
@@ -1706,36 +1704,40 @@ AFRAME.registerComponent("swap-texture", {
           // Convert the canvas to a data URL
           var dataURLnew = canvas.toDataURL();
 
-          const modelElement = document.getElementById('modelname');
+          // Load the texture from the generated data URL
           const textureLoader = new THREE.TextureLoader();
-          const imageTexture = textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg');
-          // textureLoader.load('https://static.vecteezy.com/system/resources/previews/011/350/136/original/yellow-color-triangulated-background-texture-for-business-card-template-free-vector.jpg')
+          const imageTexture = textureLoader.load(dataURLnew, function (imageTexture) {
+            console.log("Texture loaded from canvas");
 
-          console.log(imageTexture);
-
-          const obj = modelElement.getObject3D('mesh');
-          if (obj) {
-            const mesh = obj.getObjectByName('postcard');
-            if (mesh && mesh.material) {
-              console.log("Applying texture to postcard mesh");
-              mesh.material.map = imageTexture;
-              mesh.material.needsUpdate = true;
+            // Apply the texture to the model
+            const modelElement = document.getElementById('modelname');
+            const obj = modelElement.getObject3D('mesh');
+            if (obj) {
+              const mesh = obj.getObjectByName('postcard');
+              if (mesh && mesh.material) {
+                console.log("Applying texture to postcard mesh");
+                mesh.material.map = imageTexture;
+                mesh.material.needsUpdate = true;
+              } else {
+                console.log("Postcard mesh or its material not found");
+              }
             } else {
-              console.log("Postcard mesh or its material not found");
+              console.log("Model element does not have an object3D");
             }
-          } else {
-            console.log("Model element does not have an object3D");
-          }
+          }, undefined, function (err) {
+            console.error('An error occurred while loading the texture', err);
+          });
         });
       }, 1000);
 
-      console.log("envolope clicked")
-      tapOnEnvelope.style.display = "none"
-      messagenote.style.display = "block"
+      console.log("envolope clicked");
+      tapOnEnvelope.style.display = "none";
+      messagenote.style.display = "block";
 
       // modelname.setAttribute('animation-mixer', {timeScale: 1});
-      notebox.setAttribute('class', '')
+      notebox.setAttribute('class', '');
     });
+
 
 
 
