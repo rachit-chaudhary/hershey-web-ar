@@ -210,7 +210,7 @@ if (tap1.length > 0) {
         if (pausevalue === 0) {
           modelname.setAttribute('animation-mixer', { timeScale: 0 });
           tapOnEnvelope.style.display = "block"
-          console.log("tap 1300")
+          console.log("tap " + animtime)
           // alert("1300")
           notebox.setAttribute('class', 'cantap')
         }
