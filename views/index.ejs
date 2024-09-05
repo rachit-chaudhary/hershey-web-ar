@@ -830,14 +830,19 @@
     <!-- ==================================================================================================== -->
 
     <a-scene loading-screen="enabled:false" id="scenediv" next-button swap-texture gesture-detector
-      xrextras-gesture-detector landing-page xrextras-loading xrextras-runtime-error renderer="colorManagement:true"
-      xrweb="allowedDevices: any">
+      xrextras-gesture-detector landing-page xrextras-loading xrextras-runtime-error renderer="colorManagement:true,
+      antialias: true;
+      colorManagement: true;
+      sortObjects: true;
+      physicallyCorrectLights: true;
+      maxCanvasWidth: 1920;
+      maxCanvasHeight: 1920;" xrweb="allowedDevices: any">
 
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
         <a-asset-item id="kissesmodel" src="/models/kissesfile3flip.glb"></a-asset-item>
-        <a-asset-item id="barmodel" src="/models/barsfinalfile5.glb"></a-asset-item>
-        <a-asset-item id="exoticmodel" src="/models/edfinal3.glb"></a-asset-item>
+        <a-asset-item id="barmodel" src="/models/barsfinalfile5new.glb"></a-asset-item>
+        <a-asset-item id="exoticmodel" src="/models/edfinal3new.glb"></a-asset-item>
 
       </a-assets>
 
