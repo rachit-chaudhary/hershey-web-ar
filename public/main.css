@@ -29,9 +29,19 @@ body {
 
 }
 
+
+
 #firstscreen {
   display: block;
   /* change to block qwerty */
+}
+
+#formId {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100dvh;
+  width: 100vw;
 }
 
 #receiverfirstscreen {
