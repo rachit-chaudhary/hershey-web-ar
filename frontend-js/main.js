@@ -36,6 +36,8 @@ let thirdscreen = document.getElementById("thirdscreen")
 let thirdscreenexotic = document.getElementById("thirdscreen-exotic")
 let typeofpack = ""
 // let headerlogo = document.getElementById("headerlogo")
+
+// test
 scene.style.zIndex = -1
 secondscreen.style.display = "none"
 uploadingDiv.style.display = "none"
