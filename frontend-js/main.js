@@ -5,7 +5,7 @@
 
 // import * as THREE from 'three';
 import { UImodule } from './modules/webexperience-ui'
-
+let imageFile
 var msg
 var nameone
 let tap1 = document.querySelectorAll('#tap-to-place');
@@ -257,7 +257,7 @@ let shareOnWhatsapp = async function () {
   // gfg_Run();
   const message = "To my special person! ❤️Wishing you a very Happy Diwali 🪔🎇Here’s a custom surprise for you, to celebrate this festive season season with lots of happiness, joy and delicious HERSHEY’S Chocolates."
   // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hershey-web-ar-1.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
@@ -265,7 +265,7 @@ let shareOnWhatsapp = async function () {
 
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
+      url: `https://hershey-web-ar-1.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
     };
 
     if (navigator.share) {
@@ -422,7 +422,7 @@ function uploadImage(imageFile) {
   console.log("uploadImage ran")
   const formData = new FormData();
   formData.append("fileUploadBtn", imageFile);
-
+  console.log(imageFile)
   console.log("formData", formData)
 
   return new Promise((resolve, reject) => {
@@ -451,9 +451,15 @@ function getimageuploaded() {
 
   // Get uploaded image from server
   console.log("clicked different btn")
+  if (pName != 'friend') {
+    imageFile = pName
+    console.log("imageFile", imageFile);
+  } else {
+    imageFile = fileInput.files[0];
+    console.log("imageFile", imageFile);
+  }
+  /* Get your image file here (e.g., from an input[type="file"] element) */
 
-  const imageFile = fileInput.files[0]; /* Get your image file here (e.g., from an input[type="file"] element) */
-  console.log("imageFile", imageFile);
   console.log("clicked different btn1")
 
   uploadImage(imageFile)
@@ -1476,6 +1482,7 @@ AFRAME.registerComponent("swap-texture", {
     else {
       // var decodecropimg = decodeURIComponent(pName);
       //Receiver screen
+      console.log("parameter" + pName)
       document.getElementById("cropimgdisplay").src = pName;
       document.querySelector(".preview-text").style.display = "none"
       receiverfirstscreen.style.display = "block"
@@ -1516,7 +1523,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 13000
-        modelname.setAttribute('gltf-model', '/models/kissesfile3.glb')
+        modelname.setAttribute('gltf-model', '/models/kissesfile3flip.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
@@ -1553,7 +1560,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 14000
-        modelname.setAttribute('gltf-model', '/models/barsfinalfile5.glb')
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile5new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
@@ -1595,7 +1602,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         animtime = 17000
-        modelname.setAttribute('gltf-model', '/models/edfinal3.glb')
+        modelname.setAttribute('gltf-model', '/models/edfinal3new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
@@ -1643,7 +1650,7 @@ AFRAME.registerComponent("swap-texture", {
       bgaudio.play()
       receiverfirstscreen.style.display = "none"
       scene.style.zIndex = 0
-      permissions.setAttribute("zappar-permissions-ui", "")
+      // permissions.setAttribute("zappar-permissions-ui", "")
       taptoplace.style.display = "block"
 
 
