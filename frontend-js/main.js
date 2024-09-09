@@ -399,7 +399,7 @@ hoverexotic.onclick = () => {
 
   typeofpack = 'exotic'
   // animtime = 16000
-  animtime = 16000
+  animtime = 16300
   pNametype = "3"
 
 }
@@ -1607,7 +1607,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         // animtime = 16000
-        animtime = 16000
+        animtime = 16300
         modelname.setAttribute('gltf-model', '/models/edfinal3new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
