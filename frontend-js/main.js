@@ -368,7 +368,7 @@ hoverChange.onclick = () => {
   hoverExotic.src = '/images/exotic.png'
 
   typeofpack = 'kisses'
-  animtime = 13000
+  animtime = 12000
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
@@ -397,7 +397,7 @@ hoverexotic.onclick = () => {
   // hoverHershey.src = '/images/hershey.png'
 
   typeofpack = 'exotic'
-  animtime = 17000
+  animtime = 16000
   pNametype = "3"
 
 }
@@ -1523,7 +1523,7 @@ AFRAME.registerComponent("swap-texture", {
       if (pNametype === "1") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 13000
+        animtime = 12000
         modelname.setAttribute('gltf-model', '/models/kissesfile3flip.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
@@ -1560,7 +1560,7 @@ AFRAME.registerComponent("swap-texture", {
       else if (pNametype === "2") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 14000
+        animtime = 13000
         modelname.setAttribute('gltf-model', '/models/barsfinalfile5new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
@@ -1602,7 +1602,7 @@ AFRAME.registerComponent("swap-texture", {
       else if (pNametype === "3") {
         console.log("pnametype" + pNametype);
         dataURL = pName
-        animtime = 17000
+        animtime = 16000
         modelname.setAttribute('gltf-model', '/models/edfinal3new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
