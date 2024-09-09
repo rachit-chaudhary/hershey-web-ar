@@ -2067,7 +2067,7 @@ function adjustMessageNoteFamilyWali() {
 
   var polaroidFrame = document.querySelector(".polaroid-frame")
   polaroidFrame.classList.add("friend-bg-polaroid")
-  document.querySelector(".brand-wish").children[0].src = "/images/friend-brand-wishes.png"
+  document.querySelector(".brand-wish").children[0].src = "/images/family-brand-wishes.png"
 
   document.querySelector(".vertical-bar").children[0].style.background = "#DFBC66"
 
