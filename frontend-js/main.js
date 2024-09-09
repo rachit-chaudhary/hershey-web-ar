@@ -369,7 +369,7 @@ hoverChange.onclick = () => {
 
   typeofpack = 'kisses'
   // animtime = 12000
-  animtime = 11000
+  animtime = 10500
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
@@ -399,7 +399,7 @@ hoverexotic.onclick = () => {
 
   typeofpack = 'exotic'
   // animtime = 16000
-  animtime = 15000
+  animtime = 17000
   pNametype = "3"
 
 }
@@ -1526,7 +1526,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         // animtime = 12000
-        animtime = 11000
+        animtime = 10500
         modelname.setAttribute('gltf-model', '/models/kissesfile3flip.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
@@ -1607,7 +1607,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         // animtime = 16000
-        animtime = 15000
+        animtime = 17000
         modelname.setAttribute('gltf-model', '/models/edfinal3new.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
