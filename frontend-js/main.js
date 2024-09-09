@@ -369,7 +369,7 @@ hoverChange.onclick = () => {
 
   typeofpack = 'kisses'
   // animtime = 12000
-  animtime = 10500
+  animtime = 9500
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
@@ -1526,7 +1526,7 @@ AFRAME.registerComponent("swap-texture", {
         console.log("pnametype" + pNametype);
         dataURL = pName
         // animtime = 12000
-        animtime = 10500
+        animtime = 9500
         modelname.setAttribute('gltf-model', '/models/kissesfile3flip.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
