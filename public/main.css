@@ -2160,6 +2160,38 @@ a.option-btn {
   display: none;
 }
 
+.first-loading-screen {
+  background-image: url(images/diwali-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.first-loading-chocolate-img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.first-loading-chocolate-svg {
+  background-color: transparent;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 10vh;
+  margin: auto;
+  scale: 0.5;
+}
+
 .loading-screen {
   display: none;
   width: 100%;

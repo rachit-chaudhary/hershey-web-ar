@@ -1052,6 +1052,8 @@ AFRAME.registerComponent("postcardinvisible", {
 
 AFRAME.registerComponent("swap-texture", {
   init() {
+    const firstloadingscreen = document.querySelector('.first-loading-screen')
+    firstloadingscreen.style.display = 'none'
     console.log("init")
     const msgclosebtn = document.getElementById("msgclosebtn")
     // 
