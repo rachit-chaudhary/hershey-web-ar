@@ -258,7 +258,7 @@ let shareOnWhatsapp = async function () {
   const message = "To my special person! Here’s a custom surprise for you."
 
   // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
@@ -266,7 +266,7 @@ let shareOnWhatsapp = async function () {
 
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      url: `https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
+      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
     };
 
     if (navigator.share) {
