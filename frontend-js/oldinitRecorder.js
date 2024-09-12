@@ -1,109 +1,109 @@
-// async function initRecorder() {
+async function initRecorder() {
 
-//   const canvas = document.querySelector('canvas') || document.createElement('canvas');
-// //   // const url = canvas.toDataURL('video/mp4', 0.8);
-// //   var width = window.innerWidth
-// //   || document.documentElement.clientWidth
-// //   || document.body.clientWidth;
-// // var height = window.innerHeight
-// //   || document.documentElement.clientHeight
-// //   || document.body.clientHeight;
-// // // Get canvas from dom
-// // document.querySelector("a-scene").setAttribute('screenshot', {
-// //   width: width,
-// //   height: height
-// // })
-// // const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
+    const canvas = document.querySelector('canvas') || document.createElement('canvas');
+    //   // const url = canvas.toDataURL('video/mp4', 0.8);
+    //   var width = window.innerWidth
+    //   || document.documentElement.clientWidth
+    //   || document.body.clientWidth;
+    // var height = window.innerHeight
+    //   || document.documentElement.clientHeight
+    //   || document.body.clientHeight;
+    // // Get canvas from dom
+    // document.querySelector("a-scene").setAttribute('screenshot', {
+    //   width: width,
+    //   height: height
+    // })
+    // const canvas = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
-//   let recording = false;
+    let recording = false;
 
-//   const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
-//     quality:10,
-//     maxFrameRate:144,
-//     audio: false,
-//   })
+    const recorder = await ZapparVideoRecorder.createCanvasVideoRecorder(canvas, {
+        quality: 10,
+        maxFrameRate: 144,
+        audio: false,
+    })
 
-//   // When we start recording update text
+    // When we start recording update text
 
-//   recorder.onStart.bind(() => {
+    recorder.onStart.bind(() => {
 
-//     recording = true;
+        recording = true;
 
-//     console.log("start 2")
+        console.log("start 2")
 
-//     // placeButton.innerText = 'TAP TO STOP RECORDING';
+        // placeButton.innerText = 'TAP TO STOP RECORDING';
 
-//   });
+    });
 
- 
 
-//   // When stop recording update text, and prompt a social share dialog.
 
-//   recorder.onComplete.bind(async (result) => {
+    // When stop recording update text, and prompt a social share dialog.
 
- 
+    recorder.onComplete.bind(async (result) => {
 
-//     // placeButton.innerText = 'TAP TO START RECORDING';
 
-//     console.log("stop 2")
 
- 
+        // placeButton.innerText = 'TAP TO START RECORDING';
 
-//     // result.arrayBuffer
+        console.log("stop 2")
 
-//     console.log(result.asDataURL())
 
- 
 
-//     ZapparWebGLSnapshot({
+        // result.arrayBuffer
 
-//       data: await result.asDataURL(),
+        console.log(result.asDataURL())
 
-//       fileNamePrepend: 'hersheys_sibling_surprise',
 
-//       // data:url,
 
-//       onClose: () => {
+        ZapparWebGLSnapshot({
 
-//         console.log('Dialog was closed');
+            data: await result.asDataURL(),
 
-//       },
+            fileNamePrepend: 'hersheys_sibling_surprise',
 
-//     });
+            // data:url,
 
- 
+            onClose: () => {
 
-//     // console.log(recorder._getData())
+                console.log('Dialog was closed');
 
-//     recording = false;
+            },
 
-//   });
+        });
 
- 
 
-//   // Toggle between recording
 
-//   capture.addEventListener('click', async () => {
-//     if (recording) {
+        // console.log(recorder._getData())
 
-//       recorder.stop();
+        recording = false;
 
-//       console.log("stop")
+    });
 
-//       // capture.style.display = 'none'
 
-//       capture.src = "/images/shutter-button-start.png"
 
-//     } else {
+    // Toggle between recording
 
-//       recorder.start();
+    capture.addEventListener('click', async () => {
+        if (recording) {
 
-//       capture.src = "/images/shutter-button-stop.png"
+            recorder.stop();
 
-//       console.log("start")
+            console.log("stop")
 
-//     }
+            // capture.style.display = 'none'
 
-//   });
+            capture.src = "/images/shutter-button-start.png"
 
-// }
+        } else {
+
+            recorder.start();
+
+            capture.src = "/images/shutter-button-stop.png"
+
+            console.log("start")
+
+        }
+
+    });
+
+}

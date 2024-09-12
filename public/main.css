@@ -2175,33 +2175,18 @@ a.option-btn {
 
 .first-loading-chocolate-img {
   width: 95%;
-  position: absolute;
-  top: 3rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: auto;
 }
 
 .first-loading-chocolate-svg {
   background-color: transparent;
   width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 10vh;
-  margin: auto;
-  scale: 0.5;
 }
 
 .loading-text {
   font-family: 'Walsheim';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10vh;
   margin: auto;
   text-align: center;
-  /* color: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(90deg, #2D100C 0%, #61311A 100%); */
   color: #61311a;
   width: max-content;
   font-weight: 600;
