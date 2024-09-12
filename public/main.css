@@ -2191,6 +2191,7 @@ a.option-btn {
   width: max-content;
   font-weight: 600;
   font-size: 20px;
+  margin-bottom: 2rem;
 }
 
 .loading-screen {
