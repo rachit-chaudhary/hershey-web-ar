@@ -10,7 +10,40 @@ var msg
 var nameone
 let tap1 = document.querySelectorAll('#tap-to-place');
 let taptoplace = document.querySelector('#tap-to-place')
+// check if browser is chrome or ios
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.csi)
 
+let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+  !window.MSStream
+let kissesLoading = document.querySelector(".kisses-loading-video")
+
+if (isChrome) {
+  console.log("chrome")
+  //kisses
+  kissesLoading.src = "/videos/kisses_VP9.webm"
+  kissesLoading.type = "video/webm; codecs=vp9"
+  kissesLoading.controls = false
+  kissesLoading.play()
+  //exotic hed  
+  exoticloadingvid.src = "/videos/hed-loading_VP9.webm"
+  exoticloadingvid.type = "video/webm; codecs=vp9"
+  exoticloadingvid.controls = false
+  exoticloadingvid.play()
+} else if (isIOS) {
+  //kisses
+  kissesLoading.src = "/videos/kisses-mov.mov"
+  kissesLoading.type = "video/mp4; codecs=hev1"
+  kissesLoading.controls = false
+  kissesLoading.play()
+  //exotic hed
+  exoticloadingvid.src = "/videos/hed-loading.mov"
+  exoticloadingvid.type = "video/mp4; codecs=hev1"
+  exoticloadingvid.controls = false
+  exoticloadingvid.play()
+} else {
+  document.getElementById("browserIs").innerHTML = "Broweser doesn't support video"
+}
 
 var encodedMsg
 var encodedname
@@ -258,7 +291,7 @@ let shareOnWhatsapp = async function () {
   const message = "To my special person! Here’s a custom surprise for you."
 
   // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
@@ -266,7 +299,7 @@ let shareOnWhatsapp = async function () {
 
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
       // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      url: `https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
+      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
     };
 
     if (navigator.share) {
@@ -1019,6 +1052,8 @@ AFRAME.registerComponent("postcardinvisible", {
 
 AFRAME.registerComponent("swap-texture", {
   init() {
+    const firstloadingscreen = document.querySelector('.first-loading-screen')
+    firstloadingscreen.style.display = 'none'
     console.log("init")
     const msgclosebtn = document.getElementById("msgclosebtn")
     // 
