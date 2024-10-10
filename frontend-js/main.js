@@ -415,7 +415,8 @@ hoverhershey.onclick = () => {
   hoverExotic.src = '/images/exotic.png'
 
   typeofpack = 'chocolatebar'
-  animtime = 14000
+  // animtime = 14000
+  animtime = 12000
   console.log(typeofpack)
   pNametype = "2"
 }
