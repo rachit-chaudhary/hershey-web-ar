@@ -385,11 +385,11 @@ document.body.appendChild(linkEl);
 // dataURL=blobUrl
 
 var hoverChange = document.getElementById('hoverChange')
-// var hoverHershey = document.getElementById('hoverhershey')
+var hoverHershey = document.getElementById('hoverhershey')
 var hoverExotic = document.getElementById('hoverexotic')
 
 hoverChange.src = '/images/kisses.png'
-// hoverHershey.src = '/images/hershey.png'
+hoverHershey.src = '/images/hershey.png'
 hoverExotic.src = '/images/exotic.png'
 
 // ---------------------------pack1----------
@@ -397,7 +397,7 @@ hoverChange.onclick = () => {
   console.log("clickedkisses")
   uimoduleobj.changeKissesPack()
 
-  // hoverHershey.src = '/images/hershey.png'
+  hoverHershey.src = '/images/hershey.png'
   hoverExotic.src = '/images/exotic.png'
 
   typeofpack = 'kisses'
@@ -406,29 +406,29 @@ hoverChange.onclick = () => {
   pNametype = "1"
 }
 // -----------------------------pack2 hershey--------------
-// hoverhershey.onclick = () => {
-//   console.log("clickedchocolatebar")
-//   // uimoduleobj.untapKisses()
-//   uimoduleobj.changeHersheyPack()
+hoverhershey.onclick = () => {
+  console.log("clickedchocolatebar")
+  // uimoduleobj.untapKisses()
+  uimoduleobj.changeHersheyPack()
 
-//   hoverChange.src = '/images/kisses.png'
-//   hoverExotic.src = '/images/exotic.png'
+  hoverChange.src = '/images/kisses.png'
+  hoverExotic.src = '/images/exotic.png'
 
-//   typeofpack = 'chocolatebar'
-//   animtime = 14000
-//   console.log(typeofpack)
-//   pNametype = "2"
-// }
+  typeofpack = 'chocolatebar'
+  animtime = 14000
+  console.log(typeofpack)
+  pNametype = "2"
+}
 // --------------------------------------pack3-----------------------------
 hoverexotic.onclick = () => {
   var choice3 = document.getElementById('hoverChange').value
-  // var choice4 = document.getElementById('hoverhershey').value
+  var choice4 = document.getElementById('hoverhershey').value
   console.log("clickedexotic")
   // uimoduleobj.untapKisses()
   uimoduleobj.changeExoticPack()
 
   hoverChange.src = '/images/kisses.png'
-  // hoverHershey.src = '/images/hershey.png'
+  hoverHershey.src = '/images/hershey.png'
 
   typeofpack = 'exotic'
   // animtime = 16000
