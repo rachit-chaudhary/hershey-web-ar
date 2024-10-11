@@ -1,9 +1,10 @@
 .env
 node_modules/
 sslcert/
-public/main-bundled.js
-public/main-bundled.js
-public/main-bundled.js.LICENSE.txt
+./public/main-bundled.js
+./public/main-bundled.js
+./public/main-bundled.js.LICENSE.txt
+./public/main-bundled.js.LICENSE.txt
 ./public/ef977587917d91131175.glb
 ./public/46e454841fbbf37c4aef.png
 ./coupon_log.txt
