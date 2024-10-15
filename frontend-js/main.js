@@ -416,7 +416,7 @@ hoverhershey.onclick = () => {
 
   typeofpack = 'chocolatebar'
   // animtime = 14000
-  animtime = 12300
+  animtime = 12400
   console.log(typeofpack)
   pNametype = "2"
 }
