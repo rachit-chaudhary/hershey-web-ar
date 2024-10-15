@@ -290,22 +290,22 @@ let shareOnWhatsapp = async function () {
   // gfg_Run();
   const message = "To my special person! Here’s a custom surprise for you."
 
-  // copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
-  copyToClipboard(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  // copyToClipboard(`${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+  copyToClipboard(`${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
 
   try {
     const shareData = {
       text: `${message}`,
 
-      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      // text: `${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
-      url: `https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
+      // text: `${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name2=${op1}&name3=${op2}&name4=${op3}&name5=${name}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+      // text: `${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,  // Message + URL
+      url: `https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`,
     };
 
     if (navigator.share) {
       await navigator.share(shareData);
       share.classList.add('pulse-once');
-      console.log(`${message} https://hersheysgifting.co.in/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
+      console.log(`${message} https://hershey-web-ar-2.onrender.com/?name=${dataURL}&name1=${pNametype}&name5=${encodedname}&name6=${encodedMsg}&name7=${selectedTemplate}`)
       setTimeout(() => {
         share.classList.remove('pulse-once');
       }, 200);
@@ -1633,7 +1633,7 @@ AFRAME.registerComponent("swap-texture", {
         // }
         // msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         // console.log(msg)
-        // completenote.innerHTML = msg
+        completenote.innerHTML = msg
         // headerlogo.src='/images/hersheys-kisses-logo 1.png'
         // headerlogo.classList.add("headerlogokisses");
 
@@ -1680,7 +1680,7 @@ AFRAME.registerComponent("swap-texture", {
         // }
         // msg = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p`
         // console.log(msg)
-        // completenote.innerHTML = msg
+        completenote.innerHTML = msg
 
         runReceiverMsgNote()
       }
