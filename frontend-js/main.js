@@ -1563,7 +1563,7 @@ AFRAME.registerComponent("swap-texture", {
         dataURL = pName
         // animtime = 12000
         animtime = 9000
-        modelname.setAttribute('gltf-model', '/models/kissesfile3flip.glb')
+        modelname.setAttribute('gltf-model', '/models/kissesfile3flip-1.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
@@ -1601,7 +1601,7 @@ AFRAME.registerComponent("swap-texture", {
         dataURL = pName
         // animtime = 13000
         animtime = 12000
-        modelname.setAttribute('gltf-model', '/models/barsfinalfile5new.glb')
+        modelname.setAttribute('gltf-model', '/models/barsfinalfile5new-1.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
@@ -1644,7 +1644,7 @@ AFRAME.registerComponent("swap-texture", {
         dataURL = pName
         // animtime = 16000
         animtime = 17000
-        modelname.setAttribute('gltf-model', '/models/edfinal3new.glb')
+        modelname.setAttribute('gltf-model', '/models/edfinal3new-1.glb')
         hereGoesID.innerHTML = `${name}`
         //option1
         // if (op1 === 1) {
