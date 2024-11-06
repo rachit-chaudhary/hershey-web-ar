@@ -75,6 +75,23 @@ h1 {
   font-family: 'Walsheim';
   text-transform: uppercase;
   z-index: 1;
+  animation: breathe 2s infinite ease-in-out;
+
+
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 #arscreen {
@@ -692,8 +709,19 @@ input:-webkit-autofill:active{
   font-size: 14px;
   height: 100%;
   margin: 0px;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
+}
+
+.filejpeg img {
+  width: 20%;
+  max-width: 7vw;
+  margin-left: 12px;
+}
+
+.filejpeg span {
+  font-family: "Walsheim-Medium";
+  font-size: 14px;
 }
 
 .upload-outerdiv {

@@ -1076,8 +1076,16 @@ AFRAME.registerComponent("swap-texture", {
             console.log("size is large")
           } else {
             var fileIdElement = document.getElementById("changeFileName");
-            var newFileName = "Uploaded!"; // Replace with your desired new file name
-            fileIdElement.innerHTML = newFileName;
+            // var newFileName = "Uploaded!";
+
+            fileIdElement.innerHTML = `
+              <img src="/images/check_circle.png" alt="Check Circle">
+              <span>Uploaded!</span>
+            `;
+
+            uploadLabel.value = "RE-UPLOAD"
+            uploadLabel.style.padding = "16px 38px"
+
 
             console.log("size is ohk")
           }
